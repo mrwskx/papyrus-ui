@@ -23,7 +23,7 @@ export const DialogHeader: FC<DialogHeaderProps> = ({
     <div
       className={cn(
         'flex items-center gap-4 px-4 py-3.5 z-20',
-        size !== 'sm' && 'border-b border-neutral-100 bg-white',
+        size !== 'sm' && 'border-b border-neutral-200 bg-white',
         className,
       )}
       {...props}
