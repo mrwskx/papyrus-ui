@@ -1,5 +1,7 @@
 # Papyrus UI
 
+![Papyrus UI](.github/cover.png)
+
 A modern React UI kit with fundamental components built on Tailwind CSS, designed for rapid application development with a consistent design system.
 
 ## Features
@@ -53,9 +55,9 @@ import { Button, TextInput, Tag } from 'papyrus-ui';
 
 function App() {
   return (
-    <div className="p-4">
+    <div className='p-4'>
       <Button>Click Me!</Button>
-      <TextInput placeholder="Enter text..." />
+      <TextInput placeholder='Enter text...' />
       <Tag>Label</Tag>
     </div>
   );
@@ -85,6 +87,7 @@ The library includes a comprehensive set of 40+ components organized into logica
 - **RadioGroup** - Radio button group with single-selection logic
 - **Range** - Slider input with real-time value display
 - **Autocomplete** - Input with type-ahead suggestions and filtering
+- **ImageInput** - Image upload input with dropzone preview and multi-select support
 - **InputMessage** - Validation feedback and user guidance messages
 
 ### 🏷️ **Data Display**
@@ -109,6 +112,8 @@ The library includes a comprehensive set of 40+ components organized into logica
 - **OList** - Ordered lists with various styling options
 - **UList** - Unordered lists with customizable bullets
 - **Marker** - Custom marker container for unordered lists
+- **Code** - Inline code snippet styling for text content
+- **CodeBlock** - Formatted code display with syntax highlighting, line numbers, and copy support
 
 ### 🎨 **Layout & Structure**
 
