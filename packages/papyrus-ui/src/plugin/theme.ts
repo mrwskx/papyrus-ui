@@ -3,7 +3,7 @@ import type { Config } from 'tailwindcss';
 export const theme: Config['theme'] = {
   fontFamily: {
     sans: [
-      '"Source Sans 3"',
+      '"DM Sans"',
       'ui-sans-serif',
       'system-ui',
       'sans-serif',
@@ -22,7 +22,7 @@ export const theme: Config['theme'] = {
       'serif',
     ],
     mono: [
-      '"Source Code Pro"',
+      '"IBM Plex Mono"',
       'ui-monospace',
       'SFMono-Regular',
       'Menlo',
@@ -36,17 +36,17 @@ export const theme: Config['theme'] = {
   extend: {
     colors: {
       primary: {
-        '50': '#eef2ff',
-        '100': '#e0e7ff',
-        '200': '#c7d2fe',
-        '300': '#a5b4fc',
-        '400': '#818cf8',
-        '500': '#6366f1',
-        '600': '#4f46e5',
-        '700': '#4338ca',
-        '800': '#3730a3',
-        '900': '#312e81',
-        '950': '#1e1b4b',
+        '50': '#eff8ff',
+        '100': '#daeffe',
+        '200': '#b0d9fd',
+        '300': '#58a6ff',
+        '400': '#3d9afa',
+        '500': '#1281f9',
+        '600': '#0969da',
+        '700': '#0752ae',
+        '800': '#073e82',
+        '900': '#062d5e',
+        '950': '#041c3b',
       },
       info: {
         50: '#ecfeff',
@@ -370,7 +370,7 @@ export const theme: Config['theme'] = {
       DEFAULT: 'transparent',
     },
     ringColor: {
-      DEFAULT: 'rgba(79, 70, 229, .6)', // primary-600/60
+      DEFAULT: 'rgba(9, 105, 218, .6)', // primary-600/60
     },
   },
 };

@@ -50,4 +50,10 @@ SecondaryVariant.args = {
     'Success is not final, failure is not fatal: It is the courage to continue that counts.',
 };
 
+export const TertiaryVariant = Template.bind({});
+TertiaryVariant.args = {
+  variant: 'secondary',
+  children: 'This demonstrates the tertiary emphasis style.',
+};
+
 export default meta;

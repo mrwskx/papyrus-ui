@@ -14,8 +14,8 @@
     "vite-plugin-dts": "^4.5.4"
   },
   "scripts": {
-    "docs": "storybook dev -p 6006",
-    "build": "npm run build:papyrus-ui && npm run build:code-style",
+    "docs": "storybook dev --no-open -p 6006",
+    "build": "npm run build:papyrus-ui && npm run build:code-style && npm run build:docs",
     "build:code-style": "lerna run --scope @papyrus-ui/code-style --stream build",
     "build:docs": "storybook build",
     "build:papyrus-ui": "lerna run --scope papyrus-ui --stream build",

@@ -58,7 +58,7 @@ const baseStyles = [
 
 const interactiveStyles = [
   'border-neutral-400',
-  'bg-white',
+  'bg-neutral-50',
   'cursor-text',
   'hover:border-primary-500',
   'focus-within:border-primary-500 focus-within:ring-4',
@@ -66,13 +66,13 @@ const interactiveStyles = [
 
 const invalidStyles = [
   'border-danger-500',
-  'bg-white',
+  'bg-neutral-50',
   'cursor-text',
   'focus-within:ring-4 focus-within:ring-danger-500/50',
 ];
 
 const disabledStyles = [
-  'bg-neutral-50',
+  'bg-neutral-50/50',
   'border-neutral-200',
   'cursor-default',
 ];

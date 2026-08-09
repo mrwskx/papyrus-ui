@@ -23,6 +23,7 @@ const rootBaseClasses = [
   'relative',
   'flex flex-col items-center justify-center',
   'border',
+  'bg-neutral-50',
   'leading-none',
   'transition-all',
   'overflow-hidden',
@@ -32,9 +33,8 @@ const rootBaseClasses = [
 ];
 
 const rootValidClasses = [
-  'border-neutral-300',
+  'border-neutral-400',
   'text-neutral-500',
-  'bg-neutral-50',
   'focus-visible:border-primary-500',
   'focus-visible:text-primary-500',
 ];
@@ -48,7 +48,7 @@ const rootDroppableClasses = [
 const rootActiveClasses = ['border-primary-500', 'text-primary-500'];
 
 const rootInvalidClasses = [
-  'border-danger-500',
+  'border-danger-400',
   'text-danger-500',
   'focus:outline-none',
   'focus-visible:ring',
@@ -67,15 +67,15 @@ const rootInvalidDroppableClasses = [
 const rootInvalidActiveClasses = ['border-danger-500'];
 
 const rootReadOnlyClasses = [
-  'border-neutral-300',
+  'border-neutral-400',
   'text-neutral-500',
   'cursor-default',
 ];
 
 const rootDisabledClasses = [
   'border-neutral-200',
-  'text-neutral-500',
-  'opacity-40',
+  'bg-neutral-50/50',
+  'text-neutral-500/50',
   'cursor-default',
 ];
 
@@ -182,18 +182,21 @@ export const SingleUploadPreview = forwardRef<
         className={cn(
           rootBaseClasses,
           rounded ? 'rounded-full' : 'rounded-input',
-          !disabled && !readOnly && 'cursor-pointer',
-          invalid
-            ? [
-                rootInvalidClasses,
-                droppable && rootInvalidDroppableClasses,
-                active && rootInvalidActiveClasses,
-              ]
-            : [
-                rootValidClasses,
-                droppable && rootDroppableClasses,
-                active && rootActiveClasses,
-              ],
+          !disabled &&
+            !readOnly && [
+              'cursor-pointer',
+              invalid
+                ? [
+                    rootInvalidClasses,
+                    droppable && rootInvalidDroppableClasses,
+                    active && rootInvalidActiveClasses,
+                  ]
+                : [
+                    rootValidClasses,
+                    droppable && rootDroppableClasses,
+                    active && rootActiveClasses,
+                  ],
+            ],
           disabled && rootDisabledClasses,
           readOnly && rootReadOnlyClasses,
           className,
