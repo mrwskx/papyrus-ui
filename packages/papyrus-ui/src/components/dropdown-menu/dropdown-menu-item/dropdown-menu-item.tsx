@@ -14,8 +14,10 @@ import type {
 import { MenuButton } from '../../menu-button';
 import { DropdownMenuContext } from '../dropdown-menu.context';
 
-export interface DropdownMenuItemProps
-  extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
+export interface DropdownMenuItemProps extends Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  'children'
+> {
   as?: ElementType;
   danger?: boolean;
   description?: string;

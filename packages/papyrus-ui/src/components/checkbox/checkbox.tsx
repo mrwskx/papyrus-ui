@@ -5,8 +5,10 @@ import type { ChangeEvent, InputHTMLAttributes, ReactNode } from 'react';
 import type { ChangeHandler } from '../../types';
 import { Text } from '../text';
 
-export interface CheckboxProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange'> {
+export interface CheckboxProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'type' | 'onChange'
+> {
   checked?: boolean;
   defaultChecked?: boolean;
   disabled?: boolean;

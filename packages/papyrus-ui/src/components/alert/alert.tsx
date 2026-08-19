@@ -20,11 +20,7 @@ import { Icon } from '../icon';
 import { Text } from '../text';
 
 export type AlertVariant =
-  | 'primary'
-  | 'info'
-  | 'danger'
-  | 'warning'
-  | 'success';
+  'primary' | 'info' | 'danger' | 'warning' | 'success';
 
 export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
   closeLabel?: string;

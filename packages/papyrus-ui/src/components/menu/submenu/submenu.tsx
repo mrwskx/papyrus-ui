@@ -36,8 +36,10 @@ import type { MenuItemProps } from '../menu-item';
 import { MenuContext } from '../menu.context';
 import type { MenuContextType } from '../menu.context';
 
-export interface SubmenuProps
-  extends Omit<HTMLAttributes<HTMLAnchorElement>, 'href'> {
+export interface SubmenuProps extends Omit<
+  HTMLAttributes<HTMLAnchorElement>,
+  'href'
+> {
   disabled?: boolean;
   icon?: ReactElement;
   index?: number;

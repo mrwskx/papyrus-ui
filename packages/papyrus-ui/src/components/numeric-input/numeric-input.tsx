@@ -14,11 +14,10 @@ import { InputGroup } from '../input-group';
 
 export type NumericValue = number | null;
 
-export interface NumericInputProps
-  extends Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'defaultValue' | 'size' | 'type' | 'value' | 'onChange'
-  > {
+export interface NumericInputProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'defaultValue' | 'size' | 'type' | 'value' | 'onChange'
+> {
   /**
    * If `true`, allows leading zeros in the numeric input.
    *

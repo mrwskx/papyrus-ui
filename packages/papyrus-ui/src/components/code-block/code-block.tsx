@@ -8,8 +8,10 @@ import { Icon } from '../icon';
 
 export type CodeBlockSize = 'sm' | 'md';
 
-export interface CodeBlockProps
-  extends Omit<AllHTMLAttributes<HTMLPreElement>, 'size' | 'wrap'> {
+export interface CodeBlockProps extends Omit<
+  AllHTMLAttributes<HTMLPreElement>,
+  'size' | 'wrap'
+> {
   /**
    * The code content to display.
    */

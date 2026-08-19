@@ -24,7 +24,8 @@ export type ButtonVariant =
   | 'ghost';
 
 export interface ButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLElement>, 'type'>,
+  extends
+    Omit<ButtonHTMLAttributes<HTMLElement>, 'type'>,
     AnchorHTMLAttributes<HTMLElement> {
   /**
    * Specifies the element type to be used for rendering the button.

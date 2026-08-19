@@ -1,0 +1,12 @@
+packages:
+  - 'packages/*'
+
+overrides:
+  vite: ^6.3.5
+  vite-plugin-dts: ^4.5.4
+
+allowBuilds:
+  '@swc/core': true
+  esbuild: true
+  nx: true
+  unrs-resolver: true

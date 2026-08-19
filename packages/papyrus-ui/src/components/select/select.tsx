@@ -25,11 +25,10 @@ export type SelectValue<IsMulti extends boolean> = IsMulti extends true
   ? string[]
   : string | undefined;
 
-export interface SelectProps<IsMulti extends boolean = false>
-  extends Omit<
-    SelectHTMLAttributes<HTMLSelectElement>,
-    'defaultValue' | 'size' | 'value' | 'onChange'
-  > {
+export interface SelectProps<IsMulti extends boolean = false> extends Omit<
+  SelectHTMLAttributes<HTMLSelectElement>,
+  'defaultValue' | 'size' | 'value' | 'onChange'
+> {
   /**
    * The default value of the uncontrolled input.
    * This is used when the component is uncontrolled and does not have a `value` prop.

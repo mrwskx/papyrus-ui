@@ -13,14 +13,11 @@ import { Icon } from '../icon/icon';
 export type IconButtonSize = 'sm' | 'md' | 'lg';
 
 export type IconButtonVariant =
-  | 'primary'
-  | 'secondary'
-  | 'tertiary'
-  | 'plain'
-  | 'ghost';
+  'primary' | 'secondary' | 'tertiary' | 'plain' | 'ghost';
 
 export interface IconButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLElement>, 'type'>,
+  extends
+    Omit<ButtonHTMLAttributes<HTMLElement>, 'type'>,
     AnchorHTMLAttributes<HTMLElement> {
   /**
    * Specifies the element type to be used for rendering the icon-button.

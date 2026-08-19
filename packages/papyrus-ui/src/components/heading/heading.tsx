@@ -5,8 +5,10 @@ import type { AllHTMLAttributes, ElementType } from 'react';
 export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 export type HeadingFontVariant = 'primary' | 'secondary';
 
-export interface HeadingProps
-  extends Omit<AllHTMLAttributes<HTMLElement>, 'as' | 'size'> {
+export interface HeadingProps extends Omit<
+  AllHTMLAttributes<HTMLElement>,
+  'as' | 'size'
+> {
   /**
    * Specifies the HTML element type to render the heading as.
    * Should be one of h1-h6 elements for semantic correctness.

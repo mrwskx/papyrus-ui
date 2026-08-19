@@ -12,8 +12,10 @@ const lineVariantClasses = {
   secondary: 'bg-neutral-400',
 };
 
-export interface QuoteProps
-  extends Omit<HTMLAttributes<HTMLQuoteElement>, 'color' | 'size'> {
+export interface QuoteProps extends Omit<
+  HTMLAttributes<HTMLQuoteElement>,
+  'color' | 'size'
+> {
   /**
    * Sets the variant of the text inside the quote.
    *

@@ -2,8 +2,10 @@ import cn from 'classnames';
 import { forwardRef } from 'react';
 import type { AllHTMLAttributes, ElementType } from 'react';
 
-export interface LabelProps
-  extends Omit<AllHTMLAttributes<HTMLElement>, 'as' | 'size'> {
+export interface LabelProps extends Omit<
+  AllHTMLAttributes<HTMLElement>,
+  'as' | 'size'
+> {
   /**
    * Specifies the HTML element type to render the text as.
    * Can be any valid HTML element (e.g., 'p', 'span', 'div', etc.).

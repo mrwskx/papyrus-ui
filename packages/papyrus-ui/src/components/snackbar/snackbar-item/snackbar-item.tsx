@@ -28,12 +28,7 @@ import { Text } from '../../text';
 import { SnackbarContext } from '../snackbar.context';
 
 export type SnackbarItemVariant =
-  | 'primary'
-  | 'secondary'
-  | 'info'
-  | 'danger'
-  | 'warning'
-  | 'success';
+  'primary' | 'secondary' | 'info' | 'danger' | 'warning' | 'success';
 
 export interface SnackbarItemProps extends HTMLAttributes<HTMLDivElement> {
   /**

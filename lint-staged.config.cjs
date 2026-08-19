@@ -1,4 +1,4 @@
 module.exports = {
-  '*.(js|ts|tsx)': ['npm run lint:fix'],
+  '*.(js|ts|tsx)': ['pnpm lint:fix'],
   '*.(ts|tsx)': () => 'tsc -p tsconfig.json --noEmit',
 };

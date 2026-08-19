@@ -46,8 +46,7 @@ import { DropdownMenuContent } from '../dropdown-menu-content';
 import { DropdownMenuContext } from '../dropdown-menu.context';
 import type { DropdownMenuContextType } from '../dropdown-menu.context';
 
-export interface DropdownSubmenuProps
-  extends ButtonHTMLAttributes<HTMLAnchorElement> {
+export interface DropdownSubmenuProps extends ButtonHTMLAttributes<HTMLAnchorElement> {
   icon?: ReactElement;
   initialOpen?: boolean;
   label: string;

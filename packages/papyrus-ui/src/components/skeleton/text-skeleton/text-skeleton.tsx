@@ -6,7 +6,8 @@ import type { TextProps } from '../../text';
 import { Skeleton } from '../skeleton';
 
 export interface TextSkeletonProps
-  extends Pick<TextProps, 'fontVariant' | 'size'>,
+  extends
+    Pick<TextProps, 'fontVariant' | 'size'>,
     Omit<HTMLAttributes<HTMLDivElement>, 'children'> {}
 
 export const TextSkeleton: FC<TextSkeletonProps> = ({

@@ -23,13 +23,7 @@ import { PopoverContext } from './popover.context';
 import type { PopoverContextType } from './popover.context';
 
 declare type PopoverRole =
-  | 'tooltip'
-  | 'dialog'
-  | 'alertdialog'
-  | 'menu'
-  | 'listbox'
-  | 'grid'
-  | 'tree';
+  'tooltip' | 'dialog' | 'alertdialog' | 'menu' | 'listbox' | 'grid' | 'tree';
 
 export type PopoverTrigger = 'click' | 'focus' | 'hover';
 

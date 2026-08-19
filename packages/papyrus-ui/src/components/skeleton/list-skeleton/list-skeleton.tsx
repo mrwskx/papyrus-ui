@@ -5,7 +5,8 @@ import type { FC, HTMLAttributes, ReactNode } from 'react';
 import type { TextSkeletonProps } from '../text-skeleton';
 
 export interface ListSkeletonProps
-  extends Pick<TextSkeletonProps, 'fontVariant' | 'size'>,
+  extends
+    Pick<TextSkeletonProps, 'fontVariant' | 'size'>,
     HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }

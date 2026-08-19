@@ -21,8 +21,10 @@ import { InputBox } from '../input-box';
 import type { InputBoxSize } from '../input-box';
 import { InputGroup } from '../input-group';
 
-export interface TextInputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
+export interface TextInputProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'size' | 'onChange'
+> {
   /**
    * If `true`, the clear button will be displayed if the input's value is not empty.
    *

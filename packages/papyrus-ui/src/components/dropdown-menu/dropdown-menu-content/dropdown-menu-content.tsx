@@ -12,8 +12,7 @@ import { Transition } from 'react-transition-group';
 import { Listbox } from '../../listbox';
 import { DropdownMenuContext } from '../dropdown-menu.context';
 
-export interface DropdownMenuContentProps
-  extends HTMLAttributes<HTMLDivElement> {
+export interface DropdownMenuContentProps extends HTMLAttributes<HTMLDivElement> {
   initialFocus?: number;
   returnFocus?: boolean;
 }

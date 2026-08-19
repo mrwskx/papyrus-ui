@@ -7,7 +7,8 @@ import type {
 } from 'react';
 
 export interface LinkProps
-  extends Omit<ButtonHTMLAttributes<HTMLElement>, 'type' | 'color'>,
+  extends
+    Omit<ButtonHTMLAttributes<HTMLElement>, 'type' | 'color'>,
     Omit<AnchorHTMLAttributes<HTMLElement>, 'color'> {
   as?: ElementType;
 }

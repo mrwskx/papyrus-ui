@@ -5,7 +5,8 @@ import type { InputBoxProps } from '../../input-box';
 import { Skeleton } from '../skeleton';
 
 export interface InputSkeletonProps
-  extends Pick<InputBoxProps, 'size'>,
+  extends
+    Pick<InputBoxProps, 'size'>,
     Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
   className?: string;
 }

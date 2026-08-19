@@ -2,8 +2,10 @@ import cn from 'classnames';
 import { forwardRef } from 'react';
 import type { HTMLAttributes, ReactNode } from 'react';
 
-export interface IconProps
-  extends Omit<HTMLAttributes<HTMLElement>, 'children'> {
+export interface IconProps extends Omit<
+  HTMLAttributes<HTMLElement>,
+  'children'
+> {
   /**
    * The icon content to be rendered.
    */

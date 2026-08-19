@@ -16,8 +16,10 @@ import { InputBox } from '../input-box';
 import type { InputBoxSize } from '../input-box';
 import { InputGroup } from '../input-group';
 
-export interface TextareaProps
-  extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'onChange'> {
+export interface TextareaProps extends Omit<
+  TextareaHTMLAttributes<HTMLTextAreaElement>,
+  'onChange'
+> {
   /**
    * The default value of the uncontrolled input.
    * This is used when the component is uncontrolled and does not have a `value` prop.

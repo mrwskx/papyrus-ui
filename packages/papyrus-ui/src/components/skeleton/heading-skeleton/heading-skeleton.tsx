@@ -6,7 +6,8 @@ import type { HeadingProps } from '../../heading';
 import { Skeleton } from '../skeleton';
 
 export interface HeadingSkeletonProps
-  extends Pick<HeadingProps, 'fontVariant' | 'level'>,
+  extends
+    Pick<HeadingProps, 'fontVariant' | 'level'>,
     Omit<HTMLAttributes<HTMLDivElement>, 'children'> {}
 
 export const HeadingSkeleton: FC<HeadingSkeletonProps> = ({

@@ -14,8 +14,10 @@ import type {
 import { MenuButton } from '../../menu-button';
 import { MenuBarContext } from '../menu-bar.context';
 
-export interface MenuBarItemProps
-  extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
+export interface MenuBarItemProps extends Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  'children'
+> {
   as?: ElementType;
   danger?: boolean;
   description?: string;

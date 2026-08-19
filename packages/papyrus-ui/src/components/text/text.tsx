@@ -5,8 +5,10 @@ import type { AllHTMLAttributes, ElementType } from 'react';
 export type TextSize = 'md' | 'sm';
 export type TextFontVariant = 'primary' | 'secondary';
 
-export interface TextProps
-  extends Omit<AllHTMLAttributes<HTMLElement>, 'as' | 'color' | 'size'> {
+export interface TextProps extends Omit<
+  AllHTMLAttributes<HTMLElement>,
+  'as' | 'color' | 'size'
+> {
   /**
    * Specifies the HTML element type to render the text as.
    * Can be any valid HTML element (e.g., 'p', 'span', 'div', etc.).

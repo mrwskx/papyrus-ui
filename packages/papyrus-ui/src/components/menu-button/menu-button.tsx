@@ -14,8 +14,7 @@ export type MenuButtonVariant = 'primary' | 'secondary' | 'ghost';
 
 const INDENT_BASE = 1.625;
 
-export interface MenuButtonProps
-  extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface MenuButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   as?: ElementType;
   active?: boolean;
   collapsed?: boolean;

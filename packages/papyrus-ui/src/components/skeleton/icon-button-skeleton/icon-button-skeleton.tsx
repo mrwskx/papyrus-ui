@@ -5,7 +5,8 @@ import type { IconButtonProps } from '../../icon-button';
 import { Skeleton } from '../skeleton';
 
 export interface IconButtonSkeletonProps
-  extends Pick<IconButtonProps, 'rounded' | 'size'>,
+  extends
+    Pick<IconButtonProps, 'rounded' | 'size'>,
     Omit<HTMLAttributes<HTMLDivElement>, 'children'> {}
 
 export const IconButtonSkeleton: FC<IconButtonSkeletonProps> = ({

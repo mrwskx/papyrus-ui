@@ -3,8 +3,10 @@ import cn from 'classnames';
 import type { ButtonProps } from '../../button';
 import { Skeleton } from '../skeleton';
 
-export interface ButtonSkeletonProps
-  extends Pick<ButtonProps, 'block' | 'rounded' | 'size'> {
+export interface ButtonSkeletonProps extends Pick<
+  ButtonProps,
+  'block' | 'rounded' | 'size'
+> {
   className?: string;
 }
 
