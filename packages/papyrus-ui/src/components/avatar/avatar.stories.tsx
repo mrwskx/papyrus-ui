@@ -38,7 +38,7 @@ export function Sizes(args: AvatarProps) {
   return (
     <div className="flex items-center">
       {sizes.map((size, i) => (
-        <div key={i} className={i ? 'ml-2' : ''}>
+        <div key={size} className={i ? 'ml-2' : ''}>
           <Avatar {...args} size={size}>
             <img alt="Profile" src="https://i.pravatar.cc/300" />
           </Avatar>

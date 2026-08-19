@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import type { FC, ElementType } from 'react';
+import type { ElementType } from 'react';
 
 export type DividerDirection = 'horizontal' | 'vertical';
 
@@ -14,18 +14,20 @@ const directionClass: Record<DividerDirection, string> = {
   vertical: 'h-full w-px',
 };
 
-export const Divider: FC<DividerProps> = ({
+export function Divider({
   as: Element = 'div',
   direction = 'horizontal',
   className,
   ...props
-}) => (
-  <Element
-    {...props}
-    className={cn(
-      className?.includes('bg-') ? '' : 'bg-current',
-      directionClass[direction],
-      className,
-    )}
-  />
-);
+}: DividerProps) {
+  return (
+    <Element
+      {...props}
+      className={cn(
+        className?.includes('bg-') ? '' : 'bg-current',
+        directionClass[direction],
+        className,
+      )}
+    />
+  );
+}

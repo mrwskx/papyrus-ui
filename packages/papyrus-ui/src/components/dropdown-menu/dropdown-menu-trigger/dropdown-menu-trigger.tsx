@@ -1,7 +1,7 @@
 'use client';
 
 import { cloneElement, isValidElement, useContext } from 'react';
-import type { FC, HTMLProps, ReactElement } from 'react';
+import type { HTMLProps, ReactElement } from 'react';
 
 import { DropdownMenuContext } from '../dropdown-menu.context';
 
@@ -9,9 +9,7 @@ export interface DropdownMenuTriggerProps {
   children: ReactElement;
 }
 
-export const DropdownMenuTrigger: FC<DropdownMenuTriggerProps> = ({
-  children,
-}: DropdownMenuTriggerProps) => {
+export function DropdownMenuTrigger({ children }: DropdownMenuTriggerProps) {
   const { refs, getReferenceProps, setActiveIndex } =
     useContext(DropdownMenuContext);
 
@@ -29,4 +27,4 @@ export const DropdownMenuTrigger: FC<DropdownMenuTriggerProps> = ({
         }),
       })
     : null;
-};
+}

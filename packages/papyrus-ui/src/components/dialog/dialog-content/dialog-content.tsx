@@ -7,7 +7,7 @@ import {
 } from '@floating-ui/react';
 import cn from 'classnames';
 import { useContext } from 'react';
-import type { FC, HTMLAttributes, ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 import { Transition } from 'react-transition-group';
 
 import { ANIMATION_DURATION } from '../dialog.constants';
@@ -24,11 +24,11 @@ const TRANSITION_TIMEOUT = {
   exit: ANIMATION_DURATION,
 };
 
-export const DialogContent: FC<DialogContentProps> = ({
+export function DialogContent({
   className,
   children,
   ...props
-}) => {
+}: DialogContentProps) {
   const {
     context,
     getFloatingProps,
@@ -93,4 +93,4 @@ export const DialogContent: FC<DialogContentProps> = ({
       )}
     </Transition>
   );
-};
+}

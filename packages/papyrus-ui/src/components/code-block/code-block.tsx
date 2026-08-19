@@ -73,6 +73,7 @@ export const CodeBlock = forwardRef<HTMLPreElement, CodeBlockProps>(
     ref,
   ) => {
     const lines = children ? children.split('\n') : [];
+    const lineNumbers = lines.map((_, index) => index + 1);
     const hasContent = children && children.trim().length > 0;
 
     return (
@@ -92,8 +93,8 @@ export const CodeBlock = forwardRef<HTMLPreElement, CodeBlockProps>(
           {hasContent && showLineNumbers ? (
             <div className="flex max-w-full">
               <div className="select-none text-neutral-500 pr-4 border-r border-neutral-200 mr-4 text-right min-w-[2.5rem]">
-                {lines.map((_, index) => (
-                  <div key={index + 1}>{index + 1}</div>
+                {lineNumbers.map(lineNumber => (
+                  <div key={lineNumber}>{lineNumber}</div>
                 ))}
               </div>
               <code className="flex-1 block">{children}</code>

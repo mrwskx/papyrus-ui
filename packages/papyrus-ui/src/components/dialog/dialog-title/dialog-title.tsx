@@ -3,7 +3,7 @@
 import { useId } from '@floating-ui/react';
 import cn from 'classnames';
 import { useContext, useLayoutEffect } from 'react';
-import type { FC, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import { Heading } from '../../heading';
 import { DialogContext } from '../dialog.context';
@@ -13,11 +13,11 @@ export type DialogTitleProps = Omit<
   'color' | 'size'
 >;
 
-export const DialogTitle: FC<DialogTitleProps> = ({
+export function DialogTitle({
   children,
   className,
   ...props
-}: DialogTitleProps) => {
+}: DialogTitleProps) {
   const id = useId();
   const { setLabelId } = useContext(DialogContext);
 
@@ -40,4 +40,4 @@ export const DialogTitle: FC<DialogTitleProps> = ({
       {children}
     </Heading>
   );
-};
+}

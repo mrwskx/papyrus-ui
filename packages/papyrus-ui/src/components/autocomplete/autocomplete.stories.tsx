@@ -20,11 +20,13 @@ const meta: Meta<typeof Autocomplete> = {
   },
 };
 
-const Template: StoryFn<AutocompleteProps> = args => (
-  <div className="min-h-[256px] w-64">
-    <Autocomplete {...args} options={OPTIONS_LIST} />
-  </div>
-);
+const Template: StoryFn<AutocompleteProps> = function Template(args) {
+  return (
+    <div className="min-h-[256px] w-64">
+      <Autocomplete {...args} options={OPTIONS_LIST} />
+    </div>
+  );
+};
 
 export const Basic = Template.bind({
   id: 'autocomplete-basic',
@@ -77,7 +79,7 @@ export function Sizes(args: AutocompleteProps) {
   return (
     <div className="flex flex-col min-h-[384px] w-64">
       {SIZE_OPTIONS.map((size, i) => (
-        <div key={i} className={i ? 'mt-4' : ''}>
+        <div key={size} className={i ? 'mt-4' : ''}>
           <Autocomplete
             {...args}
             id={`autocomplete-size-${size}`}

@@ -26,18 +26,20 @@ export default {
     label: 'Character',
     defaultValue: 0,
     children: SELECT_OPTIONS.map((val, idx) => (
-      <option key={idx} value={idx}>
+      <option key={val} value={idx}>
         {val}
       </option>
     )),
   },
 };
 
-const Template: StoryFn<SelectProps> = args => (
-  <div className="w-64">
-    <Select {...args} />
-  </div>
-);
+const Template: StoryFn<SelectProps> = function Template(args) {
+  return (
+    <div className="w-64">
+      <Select {...args} />
+    </div>
+  );
+};
 
 export const Basic = Template.bind({});
 
@@ -57,10 +59,10 @@ export function Sizes(args: SelectProps) {
   return (
     <div className="flex flex-col w-64">
       {SIZE_OPTIONS.map((size, i) => (
-        <div key={i} className={i ? 'mt-4' : ''}>
+        <div key={size} className={i ? 'mt-4' : ''}>
           <Select {...args} id={`select-size-${size}`} size={size}>
             {SELECT_OPTIONS.map((val, idx) => (
-              <option key={idx} value={idx}>
+              <option key={val} value={idx}>
                 {val}
               </option>
             ))}
@@ -86,7 +88,7 @@ export function WithIcon(args: SelectProps) {
           }
         >
           {SELECT_OPTIONS.map((val, idx) => (
-            <option key={idx} value={idx}>
+            <option key={val} value={idx}>
               {val}
             </option>
           ))}
@@ -105,7 +107,7 @@ export function WithIcon(args: SelectProps) {
           label="With End Icon"
         >
           {SELECT_OPTIONS.map((val, idx) => (
-            <option key={idx} value={idx}>
+            <option key={val} value={idx}>
               {val}
             </option>
           ))}

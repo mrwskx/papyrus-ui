@@ -13,7 +13,9 @@ const meta: Meta = {
   },
 };
 
-const Template: StoryFn<TextSkeletonProps> = args => <TextSkeleton {...args} />;
+const Template: StoryFn<TextSkeletonProps> = function Template(args) {
+  return <TextSkeleton {...args} />;
+};
 
 export const Basic = Template.bind({});
 

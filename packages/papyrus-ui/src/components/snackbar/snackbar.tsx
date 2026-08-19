@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { useMemo } from 'react';
-import type { FC, HTMLAttributes, ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 import { TransitionGroup } from 'react-transition-group';
 
 import { SnackbarItem } from './snackbar-item';
@@ -22,12 +22,12 @@ const rootPlacementClasses = {
   'bottom-end': 'snackbar-bottom-end',
 };
 
-export const SnackbarComponent: FC<SnackbarProps> = ({
+export function SnackbarComponent({
   children,
   className,
   placement = 'top-end',
   ...props
-}) => {
+}: SnackbarProps) {
   const contextValue = useMemo(
     () => ({
       placement,
@@ -45,7 +45,7 @@ export const SnackbarComponent: FC<SnackbarProps> = ({
       </TransitionGroup>
     </SnackbarContext.Provider>
   );
-};
+}
 
 export const Snackbar = Object.assign(SnackbarComponent, {
   Item: SnackbarItem,

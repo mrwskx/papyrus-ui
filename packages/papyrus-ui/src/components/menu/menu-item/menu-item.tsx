@@ -4,7 +4,6 @@ import { useContext, useRef } from 'react';
 import type {
   AnchorHTMLAttributes,
   ElementType,
-  FC,
   FocusEvent,
   KeyboardEvent,
   ReactElement,
@@ -25,7 +24,7 @@ export interface MenuItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   selected?: boolean;
 }
 
-export const MenuItem: FC<MenuItemProps> = ({
+export function MenuItem({
   disabled,
   description,
   startIcon,
@@ -35,7 +34,7 @@ export const MenuItem: FC<MenuItemProps> = ({
   onKeyDown,
   children,
   ...props
-}) => {
+}: MenuItemProps) {
   const {
     activeIndex,
     collapsed,
@@ -102,4 +101,4 @@ export const MenuItem: FC<MenuItemProps> = ({
       {children}
     </MenuButton>
   );
-};
+}

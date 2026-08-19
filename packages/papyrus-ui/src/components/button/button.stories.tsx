@@ -37,9 +37,9 @@ export function Variants(args: ButtonProps) {
       <div className="flex flex-wrap justify-center -mt-4 -mx-2">
         {variants
           .filter(variant => variant !== 'ghost')
-          .map((variant, i) => (
+          .map(variant => (
             <div
-              key={i}
+              key={variant}
               className="flex justify-center w-1/2 md:w-1/4 mt-4 px-2"
             >
               <Button {...args} variant={variant}>
@@ -52,9 +52,9 @@ export function Variants(args: ButtonProps) {
         <div className="flex flex-wrap justify-center -mt-4 -mx-2">
           {variants
             .filter(variant => variant === 'ghost')
-            .map((variant, i) => (
+            .map(variant => (
               <div
-                key={i}
+                key={variant}
                 className="flex justify-center w-1/2 md:w-1/4 mt-4 px-2"
               >
                 <Button {...args} variant={variant}>
@@ -71,8 +71,8 @@ export function Variants(args: ButtonProps) {
 export function Sizes(args: ButtonProps) {
   return (
     <div className="flex items-center flex-wrap -mt-4 -mx-2">
-      {sizes.map((size, i) => (
-        <div key={i} className="mt-4 px-2">
+      {sizes.map(size => (
+        <div key={size} className="mt-4 px-2">
           <Button {...args} size={size}>
             {upperCase(size)}
           </Button>

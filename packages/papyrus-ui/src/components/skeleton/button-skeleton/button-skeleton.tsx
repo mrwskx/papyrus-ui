@@ -10,12 +10,12 @@ export interface ButtonSkeletonProps extends Pick<
   className?: string;
 }
 
-export const ButtonSkeleton = ({
+export function ButtonSkeleton({
   block,
   rounded,
   size = 'md',
   className,
-}: ButtonSkeletonProps) => {
+}: ButtonSkeletonProps) {
   const sizeClasses: Record<string, string> = {
     sm: 'min-w-24 h-7',
     md: 'min-w-28 h-9',
@@ -33,6 +33,6 @@ export const ButtonSkeleton = ({
       )}
     />
   );
-};
+}
 
 ButtonSkeleton.displayName = 'ButtonSkeleton';

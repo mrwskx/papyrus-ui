@@ -20,11 +20,13 @@ export default {
   },
 };
 
-const Template: StoryFn<TimeInputProps> = args => (
-  <div className="w-64">
-    <TimeInput {...args} />
-  </div>
-);
+const Template: StoryFn<TimeInputProps> = function Template(args) {
+  return (
+    <div className="w-64">
+      <TimeInput {...args} />
+    </div>
+  );
+};
 
 export const Basic = Template.bind({});
 
@@ -53,7 +55,7 @@ export function Sizes(args: TimeInputProps) {
   return (
     <div className="flex flex-col w-64">
       {sizes.map((size, i) => (
-        <div key={i} className={i ? 'mt-4' : ''}>
+        <div key={size} className={i ? 'mt-4' : ''}>
           <TimeInput {...args} id={`time-input-size-${size}`} size={size} />
         </div>
       ))}

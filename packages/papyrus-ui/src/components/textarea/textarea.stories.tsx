@@ -21,11 +21,13 @@ const meta = {
 
 const sizes: InputBoxSize[] = ['sm', 'md', 'lg'];
 
-const Template: StoryFn<TextareaProps> = args => (
-  <div className="w-64">
-    <Textarea {...args} />
-  </div>
-);
+const Template: StoryFn<TextareaProps> = function Template(args) {
+  return (
+    <div className="w-64">
+      <Textarea {...args} />
+    </div>
+  );
+};
 
 export const Basic = Template.bind({});
 
@@ -37,7 +39,7 @@ export function Sizes(args: TextareaProps) {
   return (
     <div className="flex flex-col w-64">
       {sizes.map((size, i) => (
-        <div key={i} className={i ? 'mt-4' : ''}>
+        <div key={size} className={i ? 'mt-4' : ''}>
           <Textarea {...args} id={`textarea-size-${size}`} size={size} />
         </div>
       ))}

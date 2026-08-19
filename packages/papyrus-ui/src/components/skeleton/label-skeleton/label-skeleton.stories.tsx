@@ -11,9 +11,9 @@ const meta: Meta<LabelSkeletonProps> = {
   },
 };
 
-const Template: StoryFn<LabelSkeletonProps> = args => (
-  <LabelSkeleton {...args} />
-);
+const Template: StoryFn<LabelSkeletonProps> = function Template(args) {
+  return <LabelSkeleton {...args} />;
+};
 
 export const Basic = Template.bind({});
 

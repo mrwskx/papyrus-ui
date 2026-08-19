@@ -45,7 +45,7 @@ describe('ImageInput', () => {
         const getName = () => 'Avatar Image';
         const getUrl = () => 'https://example.com/avatar.jpg';
 
-        const Wrapper = () => {
+        function Wrapper() {
           const [val, setVal] = useState<typeof initial | null>(initial);
           return (
             <ImageInput
@@ -55,7 +55,7 @@ describe('ImageInput', () => {
               onChange={setVal}
             />
           );
-        };
+        }
 
         render(<Wrapper />);
 

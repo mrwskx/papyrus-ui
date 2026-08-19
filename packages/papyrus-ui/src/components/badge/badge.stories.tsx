@@ -21,7 +21,9 @@ const meta: Meta = {
   },
 };
 
-const Template: StoryFn<BadgeProps> = args => <Badge {...args} />;
+const Template: StoryFn<BadgeProps> = function Template(args) {
+  return <Badge {...args} />;
+};
 
 export const Basic = Template.bind({});
 

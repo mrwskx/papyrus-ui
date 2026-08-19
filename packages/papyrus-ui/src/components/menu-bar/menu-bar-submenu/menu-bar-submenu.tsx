@@ -34,7 +34,6 @@ import {
 } from 'react';
 import type {
   ButtonHTMLAttributes,
-  FC,
   FocusEvent,
   KeyboardEvent,
   ReactElement,
@@ -68,7 +67,7 @@ const TRANSITION_TIMEOUT = {
   exit: ENTER_TIMEOUT,
 };
 
-export const MenuBarSubmenu: FC<SubMenuProps> = ({
+export function MenuBarSubmenu({
   icon,
   initialOpen = false,
   label,
@@ -76,7 +75,7 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
   onFocus,
   onKeyDown,
   ...props
-}) => {
+}: SubMenuProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const elementsRef = useRef<Array<HTMLAnchorElement | null>>([]);
@@ -381,4 +380,4 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
       </MenuBarContext.Provider>
     </FloatingNode>
   );
-};
+}

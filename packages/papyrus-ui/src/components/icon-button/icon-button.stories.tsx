@@ -39,9 +39,9 @@ export function Variants(args: IconButtonProps) {
       <div className="flex flex-wrap justify-center -mt-4 -mx-2">
         {variants
           .filter(variant => variant !== 'ghost')
-          .map((variant, i) => (
+          .map(variant => (
             <div
-              key={i}
+              key={variant}
               className="mt-4 px-2"
               title={`${startCase(variant)} variant IconButton`}
             >
@@ -57,8 +57,8 @@ export function Variants(args: IconButtonProps) {
         <div className="flex flex-wrap justify-center -mt-4 -mx-2">
           {variants
             .filter(variant => variant === 'ghost')
-            .map((variant, i) => (
-              <div key={i} className="mt-4 px-2">
+            .map(variant => (
+              <div key={variant} className="mt-4 px-2">
                 <IconButton {...args} variant={variant} />
               </div>
             ))}
@@ -71,8 +71,8 @@ export function Variants(args: IconButtonProps) {
 export function Sizes(args: IconButtonProps) {
   return (
     <div className="flex items-center flex-wrap -mt-4 -mx-2">
-      {sizes.map((size, i) => (
-        <div key={i} className="mt-4 px-2">
+      {sizes.map(size => (
+        <div key={size} className="mt-4 px-2">
           <IconButton {...args} size={size} title={`${size} size IconButton`} />
         </div>
       ))}

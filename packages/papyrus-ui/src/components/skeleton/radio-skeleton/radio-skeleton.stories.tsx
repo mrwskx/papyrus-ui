@@ -18,9 +18,9 @@ const meta: Meta<RadioSkeletonProps> = {
   },
 };
 
-const Template: StoryFn<RadioSkeletonProps> = args => (
-  <RadioSkeleton {...args} />
-);
+const Template: StoryFn<RadioSkeletonProps> = function Template(args) {
+  return <RadioSkeleton {...args} />;
+};
 
 export const Basic = Template.bind({});
 

@@ -40,23 +40,27 @@ export default {
   },
 };
 
-const Template: StoryFn<TableProps> = args => <Table {...args} />;
+const Template: StoryFn<TableProps> = function Template(args) {
+  return <Table {...args} />;
+};
 
 export const Basic = Template.bind({});
 
-export const Sizes: StoryFn<TableProps> = args => (
-  <>
-    {sizes.map((size, i) => (
-      <Fragment key={i}>
-        <Heading className={cn('mb-3', i > 0 ? 'mt-6' : 'mt-0')} level={3}>
-          {capitalize(size)}
-        </Heading>
+export function Sizes(args: TableProps) {
+  return (
+    <>
+      {sizes.map((size, i) => (
+        <Fragment key={size}>
+          <Heading className={cn('mb-3', i > 0 ? 'mt-6' : 'mt-0')} level={3}>
+            {capitalize(size)}
+          </Heading>
 
-        <Template {...args} key={i} size={size} />
-      </Fragment>
-    ))}
-  </>
-);
+          <Template {...args} key={size} size={size} />
+        </Fragment>
+      ))}
+    </>
+  );
+}
 
 export const Striped = Template.bind({});
 

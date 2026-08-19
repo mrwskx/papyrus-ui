@@ -5,7 +5,6 @@ import { useContext } from 'react';
 import type {
   AnchorHTMLAttributes,
   ElementType,
-  FC,
   FocusEvent,
   MouseEvent,
   ReactElement,
@@ -28,7 +27,7 @@ export interface DropdownMenuItemProps extends Omit<
   children: string;
 }
 
-export const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
+export function DropdownMenuItem({
   disabled,
   description,
   startIcon,
@@ -37,7 +36,7 @@ export const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
   onFocus,
   children,
   ...props
-}) => {
+}: DropdownMenuItemProps) {
   const { activeIndex, getItemProps, setActiveIndex } =
     useContext(DropdownMenuContext);
 
@@ -74,4 +73,4 @@ export const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
       {children}
     </MenuButton>
   );
-};
+}

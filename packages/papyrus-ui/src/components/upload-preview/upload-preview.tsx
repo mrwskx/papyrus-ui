@@ -59,7 +59,7 @@ export const UploadPreview = forwardRef<HTMLDivElement, UploadPreviewProps>(
       {multiple && files.length > 0 ? (
         <div className="flex -mt-2 -mx-1 w-full flex-wrap">
           {files.map((file, idx) => (
-            <div key={idx} className="mt-2 px-1">
+            <div key={file.name} className="mt-2 px-1">
               <SingleUploadPreview
                 aspectRatio={aspectRatio}
                 className={className}

@@ -47,9 +47,12 @@ const meta: Meta<DialogProps> = {
   },
 };
 
-const Template: StoryFn<DialogProps> = ({ children, ...args }) => (
-  <Dialog {...args}>{children}</Dialog>
-);
+const Template: StoryFn<DialogProps> = function Template({
+  children,
+  ...args
+}) {
+  return <Dialog {...args}>{children}</Dialog>;
+};
 
 export const Basic = Template.bind({});
 

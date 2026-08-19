@@ -15,11 +15,13 @@ greet("World");`,
   },
 };
 
-export const Template: StoryFn<CodeBlockProps> = args => (
-  <div className="w-full max-w-xl">
-    <CodeBlock {...args} />
-  </div>
-);
+export const Template: StoryFn<CodeBlockProps> = function Template(args) {
+  return (
+    <div className="w-full max-w-xl">
+      <CodeBlock {...args} />
+    </div>
+  );
+};
 
 export const Basic = Template.bind({});
 

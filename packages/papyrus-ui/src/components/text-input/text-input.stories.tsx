@@ -20,11 +20,13 @@ export default {
   },
 };
 
-const Template: StoryFn<TextInputProps> = args => (
-  <div className="w-64">
-    <TextInput {...args} />
-  </div>
-);
+const Template: StoryFn<TextInputProps> = function Template(args) {
+  return (
+    <div className="w-64">
+      <TextInput {...args} />
+    </div>
+  );
+};
 
 export const Basic = Template.bind({});
 
@@ -43,7 +45,7 @@ export function Sizes(args: TextInputProps) {
   return (
     <div className="flex flex-col w-64">
       {sizes.map((size, i) => (
-        <div key={i} className={i ? 'mt-4' : ''}>
+        <div key={size} className={i ? 'mt-4' : ''}>
           <TextInput {...args} id={`text-input-size-${size}`} size={size} />
         </div>
       ))}

@@ -1,7 +1,6 @@
 import cn from 'classnames';
 import type {
   ComponentType,
-  FC,
   HTMLAttributes,
   ReactElement,
   ReactNode,
@@ -55,7 +54,7 @@ const iconVariantClasses = {
   danger: 'text-danger-600',
 };
 
-export const Alert: FC<AlertProps> = ({
+export function Alert({
   closeLabel = 'Close',
   icon,
   message,
@@ -65,7 +64,7 @@ export const Alert: FC<AlertProps> = ({
   onClose,
   children,
   ...props
-}) => {
+}: AlertProps) {
   const IconComponent = iconByVariant[variant];
 
   return (
@@ -111,4 +110,4 @@ export const Alert: FC<AlertProps> = ({
       )}
     </div>
   );
-};
+}

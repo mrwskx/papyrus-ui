@@ -16,7 +16,7 @@ import {
 } from '@floating-ui/react';
 import type { Placement, OffsetOptions } from '@floating-ui/react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { FC, KeyboardEvent, ReactNode } from 'react';
+import type { KeyboardEvent, ReactNode } from 'react';
 
 import {
   getFirstItem,
@@ -45,11 +45,11 @@ const DEFAULT_OFFSET: OffsetOptions = {
   alignmentAxis: -2,
 };
 
-export const DropdownMenuComponent: FC<DropdownMenuProps> = ({
+export function DropdownMenuComponent({
   children,
   offset = DEFAULT_OFFSET,
   placement = 'bottom-start',
-}) => {
+}: DropdownMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const elementsRef = useRef<Array<HTMLAnchorElement | null>>([]);
@@ -212,13 +212,15 @@ export const DropdownMenuComponent: FC<DropdownMenuProps> = ({
       {children}
     </DropdownMenuContext.Provider>
   );
-};
+}
 
-const DropdownMenuTree = ({ children, ...props }: DropdownMenuProps) => (
-  <FloatingTree>
-    <DropdownMenuComponent {...props}>{children}</DropdownMenuComponent>
-  </FloatingTree>
-);
+function DropdownMenuTree({ children, ...props }: DropdownMenuProps) {
+  return (
+    <FloatingTree>
+      <DropdownMenuComponent {...props}>{children}</DropdownMenuComponent>
+    </FloatingTree>
+  );
+}
 
 export const DropdownMenu = Object.assign(DropdownMenuTree, {
   Trigger: DropdownMenuTrigger,

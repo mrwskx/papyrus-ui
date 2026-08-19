@@ -8,7 +8,9 @@ const meta: Meta = {
   component: Caption,
 };
 
-const Template: StoryFn<CaptionProps> = args => <Caption {...args} />;
+const Template: StoryFn<CaptionProps> = function Template(args) {
+  return <Caption {...args} />;
+};
 
 export const Basic = Template.bind({});
 

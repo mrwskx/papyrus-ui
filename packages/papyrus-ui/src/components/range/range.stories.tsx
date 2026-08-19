@@ -15,7 +15,9 @@ export default {
   },
 };
 
-const Template: StoryFn<RangeProps> = args => <Range {...args} />;
+const Template: StoryFn<RangeProps> = function Template(args) {
+  return <Range {...args} />;
+};
 
 export const Basic = Template.bind({});
 

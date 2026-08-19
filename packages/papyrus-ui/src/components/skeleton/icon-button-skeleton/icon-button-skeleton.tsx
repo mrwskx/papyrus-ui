@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import type { FC, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import type { IconButtonProps } from '../../icon-button';
 import { Skeleton } from '../skeleton';
@@ -9,12 +9,12 @@ export interface IconButtonSkeletonProps
     Pick<IconButtonProps, 'rounded' | 'size'>,
     Omit<HTMLAttributes<HTMLDivElement>, 'children'> {}
 
-export const IconButtonSkeleton: FC<IconButtonSkeletonProps> = ({
+export function IconButtonSkeleton({
   className,
   rounded,
   size = 'md',
   ...props
-}) => {
+}: IconButtonSkeletonProps) {
   const sizeClasses: Record<string, string> = {
     sm: 'w-7 h-7',
     md: 'w-9 h-9',
@@ -31,6 +31,6 @@ export const IconButtonSkeleton: FC<IconButtonSkeletonProps> = ({
       {...props}
     />
   );
-};
+}
 
 IconButtonSkeleton.displayName = 'IconButtonSkeleton';

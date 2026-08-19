@@ -11,7 +11,7 @@ import {
 } from '@floating-ui/react';
 import cn from 'classnames';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { FC, HTMLAttributes, KeyboardEvent } from 'react';
+import type { HTMLAttributes, KeyboardEvent } from 'react';
 
 import {
   getFirstItem,
@@ -33,14 +33,14 @@ export interface MenuBarProps extends HTMLAttributes<HTMLUListElement> {
   variant?: MenuBarVariant;
 }
 
-const MenuBarComponent: FC<MenuBarProps> = ({
+function MenuBarComponent({
   block = false,
   collapsed = false,
   size = 'md',
   variant = 'primary',
   children,
   ...props
-}) => {
+}: MenuBarProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const elementsRef = useRef<Array<HTMLElement | null>>([]);
   const labelsRef = useRef<string[]>([]);
@@ -200,7 +200,7 @@ const MenuBarComponent: FC<MenuBarProps> = ({
       </FloatingTree>
     </MenuBarContext.Provider>
   );
-};
+}
 
 export const MenuBar = Object.assign(MenuBarComponent, {
   Submenu: MenuBarSubmenu,

@@ -11,9 +11,9 @@ const meta: Meta<CaptionSkeletonProps> = {
   },
 };
 
-const Template: StoryFn<CaptionSkeletonProps> = args => (
-  <CaptionSkeleton {...args} />
-);
+const Template: StoryFn<CaptionSkeletonProps> = function Template(args) {
+  return <CaptionSkeleton {...args} />;
+};
 
 export const Basic = Template.bind({});
 

@@ -5,7 +5,6 @@ import { useContext } from 'react';
 import type {
   AnchorHTMLAttributes,
   ElementType,
-  FC,
   FocusEvent,
   MouseEvent,
   ReactElement,
@@ -28,7 +27,7 @@ export interface MenuBarItemProps extends Omit<
   children: string;
 }
 
-export const MenuBarItem: FC<MenuBarItemProps> = ({
+export function MenuBarItem({
   disabled,
   description,
   startIcon,
@@ -37,7 +36,7 @@ export const MenuBarItem: FC<MenuBarItemProps> = ({
   onFocus,
   children,
   ...props
-}) => {
+}: MenuBarItemProps) {
   const {
     activeIndex,
     collapsed,
@@ -83,4 +82,4 @@ export const MenuBarItem: FC<MenuBarItemProps> = ({
       {children}
     </MenuButton>
   );
-};
+}

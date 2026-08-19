@@ -24,11 +24,15 @@ const meta: Meta<typeof CheckboxGroup> = {
   },
 };
 
-const Template: StoryFn<typeof CheckboxGroup> = args => (
-  <div className={args.block ? 'w-96' : ''}>
-    <CheckboxGroup {...args} />
-  </div>
-);
+const Template: StoryFn<typeof CheckboxGroup> = function Template(args) {
+  const { block } = args;
+
+  return (
+    <div className={block ? 'w-96' : ''}>
+      <CheckboxGroup {...args} />
+    </div>
+  );
+};
 
 export const SingleCheckbox = Template.bind({});
 

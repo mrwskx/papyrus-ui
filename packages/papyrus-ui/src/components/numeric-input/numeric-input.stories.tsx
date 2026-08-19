@@ -26,11 +26,13 @@ export default {
   },
 };
 
-const Template: StoryFn<NumericInputProps> = args => (
-  <div className="w-64">
-    <NumericInput {...args} />
-  </div>
-);
+const Template: StoryFn<NumericInputProps> = function Template(args) {
+  return (
+    <div className="w-64">
+      <NumericInput {...args} />
+    </div>
+  );
+};
 
 export const Basic = Template.bind({});
 
@@ -38,7 +40,7 @@ export function Sizes(args: NumericInputProps) {
   return (
     <div className="flex flex-col w-64">
       {sizes.map((size, i) => (
-        <div key={i} className={i ? 'mt-4' : ''}>
+        <div key={size} className={i ? 'mt-4' : ''}>
           <NumericInput
             {...args}
             id={`numeric-input-size-${size}`}

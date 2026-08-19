@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import type { FC, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { InputMessage } from '../input-message';
 import { Label } from '../label';
@@ -52,7 +52,7 @@ export interface InputGroupProps {
   children: ReactNode;
 }
 
-export const InputGroup: FC<InputGroupProps> = ({
+export function InputGroup({
   className,
   description,
   htmlFor,
@@ -61,31 +61,33 @@ export const InputGroup: FC<InputGroupProps> = ({
   label,
   message,
   children,
-}) => (
-  <div className={cn('flex flex-col', className)}>
-    {label && (
-      <Label
-        as={htmlFor ? 'label' : 'span'}
-        className={description ? 'mb-0.5' : 'mb-1.5'}
-        htmlFor={htmlFor}
-        id={id}
-      >
-        {label}
-      </Label>
-    )}
+}: InputGroupProps) {
+  return (
+    <div className={cn('flex flex-col', className)}>
+      {label && (
+        <Label
+          as={htmlFor ? 'label' : 'span'}
+          className={description ? 'mb-0.5' : 'mb-1.5'}
+          htmlFor={htmlFor}
+          id={id}
+        >
+          {label}
+        </Label>
+      )}
 
-    {description && (
-      <Text className="mb-1.5" size="sm">
-        {description}
-      </Text>
-    )}
+      {description && (
+        <Text className="mb-1.5" size="sm">
+          {description}
+        </Text>
+      )}
 
-    {children}
+      {children}
 
-    {message && (
-      <InputMessage className="mt-0.5" invalid={invalid}>
-        {message}
-      </InputMessage>
-    )}
-  </div>
-);
+      {message && (
+        <InputMessage className="mt-0.5" invalid={invalid}>
+          {message}
+        </InputMessage>
+      )}
+    </div>
+  );
+}

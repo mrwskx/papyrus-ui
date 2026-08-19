@@ -8,7 +8,7 @@ import {
   useRole,
 } from '@floating-ui/react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import type { FC, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { useTimeout } from '../../utils/use-timeout';
 
@@ -84,7 +84,7 @@ export interface DialogProps {
   children: ReactNode;
 }
 
-const DialogComponent: FC<DialogProps> = ({
+function DialogComponent({
   closeOnEscClick = true,
   closeOnOutsideClick = true,
   isOpen,
@@ -93,7 +93,7 @@ const DialogComponent: FC<DialogProps> = ({
   onClose,
   onAfterClose,
   children,
-}) => {
+}: DialogProps) {
   const { setTimeout, clearTimeout } = useTimeout();
   // Set initial isOpen state as false to have an animation on first isOpen
   const [isOpenState, setIsOpenState] = useState(false);
@@ -188,7 +188,7 @@ const DialogComponent: FC<DialogProps> = ({
       {children}
     </DialogContext.Provider>
   );
-};
+}
 
 export const Dialog = Object.assign(DialogComponent, {
   Content: DialogContent,

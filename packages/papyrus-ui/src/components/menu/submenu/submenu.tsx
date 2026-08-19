@@ -13,7 +13,6 @@ import {
   useState,
 } from 'react';
 import type {
-  FC,
   FocusEvent,
   HTMLAttributes,
   KeyboardEvent,
@@ -55,7 +54,7 @@ const TRANSITION_TIMEOUT = {
   exit: 200,
 };
 
-export const Submenu: FC<SubmenuProps> = ({
+export function Submenu({
   disabled,
   icon,
   index,
@@ -67,7 +66,7 @@ export const Submenu: FC<SubmenuProps> = ({
   onKeyDown,
   children,
   ...props
-}) => {
+}: SubmenuProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
   const [activeIndex, setActiveIndex] = useState<Maybe<number>>(null);
   const parent = useContext(MenuContext);
@@ -228,4 +227,4 @@ export const Submenu: FC<SubmenuProps> = ({
       )}
     </>
   );
-};
+}

@@ -12,9 +12,9 @@ const meta: Meta<IconButtonSkeletonProps> = {
   },
 };
 
-const Template: StoryFn<IconButtonSkeletonProps> = args => (
-  <IconButtonSkeleton {...args} />
-);
+const Template: StoryFn<IconButtonSkeletonProps> = function Template(args) {
+  return <IconButtonSkeleton {...args} />;
+};
 
 export const Basic = Template.bind({});
 

@@ -8,7 +8,9 @@ const meta: Meta = {
   component: Quote,
 };
 
-const Template: StoryFn<QuoteProps> = args => <Quote {...args} />;
+const Template: StoryFn<QuoteProps> = function Template(args) {
+  return <Quote {...args} />;
+};
 
 export const Basic = Template.bind({});
 Basic.args = {

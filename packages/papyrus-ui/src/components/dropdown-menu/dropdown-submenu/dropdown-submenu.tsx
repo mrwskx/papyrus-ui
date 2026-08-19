@@ -28,12 +28,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import type {
-  ButtonHTMLAttributes,
-  FC,
-  KeyboardEvent,
-  ReactElement,
-} from 'react';
+import type { ButtonHTMLAttributes, KeyboardEvent, ReactElement } from 'react';
 import { BiChevronRight } from 'react-icons/bi';
 
 import {
@@ -52,14 +47,14 @@ export interface DropdownSubmenuProps extends ButtonHTMLAttributes<HTMLAnchorEle
   label: string;
 }
 
-export const DropdownSubmenu: FC<DropdownSubmenuProps> = ({
+export function DropdownSubmenu({
   icon,
   initialOpen = false,
   label,
   onKeyDown,
   children,
   ...props
-}) => {
+}: DropdownSubmenuProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const elementsRef = useRef<Array<HTMLAnchorElement | null>>([]);
@@ -256,4 +251,4 @@ export const DropdownSubmenu: FC<DropdownSubmenuProps> = ({
       </DropdownMenuContext.Provider>
     </FloatingNode>
   );
-};
+}

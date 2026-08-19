@@ -15,7 +15,9 @@ export default {
   },
 };
 
-const Template: StoryFn<RadioProps> = args => <Radio {...args} />;
+const Template: StoryFn<RadioProps> = function Template(args) {
+  return <Radio {...args} />;
+};
 
 export const Basic = Template.bind({});
 

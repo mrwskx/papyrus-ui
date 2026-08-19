@@ -15,7 +15,9 @@ const meta: Meta<CheckboxProps> = {
   },
 };
 
-const Template: StoryFn<CheckboxProps> = args => <Checkbox {...args} />;
+const Template: StoryFn<CheckboxProps> = function Template(args) {
+  return <Checkbox {...args} />;
+};
 
 export const Basic = Template.bind({});
 

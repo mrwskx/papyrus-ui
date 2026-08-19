@@ -1,5 +1,5 @@
 import { cloneElement, isValidElement, useContext } from 'react';
-import type { FC, HTMLProps, ReactElement } from 'react';
+import type { HTMLProps, ReactElement } from 'react';
 
 import { DialogContext } from '../dialog.context';
 
@@ -7,7 +7,7 @@ export interface DialogTriggerProps {
   children: ReactElement;
 }
 
-export const DialogTrigger: FC<DialogTriggerProps> = ({ children }) => {
+export function DialogTrigger({ children }: DialogTriggerProps) {
   const { getReferenceProps, refs } = useContext(DialogContext);
 
   if (isValidElement<HTMLProps<HTMLButtonElement>>(children)) {
@@ -20,4 +20,4 @@ export const DialogTrigger: FC<DialogTriggerProps> = ({ children }) => {
   }
 
   return null;
-};
+}

@@ -577,7 +577,7 @@ export const Autocomplete = forwardRef(
           <span className="flex flex-1 -mt-1 -mx-0.5 flex-wrap">
             {multiple &&
               selectedOptions.map((item, idx) => (
-                <span key={idx} className="block mt-1 px-0.5">
+                <span key={getLabel(item)} className="block mt-1 px-0.5">
                   <Tag
                     data-index={idx}
                     disabled={disabled}
@@ -695,7 +695,7 @@ export const Autocomplete = forwardRef(
 
                     return (
                       <OptionComponent
-                        key={idx}
+                        key={getLabel(item)}
                         active={idx === activeIndex}
                         data-index={idx}
                         endIcon={

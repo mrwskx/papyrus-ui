@@ -55,7 +55,7 @@ export interface ImageInputProps<
 
 const DEFAULT_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif'];
 
-export const ImageInput = <
+export function ImageInput<
   Value extends unknown = unknown,
   IsMulti extends boolean = false,
 >({
@@ -89,7 +89,7 @@ export const ImageInput = <
   onFocus,
   onBlur,
   ...dzProps
-}: ImageInputProps<Value, IsMulti>) => {
+}: ImageInputProps<Value, IsMulti>) {
   const { error, filesState, getInputProps, getRootProps, handleRemove } =
     useDropzoneUpload<Value, IsMulti>({
       accept: {
@@ -145,6 +145,6 @@ export const ImageInput = <
       <input {...getInputProps()} />
     </InputGroup>
   );
-};
+}
 
 ImageInput.displayName = 'ImageInput';

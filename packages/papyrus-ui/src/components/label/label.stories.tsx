@@ -8,7 +8,9 @@ const meta: Meta = {
   component: Label,
 };
 
-const Template: StoryFn<LabelProps> = args => <Label {...args} />;
+const Template: StoryFn<LabelProps> = function Template(args) {
+  return <Label {...args} />;
+};
 
 export const Basic = Template.bind({});
 

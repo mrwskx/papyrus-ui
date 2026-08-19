@@ -23,11 +23,15 @@ const meta: Meta<typeof RadioGroup> = {
   },
 };
 
-const Template: StoryFn<typeof RadioGroup> = args => (
-  <div className={args.block ? 'w-96' : ''}>
-    <RadioGroup {...args} />
-  </div>
-);
+const Template: StoryFn<typeof RadioGroup> = function Template(args) {
+  const { block } = args;
+
+  return (
+    <div className={block ? 'w-96' : ''}>
+      <RadioGroup {...args} />
+    </div>
+  );
+};
 
 export const RowLayout = Template.bind({});
 
