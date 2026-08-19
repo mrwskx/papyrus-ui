@@ -66,7 +66,7 @@ describe('DropdownMenu', () => {
   describe('Given DropdownMenu component is rendered with valid DropdownMenu.Item children', () => {
     describe('When user clicks on a menu item', () => {
       it('Then the associated action should be triggered, the menu should be hidden, and the trigger should be focused', async () => {
-        const onClick = jest.fn();
+        const onClick = vi.fn();
 
         render(
           <DropdownMenu>
@@ -145,7 +145,7 @@ describe('DropdownMenu', () => {
 
     describe('When user presses Enter or Space key on the menu item', () => {
       it('Then the associated action should be triggered, the menu should be hidden and the trigger should be focused', async () => {
-        const mockAction = jest.fn();
+        const mockAction = vi.fn();
 
         // Render the DropdownMenu component with a mock menu item
         render(
@@ -252,7 +252,7 @@ describe('DropdownMenu', () => {
 
     describe('When the user clicks on a submenu item', () => {
       it('Then the associated action should be triggered, the menu should be hidden, and the trigger should be focused', async () => {
-        const mockAction = jest.fn();
+        const mockAction = vi.fn();
 
         render(
           <DropdownMenu>
@@ -641,7 +641,7 @@ describe('DropdownMenu', () => {
 
     describe('When the user interacts with submenu items using Space or Enter key', () => {
       it('Then the associated action should be triggered, the menu should be hidden, and the trigger should be focused', async () => {
-        const mockAction = jest.fn();
+        const mockAction = vi.fn();
 
         // Render the DropdownMenu component with menu items and submenus
         render(

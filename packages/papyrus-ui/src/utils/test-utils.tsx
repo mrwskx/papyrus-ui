@@ -13,7 +13,7 @@ import { userEvent } from '@testing-library/user-event';
 import { configureAxe } from 'jest-axe';
 import type { ReactElement } from 'react';
 
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom/vitest';
 import 'jest-axe/extend-expect';
 
 export type RenderFn<T = unknown> = (
@@ -34,10 +34,7 @@ export const axe = configureAxe({
 });
 
 // Mock window.HTMLElement.prototype.scrollIntoView to prevent test errors
-window.HTMLElement.prototype.scrollIntoView = jest.fn();
-
-// Increase the default timeout for tests to 30 seconds.
-jest.setTimeout(30000);
+window.HTMLElement.prototype.scrollIntoView = vi.fn();
 
 export {
   act,

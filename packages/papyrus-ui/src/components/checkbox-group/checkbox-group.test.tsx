@@ -61,7 +61,7 @@ describe('CheckboxGroup', () => {
 
     describe('When user clicks on checkbox', () => {
       it("Then the checkbox shouldn't change it's state and onChange shouldn't called", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         render(
           <CheckboxGroup
@@ -100,7 +100,7 @@ describe('CheckboxGroup', () => {
 
     describe('When user clicks on disabled checkbox', () => {
       it("Then the checkbox shouldn't change it's state and onChange shouldn't be called", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(
           <CheckboxGroup defaultValue={[]} name='group1' onChange={onChange}>
             <Checkbox disabled value='1'>
@@ -132,7 +132,7 @@ describe('CheckboxGroup', () => {
 
     describe('When user clicks on checkbox', () => {
       it("Then the checkbox shouldn't change it's state and onChange shouldn't be called", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(
           <CheckboxGroup
             defaultValue={[]}
@@ -172,7 +172,7 @@ describe('CheckboxGroup', () => {
 
     describe('When user clicks on disabled checkbox', () => {
       it("Then the checkbox shouldn't change it's state and onChange shouldn't be called", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(
           <CheckboxGroup defaultValue={[]} name='group1' onChange={onChange}>
             <Checkbox readOnly value='1'>
@@ -191,7 +191,7 @@ describe('CheckboxGroup', () => {
   describe('Given the CheckboxGroup component with `onChange` callback and default value', () => {
     describe('When a checkbox is clicked', () => {
       it('Then it should call the onChange function with the new value', () => {
-        const handleChange = jest.fn();
+        const handleChange = vi.fn();
         render(
           <CheckboxGroup
             defaultValue={[]}
@@ -209,7 +209,7 @@ describe('CheckboxGroup', () => {
 
     describe('When multiple checkboxes are clicked', () => {
       it('Then it should call the onChange function with the updated array of selected values', () => {
-        const handleChange = jest.fn();
+        const handleChange = vi.fn();
         render(
           <CheckboxGroup
             defaultValue={[]}
@@ -315,7 +315,7 @@ describe('CheckboxGroup', () => {
   describe('Given the CheckboxGroup component with a single checkbox and a boolean default value', () => {
     describe('When a checkbox is clicked', () => {
       it('Then the onChange callback should be triggered when the checkbox is clicked', () => {
-        const handleChange = jest.fn();
+        const handleChange = vi.fn();
 
         // Render the CheckboxGroup with a single checkbox
         render(

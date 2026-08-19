@@ -76,7 +76,7 @@ describe('NumericInput', () => {
   describe('Given the numeric-input component with an `onChange` handler', () => {
     describe('When a user types into the input field', () => {
       it('Then it should call the `onChange` handler with the new value', async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(<NumericInput onChange={onChange} />);
         await userEvent.type(screen.getByRole('textbox'), '1999');
         expect(onChange).toHaveBeenCalledWith(1999);

@@ -76,7 +76,7 @@ describe('Textarea', () => {
   describe('Given the textarea component with an `onChange` handler', () => {
     describe('When a user types into the input field', () => {
       it('Then it should call the `onChange` handler with the new value', async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(<Textarea defaultValue='' onChange={onChange} />);
         await userEvent.type(screen.getByRole('textbox'), 'Bob');
 

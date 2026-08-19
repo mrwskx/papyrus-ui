@@ -9,7 +9,7 @@ describe('IconButton', () => {
   describe('Given that the button component is rendered with an onClick callback', () => {
     describe('When the close button is clicked', () => {
       it('Then the onClick callback should be triggered', async () => {
-        const onClickMock = jest.fn();
+        const onClickMock = vi.fn();
 
         render(
           <IconButton onClick={onClickMock}>

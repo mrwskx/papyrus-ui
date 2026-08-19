@@ -62,7 +62,7 @@ describe('Range', () => {
   describe('Given the range component with an `onChange` handler', () => {
     describe('When a user types into the input field', () => {
       it('Then it should call the `onChange` handler with the new value', () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(<Range onChange={onChange} />);
 
         fireEvent.change(screen.getByRole('slider'), {

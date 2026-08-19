@@ -138,7 +138,7 @@ describe('TextInput', () => {
   describe('Given the text-input component with an `onChange` handler', () => {
     describe('When a user types into the input field', () => {
       it('Then it should call the `onChange` handler with the new value', async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(<TextInput onChange={onChange} />);
         await userEvent.type(screen.getByRole('textbox'), 'Bob');
         const lastCall = onChange.mock.calls[onChange.mock.calls.length - 1];
@@ -191,7 +191,7 @@ describe('TextInput', () => {
   describe('Given the text-input component with the `value`, `onChange`, and `clearable` set to true', () => {
     describe('When the input is focused and the user clicks the clear button', () => {
       it('Then the `onChange` handler should be called with an empty string', async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const { getByRole } = render(
           <TextInput clearable value='Bob' onChange={onChange} />,

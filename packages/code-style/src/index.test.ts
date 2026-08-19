@@ -1,22 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /**
- * @jest-environment node
+ * @vitest-environment node
  */
-import { jest } from '@jest/globals';
 
 // Mock the config loader functions before importing the main module
-const mockConfigLoaderBase = jest.fn(() => ({
+const mockConfigLoaderBase = vi.fn(() => ({
   default: [
     { name: 'papyrus-ui/base', rules: {} },
     { name: 'papyrus-ui/base-1', rules: {} },
   ],
 }));
 
-const mockConfigLoaderReact = jest.fn(() => ({
+const mockConfigLoaderReact = vi.fn(() => ({
   default: [{ name: 'papyrus-ui/react', rules: {} }],
 }));
 
-const mockConfigLoaderTypeScript = jest.fn(() => ({
+const mockConfigLoaderTypeScript = vi.fn(() => ({
   default: [
     {
       name: 'papyrus-ui/typescript',
@@ -36,24 +35,24 @@ const mockConfigLoaderTypeScript = jest.fn(() => ({
   ],
 }));
 
-const mockConfigLoaderJest = jest.fn(() => ({
+const mockConfigLoaderJest = vi.fn(() => ({
   default: [{ name: 'papyrus-ui/jest', rules: {} }],
 }));
 
-const mockConfigLoaderJestTypescript = jest.fn(() => ({
+const mockConfigLoaderJestTypescript = vi.fn(() => ({
   default: [{ name: 'papyrus-ui/jest-typescript', rules: {} }],
 }));
 
-const mockConfigLoaderStorybook = jest.fn(() => ({
+const mockConfigLoaderStorybook = vi.fn(() => ({
   default: [{ name: 'papyrus-ui/storybook', rules: {} }],
 }));
 
-const mockConfigLoaderNextJS = jest.fn(() => ({
+const mockConfigLoaderNextJS = vi.fn(() => ({
   default: [{ name: 'papyrus-ui/next', rules: {} }],
 }));
 
 // Mock the createRequire function and its return value
-const mockRequire = jest.fn((path: string) => {
+const mockRequire = vi.fn((path: string) => {
   switch (path) {
     case './configs/base':
       return mockConfigLoaderBase();
@@ -74,24 +73,24 @@ const mockRequire = jest.fn((path: string) => {
   }
 });
 
-jest.mock('module', () => ({
-  createRequire: jest.fn(() => mockRequire),
+vi.mock('module', () => ({
+  createRequire: vi.fn(() => mockRequire),
 }));
 
 // Mock fs functions
-const mockReadFileSync = jest.fn();
-const mockExistsSync = jest.fn();
+const mockReadFileSync = vi.fn();
+const mockExistsSync = vi.fn();
 
-jest.mock('fs', () => ({
+vi.mock('fs', () => ({
   readFileSync: mockReadFileSync,
   existsSync: mockExistsSync,
 }));
 
 // Mock path functions
-const mockResolve = jest.fn();
-const mockDirname = jest.fn();
+const mockResolve = vi.fn();
+const mockDirname = vi.fn();
 
-jest.mock('path', () => ({
+vi.mock('path', () => ({
   resolve: mockResolve,
   dirname: mockDirname,
 }));
@@ -106,10 +105,10 @@ beforeAll(async () => {
 
 describe('createConfig', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
 
     // Setup default mocks
-    jest.spyOn(process, 'cwd').mockReturnValue('/test/project');
+    vi.spyOn(process, 'cwd').mockReturnValue('/test/project');
     mockResolve.mockImplementation((...paths: any[]) => paths.join('/'));
     mockDirname.mockImplementation((path: any) => {
       const parts = path.split('/');
@@ -119,7 +118,7 @@ describe('createConfig', () => {
   });
 
   afterEach(() => {
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 
   describe('when no package.json is found', () => {
@@ -367,9 +366,7 @@ describe('createConfig', () => {
     });
 
     it('should handle package.json read errors gracefully', () => {
-      const consoleSpy = jest
-        .spyOn(console, 'warn')
-        .mockImplementation(() => {});
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
       const config = createConfig();
 

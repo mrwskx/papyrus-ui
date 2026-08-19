@@ -111,7 +111,7 @@ describe('Select', () => {
   describe('Given the select component with an `onChange` handler', () => {
     describe('When a user selects an option', () => {
       it('Then it should call the `onChange` handler', async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         render(
           <Select onChange={onChange}>
@@ -162,7 +162,7 @@ describe('Select', () => {
   describe('Given the select component with the `onChange` and `multiple` props', () => {
     describe('When a user selects an option', () => {
       it('Then it should call the `onChange` handler', async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(
           <Select multiple onChange={onChange}>
             <option value='1'>Option 1</option>

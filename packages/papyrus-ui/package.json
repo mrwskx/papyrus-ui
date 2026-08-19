@@ -35,8 +35,6 @@
   },
   "scripts": {
     "build": "vite build",
-    "test": "jest --config jest.config.js --passWithNoTests",
-    "test:watch": "npm test --watch",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "peerDependencies": {
@@ -48,14 +46,13 @@
     "@faker-js/faker": "^8.4.1",
     "@storybook/addon-docs": "^8.6.14",
     "@storybook/react": "^8.6.14",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/lodash": "^4.14.182",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "@types/react-transition-group": "^4.4.6",
-    "@types/testing-library__jest-dom": "^5.14.9",
     "@vitejs/plugin-react": "^4.2.1",
     "jest-axe": "^9.0.0",
     "react": "^18.2.0",

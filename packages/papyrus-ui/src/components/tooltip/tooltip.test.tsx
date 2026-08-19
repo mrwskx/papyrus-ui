@@ -114,7 +114,7 @@ describe('Tooltip', () => {
   describe('Given a tooltip component with open and onOpenChange props', () => {
     describe('When the tooltip is triggered and user clicks outside the tooltip content', () => {
       it('Then the onOpenChange callback should be called with the new open state', async () => {
-        const onOpenChange = jest.fn();
+        const onOpenChange = vi.fn();
 
         render(
           <>

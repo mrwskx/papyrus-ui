@@ -18,7 +18,7 @@ describe('Toast', () => {
 
   describe('Given that the toast component is rendered with an onDismiss callback', () => {
     const dismissLabel = 'Dismiss';
-    const onDismissMock = jest.fn();
+    const onDismissMock = vi.fn();
 
     describe('When the close button is clicked', () => {
       it('Then the onClose callback should be triggered', async () => {
@@ -38,16 +38,16 @@ describe('Toast', () => {
 
   describe('Given that the toast component is rendered with a specified autoHideDuration and onHide callback', () => {
     const autoCloseTimeout = 1000;
-    const onHideMock = jest.fn();
+    const onHideMock = vi.fn();
 
     describe('When the toast is displayed', () => {
       beforeEach(() => {
-        jest.useFakeTimers();
+        vi.useFakeTimers();
       });
 
       afterEach(() => {
-        jest.runOnlyPendingTimers();
-        jest.useRealTimers();
+        vi.runOnlyPendingTimers();
+        vi.useRealTimers();
       });
 
       it('Then the onHide callback should be triggered automatically after the specified duration', () => {
@@ -60,7 +60,7 @@ describe('Toast', () => {
         );
 
         expect(onHideMock).toHaveBeenCalledTimes(0);
-        jest.runAllTimers();
+        vi.runAllTimers();
         expect(onHideMock).toHaveBeenCalledTimes(1);
       });
     });
@@ -81,7 +81,7 @@ describe('Toast', () => {
 
   describe('Given that the toast component is rendered with `actionLabel` and `onActionClick`', () => {
     const actionLabel = 'Action';
-    const onActionMock = jest.fn();
+    const onActionMock = vi.fn();
 
     describe('When the toast is displayed', () => {
       it('Then the action should be visible and correctly rendered within the toast', async () => {

@@ -29,7 +29,7 @@ describe('Tag', () => {
 
     describe('When a user clicks on the tag', () => {
       it('Then the onClick handler should be called', () => {
-        const onClickMock = jest.fn();
+        const onClickMock = vi.fn();
         render(<Tag onClick={onClickMock}>Tag</Tag>);
         screen.getByRole('button').click();
         expect(onClickMock).toHaveBeenCalledTimes(1);
@@ -38,7 +38,7 @@ describe('Tag', () => {
 
     describe('When a user presses the Enter key on the tag', () => {
       it('Then the onClick handler should be called', async () => {
-        const onClickMock = jest.fn();
+        const onClickMock = vi.fn();
         render(<Tag onClick={onClickMock}>Tag</Tag>);
         screen.getByRole('button').focus();
         await userEvent.keyboard('{enter}');
@@ -48,7 +48,7 @@ describe('Tag', () => {
 
     describe('When a user presses the Space key on the tag', () => {
       it('Then the onClick handler should be called', async () => {
-        const onClickMock = jest.fn();
+        const onClickMock = vi.fn();
         render(<Tag onClick={onClickMock}>Tag</Tag>);
         screen.getByRole('button').focus();
         await userEvent.keyboard('{ }');
@@ -60,7 +60,7 @@ describe('Tag', () => {
   describe('Given a tag component with disabled prop set to true and an onClick handler', () => {
     describe('When a user clicks on the tag', () => {
       it('Then the onClick handler should not be called', () => {
-        const onClickMock = jest.fn();
+        const onClickMock = vi.fn();
         render(
           <Tag disabled onClick={onClickMock}>
             Tag
@@ -73,7 +73,7 @@ describe('Tag', () => {
 
     describe('When a user presses the Enter key on the tag', () => {
       it('Then the onClick handler should not be called', async () => {
-        const onClickMock = jest.fn();
+        const onClickMock = vi.fn();
         render(
           <Tag disabled onClick={onClickMock}>
             Tag
@@ -87,7 +87,7 @@ describe('Tag', () => {
 
     describe('When a user presses the Space key on the tag', () => {
       it('Then the onClick handler should not be called', async () => {
-        const onClickMock = jest.fn();
+        const onClickMock = vi.fn();
         render(
           <Tag disabled onClick={onClickMock}>
             Tag
@@ -137,7 +137,7 @@ describe('Tag', () => {
   describe('Given a tag component with onRemove handler', () => {
     describe("When a user clicks on the tag's clear-icon", () => {
       it('Then the onRemove handler should be called', () => {
-        const onRemoveMock = jest.fn();
+        const onRemoveMock = vi.fn();
 
         render(<Tag onRemove={onRemoveMock}>Tag</Tag>);
 
@@ -150,7 +150,7 @@ describe('Tag', () => {
 
     describe('When a user presses the Del key on the tag', () => {
       it('Then the onRemove handler should be called when tag is focusable', async () => {
-        const onRemoveMock = jest.fn();
+        const onRemoveMock = vi.fn();
 
         render(
           <Tag onClick={() => {}} onRemove={onRemoveMock}>
@@ -180,7 +180,7 @@ describe('Tag', () => {
 
     describe('When a user presses the Del key on the tag', () => {
       it('Then the onRemove handler should not be called', async () => {
-        const onRemoveMock = jest.fn();
+        const onRemoveMock = vi.fn();
 
         render(
           <Tag disabled onRemove={onRemoveMock}>

@@ -51,7 +51,7 @@ describe('Link', () => {
 
     describe('When the link is disabled and clicked', () => {
       it('Then the link should not trigger any action', async () => {
-        const onClick = jest.fn();
+        const onClick = vi.fn();
 
         render(
           <Link as='button' disabled onClick={onClick}>
@@ -83,7 +83,7 @@ describe('Link', () => {
   describe('Given a link component with a click event handler', () => {
     describe('When the link is clicked', () => {
       it('Then the click handler should be called', async () => {
-        const onClick = jest.fn();
+        const onClick = vi.fn();
         render(<Link onClick={onClick}>Clickable Link</Link>);
         await userEvent.click(screen.getByText('Clickable Link'));
 

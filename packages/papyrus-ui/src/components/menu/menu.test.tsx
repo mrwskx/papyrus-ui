@@ -14,7 +14,7 @@ describe('Menu', () => {
   describe('Given menu component is rendered with valid menu-item children', () => {
     describe('When user clicks on a menu item', () => {
       it('Then the associated action should be triggered', async () => {
-        const onClick = jest.fn();
+        const onClick = vi.fn();
 
         render(
           <Menu>
@@ -70,7 +70,7 @@ describe('Menu', () => {
 
     describe('When user presses Enter or Space key on the menu item', () => {
       it('Then the associated action should be triggered', async () => {
-        const mockAction = jest.fn();
+        const mockAction = vi.fn();
 
         // Render the menu component with a mock menu item
         render(
@@ -148,7 +148,7 @@ describe('Menu', () => {
     describe('When the user clicks on a submenu item', () => {
       it('Then the associated action should be triggered', async () => {
         // Mock function
-        const mockAction = jest.fn();
+        const mockAction = vi.fn();
 
         // Render the menu component with menu items and submenus
         render(
@@ -294,7 +294,7 @@ describe('Menu', () => {
 
     describe('When the user interacts with submenu items using Space or Enter key', () => {
       it('Then the associated action should be triggered', async () => {
-        const mockAction = jest.fn();
+        const mockAction = vi.fn();
 
         // Render the menu component with menu items and submenus
         render(

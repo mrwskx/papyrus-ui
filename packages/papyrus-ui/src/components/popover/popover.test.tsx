@@ -145,7 +145,7 @@ describe('Popover', () => {
   describe('Given a popover component with open and onOpenChange props', () => {
     describe('When the popover is opened and user click outside the popover content', () => {
       it('Then the onOpenChange callback should be called with the new open state', async () => {
-        const onOpenChange = jest.fn();
+        const onOpenChange = vi.fn();
 
         render(
           <>

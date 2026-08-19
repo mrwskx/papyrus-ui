@@ -93,7 +93,7 @@ describe('CodeBlock', () => {
   describe('Given CodeBlock with onCopy callback', () => {
     describe('When copy button is clicked', () => {
       it('Then should call onCopy callback', () => {
-        const onCopy = jest.fn();
+        const onCopy = vi.fn();
         const { container } = render(
           <CodeBlock onCopy={onCopy}>test code</CodeBlock>,
         );

@@ -15,7 +15,7 @@ describe('Alert', () => {
   describe('Given an alert with a close button', () => {
     describe('When the close button is clicked', () => {
       it('Then the onClose handler should be called', async () => {
-        const onClose = jest.fn();
+        const onClose = vi.fn();
         render(
           <Alert
             message='This is an info alert'
@@ -68,7 +68,7 @@ describe('Alert', () => {
             closeLabel='Dismiss'
             message='This is an info alert'
             variant='info'
-            onClose={jest.fn}
+            onClose={vi.fn}
           >
             Additional info
           </Alert>,

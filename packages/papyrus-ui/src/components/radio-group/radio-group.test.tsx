@@ -61,7 +61,7 @@ describe('RadioGroup', () => {
 
     describe('When user clicks on checkbox', () => {
       it("Then the checkbox shouldn't change it's state and onChange shouldn't called", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         render(
           <RadioGroup disabled name='group1' onChange={onChange}>
@@ -95,7 +95,7 @@ describe('RadioGroup', () => {
 
     describe('When user clicks on disabled checkbox', () => {
       it("Then the checkbox shouldn't change it's state and onChange shouldn't be called", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(
           <RadioGroup name='group1' onChange={onChange}>
             <Radio disabled value='1'>
@@ -127,7 +127,7 @@ describe('RadioGroup', () => {
 
     describe('When user clicks on checkbox', () => {
       it("Then the checkbox shouldn't change it's state and onChange shouldn't be called", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(
           <RadioGroup name='group1' readOnly onChange={onChange}>
             <Radio value='1'>Label 1</Radio>
@@ -162,7 +162,7 @@ describe('RadioGroup', () => {
 
     describe('When user clicks on disabled checkbox', () => {
       it("Then the checkbox shouldn't change it's state and onChange shouldn't be called", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(
           <RadioGroup name='group1' onChange={onChange}>
             <Radio readOnly value='1'>
@@ -181,7 +181,7 @@ describe('RadioGroup', () => {
   describe('Given the RadioGroup component with `onChange` callback and default value', () => {
     describe('When a checkbox is clicked', () => {
       it('Then it should call the onChange function with the new value', () => {
-        const handleChange = jest.fn();
+        const handleChange = vi.fn();
         render(
           <RadioGroup name='group1' onChange={handleChange}>
             <Radio value='1'>Label 1</Radio>
@@ -195,7 +195,7 @@ describe('RadioGroup', () => {
 
     describe('When multiple checkboxes are clicked', () => {
       it('Then it should call the onChange function with the latest selected value', () => {
-        const handleChange = jest.fn();
+        const handleChange = vi.fn();
         render(
           <RadioGroup name='group1' onChange={handleChange}>
             <Radio value='1'>Label 1</Radio>

@@ -83,7 +83,7 @@ describe('TimeInput', () => {
   describe('Given the TimeInput component with `onChange` handler', () => {
     describe('When a user types a value into the input field', () => {
       it('Then it should call the `onChange` handler with the new value', async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(<TimeInput onChange={onChange} />);
         await userEvent.type(screen.getByRole('textbox'), '12:45');
 
