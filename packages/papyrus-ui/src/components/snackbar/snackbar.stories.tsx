@@ -68,7 +68,7 @@ const Template: StoryFn<SnackbarProps> = args => {
 
   return (
     <div
-      className='flex flex-col items-center justify-center h-96'
+      className="flex flex-col items-center justify-center h-96"
       style={{ width: '60vw' }}
     >
       <Button onClick={onPush}>Push Message</Button>
@@ -98,7 +98,7 @@ Placement.args = {
 
 export const Variants: StoryFn<SnackbarProps> = args => (
   <div
-    className='flex flex-col items-center justify-center h-96'
+    className="flex flex-col items-center justify-center h-96"
     style={{ width: '60vw' }}
   >
     <Snackbar {...args}>
@@ -120,12 +120,12 @@ export const Variants: StoryFn<SnackbarProps> = args => (
 
 export const WithAction: StoryFn<SnackbarProps> = args => (
   <div
-    className='flex flex-col items-center justify-center h-96'
+    className="flex flex-col items-center justify-center h-96"
     style={{ width: '60vw' }}
   >
     <Snackbar {...args}>
       <Snackbar.Item
-        actionLabel='View More'
+        actionLabel="View More"
         message={capitalize(faker.lorem.words({ min: 1, max: 3 }))}
         onActionClick={() => {
           // Do nothing
@@ -142,13 +142,13 @@ export const WithAction: StoryFn<SnackbarProps> = args => (
 
 export const WithCustomIcon: StoryFn<SnackbarProps> = args => (
   <div
-    className='flex flex-col items-center justify-center h-96'
+    className="flex flex-col items-center justify-center h-96"
     style={{ width: '60vw' }}
   >
     <Snackbar {...args}>
       <Snackbar.Item
         icon={
-          <Icon className='text-3xl text-white'>
+          <Icon className="text-3xl text-white">
             <BiBell />
           </Icon>
         }
@@ -165,14 +165,14 @@ export const WithCustomIcon: StoryFn<SnackbarProps> = args => (
 
 export const WithAvatar: StoryFn<SnackbarProps> = args => (
   <div
-    className='flex flex-col items-center justify-center h-96'
+    className="flex flex-col items-center justify-center h-96"
     style={{ width: '60vw' }}
   >
     <Snackbar {...args}>
       <Snackbar.Item
         icon={
-          <Avatar size='md'>
-            <img alt='Profile' src='https://i.pravatar.cc/300' />
+          <Avatar size="md">
+            <img alt="Profile" src="https://i.pravatar.cc/300" />
           </Avatar>
         }
         message={capitalize(faker.lorem.words({ min: 1, max: 3 }))}

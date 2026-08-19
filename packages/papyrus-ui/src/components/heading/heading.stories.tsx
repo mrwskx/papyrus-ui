@@ -22,20 +22,20 @@ Basic.args = {
 };
 
 export const VariantsAndSizes: StoryFn<HeadingProps> = args => (
-  <div className='flex flex-wrap mt-8 -mx-6'>
+  <div className="flex flex-wrap mt-8 -mx-6">
     {variants.map(variant => (
-      <div key={variant} className='w-full lg:w-1/2 px-6'>
-        <Heading as='h4' className='text-neutral-500 mb-3' level={6}>
+      <div key={variant} className="w-full lg:w-1/2 px-6">
+        <Heading as="h4" className="text-neutral-500 mb-3" level={6}>
           {capitalize(variant)}
         </Heading>
 
-        <div className='flex flex-col -mt-4'>
+        <div className="flex flex-col -mt-4">
           {levels.map(level => (
-            <div key={level} className='mt-4'>
+            <div key={level} className="mt-4">
               <Heading
                 {...args}
-                as='div'
-                className='whitespace-nowrap'
+                as="div"
+                className="whitespace-nowrap"
                 fontVariant={variant}
                 level={level}
               >

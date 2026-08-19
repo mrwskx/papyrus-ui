@@ -224,7 +224,7 @@ describe('DropdownMenu', () => {
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item>Facebook</DropdownMenu.Item>
                 <DropdownMenu.Item>Twitter</DropdownMenu.Item>
                 <DropdownMenu.Item>LinkedIn</DropdownMenu.Item>
@@ -261,7 +261,7 @@ describe('DropdownMenu', () => {
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item onClick={mockAction}>
                   Facebook
                 </DropdownMenu.Item>
@@ -305,7 +305,7 @@ describe('DropdownMenu', () => {
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item>Facebook</DropdownMenu.Item>
                 <DropdownMenu.Item>Twitter</DropdownMenu.Item>
                 <DropdownMenu.Item>LinkedIn</DropdownMenu.Item>
@@ -356,7 +356,7 @@ describe('DropdownMenu', () => {
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item>Facebook</DropdownMenu.Item>
                 <DropdownMenu.Item>Twitter</DropdownMenu.Item>
                 <DropdownMenu.Item>LinkedIn</DropdownMenu.Item>
@@ -407,7 +407,7 @@ describe('DropdownMenu', () => {
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item>Facebook</DropdownMenu.Item>
                 <DropdownMenu.Item>Twitter</DropdownMenu.Item>
                 <DropdownMenu.Item>LinkedIn</DropdownMenu.Item>
@@ -458,7 +458,7 @@ describe('DropdownMenu', () => {
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item>Facebook</DropdownMenu.Item>
                 <DropdownMenu.Item>Twitter</DropdownMenu.Item>
                 <DropdownMenu.Item>LinkedIn</DropdownMenu.Item>
@@ -533,7 +533,7 @@ describe('DropdownMenu', () => {
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item>Facebook</DropdownMenu.Item>
                 <DropdownMenu.Item>Twitter</DropdownMenu.Item>
                 <DropdownMenu.Item>LinkedIn</DropdownMenu.Item>
@@ -588,7 +588,7 @@ describe('DropdownMenu', () => {
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item>Facebook</DropdownMenu.Item>
                 <DropdownMenu.Item>Twitter</DropdownMenu.Item>
                 <DropdownMenu.Item>LinkedIn</DropdownMenu.Item>
@@ -651,7 +651,7 @@ describe('DropdownMenu', () => {
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item onClick={mockAction}>
                   Facebook
                 </DropdownMenu.Item>

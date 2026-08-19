@@ -17,7 +17,7 @@ describe('Textarea', () => {
   describe('Given the textarea component with a placeholder', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the placeholder', () => {
-        render(<Textarea placeholder='First Name' />);
+        render(<Textarea placeholder="First Name" />);
         expect(screen.getByRole('textbox')).toHaveAttribute(
           'placeholder',
           'First Name',
@@ -47,7 +47,7 @@ describe('Textarea', () => {
   describe('Given the textarea component with `defaultValue`', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the default value', () => {
-        render(<Textarea defaultValue='Bob' />);
+        render(<Textarea defaultValue="Bob" />);
         expect(screen.getByRole('textbox')).toHaveValue('Bob');
       });
     });
@@ -56,7 +56,7 @@ describe('Textarea', () => {
   describe('Given the textarea component with a valid `startIcon` component', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the startIcon', () => {
-        render(<Textarea startIcon={<div data-testid='start-icon' />} />);
+        render(<Textarea startIcon={<div data-testid="start-icon" />} />);
 
         expect(screen.getByTestId('start-icon')).toBeInTheDocument();
       });
@@ -66,7 +66,7 @@ describe('Textarea', () => {
   describe('Given the textarea component with a valid `endIcon` component', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the endIcon', () => {
-        render(<Textarea endIcon={<div data-testid='end-icon' />} />);
+        render(<Textarea endIcon={<div data-testid="end-icon" />} />);
 
         expect(screen.getByTestId('end-icon')).toBeInTheDocument();
       });
@@ -77,7 +77,7 @@ describe('Textarea', () => {
     describe('When a user types into the input field', () => {
       it('Then it should call the `onChange` handler with the new value', async () => {
         const onChange = vi.fn();
-        render(<Textarea defaultValue='' onChange={onChange} />);
+        render(<Textarea defaultValue="" onChange={onChange} />);
         await userEvent.type(screen.getByRole('textbox'), 'Bob');
 
         expect(onChange).toHaveBeenCalled();
@@ -91,16 +91,16 @@ describe('Textarea', () => {
   describe('Given the textarea component with the `value` prop', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the value', () => {
-        render(<Textarea readOnly value='Bob' />);
+        render(<Textarea readOnly value="Bob" />);
         expect(screen.getByRole('textbox')).toHaveValue('Bob');
       });
     });
 
     describe('When the `value` prop changes', () => {
       it('Then it should render with the new value', () => {
-        const { rerender } = render(<Textarea readOnly value='Bob' />);
+        const { rerender } = render(<Textarea readOnly value="Bob" />);
         expect(screen.getByRole('textbox')).toHaveValue('Bob');
-        rerender(<Textarea readOnly value='Alice' />);
+        rerender(<Textarea readOnly value="Alice" />);
         expect(screen.getByRole('textbox')).toHaveValue('Alice');
       });
     });

@@ -90,24 +90,24 @@ export const CodeBlock = forwardRef<HTMLPreElement, CodeBlockProps>(
           {...props}
         >
           {hasContent && showLineNumbers ? (
-            <div className='flex max-w-full'>
-              <div className='select-none text-neutral-500 pr-4 border-r border-neutral-200 mr-4 text-right min-w-[2.5rem]'>
+            <div className="flex max-w-full">
+              <div className="select-none text-neutral-500 pr-4 border-r border-neutral-200 mr-4 text-right min-w-[2.5rem]">
                 {lines.map((_, index) => (
                   <div key={index + 1}>{index + 1}</div>
                 ))}
               </div>
-              <code className='flex-1 block'>{children}</code>
+              <code className="flex-1 block">{children}</code>
             </div>
           ) : (
-            <code className='block max-w-full'>{children}</code>
+            <code className="block max-w-full">{children}</code>
           )}
         </pre>
 
         {children && (
-          <div className='absolute flex items-center justify-center top-0 end-0 p-2'>
+          <div className="absolute flex items-center justify-center top-0 end-0 p-2">
             <Icon
-              className='text-sm text-neutral-500 hover:text-neutral-950 cursor-pointer transition-colors duration-200'
-              role='button'
+              className="text-sm text-neutral-500 hover:text-neutral-950 cursor-pointer transition-colors duration-200"
+              role="button"
               tabIndex={0}
               title={copyLabel}
               onClick={() => {

@@ -25,7 +25,7 @@ describe('Toast', () => {
         render(
           <SnackbarItem
             dismissLabel={dismissLabel}
-            message='Message'
+            message="Message"
             onDismiss={onDismissMock}
           />,
         );
@@ -54,7 +54,7 @@ describe('Toast', () => {
         render(
           <SnackbarItem
             autoHideDuration={autoCloseTimeout}
-            message='Message'
+            message="Message"
             onHide={onHideMock}
           />,
         );
@@ -71,7 +71,7 @@ describe('Toast', () => {
 
     describe('When the toast is displayed', () => {
       it('Then the title should be visible and correctly rendered within the toast', () => {
-        render(<SnackbarItem message='Message'>{content}</SnackbarItem>);
+        render(<SnackbarItem message="Message">{content}</SnackbarItem>);
         const toastElement = screen.getByRole('alert');
         const titleElement = screen.getByText(content);
         expect(toastElement).toContainElement(titleElement);
@@ -88,7 +88,7 @@ describe('Toast', () => {
         render(
           <SnackbarItem
             actionLabel={actionLabel}
-            message='Message'
+            message="Message"
             onActionClick={onActionMock}
           />,
         );

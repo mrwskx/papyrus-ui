@@ -37,8 +37,8 @@ export const DialogClose: FC<DialogCloseProps> = ({
     <IconButton
       {...props}
       rounded
-      size='sm'
-      variant='plain'
+      size="sm"
+      variant="plain"
       onClick={handleClick}
     >
       <BiX />

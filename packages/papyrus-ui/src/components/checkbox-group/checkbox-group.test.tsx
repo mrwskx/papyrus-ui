@@ -8,9 +8,9 @@ describe('CheckboxGroup', () => {
     describe('When it is rendered', () => {
       it('Then it should render the checkbox items', () => {
         render(
-          <CheckboxGroup name='group1'>
-            <Checkbox value='1'>Label 1</Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
+          <CheckboxGroup name="group1">
+            <Checkbox value="1">Label 1</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
           </CheckboxGroup>,
         );
         expect(screen.getByLabelText('Label 1')).toBeInTheDocument();
@@ -19,9 +19,9 @@ describe('CheckboxGroup', () => {
 
       it('Then it should not check any checkbox by default when value is false', () => {
         render(
-          <CheckboxGroup name='group1'>
-            <Checkbox value='1'>Label 1</Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
+          <CheckboxGroup name="group1">
+            <Checkbox value="1">Label 1</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
           </CheckboxGroup>,
         );
         expect(screen.getByLabelText('Label 1')).not.toBeChecked();
@@ -34,9 +34,9 @@ describe('CheckboxGroup', () => {
     describe('When it is rendered', () => {
       it('Then it should render with selected checkboxes based on the defaultValue array', () => {
         render(
-          <CheckboxGroup defaultValue={['1']} name='group1'>
-            <Checkbox value='1'>Label 1</Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
+          <CheckboxGroup defaultValue={['1']} name="group1">
+            <Checkbox value="1">Label 1</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
           </CheckboxGroup>,
         );
         expect(screen.getByLabelText('Label 1')).toBeChecked();
@@ -49,9 +49,9 @@ describe('CheckboxGroup', () => {
     describe('When it is rendered', () => {
       it('Then all checkboxes should be disabled', () => {
         render(
-          <CheckboxGroup defaultValue={[]} disabled name='group1'>
-            <Checkbox value='1'>Label 1</Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
+          <CheckboxGroup defaultValue={[]} disabled name="group1">
+            <Checkbox value="1">Label 1</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
           </CheckboxGroup>,
         );
         expect(screen.getByLabelText('Label 1')).toBeDisabled();
@@ -67,11 +67,11 @@ describe('CheckboxGroup', () => {
           <CheckboxGroup
             defaultValue={[]}
             disabled
-            name='group1'
+            name="group1"
             onChange={onChange}
           >
-            <Checkbox value='1'>Label 1</Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
+            <Checkbox value="1">Label 1</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
           </CheckboxGroup>,
         );
 
@@ -86,11 +86,11 @@ describe('CheckboxGroup', () => {
     describe('When it is rendered', () => {
       it('Then only this checkbox should be disabled', () => {
         render(
-          <CheckboxGroup defaultValue={[]} name='group1'>
-            <Checkbox disabled value='1'>
+          <CheckboxGroup defaultValue={[]} name="group1">
+            <Checkbox disabled value="1">
               Label 1
             </Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
           </CheckboxGroup>,
         );
         expect(screen.getByLabelText('Label 1')).toBeDisabled();
@@ -102,11 +102,11 @@ describe('CheckboxGroup', () => {
       it("Then the checkbox shouldn't change it's state and onChange shouldn't be called", () => {
         const onChange = vi.fn();
         render(
-          <CheckboxGroup defaultValue={[]} name='group1' onChange={onChange}>
-            <Checkbox disabled value='1'>
+          <CheckboxGroup defaultValue={[]} name="group1" onChange={onChange}>
+            <Checkbox disabled value="1">
               Label 1
             </Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
           </CheckboxGroup>,
         );
         fireEvent.click(screen.getByLabelText('Label 1'));
@@ -120,9 +120,9 @@ describe('CheckboxGroup', () => {
     describe('When it is rendered', () => {
       it('Then all checkboxes should be read-only', () => {
         render(
-          <CheckboxGroup defaultValue={[]} name='group1' readOnly>
-            <Checkbox value='1'>Label 1</Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
+          <CheckboxGroup defaultValue={[]} name="group1" readOnly>
+            <Checkbox value="1">Label 1</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
           </CheckboxGroup>,
         );
         expect(screen.getByLabelText('Label 1')).toHaveAttribute('readonly');
@@ -136,12 +136,12 @@ describe('CheckboxGroup', () => {
         render(
           <CheckboxGroup
             defaultValue={[]}
-            name='group1'
+            name="group1"
             readOnly
             onChange={onChange}
           >
-            <Checkbox value='1'>Label 1</Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
+            <Checkbox value="1">Label 1</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
           </CheckboxGroup>,
         );
 
@@ -156,11 +156,11 @@ describe('CheckboxGroup', () => {
     describe('When it is rendered', () => {
       it('Then only this checkbox should be readonly', () => {
         render(
-          <CheckboxGroup defaultValue={[]} name='group1'>
-            <Checkbox readOnly value='1'>
+          <CheckboxGroup defaultValue={[]} name="group1">
+            <Checkbox readOnly value="1">
               Label 1
             </Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
           </CheckboxGroup>,
         );
         expect(screen.getByLabelText('Label 1')).toHaveAttribute('readonly');
@@ -174,11 +174,11 @@ describe('CheckboxGroup', () => {
       it("Then the checkbox shouldn't change it's state and onChange shouldn't be called", () => {
         const onChange = vi.fn();
         render(
-          <CheckboxGroup defaultValue={[]} name='group1' onChange={onChange}>
-            <Checkbox readOnly value='1'>
+          <CheckboxGroup defaultValue={[]} name="group1" onChange={onChange}>
+            <Checkbox readOnly value="1">
               Label 1
             </Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
           </CheckboxGroup>,
         );
         fireEvent.click(screen.getByLabelText('Label 1'));
@@ -195,11 +195,11 @@ describe('CheckboxGroup', () => {
         render(
           <CheckboxGroup
             defaultValue={[]}
-            name='group1'
+            name="group1"
             onChange={handleChange}
           >
-            <Checkbox value='1'>Label 1</Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
+            <Checkbox value="1">Label 1</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
           </CheckboxGroup>,
         );
         fireEvent.click(screen.getByLabelText('Label 1'));
@@ -213,12 +213,12 @@ describe('CheckboxGroup', () => {
         render(
           <CheckboxGroup
             defaultValue={[]}
-            name='group1'
+            name="group1"
             value={[]}
             onChange={handleChange}
           >
-            <Checkbox value='1'>Label 1</Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
+            <Checkbox value="1">Label 1</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
           </CheckboxGroup>,
         );
         fireEvent.click(screen.getByLabelText('Label 1'));
@@ -232,10 +232,10 @@ describe('CheckboxGroup', () => {
     describe('When the value prop is set to an empty array', () => {
       it('Then no checkboxes should be checked initially', () => {
         render(
-          <CheckboxGroup defaultValue={[]} name='group1' value={[]}>
-            <Checkbox value='1'>Label 1</Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
-            <Checkbox value='3'>Label 3</Checkbox>
+          <CheckboxGroup defaultValue={[]} name="group1" value={[]}>
+            <Checkbox value="1">Label 1</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
+            <Checkbox value="3">Label 3</Checkbox>
           </CheckboxGroup>,
         );
 
@@ -248,10 +248,10 @@ describe('CheckboxGroup', () => {
     describe('When the value prop is updated to an array of selected checkboxes', () => {
       it('Then the correct checkboxes should be checked', () => {
         const { rerender } = render(
-          <CheckboxGroup defaultValue={[]} name='group1' value={['1']}>
-            <Checkbox value='1'>Label 1</Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
-            <Checkbox value='3'>Label 3</Checkbox>
+          <CheckboxGroup defaultValue={[]} name="group1" value={['1']}>
+            <Checkbox value="1">Label 1</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
+            <Checkbox value="3">Label 3</Checkbox>
           </CheckboxGroup>,
         );
 
@@ -265,10 +265,10 @@ describe('CheckboxGroup', () => {
 
         // Update the value prop to select checkboxes 1 and 3
         rerender(
-          <CheckboxGroup defaultValue={[]} name='group1' value={['1', '3']}>
-            <Checkbox value='1'>Label 1</Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
-            <Checkbox value='3'>Label 3</Checkbox>
+          <CheckboxGroup defaultValue={[]} name="group1" value={['1', '3']}>
+            <Checkbox value="1">Label 1</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
+            <Checkbox value="3">Label 3</Checkbox>
           </CheckboxGroup>,
         );
 
@@ -281,10 +281,10 @@ describe('CheckboxGroup', () => {
     describe('When the value prop is updated to a different array of selected checkboxes', () => {
       it('Then the checkboxes should reflect the updated selected values', () => {
         const { rerender } = render(
-          <CheckboxGroup defaultValue={[]} name='group1' value={['1', '2']}>
-            <Checkbox value='1'>Label 1</Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
-            <Checkbox value='3'>Label 3</Checkbox>
+          <CheckboxGroup defaultValue={[]} name="group1" value={['1', '2']}>
+            <Checkbox value="1">Label 1</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
+            <Checkbox value="3">Label 3</Checkbox>
           </CheckboxGroup>,
         );
 
@@ -298,10 +298,10 @@ describe('CheckboxGroup', () => {
 
         // Update the value prop to select only checkbox 3
         rerender(
-          <CheckboxGroup defaultValue={[]} name='group1' value={['3']}>
-            <Checkbox value='1'>Label 1</Checkbox>
-            <Checkbox value='2'>Label 2</Checkbox>
-            <Checkbox value='3'>Label 3</Checkbox>
+          <CheckboxGroup defaultValue={[]} name="group1" value={['3']}>
+            <Checkbox value="1">Label 1</Checkbox>
+            <Checkbox value="2">Label 2</Checkbox>
+            <Checkbox value="3">Label 3</Checkbox>
           </CheckboxGroup>,
         );
 
@@ -321,10 +321,10 @@ describe('CheckboxGroup', () => {
         render(
           <CheckboxGroup
             defaultValue={false} // Boolean default value
-            name='group1'
+            name="group1"
             onChange={handleChange}
           >
-            <Checkbox value='1'>Label 1</Checkbox>
+            <Checkbox value="1">Label 1</Checkbox>
           </CheckboxGroup>,
         );
 
@@ -341,8 +341,8 @@ describe('CheckboxGroup', () => {
     describe('When the value prop is set to false', () => {
       it('Then the checkbox should be unchecked initially', () => {
         render(
-          <CheckboxGroup defaultValue={false} name='group1' value={false}>
-            <Checkbox value='1'>Label 1</Checkbox>
+          <CheckboxGroup defaultValue={false} name="group1" value={false}>
+            <Checkbox value="1">Label 1</Checkbox>
           </CheckboxGroup>,
         );
         expect(screen.getByLabelText('Label 1')).not.toBeChecked();
@@ -352,8 +352,8 @@ describe('CheckboxGroup', () => {
     describe('When the value prop is changed to true', () => {
       it('Then the checkbox should be checked', () => {
         const { rerender } = render(
-          <CheckboxGroup defaultValue={false} name='group1' value={false}>
-            <Checkbox value='1'>Label 1</Checkbox>
+          <CheckboxGroup defaultValue={false} name="group1" value={false}>
+            <Checkbox value="1">Label 1</Checkbox>
           </CheckboxGroup>,
         );
 
@@ -362,8 +362,8 @@ describe('CheckboxGroup', () => {
 
         // Change the value prop to true
         rerender(
-          <CheckboxGroup defaultValue={false} name='group1' value>
-            <Checkbox value='1'>Label 1</Checkbox>
+          <CheckboxGroup defaultValue={false} name="group1" value>
+            <Checkbox value="1">Label 1</Checkbox>
           </CheckboxGroup>,
         );
 
@@ -374,8 +374,8 @@ describe('CheckboxGroup', () => {
     describe('When the value prop is changed to false again', () => {
       it('Then the checkbox should be unchecked', () => {
         const { rerender } = render(
-          <CheckboxGroup defaultValue={false} name='group1' value={false}>
-            <Checkbox value='1'>Label 1</Checkbox>
+          <CheckboxGroup defaultValue={false} name="group1" value={false}>
+            <Checkbox value="1">Label 1</Checkbox>
           </CheckboxGroup>,
         );
 
@@ -384,16 +384,16 @@ describe('CheckboxGroup', () => {
 
         // Change the value prop to true
         rerender(
-          <CheckboxGroup defaultValue={false} name='group1' value>
-            <Checkbox value='1'>Label 1</Checkbox>
+          <CheckboxGroup defaultValue={false} name="group1" value>
+            <Checkbox value="1">Label 1</Checkbox>
           </CheckboxGroup>,
         );
         expect(checkbox).toBeChecked();
 
         // Change the value prop back to false
         rerender(
-          <CheckboxGroup defaultValue={false} name='group1' value={false}>
-            <Checkbox value='1'>Label 1</Checkbox>
+          <CheckboxGroup defaultValue={false} name="group1" value={false}>
+            <Checkbox value="1">Label 1</Checkbox>
           </CheckboxGroup>,
         );
         expect(checkbox).not.toBeChecked();

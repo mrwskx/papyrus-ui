@@ -75,7 +75,7 @@ export const InputGroup: FC<InputGroupProps> = ({
     )}
 
     {description && (
-      <Text className='mb-1.5' size='sm'>
+      <Text className="mb-1.5" size="sm">
         {description}
       </Text>
     )}
@@ -83,7 +83,7 @@ export const InputGroup: FC<InputGroupProps> = ({
     {children}
 
     {message && (
-      <InputMessage className='mt-0.5' invalid={invalid}>
+      <InputMessage className="mt-0.5" invalid={invalid}>
         {message}
       </InputMessage>
     )}

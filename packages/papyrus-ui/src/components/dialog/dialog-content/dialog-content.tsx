@@ -62,7 +62,7 @@ export const DialogContent: FC<DialogContentProps> = ({
               status === 'entered' && 'opacity-100',
               className,
             )}
-            data-testid='overlay'
+            data-testid="overlay"
             lockScroll
           >
             <FloatingFocusManager context={context}>

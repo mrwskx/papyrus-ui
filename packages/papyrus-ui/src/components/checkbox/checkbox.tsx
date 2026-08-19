@@ -30,15 +30,15 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         <input
           {...props}
           ref={ref}
-          className='checkbox-input'
+          className="checkbox-input"
           disabled={disabled}
           readOnly={readOnly}
-          type='checkbox'
+          type="checkbox"
           onChange={e => onChange?.(e.target.checked, e)}
         />
       </span>
       {children && (
-        <Text as='span' className='flex-1'>
+        <Text as="span" className="flex-1">
           {children}
         </Text>
       )}

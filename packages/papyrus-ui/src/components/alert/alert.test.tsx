@@ -6,7 +6,7 @@ describe('Alert', () => {
   describe('Given an alert with default props', () => {
     describe('When the component is rendered', () => {
       it('Then it should display the correct message', () => {
-        render(<Alert message='This is a primary alert' variant='primary' />);
+        render(<Alert message="This is a primary alert" variant="primary" />);
         expect(screen.getByText('This is a primary alert')).toBeInTheDocument();
       });
     });
@@ -18,8 +18,8 @@ describe('Alert', () => {
         const onClose = vi.fn();
         render(
           <Alert
-            message='This is an info alert'
-            variant='info'
+            message="This is an info alert"
+            variant="info"
             onClose={onClose}
           >
             Additional info
@@ -40,7 +40,7 @@ describe('Alert', () => {
   describe('Given an alert without a close button', () => {
     describe('When the component is rendered', () => {
       it('Then the close button should not be in the document', () => {
-        render(<Alert message='This is a warning alert' variant='warning' />);
+        render(<Alert message="This is a warning alert" variant="warning" />);
         expect(screen.queryByRole('button')).not.toBeInTheDocument();
       });
     });
@@ -50,7 +50,7 @@ describe('Alert', () => {
     describe('When the component is rendered', () => {
       it('Then the message and children content should be displayed', () => {
         render(
-          <Alert message='This is a primary alert' variant='primary'>
+          <Alert message="This is a primary alert" variant="primary">
             This is extra content
           </Alert>,
         );
@@ -65,9 +65,9 @@ describe('Alert', () => {
       it('Then the close button should have the custom aria-label', () => {
         render(
           <Alert
-            closeLabel='Dismiss'
-            message='This is an info alert'
-            variant='info'
+            closeLabel="Dismiss"
+            message="This is an info alert"
+            variant="info"
             onClose={vi.fn}
           >
             Additional info

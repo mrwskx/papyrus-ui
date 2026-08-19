@@ -14,13 +14,13 @@ export const CaptionSkeleton: FC<CaptionSkeletonProps> = ({
   ...props
 }) => (
   <Caption
-    as='div'
+    as="div"
     className={cn('relative flex flex-col justify-center', className)}
     {...props}
   >
-    <span aria-hidden='true' className='invisible'>
+    <span aria-hidden="true" className="invisible">
       Aa
     </span>
-    <Skeleton className='absolute h-[1em] w-full rounded' />
+    <Skeleton className="absolute h-[1em] w-full rounded" />
   </Caption>
 );

@@ -8,7 +8,7 @@ import CheckboxGroup, {
   RowLayout,
   BlockLayout,
   ColumnLayout,
-  Description
+  Description,
 } from './checkbox-group.stories';
 
 <Meta of={CheckboxGroup} />
@@ -23,13 +23,11 @@ Use the `CheckboxGroup` component when you have multiple checkboxes that belong 
 
 ## Examples
 
-
 ### Single Checkbox
 
 The `CheckboxGroup` component with a single checkbox, where the value is a boolean (`true` or `false`). This is useful for cases like agreeing to terms and conditions.
 
 <Canvas of={SingleCheckbox} />
-
 
 ### Row Layout
 
@@ -37,13 +35,11 @@ Displays checkboxes horizontally in a row layout. This layout is often used when
 
 <Canvas of={RowLayout} />
 
-
 ### Block Layout
 
 Ensures that the checkboxes take up equal space when displayed in a row layout. This layout is useful when you want the checkboxes to be equally distributed across the container.
 
 <Canvas of={BlockLayout} />
-
 
 ### Column Layout
 
@@ -73,7 +69,6 @@ lower-priority feedback when no validation error has been occurred.
 
 <Canvas of={Message} />
 
-
 ### Disabled
 
 Disables the entire checkbox group, preventing any interaction with the checkboxes. This is useful when you want to make
@@ -81,14 +76,12 @@ the checkboxes non-interactive.
 
 <Canvas of={Disabled} />
 
-
 ### ReadOnly
 
 The `CheckboxGroup` component with checkboxes in a read-only state. This ensures that users cannot interact with the
 checkboxes while still allowing them to view the selected options.
 
 <Canvas of={ReadOnly} />
-
 
 ## Guidelines
 

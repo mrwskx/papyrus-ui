@@ -281,7 +281,7 @@ export const MenuButton = forwardRef<HTMLAnchorElement, MenuButtonProps>(
         variant === 'primary' && rootDirectionPrimaryClasses[direction],
         className,
       )}
-      role='none'
+      role="none"
     >
       <Element
         ref={ref}
@@ -352,7 +352,7 @@ export const MenuButton = forwardRef<HTMLAnchorElement, MenuButtonProps>(
       >
         {direction === 'vertical' && !collapsed && indent > 0 && (
           <span
-            className='block'
+            className="block"
             style={{ width: `${indent * INDENT_BASE}rem` }}
           />
         )}
@@ -419,7 +419,7 @@ export const MenuButton = forwardRef<HTMLAnchorElement, MenuButtonProps>(
           )}
         </span>
 
-        {!collapsed && endIcon && <Icon className='text-lg'>{endIcon}</Icon>}
+        {!collapsed && endIcon && <Icon className="text-lg">{endIcon}</Icon>}
 
         {variant === 'primary' && !disabled && (
           <span

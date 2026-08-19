@@ -38,7 +38,7 @@ const Template: StoryFn<MenuBarProps> = args => (
   <div>
     <MenuBar {...args}>
       <MenuBar.Item
-        endIcon={<BiSolidCrown className='text-primary-600' />}
+        endIcon={<BiSolidCrown className="text-primary-600" />}
         selected
         startIcon={<BiHome />}
       >
@@ -51,18 +51,18 @@ const Template: StoryFn<MenuBarProps> = args => (
         Option 3
       </MenuBar.Item>
 
-      <MenuBar.Submenu icon={<BiStats />} label='Option 4'>
+      <MenuBar.Submenu icon={<BiStats />} label="Option 4">
         <MenuBar.Item>Option 4-1</MenuBar.Item>
         <MenuBar.Item>Option 4-2</MenuBar.Item>
 
-        <MenuBar.Submenu label='Option 5-3'>
+        <MenuBar.Submenu label="Option 5-3">
           <MenuBar.Item>Option 4-3-1</MenuBar.Item>
           <MenuBar.Item>Option 4-3-2</MenuBar.Item>
           <MenuBar.Item>Option 4-3-3</MenuBar.Item>
         </MenuBar.Submenu>
       </MenuBar.Submenu>
 
-      <MenuBar.Submenu icon={<BiCog />} label='Option 5'>
+      <MenuBar.Submenu icon={<BiCog />} label="Option 5">
         <MenuBar.Item>Option 5-1</MenuBar.Item>
         <MenuBar.Item>Option 5-2</MenuBar.Item>
         <MenuBar.Item>Option 5-3</MenuBar.Item>
@@ -72,7 +72,7 @@ const Template: StoryFn<MenuBarProps> = args => (
         Option 6
       </MenuBar.Item>
     </MenuBar>
-    {args.variant === 'primary' && <Divider className='text-neutral-200' />}
+    {args.variant === 'primary' && <Divider className="text-neutral-200" />}
   </div>
 );
 
@@ -93,7 +93,7 @@ export const Size: StoryFn<MenuBarProps> = args => (
 );
 
 export const Variant: StoryFn<MenuBarProps> = args => (
-  <div className='flex flex-col gap-4'>
+  <div className="flex flex-col gap-4">
     {variants.map((variant, i) => (
       <div
         key={i}
@@ -120,8 +120,8 @@ export const WithDescriptions: StoryFn<MenuBarProps> = args => (
   <div>
     <MenuBar {...args}>
       <MenuBar.Item
-        description='Navigate to the main dashboard'
-        endIcon={<BiSolidCrown className='text-primary-600' />}
+        description="Navigate to the main dashboard"
+        endIcon={<BiSolidCrown className="text-primary-600" />}
         selected
         startIcon={<BiHome />}
       >
@@ -129,14 +129,14 @@ export const WithDescriptions: StoryFn<MenuBarProps> = args => (
       </MenuBar.Item>
 
       <MenuBar.Item
-        description='View and manage your messages'
+        description="View and manage your messages"
         startIcon={<BiEnvelope />}
       >
         Messages
       </MenuBar.Item>
 
       <MenuBar.Item
-        description='Access your account settings'
+        description="Access your account settings"
         startIcon={<BiCog />}
       >
         Settings
@@ -144,13 +144,13 @@ export const WithDescriptions: StoryFn<MenuBarProps> = args => (
 
       <MenuBar.Item
         danger
-        description='Get help and support'
+        description="Get help and support"
         startIcon={<BiSupport />}
       >
         Support
       </MenuBar.Item>
     </MenuBar>
-    {args.variant === 'primary' && <Divider className='text-neutral-200' />}
+    {args.variant === 'primary' && <Divider className="text-neutral-200" />}
   </div>
 );
 

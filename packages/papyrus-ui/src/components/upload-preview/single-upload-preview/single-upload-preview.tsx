@@ -219,8 +219,8 @@ export const SingleUploadPreview = forwardRef<
           <div className={cn(placeholderClasses)}>
             {loading ? (
               <>
-                <Loader className='text-lg' />
-                <Caption className='mt-1 text-center truncate'>
+                <Loader className="text-lg" />
+                <Caption className="mt-1 text-center truncate">
                   {loadingText}
                 </Caption>
               </>
@@ -231,12 +231,12 @@ export const SingleUploadPreview = forwardRef<
                     className: 'text-lg',
                   })
                 ) : (
-                  <Icon className='text-lg'>
+                  <Icon className="text-lg">
                     <BiUpload />
                   </Icon>
                 )}
 
-                <Caption className='mt-1 text-center truncate'>
+                <Caption className="mt-1 text-center truncate">
                   {fileName}
                 </Caption>
               </>
@@ -246,14 +246,14 @@ export const SingleUploadPreview = forwardRef<
 
         {src && !disabled && !readOnly && (
           <div className={cn(overlayClasses)}>
-            <div className='flex'>
+            <div className="flex">
               {droppable && (
-                <div className='mr-2'>
+                <div className="mr-2">
                   <IconButton
                     rounded
-                    size='sm'
+                    size="sm"
                     title={editLabel}
-                    variant='ghost'
+                    variant="ghost"
                   >
                     <BiEdit />
                   </IconButton>
@@ -264,9 +264,9 @@ export const SingleUploadPreview = forwardRef<
                 <IconButton
                   data-index={index}
                   rounded
-                  size='sm'
+                  size="sm"
                   title={removeLabel}
-                  variant='ghost'
+                  variant="ghost"
                   onClick={handleRemove}
                 >
                   <BiTrash />

@@ -32,7 +32,7 @@ export const OList = forwardRef<HTMLOListElement, OListProps>(
   ({ className, children, ...props }, ref) => (
     <Text
       ref={ref}
-      as='ol'
+      as="ol"
       className={cn(
         'list',
         !className?.includes('list-') && 'list-decimal',

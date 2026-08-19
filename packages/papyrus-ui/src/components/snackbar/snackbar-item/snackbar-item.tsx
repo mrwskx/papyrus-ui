@@ -210,25 +210,25 @@ export const SnackbarItem = forwardRef<
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <div className='flex items-center space-x-3'>
+            <div className="flex items-center space-x-3">
               {icon ?? (
-                <Icon className='text-3xl' color='white'>
+                <Icon className="text-3xl" color="white">
                   <IconComponent />
                 </Icon>
               )}
 
-              <div className='flex-1 overflow-hidden'>
+              <div className="flex-1 overflow-hidden">
                 {children ? (
                   <>
-                    <Heading as='div' className='mb-1 truncate' level={5}>
+                    <Heading as="div" className="mb-1 truncate" level={5}>
                       {message}
                     </Heading>
-                    <Text as='div' className='mt-1 truncate' size='sm'>
+                    <Text as="div" className="mt-1 truncate" size="sm">
                       {children}
                     </Text>
                   </>
                 ) : (
-                  <Text as='div' className='truncate'>
+                  <Text as="div" className="truncate">
                     {message}
                   </Text>
                 )}
@@ -236,10 +236,10 @@ export const SnackbarItem = forwardRef<
 
               {actionLabel && onActionClick && (
                 <Button
-                  data-testid='action'
+                  data-testid="action"
                   rounded
-                  size='sm'
-                  variant='ghost'
+                  size="sm"
+                  variant="ghost"
                   onClick={onActionClick}
                 >
                   {actionLabel}
@@ -250,8 +250,8 @@ export const SnackbarItem = forwardRef<
                 <IconButton
                   aria-label={dismissLabel}
                   rounded
-                  size='sm'
-                  variant='ghost'
+                  size="sm"
+                  variant="ghost"
                   onClick={onDismiss}
                 >
                   <BiX />

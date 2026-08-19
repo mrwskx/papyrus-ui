@@ -8,8 +8,8 @@ describe('Select', () => {
       it('Then it should render without errors', () => {
         render(
           <Select>
-            <option value='1'>Option 1</option>
-            <option value='2'>Option 2</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
           </Select>,
         );
 
@@ -22,9 +22,9 @@ describe('Select', () => {
     describe("When it's rendered", () => {
       it('Then it should render with the `startIcon` element', () => {
         render(
-          <Select startIcon={<div data-testid='start-icon' />}>
-            <option value='1'>Option 1</option>
-            <option value='2'>Option 2</option>
+          <Select startIcon={<div data-testid="start-icon" />}>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
           </Select>,
         );
 
@@ -37,9 +37,9 @@ describe('Select', () => {
     describe("When it's rendered", () => {
       it('Then it should render with the `endIcon` element', () => {
         render(
-          <Select endIcon={<div data-testid='end-icon' />}>
-            <option value='1'>Option 1</option>
-            <option value='2'>Option 2</option>
+          <Select endIcon={<div data-testid="end-icon" />}>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
           </Select>,
         );
 
@@ -53,8 +53,8 @@ describe('Select', () => {
       it('Then it should render with the size attribute set to the provided value', () => {
         render(
           <Select htmlSize={2}>
-            <option value='1'>Option 1</option>
-            <option value='2'>Option 2</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
           </Select>,
         );
 
@@ -68,8 +68,8 @@ describe('Select', () => {
       it('Then it should render with the `disabled` attribute set to true', () => {
         render(
           <Select disabled>
-            <option value='1'>Option 1</option>
-            <option value='2'>Option 2</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
           </Select>,
         );
 
@@ -82,9 +82,9 @@ describe('Select', () => {
     describe('When it is rendered', () => {
       it('Then it should render with correct selected option', () => {
         render(
-          <Select defaultValue='2'>
-            <option value='1'>Option 1</option>
-            <option value='2'>Option 2</option>
+          <Select defaultValue="2">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
           </Select>,
         );
 
@@ -97,9 +97,9 @@ describe('Select', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the correct value', () => {
         render(
-          <Select value='2'>
-            <option value='1'>Option 1</option>
-            <option value='2'>Option 2</option>
+          <Select value="2">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
           </Select>,
         );
 
@@ -115,8 +115,8 @@ describe('Select', () => {
 
         render(
           <Select onChange={onChange}>
-            <option value='1'>Option 1</option>
-            <option value='2'>Option 2</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
           </Select>,
         );
 
@@ -132,9 +132,9 @@ describe('Select', () => {
       it('Then it should render with the correct value', () => {
         render(
           <Select defaultValue={['1', '2']} multiple>
-            <option value='1'>Option 1</option>
-            <option value='2'>Option 2</option>
-            <option value='3'>Option 3</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
           </Select>,
         );
 
@@ -148,9 +148,9 @@ describe('Select', () => {
       it('Then it should render with the correct value', () => {
         render(
           <Select multiple value={['1', '2']}>
-            <option value='1'>Option 1</option>
-            <option value='2'>Option 2</option>
-            <option value='3'>Option 3</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
           </Select>,
         );
 
@@ -165,9 +165,9 @@ describe('Select', () => {
         const onChange = vi.fn();
         render(
           <Select multiple onChange={onChange}>
-            <option value='1'>Option 1</option>
-            <option value='2'>Option 2</option>
-            <option value='3'>Option 3</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
           </Select>,
         );
 

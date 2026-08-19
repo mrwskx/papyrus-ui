@@ -83,7 +83,7 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
     >
       {!children && !icon && (
         <Text
-          as='span'
+          as="span"
           bold
           className={cn('absolute leading-none text-white', textSizeMap[size])}
         >

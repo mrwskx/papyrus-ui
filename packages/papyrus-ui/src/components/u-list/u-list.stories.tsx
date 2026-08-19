@@ -13,7 +13,7 @@ const meta: Meta = {
 };
 
 const Template: StoryFn<UListProps> = args => (
-  <div className='min-w-0 sm:min-w-96'>
+  <div className="min-w-0 sm:min-w-96">
     <UList {...args}>
       <li>Item 1</li>
       <li>Item 2</li>
@@ -25,8 +25,8 @@ const Template: StoryFn<UListProps> = args => (
 export const Basic = Template.bind({});
 
 export const WithNoBullets: StoryFn<UListProps> = args => (
-  <div className='min-w-0 sm:min-w-96'>
-    <UList {...args} className='list-none'>
+  <div className="min-w-0 sm:min-w-96">
+    <UList {...args} className="list-none">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
@@ -35,28 +35,28 @@ export const WithNoBullets: StoryFn<UListProps> = args => (
 );
 
 export const WithIcons: StoryFn<UListProps> = args => (
-  <div className='min-w-0 sm:min-w-96'>
-    <UList {...args} className='list-none'>
+  <div className="min-w-0 sm:min-w-96">
+    <UList {...args} className="list-none">
       <li>
-        <Marker role='none'>
+        <Marker role="none">
           <Icon>
-            <BiGridAlt size='1em' />
+            <BiGridAlt size="1em" />
           </Icon>
         </Marker>
         Item 1
       </li>
       <li>
-        <Marker role='none'>
+        <Marker role="none">
           <Icon>
-            <BiStats size='1em' />
+            <BiStats size="1em" />
           </Icon>
         </Marker>
         Item 2
       </li>
       <li>
-        <Marker role='none'>
+        <Marker role="none">
           <Icon>
-            <BiCog size='1em' />
+            <BiCog size="1em" />
           </Icon>
         </Marker>
         Item 3
@@ -66,18 +66,18 @@ export const WithIcons: StoryFn<UListProps> = args => (
 );
 
 export const NestedList: StoryFn<UListProps> = args => (
-  <div className='min-w-0 sm:min-w-96'>
+  <div className="min-w-0 sm:min-w-96">
     <UList {...args}>
       <li>
         First level item
-        <UList className='list-[circle]'>
+        <UList className="list-[circle]">
           <li>Nested item 1</li>
           <li>Nested item 2</li>
         </UList>
       </li>
       <li>
         Second level item
-        <UList className='list-[circle]'>
+        <UList className="list-[circle]">
           <li>Another nested item 1</li>
           <li>Another nested item 2</li>
         </UList>

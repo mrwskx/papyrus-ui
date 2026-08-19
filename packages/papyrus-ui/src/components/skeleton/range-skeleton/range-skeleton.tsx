@@ -16,7 +16,7 @@ export const RangeSkeleton: FC<RangeSkeletonProps> = ({
     className={cn('flex items-center justify-center relative py-2', className)}
     {...props}
   >
-    <Skeleton className='h-1 w-full rounded-full' />
-    <Skeleton className='absolute h-3 w-3 rounded-full' />
+    <Skeleton className="h-1 w-full rounded-full" />
+    <Skeleton className="absolute h-3 w-3 rounded-full" />
   </div>
 );

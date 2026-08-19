@@ -20,7 +20,7 @@ const meta: Meta = {
 };
 
 const Template: StoryFn<AlertProps> = args => (
-  <div className='w-80'>
+  <div className="w-80">
     <Alert {...args} />
   </div>
 );
@@ -36,7 +36,7 @@ const VARIANTS: AlertVariant[] = [
 ];
 
 export const Variants: StoryFn<AlertProps> = args => (
-  <div className='w-80'>
+  <div className="w-80">
     {VARIANTS.map((variant, i) => (
       <Fragment key={i}>
         <Heading className={cn('mb-1.5', i > 0 ? 'mt-6' : 'mt-0')} level={3}>
@@ -71,8 +71,8 @@ export const WithAvatar = Template.bind({});
 
 WithAvatar.args = {
   icon: (
-    <Avatar size='md'>
-      <img alt='Profile' src='https://i.pravatar.cc/300' />
+    <Avatar size="md">
+      <img alt="Profile" src="https://i.pravatar.cc/300" />
     </Avatar>
   ),
 };

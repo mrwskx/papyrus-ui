@@ -89,8 +89,8 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(
       >
         <input
           ref={ref}
-          className='range-input'
-          type='range'
+          className="range-input"
+          type="range"
           {...props}
           onChange={handleChange}
         />

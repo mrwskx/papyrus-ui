@@ -17,7 +17,7 @@ describe('TextInput', () => {
   describe('Given the text-input component with a placeholder', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the placeholder', () => {
-        render(<TextInput placeholder='First Name' />);
+        render(<TextInput placeholder="First Name" />);
         expect(screen.getByRole('textbox')).toHaveAttribute(
           'placeholder',
           'First Name',
@@ -47,7 +47,7 @@ describe('TextInput', () => {
   describe('Given the text-input component with `defaultValue`', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the default value', () => {
-        render(<TextInput defaultValue='Bob' />);
+        render(<TextInput defaultValue="Bob" />);
         expect(screen.getByRole('textbox')).toHaveValue('Bob');
       });
     });
@@ -93,7 +93,7 @@ describe('TextInput', () => {
     describe('When the input is focused', () => {
       it('Then it should render with the clear button', async () => {
         const { getByRole } = render(
-          <TextInput clearable defaultValue='Bob' />,
+          <TextInput clearable defaultValue="Bob" />,
         );
 
         await userEvent.click(screen.getByRole('textbox'));
@@ -104,7 +104,7 @@ describe('TextInput', () => {
     describe('When the input is focused and the user clicks the clear button', () => {
       it('Then the input field should be cleared', async () => {
         const { getByRole } = render(
-          <TextInput clearable defaultValue='Bob' />,
+          <TextInput clearable defaultValue="Bob" />,
         );
 
         await userEvent.click(screen.getByRole('textbox'));
@@ -118,7 +118,7 @@ describe('TextInput', () => {
   describe('Given the text-input component with a valid `startIcon` component', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the startIcon', () => {
-        render(<TextInput startIcon={<div data-testid='start-icon' />} />);
+        render(<TextInput startIcon={<div data-testid="start-icon" />} />);
 
         expect(screen.getByTestId('start-icon')).toBeInTheDocument();
       });
@@ -128,7 +128,7 @@ describe('TextInput', () => {
   describe('Given the text-input component with a valid `endIcon` component', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the endIcon', () => {
-        render(<TextInput endIcon={<div data-testid='end-icon' />} />);
+        render(<TextInput endIcon={<div data-testid="end-icon" />} />);
 
         expect(screen.getByTestId('end-icon')).toBeInTheDocument();
       });
@@ -150,16 +150,16 @@ describe('TextInput', () => {
   describe('Given the text-input component with the `value` prop', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the value', () => {
-        render(<TextInput value='Bob' />);
+        render(<TextInput value="Bob" />);
         expect(screen.getByRole('textbox')).toHaveValue('Bob');
       });
     });
 
     describe('When the `value` prop changes', () => {
       it('Then it should render with the new value', () => {
-        const { rerender } = render(<TextInput value='Bob' />);
+        const { rerender } = render(<TextInput value="Bob" />);
         expect(screen.getByRole('textbox')).toHaveValue('Bob');
-        rerender(<TextInput value='Alice' />);
+        rerender(<TextInput value="Alice" />);
         expect(screen.getByRole('textbox')).toHaveValue('Alice');
       });
     });
@@ -169,7 +169,7 @@ describe('TextInput', () => {
     describe('When the input is focused', () => {
       it('Then it should render with the clear button', async () => {
         const { getByRole } = render(
-          <TextInput clearable defaultValue='Bob' />,
+          <TextInput clearable defaultValue="Bob" />,
         );
 
         await userEvent.click(screen.getByRole('textbox'));
@@ -179,7 +179,7 @@ describe('TextInput', () => {
 
     describe('When the input is focused and the user clicks the clear button', () => {
       it('Then the input field should be cleared', async () => {
-        const { getByRole } = render(<TextInput clearable value='Bob' />);
+        const { getByRole } = render(<TextInput clearable value="Bob" />);
         await userEvent.click(screen.getByRole('textbox'));
         expect(getByRole('button')).toBeInTheDocument();
         await userEvent.click(getByRole('button'));
@@ -194,7 +194,7 @@ describe('TextInput', () => {
         const onChange = vi.fn();
 
         const { getByRole } = render(
-          <TextInput clearable value='Bob' onChange={onChange} />,
+          <TextInput clearable value="Bob" onChange={onChange} />,
         );
 
         await userEvent.click(screen.getByRole('textbox'));

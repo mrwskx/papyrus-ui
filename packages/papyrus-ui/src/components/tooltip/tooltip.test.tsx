@@ -7,7 +7,7 @@ describe('Tooltip', () => {
     describe('When interacting with the child element ', () => {
       it('Then the title should be displayed on hover', async () => {
         render(
-          <Tooltip title='This is a tooltip'>
+          <Tooltip title="This is a tooltip">
             <button>Hover me</button>
           </Tooltip>,
         );
@@ -26,7 +26,7 @@ describe('Tooltip', () => {
         render(
           <>
             <button>Outside</button>
-            <Tooltip title='This is a tooltip'>
+            <Tooltip title="This is a tooltip">
               <button>Hover me</button>
             </Tooltip>
           </>,
@@ -53,7 +53,7 @@ describe('Tooltip', () => {
     describe("When it's rendered", () => {
       it('Then the tooltip content is visible initially', () => {
         render(
-          <Tooltip initialOpen title='This is a tooltip'>
+          <Tooltip initialOpen title="This is a tooltip">
             <button>Hover me</button>
           </Tooltip>,
         );
@@ -67,7 +67,7 @@ describe('Tooltip', () => {
     describe('When the open prop is toggled from false to true', () => {
       it('Then the tooltip should become visible', async () => {
         const { rerender } = render(
-          <Tooltip open={false} title='This is a tooltip'>
+          <Tooltip open={false} title="This is a tooltip">
             <button>Hover me</button>
           </Tooltip>,
         );
@@ -75,7 +75,7 @@ describe('Tooltip', () => {
         expect(screen.queryByText('This is a tooltip')).not.toBeInTheDocument();
 
         rerender(
-          <Tooltip open title='This is a tooltip'>
+          <Tooltip open title="This is a tooltip">
             <button>Hover me</button>
           </Tooltip>,
         );
@@ -89,7 +89,7 @@ describe('Tooltip', () => {
     describe('When the open prop is toggled from true to false', () => {
       it('Then the tooltip should become hidden', async () => {
         const { rerender } = render(
-          <Tooltip open title='This is a tooltip'>
+          <Tooltip open title="This is a tooltip">
             <button>Hover me</button>
           </Tooltip>,
         );
@@ -97,7 +97,7 @@ describe('Tooltip', () => {
         expect(screen.getByText('This is a tooltip')).toBeVisible();
 
         rerender(
-          <Tooltip open={false} title='This is a tooltip'>
+          <Tooltip open={false} title="This is a tooltip">
             <button>Hover me</button>
           </Tooltip>,
         );
@@ -119,7 +119,7 @@ describe('Tooltip', () => {
         render(
           <>
             <button>Outside</button>
-            <Tooltip open title='This is a tooltip' onOpenChange={onOpenChange}>
+            <Tooltip open title="This is a tooltip" onOpenChange={onOpenChange}>
               <button>Hover me</button>
             </Tooltip>
           </>,
@@ -138,7 +138,7 @@ describe('Tooltip', () => {
     describe('When the target element receives focus', () => {
       it('Then the tooltip should be displayed', async () => {
         render(
-          <Tooltip title='This is a tooltip' trigger='focus'>
+          <Tooltip title="This is a tooltip" trigger="focus">
             <button>Focus me</button>
           </Tooltip>,
         );
@@ -154,7 +154,7 @@ describe('Tooltip', () => {
     describe('When the target element loses focus', () => {
       it('Then the tooltip should be hidden', async () => {
         render(
-          <Tooltip title='This is a tooltip' trigger='focus'>
+          <Tooltip title="This is a tooltip" trigger="focus">
             <button>Focus me</button>
           </Tooltip>,
         );
@@ -180,7 +180,7 @@ describe('Tooltip', () => {
     describe('When the tooltip trigger is clicked', () => {
       it('Then the tooltip should be displayed', async () => {
         render(
-          <Tooltip title='This is a tooltip' trigger='click'>
+          <Tooltip title="This is a tooltip" trigger="click">
             <button>Click me</button>
           </Tooltip>,
         );
@@ -197,7 +197,7 @@ describe('Tooltip', () => {
     describe('When the tooltip trigger is clicked again', () => {
       it('Then the tooltip should be hidden', async () => {
         render(
-          <Tooltip title='This is a tooltip' trigger='click'>
+          <Tooltip title="This is a tooltip" trigger="click">
             <button>Click me</button>
           </Tooltip>,
         );

@@ -17,7 +17,7 @@ describe('CodeBlock', () => {
     describe('When component is rendered', () => {
       it('Then data-language attribute should be set', () => {
         const { container } = render(
-          <CodeBlock language='javascript'>const x = 1;</CodeBlock>,
+          <CodeBlock language="javascript">const x = 1;</CodeBlock>,
         );
         const preElement = container.querySelector('pre');
         expect(preElement).toHaveAttribute('data-language', 'javascript');
@@ -57,7 +57,7 @@ describe('CodeBlock', () => {
     describe('When component is rendered', () => {
       it('Then should have small text class', () => {
         const { container } = render(
-          <CodeBlock size='sm'>small code</CodeBlock>,
+          <CodeBlock size="sm">small code</CodeBlock>,
         );
         const preElement = container.querySelector('pre');
         expect(preElement).toHaveClass('text-code-sm');

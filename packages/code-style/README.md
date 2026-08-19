@@ -18,7 +18,7 @@ The simplest way to use `@papyrus-ui/code-style` - it automatically detects your
 
 ```javascript
 // eslint.config.js
-import createConfig from "@papyrus-ui/code-style";
+import createConfig from '@papyrus-ui/code-style';
 
 export default [
   // Auto-detects React, Storybook, Jest, and TypeScript from package.json
@@ -26,10 +26,10 @@ export default [
 
   // Your custom project rules
   {
-    name: "my-custom-rules",
-    files: ["**/*.custom.js"],
+    name: 'my-custom-rules',
+    files: ['**/*.custom.js'],
     rules: {
-      "no-console": "warn",
+      'no-console': 'warn',
     },
   },
 ];
@@ -50,15 +50,15 @@ For precise control over which libraries to include:
 
 ```javascript
 // eslint.config.js
-import createConfig from "@papyrus-ui/code-style";
+import createConfig from '@papyrus-ui/code-style';
 
 export default [
   ...createConfig({
-    libs: ["react", "storybook", "jest"], // Specify libraries explicitly
+    libs: ['react', 'storybook', 'jest'], // Specify libraries explicitly
     typescript: true, // Force TypeScript config
     typescriptOptions: {
       tsconfigRootDir: __dirname, // Custom root directory
-      project: ["./tsconfig.json"], // Custom tsconfig file(s)
+      project: ['./tsconfig.json'], // Custom tsconfig file(s)
     },
   }),
 ];
@@ -68,7 +68,7 @@ export default [
 
 ```typescript
 interface ConfigOptions {
-  libs?: ("react" | "storybook" | "jest")[]; // Include specific library configurations
+  libs?: ('react' | 'storybook' | 'jest')[]; // Include specific library configurations
   typescript?: boolean; // Include TypeScript configurations
   typescriptOptions?: {
     tsconfigRootDir?: string; // TypeScript project root
@@ -158,11 +158,11 @@ The configurations include Prettier integration. Set up your prettier config:
 
 ```javascript
 // .prettierrc.js (ES modules)
-import prettierConfig from "@papyrus-ui/code-style/prettier";
+import prettierConfig from '@papyrus-ui/code-style/prettier';
 export default prettierConfig;
 
 // .prettierrc.cjs (CommonJS)
-const prettierConfig = require("@papyrus-ui/code-style/prettier");
+const prettierConfig = require('@papyrus-ui/code-style/prettier');
 module.exports = prettierConfig;
 ```
 
@@ -194,7 +194,7 @@ module.exports = prettierConfig;
 createConfig({ react: true, typescript: true });
 
 // New way
-createConfig({ libs: ["react"], typescript: true });
+createConfig({ libs: ['react'], typescript: true });
 ```
 
 ### From Array-Based API

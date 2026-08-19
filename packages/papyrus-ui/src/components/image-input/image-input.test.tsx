@@ -17,7 +17,7 @@ describe('ImageInput', () => {
   describe('Given the image-input component with a label and custom placeholder', () => {
     describe('When it is rendered', () => {
       it('Then it should render the label and the custom placeholder', () => {
-        render(<ImageInput label='Avatar' placeholder='Upload avatar' />);
+        render(<ImageInput label="Avatar" placeholder="Upload avatar" />);
         expect(screen.getByText('Avatar')).toBeInTheDocument();
         expect(screen.getByText('Upload avatar')).toBeInTheDocument();
       });

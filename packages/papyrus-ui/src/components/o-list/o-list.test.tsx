@@ -46,7 +46,7 @@ describe('OList', () => {
     describe('When component is rendered with Tailwind list utilities', () => {
       it('Then should apply custom className', () => {
         const { container } = render(
-          <OList className='list-decimal'>
+          <OList className="list-decimal">
             <li>Item 1</li>
           </OList>,
         );
@@ -58,7 +58,7 @@ describe('OList', () => {
 
       it('Then should support list-none className', () => {
         const { container } = render(
-          <OList className='list-none'>
+          <OList className="list-none">
             <li>Item 1</li>
           </OList>,
         );
@@ -121,7 +121,7 @@ describe('OList', () => {
     describe('When component receives multiple ol attributes', () => {
       it('Then should pass all attributes to ol element', () => {
         const { container } = render(
-          <OList reversed start={3} type='a'>
+          <OList reversed start={3} type="a">
             <li>Item 1</li>
             <li>Item 2</li>
           </OList>,

@@ -328,7 +328,7 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
         collapsed={parent.collapsed}
         direction={parent.isNested ? 'vertical' : 'horizontal'}
         endIcon={parent.isNested ? <BiChevronRight /> : <BiChevronDown />}
-        role='menuitem'
+        role="menuitem"
         size={parent.isNested ? 'sm' : parent.size}
         startIcon={icon}
         tabIndex={isActive ? 0 : -1}
@@ -366,7 +366,7 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
                 >
                   <Listbox
                     ref={refs.setFloating}
-                    className='max-h-80 max-w-xs z-10'
+                    className="max-h-80 max-w-xs z-10"
                     style={floatingStyles}
                     visible={status === 'entered'}
                     {...getFloatingProps()}

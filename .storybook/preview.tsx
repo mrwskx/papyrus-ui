@@ -66,9 +66,9 @@ const preview: Preview = {
         ),
         p: ({ className, ...props }: ComponentProps<typeof Text>) => (
           <Text
-            as='p'
+            as="p"
             className={cn('sb-unstyled my-4 first:mt-0 last:mb-0', className)}
-            size='sm'
+            size="sm"
             {...props}
           />
         ),
@@ -85,7 +85,7 @@ const preview: Preview = {
           />
         ),
         code: (props: ComponentProps<typeof Code>) => (
-          <Code size='sm' {...props} />
+          <Code size="sm" {...props} />
         ),
       },
     },

@@ -35,7 +35,7 @@ const Template: StoryFn<MenuProps> = args => (
   <div className={args.collapsed ? '' : 'w-48'}>
     <Menu {...args}>
       <Menu.Item
-        endIcon={<BiSolidCrown className='text-primary-600' />}
+        endIcon={<BiSolidCrown className="text-primary-600" />}
         selected
         startIcon={<BiHome />}
       >
@@ -48,17 +48,17 @@ const Template: StoryFn<MenuProps> = args => (
         Option 3
       </Menu.Item>
 
-      <Menu.Submenu icon={<BiStats />} label='Option 4'>
+      <Menu.Submenu icon={<BiStats />} label="Option 4">
         <Menu.Item>Option 4-1</Menu.Item>
         <Menu.Item>Option 4-2</Menu.Item>
         <Menu.Item>Option 4-3</Menu.Item>
       </Menu.Submenu>
 
-      <Menu.Submenu icon={<BiCog />} label='Option 5'>
+      <Menu.Submenu icon={<BiCog />} label="Option 5">
         <Menu.Item>Option 5-1</Menu.Item>
         <Menu.Item>Option 5-2</Menu.Item>
 
-        <Menu.Submenu label='Option 5-3'>
+        <Menu.Submenu label="Option 5-3">
           <Menu.Item>Option 5-3-1</Menu.Item>
           <Menu.Item>Option 5-3-2</Menu.Item>
           <Menu.Item>Option 5-3-3</Menu.Item>
@@ -89,7 +89,7 @@ export const Size: StoryFn<MenuProps> = args => (
 );
 
 export const Variant: StoryFn<MenuProps> = args => (
-  <div className='flex flex-col gap-4'>
+  <div className="flex flex-col gap-4">
     {variants.map((variant, i) => (
       <div
         key={i}
@@ -116,8 +116,8 @@ export const WithDescriptions: StoryFn<MenuProps> = args => (
   <div className={args.collapsed ? '' : 'w-48'}>
     <Menu {...args}>
       <Menu.Item
-        description='Navigate to the main dashboard'
-        endIcon={<BiSolidCrown className='text-primary-600' />}
+        description="Navigate to the main dashboard"
+        endIcon={<BiSolidCrown className="text-primary-600" />}
         selected
         startIcon={<BiHome />}
       >
@@ -125,14 +125,14 @@ export const WithDescriptions: StoryFn<MenuProps> = args => (
       </Menu.Item>
 
       <Menu.Item
-        description='View and manage your messages'
+        description="View and manage your messages"
         startIcon={<BiEnvelope />}
       >
         Messages
       </Menu.Item>
 
       <Menu.Item
-        description='Access your account settings'
+        description="Access your account settings"
         startIcon={<BiCog />}
       >
         Settings
@@ -140,7 +140,7 @@ export const WithDescriptions: StoryFn<MenuProps> = args => (
 
       <Menu.Item
         danger
-        description='Get help and support'
+        description="Get help and support"
         startIcon={<BiSupport />}
       >
         Support
@@ -159,8 +159,8 @@ export const Collapsed: StoryFn<MenuProps> = args => {
   return (
     <>
       <IconButton
-        className='m-1'
-        variant='secondary'
+        className="m-1"
+        variant="secondary"
         onClick={() => setCollapsed(!collapsed)}
       >
         {collapsed ? <BiRightIndent /> : <BiLeftIndent />}

@@ -14,7 +14,7 @@ const meta: Meta = {
   args: {
     content: 5,
     children: (
-      <IconButton title='Notifications' variant='tertiary'>
+      <IconButton title="Notifications" variant="tertiary">
         <BiBell />
       </IconButton>
     ),
@@ -66,12 +66,12 @@ Offset.args = {
     <IconButton
       avatar={
         <Avatar>
-          <img alt='Profile' src='https://i.pravatar.cc/300' />
+          <img alt="Profile" src="https://i.pravatar.cc/300" />
         </Avatar>
       }
       rounded
-      size='lg'
-      title='Profile'
+      size="lg"
+      title="Profile"
     />
   ),
 };
@@ -80,12 +80,12 @@ export const CustomContent = Template.bind({});
 
 CustomContent.args = {
   content: (
-    <Icon className='text-danger-500 text-lg'>
+    <Icon className="text-danger-500 text-lg">
       <BiSolidError />
     </Icon>
   ),
   children: (
-    <IconButton title='Notifications'>
+    <IconButton title="Notifications">
       <BiBell />
     </IconButton>
   ),

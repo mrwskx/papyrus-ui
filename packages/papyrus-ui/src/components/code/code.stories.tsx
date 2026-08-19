@@ -34,9 +34,9 @@ MediumSize.args = {
 };
 
 export const InParagraph: StoryFn<CodeProps> = () => (
-  <p className='text-body-md-primary'>
+  <p className="text-body-md-primary">
     To log a message to the console, use <Code>console.log()</Code> in your
-    JavaScript code. You can also use <Code size='sm'>console.error()</Code> for
+    JavaScript code. You can also use <Code size="sm">console.error()</Code> for
     error messages.
   </p>
 );

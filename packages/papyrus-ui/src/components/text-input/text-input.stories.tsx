@@ -21,7 +21,7 @@ export default {
 };
 
 const Template: StoryFn<TextInputProps> = args => (
-  <div className='w-64'>
+  <div className="w-64">
     <TextInput {...args} />
   </div>
 );
@@ -41,7 +41,7 @@ Clearable.args = {
 
 export function Sizes(args: TextInputProps) {
   return (
-    <div className='flex flex-col w-64'>
+    <div className="flex flex-col w-64">
       {sizes.map((size, i) => (
         <div key={i} className={i ? 'mt-4' : ''}>
           <TextInput {...args} id={`text-input-size-${size}`} size={size} />
@@ -53,14 +53,14 @@ export function Sizes(args: TextInputProps) {
 
 export function WithIcon(args: TextInputProps) {
   return (
-    <div className='flex flex-col w-64'>
-      <div className='mb-4'>
+    <div className="flex flex-col w-64">
+      <div className="mb-4">
         <TextInput
           {...args}
-          id='text-input-with-start-icon'
-          label='With Start Icon'
+          id="text-input-with-start-icon"
+          label="With Start Icon"
           startIcon={
-            <Icon className='text-neutral-950'>
+            <Icon className="text-neutral-950">
               <BiSearch />
             </Icon>
           }
@@ -71,12 +71,12 @@ export function WithIcon(args: TextInputProps) {
         <TextInput
           {...args}
           endIcon={
-            <Icon className='text-info-950'>
+            <Icon className="text-info-950">
               <BiInfoCircle />
             </Icon>
           }
-          id='text-input-with-end-icon'
-          label='With End Icon'
+          id="text-input-with-end-icon"
+          label="With End Icon"
         />
       </div>
     </div>

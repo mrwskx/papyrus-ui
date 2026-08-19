@@ -21,7 +21,7 @@ export default {
 };
 
 export const Basic: StoryFn<DropdownMenuProps> = args => (
-  <div className='flex h-64 justify-center w-96'>
+  <div className="flex h-64 justify-center w-96">
     <DropdownMenu {...args}>
       <DropdownMenu.Trigger>
         <IconButton>
@@ -31,7 +31,7 @@ export const Basic: StoryFn<DropdownMenuProps> = args => (
 
       <DropdownMenu.Content>
         <DropdownMenu.Item
-          endIcon={<BiSolidCrown className='text-primary-600' />}
+          endIcon={<BiSolidCrown className="text-primary-600" />}
           selected
           startIcon={<BiHome />}
         >
@@ -46,17 +46,17 @@ export const Basic: StoryFn<DropdownMenuProps> = args => (
           Option 3
         </DropdownMenu.Item>
 
-        <DropdownMenu.Submenu icon={<BiStats />} label='Option 4'>
+        <DropdownMenu.Submenu icon={<BiStats />} label="Option 4">
           <DropdownMenu.Item>Option 4-1</DropdownMenu.Item>
           <DropdownMenu.Item>Option 4-2</DropdownMenu.Item>
           <DropdownMenu.Item>Option 4-3</DropdownMenu.Item>
         </DropdownMenu.Submenu>
 
-        <DropdownMenu.Submenu icon={<BiCog />} label='Option 5'>
+        <DropdownMenu.Submenu icon={<BiCog />} label="Option 5">
           <DropdownMenu.Item>Option 5-1</DropdownMenu.Item>
           <DropdownMenu.Item>Option 5-2</DropdownMenu.Item>
 
-          <DropdownMenu.Submenu label='Option 5-3'>
+          <DropdownMenu.Submenu label="Option 5-3">
             <DropdownMenu.Item>Option 5-3-1</DropdownMenu.Item>
             <DropdownMenu.Item>Option 5-3-2</DropdownMenu.Item>
             <DropdownMenu.Item>Option 5-3-3</DropdownMenu.Item>
@@ -72,7 +72,7 @@ export const Basic: StoryFn<DropdownMenuProps> = args => (
 );
 
 export const WithDescriptions: StoryFn<DropdownMenuProps> = args => (
-  <div className='flex h-64 justify-center w-96'>
+  <div className="flex h-64 justify-center w-96">
     <DropdownMenu {...args}>
       <DropdownMenu.Trigger>
         <IconButton>
@@ -82,8 +82,8 @@ export const WithDescriptions: StoryFn<DropdownMenuProps> = args => (
 
       <DropdownMenu.Content>
         <DropdownMenu.Item
-          description='Navigate to the main dashboard'
-          endIcon={<BiSolidCrown className='text-primary-600' />}
+          description="Navigate to the main dashboard"
+          endIcon={<BiSolidCrown className="text-primary-600" />}
           selected
           startIcon={<BiHome />}
         >
@@ -91,14 +91,14 @@ export const WithDescriptions: StoryFn<DropdownMenuProps> = args => (
         </DropdownMenu.Item>
 
         <DropdownMenu.Item
-          description='View and manage your messages'
+          description="View and manage your messages"
           startIcon={<BiEnvelope />}
         >
           Messages
         </DropdownMenu.Item>
 
         <DropdownMenu.Item
-          description='Access your account settings'
+          description="Access your account settings"
           startIcon={<BiCog />}
         >
           Settings
@@ -106,7 +106,7 @@ export const WithDescriptions: StoryFn<DropdownMenuProps> = args => (
 
         <DropdownMenu.Item
           danger
-          description='Get help and support'
+          description="Get help and support"
           startIcon={<BiSupport />}
         >
           Support

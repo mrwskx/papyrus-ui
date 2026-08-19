@@ -31,7 +31,7 @@ export const DialogTitle: FC<DialogTitleProps> = ({
 
   return (
     <Heading
-      as='div'
+      as="div"
       className={cn('flex-1 text-neutral-950 truncate', className)}
       id={id}
       level={5}

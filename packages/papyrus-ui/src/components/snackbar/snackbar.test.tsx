@@ -8,7 +8,7 @@ describe('ToastContainer', () => {
       it('Then the title should be visible and correctly rendered within the toast', () => {
         const { getByTestId } = render(
           <Snackbar>
-            <Snackbar.Item data-testid='toast' message='Error Message' />
+            <Snackbar.Item data-testid="toast" message="Error Message" />
           </Snackbar>,
         );
 

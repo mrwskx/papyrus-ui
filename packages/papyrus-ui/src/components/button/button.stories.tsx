@@ -33,14 +33,14 @@ export function Basic(args: ButtonProps) {
 
 export function Variants(args: ButtonProps) {
   return (
-    <div className='flex flex-col gap-3'>
-      <div className='flex flex-wrap justify-center -mt-4 -mx-2'>
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-wrap justify-center -mt-4 -mx-2">
         {variants
           .filter(variant => variant !== 'ghost')
           .map((variant, i) => (
             <div
               key={i}
-              className='flex justify-center w-1/2 md:w-1/4 mt-4 px-2'
+              className="flex justify-center w-1/2 md:w-1/4 mt-4 px-2"
             >
               <Button {...args} variant={variant}>
                 {startCase(variant)}
@@ -48,14 +48,14 @@ export function Variants(args: ButtonProps) {
             </div>
           ))}
       </div>
-      <div className='bg-gradient-to-br from-primary-800 to-primary-900 py-2'>
-        <div className='flex flex-wrap justify-center -mt-4 -mx-2'>
+      <div className="bg-gradient-to-br from-primary-800 to-primary-900 py-2">
+        <div className="flex flex-wrap justify-center -mt-4 -mx-2">
           {variants
             .filter(variant => variant === 'ghost')
             .map((variant, i) => (
               <div
                 key={i}
-                className='flex justify-center w-1/2 md:w-1/4 mt-4 px-2'
+                className="flex justify-center w-1/2 md:w-1/4 mt-4 px-2"
               >
                 <Button {...args} variant={variant}>
                   {startCase(variant)}
@@ -70,9 +70,9 @@ export function Variants(args: ButtonProps) {
 
 export function Sizes(args: ButtonProps) {
   return (
-    <div className='flex items-center flex-wrap -mt-4 -mx-2'>
+    <div className="flex items-center flex-wrap -mt-4 -mx-2">
       {sizes.map((size, i) => (
-        <div key={i} className='mt-4 px-2'>
+        <div key={i} className="mt-4 px-2">
           <Button {...args} size={size}>
             {upperCase(size)}
           </Button>
@@ -84,14 +84,14 @@ export function Sizes(args: ButtonProps) {
 
 export function WithIcon(args: ButtonProps) {
   return (
-    <div className='flex flex-wrap -mt-4 -mx-2'>
-      <div className='mt-4 px-2'>
+    <div className="flex flex-wrap -mt-4 -mx-2">
+      <div className="mt-4 px-2">
         <Button {...args} startIcon={<BiSolidLike />}>
           Start Icon
         </Button>
       </div>
 
-      <div className='mt-4 px-2'>
+      <div className="mt-4 px-2">
         <Button {...args} endIcon={<BiSolidLike />}>
           End Icon
         </Button>
@@ -109,7 +109,7 @@ export function Disabled(args: ButtonProps) {
 }
 
 export function AsLink(args: ButtonProps) {
-  return <Button {...args} as='a' href='#' />;
+  return <Button {...args} as="a" href="#" />;
 }
 
 export function Rounded(args: ButtonProps) {

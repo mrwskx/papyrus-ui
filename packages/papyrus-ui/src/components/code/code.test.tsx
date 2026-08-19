@@ -16,7 +16,7 @@ describe('Code', () => {
   describe('Given Code with small size', () => {
     describe('When component is rendered', () => {
       it('Then should have small text class', () => {
-        const { container } = render(<Code size='sm'>small code</Code>);
+        const { container } = render(<Code size="sm">small code</Code>);
         const codeElement = container.querySelector('code');
         expect(codeElement).toHaveClass('text-code-sm');
       });
@@ -26,7 +26,7 @@ describe('Code', () => {
   describe('Given Code with medium size', () => {
     describe('When component is rendered', () => {
       it('Then should have medium text class', () => {
-        const { container } = render(<Code size='md'>medium code</Code>);
+        const { container } = render(<Code size="md">medium code</Code>);
         const codeElement = container.querySelector('code');
         expect(codeElement).toHaveClass('text-code-md');
       });

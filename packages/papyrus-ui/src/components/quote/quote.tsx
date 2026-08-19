@@ -43,7 +43,7 @@ export const Quote = forwardRef<HTMLQuoteElement, QuoteProps>(
     <Text
       {...props}
       ref={ref}
-      as='blockquote'
+      as="blockquote"
       className={cn('relative ps-4', className)}
     >
       {children}

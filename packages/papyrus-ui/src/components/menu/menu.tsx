@@ -95,7 +95,7 @@ const MenuComponent: FC<MenuProps> = ({
           'flex flex-col gap-1 focus:outline-none focus-visible:ring',
           className,
         )}
-        role='menu'
+        role="menu"
         tabIndex={activeIndex == null ? 0 : -1}
         onKeyDown={handleKeyDown}
       >

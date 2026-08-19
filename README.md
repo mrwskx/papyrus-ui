@@ -55,9 +55,9 @@ import { Button, TextInput, Tag } from 'papyrus-ui';
 
 function App() {
   return (
-    <div className='p-4'>
+    <div className="p-4">
       <Button>Click Me!</Button>
-      <TextInput placeholder='Enter text...' />
+      <TextInput placeholder="Enter text..." />
       <Tag>Label</Tag>
     </div>
   );

@@ -18,7 +18,7 @@ const meta: Meta<typeof ImageInput> = {
 };
 
 const Template: StoryFn<ImageInputProps> = args => (
-  <div className='min-h-[256px] w-[320px]'>
+  <div className="min-h-[256px] w-[320px]">
     <ImageInput {...args} />
   </div>
 );
@@ -30,24 +30,24 @@ Basic.args = {
 };
 
 export const WithValue: StoryFn<ImageInputProps<NamedImage>> = args => (
-  <div className='min-h-[256px] w-[320px]'>
+  <div className="min-h-[256px] w-[320px]">
     <ImageInput<NamedImage>
       {...args}
       getName={v => v.name}
       getUrl={v => v.url}
-      id='image-input-with-value'
+      id="image-input-with-value"
       value={{ name: 'Avatar', url: 'https://picsum.photos/id/64/256/256' }}
     />
   </div>
 );
 
 export const Multiple: StoryFn<ImageInputProps<NamedImage, true>> = args => (
-  <div className='min-h-[256px] w-full max-w-[640px]'>
+  <div className="min-h-[256px] w-full max-w-[640px]">
     <ImageInput<NamedImage, true>
       {...args}
       getName={v => v.name}
       getUrl={v => v.url}
-      id='image-input-multiple'
+      id="image-input-multiple"
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       multiple

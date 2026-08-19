@@ -16,7 +16,7 @@ greet("World");`,
 };
 
 export const Template: StoryFn<CodeBlockProps> = args => (
-  <div className='w-full max-w-xl'>
+  <div className="w-full max-w-xl">
     <CodeBlock {...args} />
   </div>
 );

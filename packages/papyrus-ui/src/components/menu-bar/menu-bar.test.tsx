@@ -122,7 +122,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -152,7 +152,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item onClick={mockAction}>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -185,7 +185,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -223,7 +223,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -261,7 +261,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -306,7 +306,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -356,7 +356,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -395,7 +395,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -442,7 +442,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -489,9 +489,9 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
-              <MenuBar.Submenu label='Electronics'>
+              <MenuBar.Submenu label="Electronics">
                 <MenuBar.Item>Mobile Phones</MenuBar.Item>
                 <MenuBar.Item>Computers</MenuBar.Item>
                 <MenuBar.Item>TV</MenuBar.Item>
@@ -548,7 +548,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item onClick={mockAction}>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -597,7 +597,7 @@ describe('MenuBar', () => {
         const { container } = render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>

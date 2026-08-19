@@ -32,7 +32,7 @@ SizeLg.args = {
 };
 
 export const Block: StoryFn<ButtonSkeletonProps> = args => (
-  <div className='w-96'>
+  <div className="w-96">
     <Template {...args} block />{' '}
   </div>
 );

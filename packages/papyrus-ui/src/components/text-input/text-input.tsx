@@ -195,17 +195,17 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       >
         <InputBox disabled={disabled} invalid={invalid} size={size}>
           {isValidElement<IconBaseProps>(startIcon) && (
-            <InputAction className='me-1'>{startIcon}</InputAction>
+            <InputAction className="me-1">{startIcon}</InputAction>
           )}
 
           <input
             {...props}
             ref={mergedRefs}
-            className='input-base'
+            className="input-base"
             disabled={disabled}
             id={inputId}
             readOnly={readOnly}
-            type='text'
+            type="text"
             value={valueState}
             onBlur={handleBlur}
             onChange={handleChange}
@@ -213,12 +213,12 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           />
 
           {isClearable && (
-            <InputAction className='ms-1'>
+            <InputAction className="ms-1">
               <Icon
                 aria-label={clearLabel}
-                className='text-xl color-neutral-800 hover:opacity-60'
-                data-testid='clear-icon'
-                role='button'
+                className="text-xl color-neutral-800 hover:opacity-60"
+                data-testid="clear-icon"
+                role="button"
                 tabIndex={-1}
                 onMouseDown={handleClear}
               >
@@ -228,7 +228,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           )}
 
           {isValidElement(endIcon) && (
-            <InputAction className='ms-1'>{endIcon}</InputAction>
+            <InputAction className="ms-1">{endIcon}</InputAction>
           )}
         </InputBox>
       </InputGroup>

@@ -10,27 +10,27 @@ const meta: Meta = {
 };
 
 export const Basic: StoryFn<DividerProps> = args => (
-  <div className='w-80'>
+  <div className="w-80">
     <Divider {...args} />
   </div>
 );
 
 export const Direction: StoryFn<DividerProps> = args => (
   <>
-    <Heading className='mb-4' level={3}>
+    <Heading className="mb-4" level={3}>
       Horizontal
     </Heading>
 
-    <div className='w-80'>
-      <Divider {...args} direction='horizontal' />
+    <div className="w-80">
+      <Divider {...args} direction="horizontal" />
     </div>
 
-    <Heading className='mb-4 mt-6' level={3}>
+    <Heading className="mb-4 mt-6" level={3}>
       Vertical
     </Heading>
 
-    <div className='flex h-48 justify-center'>
-      <Divider {...args} direction='vertical' />
+    <div className="flex h-48 justify-center">
+      <Divider {...args} direction="vertical" />
     </div>
   </>
 );

@@ -60,10 +60,10 @@ export const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
       ref={item.ref}
       description={description}
       endIcon={endIcon}
-      size='sm'
+      size="sm"
       startIcon={startIcon}
       tabIndex={isActive ? 0 : -1}
-      variant='secondary'
+      variant="secondary"
       {...getItemProps({
         disabled,
         onClick: handleClick,

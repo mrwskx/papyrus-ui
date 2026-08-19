@@ -124,7 +124,7 @@ describe('Menu', () => {
         render(
           <Menu>
             <MenuItem>Home</MenuItem>
-            <Submenu label='Products'>
+            <Submenu label="Products">
               <MenuItem>Electronics</MenuItem>
               <MenuItem>Clothing</MenuItem>
               <MenuItem>Accessories</MenuItem>
@@ -154,7 +154,7 @@ describe('Menu', () => {
         render(
           <Menu>
             <MenuItem>Home</MenuItem>
-            <Submenu label='Products'>
+            <Submenu label="Products">
               <MenuItem>Electronics</MenuItem>
               <MenuItem onClick={mockAction}>Clothing</MenuItem>
               <MenuItem>Accessories</MenuItem>
@@ -183,7 +183,7 @@ describe('Menu', () => {
         render(
           <Menu>
             <MenuItem>Home</MenuItem>
-            <Submenu label='Products'>
+            <Submenu label="Products">
               <MenuItem>Electronics</MenuItem>
               <MenuItem>Clothing</MenuItem>
               <MenuItem>Accessories</MenuItem>
@@ -242,7 +242,7 @@ describe('Menu', () => {
         render(
           <Menu>
             <MenuItem>Home</MenuItem>
-            <Submenu label='Products'>
+            <Submenu label="Products">
               <MenuItem>Electronics</MenuItem>
               <MenuItem>Clothing</MenuItem>
               <MenuItem>Accessories</MenuItem>
@@ -300,7 +300,7 @@ describe('Menu', () => {
         render(
           <Menu>
             <MenuItem>Home</MenuItem>
-            <Submenu label='Products'>
+            <Submenu label="Products">
               <MenuItem onClick={mockAction}>Electronics</MenuItem>
               <MenuItem>Clothing</MenuItem>
               <MenuItem>Accessories</MenuItem>
@@ -350,7 +350,7 @@ describe('Menu', () => {
         const { container } = render(
           <Menu>
             <MenuItem>Home</MenuItem>
-            <Submenu label='Products'>
+            <Submenu label="Products">
               <MenuItem>Electronics</MenuItem>
               <MenuItem>Clothing</MenuItem>
               <MenuItem>Accessories</MenuItem>

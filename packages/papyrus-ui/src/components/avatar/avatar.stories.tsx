@@ -16,15 +16,15 @@ export default {
 
 export function Basic(args: AvatarProps) {
   return (
-    <div className='flex'>
-      <div className='mr-2'>
+    <div className="flex">
+      <div className="mr-2">
         <Avatar {...args}>
-          <img alt='Profile' src='https://i.pravatar.cc/300' />
+          <img alt="Profile" src="https://i.pravatar.cc/300" />
         </Avatar>
       </div>
 
-      <div className='mr-2'>
-        <Avatar {...args} className='bg-warning-500' />
+      <div className="mr-2">
+        <Avatar {...args} className="bg-warning-500" />
       </div>
 
       <div>
@@ -36,11 +36,11 @@ export function Basic(args: AvatarProps) {
 
 export function Sizes(args: AvatarProps) {
   return (
-    <div className='flex items-center'>
+    <div className="flex items-center">
       {sizes.map((size, i) => (
         <div key={i} className={i ? 'ml-2' : ''}>
           <Avatar {...args} size={size}>
-            <img alt='Profile' src='https://i.pravatar.cc/300' />
+            <img alt="Profile" src="https://i.pravatar.cc/300" />
           </Avatar>
         </div>
       ))}
@@ -50,10 +50,10 @@ export function Sizes(args: AvatarProps) {
 
 export function Rounded(args: AvatarProps) {
   return (
-    <div className='flex'>
-      <div className='mr-2'>
+    <div className="flex">
+      <div className="mr-2">
         <Avatar {...args}>
-          <img alt='Profile' src='https://i.pravatar.cc/300' />
+          <img alt="Profile" src="https://i.pravatar.cc/300" />
         </Avatar>
       </div>
 

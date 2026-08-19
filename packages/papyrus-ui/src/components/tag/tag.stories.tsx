@@ -32,9 +32,9 @@ const Template: StoryFn<TagProps> = args => <Tag {...args} />;
 export const Basic = Template.bind({});
 
 export const Sizes: StoryFn<TagProps> = args => (
-  <div className='flex items-center -mt-2 -mx-1 flex-wrap'>
+  <div className="flex items-center -mt-2 -mx-1 flex-wrap">
     {sizes.map((size, i) => (
-      <div key={i} className='mt-2 px-1'>
+      <div key={i} className="mt-2 px-1">
         <Tag {...args} size={size}>
           {toUpper(size)}
         </Tag>
@@ -44,24 +44,24 @@ export const Sizes: StoryFn<TagProps> = args => (
 );
 
 export const Variants: StoryFn<TagProps> = args => (
-  <div className='flex flex-col gap-3'>
-    <div className='flex flex-wrap justify-center -mt-4 -mx-2'>
+  <div className="flex flex-col gap-3">
+    <div className="flex flex-wrap justify-center -mt-4 -mx-2">
       {variants
         .filter(variant => variant !== 'ghost')
         .map((variant, i) => (
-          <div key={i} className='mt-2 px-1'>
+          <div key={i} className="mt-2 px-1">
             <Tag {...args} variant={variant}>
               {capitalize(variant)}
             </Tag>
           </div>
         ))}
     </div>
-    <div className='bg-gradient-to-br from-primary-800 to-primary-900 py-2'>
-      <div className='flex flex-wrap justify-center -mt-4 -mx-2'>
+    <div className="bg-gradient-to-br from-primary-800 to-primary-900 py-2">
+      <div className="flex flex-wrap justify-center -mt-4 -mx-2">
         {variants
           .filter(variant => variant === 'ghost')
           .map((variant, i) => (
-            <div key={i} className='mt-4 px-2'>
+            <div key={i} className="mt-4 px-2">
               <Tag {...args} variant={variant}>
                 {capitalize(variant)}
               </Tag>
@@ -127,24 +127,24 @@ Disabled.args = {
 };
 
 export const AllVariantsWithIcons: StoryFn<TagProps> = args => (
-  <div className='flex flex-col gap-3'>
-    <div className='flex flex-wrap justify-center -mt-4 -mx-2'>
+  <div className="flex flex-col gap-3">
+    <div className="flex flex-wrap justify-center -mt-4 -mx-2">
       {variants
         .filter(variant => variant !== 'ghost')
         .map((variant, i) => (
-          <div key={i} className='mt-2 px-1'>
+          <div key={i} className="mt-2 px-1">
             <Tag {...args} icon={<BiCheck />} variant={variant}>
               {toUpper(variant)}
             </Tag>
           </div>
         ))}
     </div>
-    <div className='bg-gradient-to-br from-primary-800 to-primary-900 py-2'>
-      <div className='flex flex-wrap justify-center -mt-4 -mx-2'>
+    <div className="bg-gradient-to-br from-primary-800 to-primary-900 py-2">
+      <div className="flex flex-wrap justify-center -mt-4 -mx-2">
         {variants
           .filter(variant => variant === 'ghost')
           .map((variant, i) => (
-            <div key={i} className='mt-4 px-2'>
+            <div key={i} className="mt-4 px-2">
               <Tag {...args} icon={<BiCheck />} variant={variant}>
                 {toUpper(variant)}
               </Tag>
@@ -156,9 +156,9 @@ export const AllVariantsWithIcons: StoryFn<TagProps> = args => (
 );
 
 export const AllSizesWithIcons: StoryFn<TagProps> = args => (
-  <div className='flex items-center -mt-2 -mx-1 flex-wrap'>
+  <div className="flex items-center -mt-2 -mx-1 flex-wrap">
     {sizes.map((size, i) => (
-      <div key={i} className='mt-2 px-1'>
+      <div key={i} className="mt-2 px-1">
         <Tag {...args} icon={<BiStar />} size={size}>
           {toUpper(size)}
         </Tag>
@@ -180,7 +180,7 @@ RemovableAndClickable.args = {
 };
 
 export const InteractiveExamples: StoryFn<TagProps> = args => (
-  <div className='flex flex-wrap gap-2'>
+  <div className="flex flex-wrap gap-2">
     <Tag {...args} icon={<BiCheck />} onClick={() => alert('Clicked!')}>
       Clickable
     </Tag>
@@ -199,10 +199,10 @@ export const InteractiveExamples: StoryFn<TagProps> = args => (
 );
 
 export const AllInteractiveCombinations: StoryFn<TagProps> = args => (
-  <div className='space-y-4'>
+  <div className="space-y-4">
     <div>
-      <h3 className='text-sm font-medium mb-2'>Basic Interactive Tags</h3>
-      <div className='flex flex-wrap gap-2'>
+      <h3 className="text-sm font-medium mb-2">Basic Interactive Tags</h3>
+      <div className="flex flex-wrap gap-2">
         <Tag {...args} onClick={() => alert('Basic click!')}>
           Clickable Only
         </Tag>
@@ -220,8 +220,8 @@ export const AllInteractiveCombinations: StoryFn<TagProps> = args => (
     </div>
 
     <div>
-      <h3 className='text-sm font-medium mb-2'>With Icons</h3>
-      <div className='flex flex-wrap gap-2'>
+      <h3 className="text-sm font-medium mb-2">With Icons</h3>
+      <div className="flex flex-wrap gap-2">
         <Tag {...args} icon={<BiCheck />} onClick={() => alert('Icon click!')}>
           Clickable with Icon
         </Tag>
@@ -240,12 +240,12 @@ export const AllInteractiveCombinations: StoryFn<TagProps> = args => (
     </div>
 
     <div>
-      <h3 className='text-sm font-medium mb-2'>Different Variants</h3>
-      <div className='flex flex-wrap gap-2'>
+      <h3 className="text-sm font-medium mb-2">Different Variants</h3>
+      <div className="flex flex-wrap gap-2">
         <Tag
           {...args}
           icon={<BiCheck />}
-          variant='success'
+          variant="success"
           onClick={() => alert('Success click!')}
           onRemove={() => alert('Success remove!')}
         >
@@ -254,7 +254,7 @@ export const AllInteractiveCombinations: StoryFn<TagProps> = args => (
         <Tag
           {...args}
           icon={<BiStar />}
-          variant='warning'
+          variant="warning"
           onClick={() => alert('Warning click!')}
           onRemove={() => alert('Warning remove!')}
         >
@@ -263,7 +263,7 @@ export const AllInteractiveCombinations: StoryFn<TagProps> = args => (
         <Tag
           {...args}
           icon={<BiTag />}
-          variant='danger'
+          variant="danger"
           onClick={() => alert('Danger click!')}
           onRemove={() => alert('Danger remove!')}
         >

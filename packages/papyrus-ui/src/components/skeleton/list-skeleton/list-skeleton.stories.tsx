@@ -16,8 +16,8 @@ const meta: Meta = {
 
 const Template: StoryFn<ListSkeletonProps> = args => (
   <ListSkeleton {...args}>
-    <TextSkeleton className='w-96' />
-    <TextSkeleton className='w-96' />
+    <TextSkeleton className="w-96" />
+    <TextSkeleton className="w-96" />
   </ListSkeleton>
 );
 

@@ -9,7 +9,7 @@ const meta: Meta<RangeSkeletonProps> = {
 };
 
 const Template: StoryFn<RangeSkeletonProps> = args => (
-  <div className='w-80'>
+  <div className="w-80">
     <RangeSkeleton {...args} />
   </div>
 );

@@ -128,13 +128,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       >
         <InputBox disabled={disabled} invalid={invalid} size={size}>
           {isValidElement<IconBaseProps>(startIcon) && (
-            <InputAction className='me-1'>{startIcon}</InputAction>
+            <InputAction className="me-1">{startIcon}</InputAction>
           )}
 
           <textarea
             {...props}
             ref={ref}
-            className='textarea-base'
+            className="textarea-base"
             defaultValue={defaultValue}
             disabled={disabled}
             readOnly={readOnly}
@@ -143,7 +143,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           />
 
           {isValidElement<IconBaseProps>(endIcon) && (
-            <InputAction className='ms-1'>{endIcon}</InputAction>
+            <InputAction className="ms-1">{endIcon}</InputAction>
           )}
         </InputBox>
       </InputGroup>

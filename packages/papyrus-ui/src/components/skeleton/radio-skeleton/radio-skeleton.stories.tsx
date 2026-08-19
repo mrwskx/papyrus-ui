@@ -11,8 +11,8 @@ const meta: Meta<RadioSkeletonProps> = {
   args: {
     children: (
       <>
-        <TextSkeleton className='w-40' />
-        <TextSkeleton className='w-40' />
+        <TextSkeleton className="w-40" />
+        <TextSkeleton className="w-40" />
       </>
     ),
   },

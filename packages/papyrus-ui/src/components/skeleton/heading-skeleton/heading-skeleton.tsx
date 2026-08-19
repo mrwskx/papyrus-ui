@@ -17,15 +17,15 @@ export const HeadingSkeleton: FC<HeadingSkeletonProps> = ({
   ...props
 }) => (
   <Heading
-    as='div'
+    as="div"
     className={cn('relative flex flex-col justify-center', className)}
     fontVariant={fontVariant}
     level={level}
     {...props}
   >
-    <span aria-hidden='true' className='invisible'>
+    <span aria-hidden="true" className="invisible">
       Aa
     </span>
-    <Skeleton className='absolute h-[1em] w-full rounded' />
+    <Skeleton className="absolute h-[1em] w-full rounded" />
   </Heading>
 );

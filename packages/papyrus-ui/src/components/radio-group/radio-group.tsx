@@ -178,7 +178,7 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
             direction === 'row' ? 'flex-row' : 'flex-col',
             block ? 'flex' : 'inline-flex',
           )}
-          role='group'
+          role="group"
         >
           {Children.map(children, (child, idx) =>
             isValidElement<RadioProps & RefAttributes<HTMLInputElement>>(child)

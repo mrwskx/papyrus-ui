@@ -233,11 +233,11 @@ export const DropdownSubmenu: FC<DropdownSubmenuProps> = ({
       <MenuButton
         ref={buttonRef}
         endIcon={<BiChevronRight />}
-        role='menuitem'
-        size='sm'
+        role="menuitem"
+        size="sm"
         startIcon={icon}
         tabIndex={isActive ? 0 : -1}
-        variant='secondary'
+        variant="secondary"
         {...getReferenceProps(
           parent.getItemProps({
             onFocus: handleFocus,

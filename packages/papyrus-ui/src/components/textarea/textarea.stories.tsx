@@ -22,7 +22,7 @@ const meta = {
 const sizes: InputBoxSize[] = ['sm', 'md', 'lg'];
 
 const Template: StoryFn<TextareaProps> = args => (
-  <div className='w-64'>
+  <div className="w-64">
     <Textarea {...args} />
   </div>
 );
@@ -35,7 +35,7 @@ Basic.args = {
 
 export function Sizes(args: TextareaProps) {
   return (
-    <div className='flex flex-col w-64'>
+    <div className="flex flex-col w-64">
       {sizes.map((size, i) => (
         <div key={i} className={i ? 'mt-4' : ''}>
           <Textarea {...args} id={`textarea-size-${size}`} size={size} />
@@ -47,14 +47,14 @@ export function Sizes(args: TextareaProps) {
 
 export function WithIcon(args: TextareaProps) {
   return (
-    <div className='flex flex-col w-64'>
-      <div className='mb-4'>
+    <div className="flex flex-col w-64">
+      <div className="mb-4">
         <Textarea
           {...args}
-          id='textarea-with-start-icon'
-          label='With Start Icon'
+          id="textarea-with-start-icon"
+          label="With Start Icon"
           startIcon={
-            <Icon className='text-neutral-950'>
+            <Icon className="text-neutral-950">
               <BiSearch />
             </Icon>
           }
@@ -65,12 +65,12 @@ export function WithIcon(args: TextareaProps) {
         <Textarea
           {...args}
           endIcon={
-            <Icon className='text-info-600'>
+            <Icon className="text-info-600">
               <BiInfoCircle />
             </Icon>
           }
-          id='textarea-with-end-icon'
-          label='With End Icon'
+          id="textarea-with-end-icon"
+          label="With End Icon"
         />
       </div>
     </div>

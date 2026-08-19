@@ -27,7 +27,7 @@ export default {
 };
 
 const Template: StoryFn<NumericInputProps> = args => (
-  <div className='w-64'>
+  <div className="w-64">
     <NumericInput {...args} />
   </div>
 );
@@ -36,7 +36,7 @@ export const Basic = Template.bind({});
 
 export function Sizes(args: NumericInputProps) {
   return (
-    <div className='flex flex-col w-64'>
+    <div className="flex flex-col w-64">
       {sizes.map((size, i) => (
         <div key={i} className={i ? 'mt-4' : ''}>
           <NumericInput
@@ -53,15 +53,15 @@ export function Sizes(args: NumericInputProps) {
 
 export function WithIcon(args: NumericInputProps) {
   return (
-    <div className='flex flex-col w-64'>
-      <div className='mb-4'>
+    <div className="flex flex-col w-64">
+      <div className="mb-4">
         <NumericInput
           {...args}
-          id='numeric-input-with-start-icon'
-          label='With Start Icon'
+          id="numeric-input-with-start-icon"
+          label="With Start Icon"
           startIcon={
-            <Icon className='text-neutral-950'>
-              <BiSolidPurchaseTag name='purchase-tag' />
+            <Icon className="text-neutral-950">
+              <BiSolidPurchaseTag name="purchase-tag" />
             </Icon>
           }
         />
@@ -71,12 +71,12 @@ export function WithIcon(args: NumericInputProps) {
         <NumericInput
           {...args}
           endIcon={
-            <Icon className='text-info-600'>
+            <Icon className="text-info-600">
               <BiInfoCircle />
             </Icon>
           }
-          id='numeric-input-with-end-icon'
-          label='With End Icon'
+          id="numeric-input-with-end-icon"
+          label="With End Icon"
         />
       </div>
     </div>

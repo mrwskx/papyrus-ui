@@ -286,12 +286,12 @@ export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
       >
         <InputBox disabled={disabled} invalid={invalid} size={size}>
           {isValidElement<IconBaseProps>(startIcon) && (
-            <InputAction className='me-1'>{startIcon}</InputAction>
+            <InputAction className="me-1">{startIcon}</InputAction>
           )}
 
           <PatternFormat
             allowEmptyFormatting
-            className='input-base'
+            className="input-base"
             disabled={disabled}
             format={seconds ? SECONDS_FORMAT : MINUTES_FORMAT}
             getInputRef={ref}
@@ -306,7 +306,7 @@ export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
           />
 
           {isValidElement(endIcon) && (
-            <InputAction className='ms-1'>{endIcon}</InputAction>
+            <InputAction className="ms-1">{endIcon}</InputAction>
           )}
         </InputBox>
       </InputGroup>

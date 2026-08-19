@@ -8,9 +8,9 @@ describe('RadioGroup', () => {
     describe('When it is rendered', () => {
       it('Then it should render the checkbox items', () => {
         render(
-          <RadioGroup name='group1'>
-            <Radio value='1'>Label 1</Radio>
-            <Radio value='2'>Label 2</Radio>
+          <RadioGroup name="group1">
+            <Radio value="1">Label 1</Radio>
+            <Radio value="2">Label 2</Radio>
           </RadioGroup>,
         );
         expect(screen.getByLabelText('Label 1')).toBeInTheDocument();
@@ -19,9 +19,9 @@ describe('RadioGroup', () => {
 
       it('Then it should not check any checkbox by default when value is false', () => {
         render(
-          <RadioGroup name='group1'>
-            <Radio value='1'>Label 1</Radio>
-            <Radio value='2'>Label 2</Radio>
+          <RadioGroup name="group1">
+            <Radio value="1">Label 1</Radio>
+            <Radio value="2">Label 2</Radio>
           </RadioGroup>,
         );
         expect(screen.getByLabelText('Label 1')).not.toBeChecked();
@@ -34,9 +34,9 @@ describe('RadioGroup', () => {
     describe('When it is rendered', () => {
       it('Then it should render with selected checkboxes based on the defaultValue array', () => {
         render(
-          <RadioGroup defaultValue='1' name='group1'>
-            <Radio value='1'>Label 1</Radio>
-            <Radio value='2'>Label 2</Radio>
+          <RadioGroup defaultValue="1" name="group1">
+            <Radio value="1">Label 1</Radio>
+            <Radio value="2">Label 2</Radio>
           </RadioGroup>,
         );
         expect(screen.getByLabelText('Label 1')).toBeChecked();
@@ -49,9 +49,9 @@ describe('RadioGroup', () => {
     describe('When it is rendered', () => {
       it('Then all checkboxes should be disabled', () => {
         render(
-          <RadioGroup disabled name='group1'>
-            <Radio value='1'>Label 1</Radio>
-            <Radio value='2'>Label 2</Radio>
+          <RadioGroup disabled name="group1">
+            <Radio value="1">Label 1</Radio>
+            <Radio value="2">Label 2</Radio>
           </RadioGroup>,
         );
         expect(screen.getByLabelText('Label 1')).toBeDisabled();
@@ -64,9 +64,9 @@ describe('RadioGroup', () => {
         const onChange = vi.fn();
 
         render(
-          <RadioGroup disabled name='group1' onChange={onChange}>
-            <Radio value='1'>Label 1</Radio>
-            <Radio value='2'>Label 2</Radio>
+          <RadioGroup disabled name="group1" onChange={onChange}>
+            <Radio value="1">Label 1</Radio>
+            <Radio value="2">Label 2</Radio>
           </RadioGroup>,
         );
 
@@ -81,11 +81,11 @@ describe('RadioGroup', () => {
     describe('When it is rendered', () => {
       it('Then only this checkbox should be disabled', () => {
         render(
-          <RadioGroup name='group1'>
-            <Radio disabled value='1'>
+          <RadioGroup name="group1">
+            <Radio disabled value="1">
               Label 1
             </Radio>
-            <Radio value='2'>Label 2</Radio>
+            <Radio value="2">Label 2</Radio>
           </RadioGroup>,
         );
         expect(screen.getByLabelText('Label 1')).toBeDisabled();
@@ -97,11 +97,11 @@ describe('RadioGroup', () => {
       it("Then the checkbox shouldn't change it's state and onChange shouldn't be called", () => {
         const onChange = vi.fn();
         render(
-          <RadioGroup name='group1' onChange={onChange}>
-            <Radio disabled value='1'>
+          <RadioGroup name="group1" onChange={onChange}>
+            <Radio disabled value="1">
               Label 1
             </Radio>
-            <Radio value='2'>Label 2</Radio>
+            <Radio value="2">Label 2</Radio>
           </RadioGroup>,
         );
         fireEvent.click(screen.getByLabelText('Label 1'));
@@ -115,9 +115,9 @@ describe('RadioGroup', () => {
     describe('When it is rendered', () => {
       it('Then all checkboxes should be read-only', () => {
         render(
-          <RadioGroup name='group1' readOnly>
-            <Radio value='1'>Label 1</Radio>
-            <Radio value='2'>Label 2</Radio>
+          <RadioGroup name="group1" readOnly>
+            <Radio value="1">Label 1</Radio>
+            <Radio value="2">Label 2</Radio>
           </RadioGroup>,
         );
         expect(screen.getByLabelText('Label 1')).toHaveAttribute('readonly');
@@ -129,9 +129,9 @@ describe('RadioGroup', () => {
       it("Then the checkbox shouldn't change it's state and onChange shouldn't be called", () => {
         const onChange = vi.fn();
         render(
-          <RadioGroup name='group1' readOnly onChange={onChange}>
-            <Radio value='1'>Label 1</Radio>
-            <Radio value='2'>Label 2</Radio>
+          <RadioGroup name="group1" readOnly onChange={onChange}>
+            <Radio value="1">Label 1</Radio>
+            <Radio value="2">Label 2</Radio>
           </RadioGroup>,
         );
 
@@ -146,11 +146,11 @@ describe('RadioGroup', () => {
     describe('When it is rendered', () => {
       it('Then only this checkbox should be readonly', () => {
         render(
-          <RadioGroup name='group1'>
-            <Radio readOnly value='1'>
+          <RadioGroup name="group1">
+            <Radio readOnly value="1">
               Label 1
             </Radio>
-            <Radio value='2'>Label 2</Radio>
+            <Radio value="2">Label 2</Radio>
           </RadioGroup>,
         );
         expect(screen.getByLabelText('Label 1')).toHaveAttribute('readonly');
@@ -164,11 +164,11 @@ describe('RadioGroup', () => {
       it("Then the checkbox shouldn't change it's state and onChange shouldn't be called", () => {
         const onChange = vi.fn();
         render(
-          <RadioGroup name='group1' onChange={onChange}>
-            <Radio readOnly value='1'>
+          <RadioGroup name="group1" onChange={onChange}>
+            <Radio readOnly value="1">
               Label 1
             </Radio>
-            <Radio value='2'>Label 2</Radio>
+            <Radio value="2">Label 2</Radio>
           </RadioGroup>,
         );
         fireEvent.click(screen.getByLabelText('Label 1'));
@@ -183,9 +183,9 @@ describe('RadioGroup', () => {
       it('Then it should call the onChange function with the new value', () => {
         const handleChange = vi.fn();
         render(
-          <RadioGroup name='group1' onChange={handleChange}>
-            <Radio value='1'>Label 1</Radio>
-            <Radio value='2'>Label 2</Radio>
+          <RadioGroup name="group1" onChange={handleChange}>
+            <Radio value="1">Label 1</Radio>
+            <Radio value="2">Label 2</Radio>
           </RadioGroup>,
         );
         fireEvent.click(screen.getByLabelText('Label 1'));
@@ -197,9 +197,9 @@ describe('RadioGroup', () => {
       it('Then it should call the onChange function with the latest selected value', () => {
         const handleChange = vi.fn();
         render(
-          <RadioGroup name='group1' onChange={handleChange}>
-            <Radio value='1'>Label 1</Radio>
-            <Radio value='2'>Label 2</Radio>
+          <RadioGroup name="group1" onChange={handleChange}>
+            <Radio value="1">Label 1</Radio>
+            <Radio value="2">Label 2</Radio>
           </RadioGroup>,
         );
         fireEvent.click(screen.getByLabelText('Label 1'));
@@ -213,10 +213,10 @@ describe('RadioGroup', () => {
     describe('When the value prop is set to an empty array', () => {
       it('Then no checkboxes should be checked initially', () => {
         render(
-          <RadioGroup name='group1'>
-            <Radio value='1'>Label 1</Radio>
-            <Radio value='2'>Label 2</Radio>
-            <Radio value='3'>Label 3</Radio>
+          <RadioGroup name="group1">
+            <Radio value="1">Label 1</Radio>
+            <Radio value="2">Label 2</Radio>
+            <Radio value="3">Label 3</Radio>
           </RadioGroup>,
         );
 
@@ -229,10 +229,10 @@ describe('RadioGroup', () => {
     describe('When the value prop is updated to a different selected value', () => {
       it('Then the checkboxes should reflect the updated selected values', () => {
         const { rerender } = render(
-          <RadioGroup name='group1' value='1'>
-            <Radio value='1'>Label 1</Radio>
-            <Radio value='2'>Label 2</Radio>
-            <Radio value='3'>Label 3</Radio>
+          <RadioGroup name="group1" value="1">
+            <Radio value="1">Label 1</Radio>
+            <Radio value="2">Label 2</Radio>
+            <Radio value="3">Label 3</Radio>
           </RadioGroup>,
         );
 
@@ -246,10 +246,10 @@ describe('RadioGroup', () => {
 
         // Update the value prop to select only checkbox 3
         rerender(
-          <RadioGroup name='group1' value='3'>
-            <Radio value='1'>Label 1</Radio>
-            <Radio value='2'>Label 2</Radio>
-            <Radio value='3'>Label 3</Radio>
+          <RadioGroup name="group1" value="3">
+            <Radio value="1">Label 1</Radio>
+            <Radio value="2">Label 2</Radio>
+            <Radio value="3">Label 3</Radio>
           </RadioGroup>,
         );
 

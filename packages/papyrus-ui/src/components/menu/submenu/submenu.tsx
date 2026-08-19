@@ -173,7 +173,7 @@ export const Submenu: FC<SubmenuProps> = ({
         ref={buttonRef}
         aria-controls={isOpen ? menuId : undefined}
         aria-expanded={isOpen ? 'true' : 'false'}
-        aria-haspopup='menu'
+        aria-haspopup="menu"
         collapsed={parent.collapsed}
         disabled={disabled}
         endIcon={
@@ -181,7 +181,7 @@ export const Submenu: FC<SubmenuProps> = ({
         }
         id={buttonId}
         indent={parent.indent}
-        role='menuitem'
+        role="menuitem"
         selected={selected}
         size={parent.size}
         startIcon={icon}
@@ -212,7 +212,7 @@ export const Submenu: FC<SubmenuProps> = ({
                   status === 'entered' && 'max-h-96',
                 )}
                 id={menuId}
-                role='menu'
+                role="menu"
                 tabIndex={-1}
                 onKeyDown={handleMenuKeyDown}
               >

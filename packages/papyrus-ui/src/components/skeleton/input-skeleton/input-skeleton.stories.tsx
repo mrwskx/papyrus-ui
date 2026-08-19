@@ -12,7 +12,7 @@ const meta: Meta<InputSkeletonProps> = {
 };
 
 const Template: StoryFn<InputSkeletonProps> = args => (
-  <div className='w-96'>
+  <div className="w-96">
     <InputSkeleton {...args} />
   </div>
 );
