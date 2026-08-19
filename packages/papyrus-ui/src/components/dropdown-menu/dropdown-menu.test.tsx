@@ -114,7 +114,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -164,7 +164,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -318,7 +318,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -369,7 +369,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -420,7 +420,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -471,7 +471,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -546,7 +546,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -601,7 +601,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -666,7 +666,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
