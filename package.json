@@ -17,7 +17,7 @@
     "ci:versionup:minor": "lerna version minor --no-push --no-git-tag-version --yes && pnpm commit-version",
     "ci:versionup:major": "lerna version major --no-push --no-git-tag-version --yes && pnpm commit-version",
     "commit": "node @commitlint/prompt-cli/cli.js",
-    "commit-version": "git add . && git commit -m \"chore(release): v`node -p 'import(\"./lerna.json\").then(m => m.default.version)'`\"",
+    "commit-version": "git add -u && git commit -m \"chore(release): v`node -p \"require('./lerna.json').version\"`\"",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint . --cache --max-warnings 0",
