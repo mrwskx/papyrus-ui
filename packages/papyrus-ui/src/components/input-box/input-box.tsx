@@ -89,25 +89,23 @@ export const InputBox = forwardRef<HTMLDivElement, InputBoxProps>(
       ...elementProps
     },
     ref,
-  ) => {
-    return (
-      <div
-        ref={ref}
-        className={cn(
-          baseStyles,
-          !disabled && !invalid && interactiveStyles,
-          !disabled && invalid && invalidStyles,
-          disabled && disabledStyles,
-          sizeMap[size],
-          rounded ? 'rounded-full' : 'rounded-input',
-          className,
-        )}
-        {...elementProps}
-      >
-        {children}
-      </div>
-    );
-  },
+  ) => (
+    <div
+      ref={ref}
+      className={cn(
+        baseStyles,
+        !disabled && !invalid && interactiveStyles,
+        !disabled && invalid && invalidStyles,
+        disabled && disabledStyles,
+        sizeMap[size],
+        rounded ? 'rounded-full' : 'rounded-input',
+        className,
+      )}
+      {...elementProps}
+    >
+      {children}
+    </div>
+  ),
 );
 
 InputBox.displayName = 'InputBox';

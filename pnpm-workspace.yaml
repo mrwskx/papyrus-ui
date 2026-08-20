@@ -10,3 +10,6 @@ allowBuilds:
   esbuild: true
   nx: true
   unrs-resolver: true
+
+minimumReleaseAgeExclude:
+  - eslint-plugin-storybook@10.5.10

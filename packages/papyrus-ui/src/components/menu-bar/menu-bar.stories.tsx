@@ -18,13 +18,9 @@ import { Heading } from '../heading';
 import { MenuBar } from './menu-bar';
 import type { MenuBarProps } from './menu-bar';
 
-const variants: Array<MenuBarProps['variant']> = [
-  'primary',
-  'secondary',
-  'ghost',
-];
+const variants: MenuBarProps['variant'][] = ['primary', 'secondary', 'ghost'];
 
-const sizes: Array<MenuBarProps['size']> = ['sm', 'md', 'lg'];
+const sizes: MenuBarProps['size'][] = ['sm', 'md', 'lg'];
 
 export default {
   title: 'Navigation/MenuBar',

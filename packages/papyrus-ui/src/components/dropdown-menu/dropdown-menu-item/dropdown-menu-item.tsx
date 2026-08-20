@@ -42,6 +42,7 @@ export function DropdownMenuItem({
 
   const item = useListItem({ label: disabled ? null : children });
   const tree = useFloatingTree();
+  // eslint-disable-next-line react-hooks/refs -- useListItem returns index as a plain number, not a ref
   const isActive = item.index === activeIndex;
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -56,6 +57,7 @@ export function DropdownMenuItem({
 
   return (
     <MenuButton
+      // eslint-disable-next-line react-hooks/refs -- useListItem returns ref as a callback ref; forwarding it is its purpose
       ref={item.ref}
       description={description}
       endIcon={endIcon}

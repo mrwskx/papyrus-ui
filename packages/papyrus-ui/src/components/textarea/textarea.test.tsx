@@ -81,8 +81,7 @@ describe('Textarea', () => {
         await userEvent.type(screen.getByRole('textbox'), 'Bob');
 
         expect(onChange).toHaveBeenCalled();
-        const [value] =
-          onChange['mock'].calls[onChange['mock'].calls.length - 1];
+        const [value] = onChange.mock.calls[onChange.mock.calls.length - 1];
         expect(value).toEqual('Bob');
       });
     });

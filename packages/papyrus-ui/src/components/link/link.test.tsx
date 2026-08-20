@@ -6,9 +6,9 @@ describe('Link', () => {
   describe('Given a link component with the default "a" element', () => {
     describe('When rendered', () => {
       it('Then the link should render an "a" tag by default', () => {
-        render(<Link href="#">Link</Link>);
+        render(<Link href="/docs">Link</Link>);
         expect(screen.getByRole('link')).toBeInTheDocument();
-        expect(screen.getByRole('link')).toHaveAttribute('href', '#');
+        expect(screen.getByRole('link')).toHaveAttribute('href', '/docs');
       });
     });
   });

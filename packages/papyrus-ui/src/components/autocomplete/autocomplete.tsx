@@ -345,7 +345,7 @@ export const Autocomplete = forwardRef(
     );
 
     const containerRef = useRef<HTMLDivElement>(null);
-    const listRef = useRef<Array<HTMLElement | null>>([]);
+    const listRef = useRef<(HTMLElement | null)[]>([]);
     const isControlled = typeof value !== 'undefined';
     const inputId = useId(id);
 
@@ -405,6 +405,7 @@ export const Autocomplete = forwardRef(
     const { getReferenceProps, getFloatingProps, getItemProps } =
       useInteractions([role, click, dismiss, listNav]);
 
+    // eslint-disable-next-line @typescript-eslint/unbound-method -- @floating-ui declares setReference/setFloating in method shorthand; they are standalone callbacks and use no `this`
     const mergedRefs = useMergeRefs(refs.setReference, ref);
 
     const resetInputValue = useCallback(() => {
@@ -430,9 +431,9 @@ export const Autocomplete = forwardRef(
       [getLabel, options],
     );
 
-    const updateOptions = useDebounceCallback(async (nextQuery: string) => {
+    const updateOptions = useDebounceCallback((nextQuery: string) => {
       if (onSearch) {
-        await onSearch(nextQuery);
+        void onSearch(nextQuery);
       } else {
         filterOptions(nextQuery);
       }
@@ -459,12 +460,12 @@ export const Autocomplete = forwardRef(
       resetInputValue();
     }, [resetInputValue]);
 
-    const changeValue = (options: Value[]) => {
+    const changeValue = (nextValue: Value[]) => {
       if (isControlled) {
-        const nextOptions = toValue(options, multiple);
+        const nextOptions = toValue(nextValue, multiple);
         onChange?.(nextOptions);
       } else {
-        setSelectedOptions(options);
+        setSelectedOptions(nextValue);
       }
     };
 
@@ -671,6 +672,7 @@ export const Autocomplete = forwardRef(
               modal={false}
             >
               <Listbox
+                // eslint-disable-next-line @typescript-eslint/unbound-method -- @floating-ui declares setReference/setFloating in method shorthand; they are standalone callbacks and use no `this`
                 ref={refs.setFloating}
                 id={slug(inputId, LISTBOX_ID)}
                 style={floatingStyles}
@@ -683,7 +685,7 @@ export const Autocomplete = forwardRef(
                   </Option>
                 )}
 
-                {!loading && optionsState && optionsState.length === 0 && (
+                {!loading && optionsState?.length === 0 && (
                   <Option disabled role="none">
                     {noResultLabel}
                   </Option>

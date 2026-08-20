@@ -64,6 +64,7 @@ function PopoverComponent({
     open: openState,
     whileElementsMounted: autoUpdate,
     middleware: [
+      // eslint-disable-next-line react-hooks/refs -- the middleware stores the ref object; .current is read by floating-ui, not during render
       arrowFn({
         element: arrowRef,
         padding: arrowPadding,

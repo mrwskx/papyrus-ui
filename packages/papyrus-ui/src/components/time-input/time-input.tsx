@@ -128,7 +128,7 @@ function getDateByValue(value: string) {
 
 function isValidDate(date: Date, hour12: boolean) {
   return !(
-    isNaN(date.getTime()) ||
+    Number.isNaN(date.getTime()) ||
     date.getDay() !== 0 ||
     (hour12 && date.getHours() > 12)
   );
@@ -243,6 +243,9 @@ export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
         .split(':')
         .map(v => parseInt(v, 10));
 
+      // A mask without seconds yields two parts, so p3 is undefined at runtime;
+      // TS types it as number because noUncheckedIndexedAccess is off.
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       const [hrs, min, sec] = [p1, p2, p3 ?? 0];
 
       if (hour12 && hrs > 12) {

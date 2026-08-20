@@ -136,7 +136,7 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>(
     },
     ref,
   ) => {
-    const isInteractive = Boolean(onClick || onRemove);
+    const isInteractive = Boolean(onClick ?? onRemove);
 
     const handleClick = (e: MouseEvent) => !disabled && onClick?.(e);
 
@@ -153,6 +153,9 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>(
     };
 
     return (
+      // role and tabIndex below are set whenever the tag is interactive; the
+      // rule cannot see through the conditional expressions that assign them.
+      // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <span
         ref={ref}
         aria-disabled={disabled}

@@ -19,9 +19,9 @@ import { IconButton } from '../icon-button';
 import { Menu } from './menu';
 import type { MenuProps } from './menu';
 
-const variants: Array<MenuProps['variant']> = ['primary', 'secondary', 'ghost'];
+const variants: MenuProps['variant'][] = ['primary', 'secondary', 'ghost'];
 
-const sizes: Array<MenuProps['size']> = ['sm', 'md', 'lg'];
+const sizes: MenuProps['size'][] = ['sm', 'md', 'lg'];
 
 export default {
   title: 'Navigation/Menu',
@@ -164,8 +164,8 @@ export function WithDescriptions(args: MenuProps) {
 export function Collapsed(args: MenuProps) {
   const [collapsed, setCollapsed] = useState(true);
 
-  const onCollapsedChange = (collapsed: boolean) => {
-    setCollapsed(collapsed);
+  const onCollapsedChange = (nextCollapsed: boolean) => {
+    setCollapsed(nextCollapsed);
   };
 
   return (
@@ -173,7 +173,9 @@ export function Collapsed(args: MenuProps) {
       <IconButton
         className="m-1"
         variant="secondary"
-        onClick={() => setCollapsed(!collapsed)}
+        onClick={() => {
+          setCollapsed(!collapsed);
+        }}
       >
         {collapsed ? <BiRightIndent /> : <BiLeftIndent />}
       </IconButton>

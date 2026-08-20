@@ -16,7 +16,7 @@ export interface MenuBarContextType {
   activeIndex: number | null;
   collapsed: boolean;
   context: FloatingContext<HTMLElement>;
-  elementsRef: MutableRefObject<Array<HTMLElement | null>>;
+  elementsRef: MutableRefObject<(HTMLElement | null)[]>;
   floatingStyles: CSSProperties;
   getFloatingProps: (
     userProps?: HTMLProps<HTMLElement>,

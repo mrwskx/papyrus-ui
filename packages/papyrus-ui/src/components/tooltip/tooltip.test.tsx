@@ -4,11 +4,11 @@ import { Tooltip } from './tooltip';
 
 describe('Tooltip', () => {
   describe('Given a tooltip component with valid title and child element', () => {
-    describe('When interacting with the child element ', () => {
+    describe('When interacting with the child element', () => {
       it('Then the title should be displayed on hover', async () => {
         render(
           <Tooltip title="This is a tooltip">
-            <button>Hover me</button>
+            <button type="button">Hover me</button>
           </Tooltip>,
         );
 
@@ -25,9 +25,9 @@ describe('Tooltip', () => {
       it('Then the tooltip.Content should be hidden', async () => {
         render(
           <>
-            <button>Outside</button>
+            <button type="button">Outside</button>
             <Tooltip title="This is a tooltip">
-              <button>Hover me</button>
+              <button type="button">Hover me</button>
             </Tooltip>
           </>,
         );
@@ -54,7 +54,7 @@ describe('Tooltip', () => {
       it('Then the tooltip content is visible initially', () => {
         render(
           <Tooltip initialOpen title="This is a tooltip">
-            <button>Hover me</button>
+            <button type="button">Hover me</button>
           </Tooltip>,
         );
 
@@ -68,7 +68,7 @@ describe('Tooltip', () => {
       it('Then the tooltip should become visible', async () => {
         const { rerender } = render(
           <Tooltip open={false} title="This is a tooltip">
-            <button>Hover me</button>
+            <button type="button">Hover me</button>
           </Tooltip>,
         );
 
@@ -76,7 +76,7 @@ describe('Tooltip', () => {
 
         rerender(
           <Tooltip open title="This is a tooltip">
-            <button>Hover me</button>
+            <button type="button">Hover me</button>
           </Tooltip>,
         );
 
@@ -90,7 +90,7 @@ describe('Tooltip', () => {
       it('Then the tooltip should become hidden', async () => {
         const { rerender } = render(
           <Tooltip open title="This is a tooltip">
-            <button>Hover me</button>
+            <button type="button">Hover me</button>
           </Tooltip>,
         );
 
@@ -98,7 +98,7 @@ describe('Tooltip', () => {
 
         rerender(
           <Tooltip open={false} title="This is a tooltip">
-            <button>Hover me</button>
+            <button type="button">Hover me</button>
           </Tooltip>,
         );
 
@@ -118,9 +118,9 @@ describe('Tooltip', () => {
 
         render(
           <>
-            <button>Outside</button>
+            <button type="button">Outside</button>
             <Tooltip open title="This is a tooltip" onOpenChange={onOpenChange}>
-              <button>Hover me</button>
+              <button type="button">Hover me</button>
             </Tooltip>
           </>,
         );
@@ -139,7 +139,7 @@ describe('Tooltip', () => {
       it('Then the tooltip should be displayed', async () => {
         render(
           <Tooltip title="This is a tooltip" trigger="focus">
-            <button>Focus me</button>
+            <button type="button">Focus me</button>
           </Tooltip>,
         );
 
@@ -155,7 +155,7 @@ describe('Tooltip', () => {
       it('Then the tooltip should be hidden', async () => {
         render(
           <Tooltip title="This is a tooltip" trigger="focus">
-            <button>Focus me</button>
+            <button type="button">Focus me</button>
           </Tooltip>,
         );
 
@@ -181,7 +181,7 @@ describe('Tooltip', () => {
       it('Then the tooltip should be displayed', async () => {
         render(
           <Tooltip title="This is a tooltip" trigger="click">
-            <button>Click me</button>
+            <button type="button">Click me</button>
           </Tooltip>,
         );
 
@@ -198,7 +198,7 @@ describe('Tooltip', () => {
       it('Then the tooltip should be hidden', async () => {
         render(
           <Tooltip title="This is a tooltip" trigger="click">
-            <button>Click me</button>
+            <button type="button">Click me</button>
           </Tooltip>,
         );
 

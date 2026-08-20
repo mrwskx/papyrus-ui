@@ -41,6 +41,12 @@ jobs:
       - name: Lint code
         run: pnpm lint
 
+      - name: Check formatting
+        run: pnpm format:check
+
+      - name: Typecheck
+        run: pnpm typecheck
+
       - name: Run unit tests
         run: pnpm test:ci
 

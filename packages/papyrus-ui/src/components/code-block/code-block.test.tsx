@@ -42,9 +42,7 @@ describe('CodeBlock', () => {
   describe('Given CodeBlock with wrap true', () => {
     describe('When component is rendered', () => {
       it('Then should have word wrap classes', () => {
-        const { container } = render(
-          <CodeBlock wrap={true}>long code</CodeBlock>,
-        );
+        const { container } = render(<CodeBlock wrap>long code</CodeBlock>);
         const preElement = container.querySelector('pre');
         expect(preElement).toHaveClass('overflow-x-hidden');
         expect(preElement).toHaveClass('whitespace-pre-wrap');
@@ -100,7 +98,7 @@ describe('CodeBlock', () => {
         const copyButton = container.querySelector(
           '[title="Copy to clipboard"]',
         );
-        (copyButton as HTMLElement)?.click();
+        (copyButton as HTMLElement).click();
         expect(onCopy).toHaveBeenCalled();
       });
     });

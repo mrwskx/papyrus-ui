@@ -78,7 +78,7 @@ export function MenuBarSubmenu({
 }: SubMenuProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const elementsRef = useRef<Array<HTMLAnchorElement | null>>([]);
+  const elementsRef = useRef<(HTMLAnchorElement | null)[]>([]);
   const labelsRef = useRef<string[]>([]);
   const parent = useContext(MenuBarContext);
   const tree = useFloatingTree();
@@ -113,6 +113,7 @@ export function MenuBarSubmenu({
     whileElementsMounted: autoUpdate,
   });
 
+  // eslint-disable-next-line @typescript-eslint/unbound-method -- @floating-ui declares setReference/setFloating in method shorthand; they are standalone callbacks and use no `this`
   const buttonRef = useMergeRefs([refs.setReference, item.ref]);
 
   const click = useClick(context, {
@@ -151,15 +152,15 @@ export function MenuBarSubmenu({
       if (e.key === 'ArrowUp') {
         e.preventDefault();
         e.stopPropagation();
-        const item = getPrevItem(refs.floating, e.currentTarget);
-        item?.focus();
+        const target = getPrevItem(refs.floating, e.currentTarget);
+        target?.focus();
       }
 
       if (e.key === 'ArrowDown') {
         e.preventDefault();
         e.stopPropagation();
-        const item = getNextItem(refs.floating, e.currentTarget);
-        item?.focus();
+        const target = getNextItem(refs.floating, e.currentTarget);
+        target?.focus();
       }
 
       if (!refs.reference.current) {
@@ -178,15 +179,15 @@ export function MenuBarSubmenu({
         e.stopPropagation();
         setIsOpen(false);
 
-        const item = getPrevItem(
+        const target = getPrevItem(
           parent.refs.floating,
           refs.reference.current as HTMLAnchorElement,
         );
 
-        item?.focus();
+        target?.focus();
 
-        if (item?.getAttribute('aria-haspopup') === 'menu') {
-          item.click();
+        if (target?.getAttribute('aria-haspopup') === 'menu') {
+          target.click();
         }
       }
 
@@ -199,15 +200,15 @@ export function MenuBarSubmenu({
         e.stopPropagation();
         setIsOpen(false);
 
-        const item = getNextItem(
+        const target = getNextItem(
           parent.refs.floating,
           refs.reference.current as HTMLAnchorElement,
         );
 
-        item?.focus();
+        target?.focus();
 
-        if (item?.getAttribute('aria-haspopup') === 'menu') {
-          item.click();
+        if (target?.getAttribute('aria-haspopup') === 'menu') {
+          target.click();
         }
       }
     },
@@ -269,8 +270,8 @@ export function MenuBarSubmenu({
       setIsOpen(true);
 
       requestAnimationFrame(() => {
-        const item = getFirstItem(refs.floating);
-        item?.focus();
+        const target = getFirstItem(refs.floating);
+        target?.focus();
       });
     }
 
@@ -280,8 +281,8 @@ export function MenuBarSubmenu({
       setIsOpen(true);
 
       requestAnimationFrame(() => {
-        const item = getLastItem(refs.floating);
-        item?.focus();
+        const target = getLastItem(refs.floating);
+        target?.focus();
       });
     }
 
@@ -290,7 +291,7 @@ export function MenuBarSubmenu({
 
   useEffect(() => {
     if (!tree) {
-      return;
+      return undefined;
     }
 
     function handleTreeClick() {
@@ -364,6 +365,7 @@ export function MenuBarSubmenu({
                   modal={false}
                 >
                   <Listbox
+                    // eslint-disable-next-line @typescript-eslint/unbound-method -- @floating-ui declares setReference/setFloating in method shorthand; they are standalone callbacks and use no `this`
                     ref={refs.setFloating}
                     className="max-h-80 max-w-xs z-10"
                     style={floatingStyles}

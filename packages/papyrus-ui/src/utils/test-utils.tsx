@@ -1,5 +1,4 @@
 import {
-  act,
   cleanup,
   fireEvent,
   render as renderTest,
@@ -11,6 +10,7 @@ import {
 import type { RenderOptions, RenderResult } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { configureAxe } from 'jest-axe';
+import { act } from 'react';
 import type { ReactElement } from 'react';
 
 import '@testing-library/jest-dom/vitest';

@@ -58,8 +58,12 @@ const Template: StoryFn<SnackbarProps> = function Template(args) {
       message: capitalize(faker.lorem.words({ min: 1, max: 3 })),
       description: capitalize(faker.lorem.words({ min: 1, max: 6 })),
       variant: faker.helpers.arrayElement(variants),
-      onDismiss: () => remove(id),
-      onHide: () => remove(id),
+      onDismiss: () => {
+        remove(id);
+      },
+      onHide: () => {
+        remove(id);
+      },
     };
 
     setItems(prevState => [item, ...prevState]);

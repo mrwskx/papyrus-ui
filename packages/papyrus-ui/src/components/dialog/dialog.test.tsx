@@ -9,7 +9,7 @@ describe('Dialog', () => {
         render(
           <Dialog>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -33,7 +33,7 @@ describe('Dialog', () => {
         const { rerender } = render(
           <Dialog isOpen={false}>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -46,7 +46,7 @@ describe('Dialog', () => {
         rerender(
           <Dialog isOpen>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -65,7 +65,7 @@ describe('Dialog', () => {
         const { rerender } = render(
           <Dialog isOpen>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -78,7 +78,7 @@ describe('Dialog', () => {
         rerender(
           <Dialog isOpen={false}>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -100,10 +100,10 @@ describe('Dialog', () => {
 
         render(
           <>
-            <button>Outside</button>
+            <button type="button">Outside</button>
             <Dialog isOpen onClose={onClose}>
               <Dialog.Trigger>
-                <button>Trigger</button>
+                <button type="button">Trigger</button>
               </Dialog.Trigger>
               <Dialog.Content>
                 <div>Content</div>
@@ -129,7 +129,7 @@ describe('Dialog', () => {
         render(
           <Dialog closeOnEscClick onClose={onClose}>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -160,7 +160,7 @@ describe('Dialog', () => {
         render(
           <Dialog closeOnEscClick={false} onClose={onClose}>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -193,7 +193,7 @@ describe('Dialog', () => {
         render(
           <Dialog closeOnOutsideClick onClose={onClose}>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -223,10 +223,10 @@ describe('Dialog', () => {
 
         render(
           <>
-            <button>Outside</button>
+            <button type="button">Outside</button>
             <Dialog closeOnOutsideClick={false} onClose={onClose}>
               <Dialog.Trigger>
-                <button>Trigger</button>
+                <button type="button">Trigger</button>
               </Dialog.Trigger>
               <Dialog.Content>
                 <div>Content</div>

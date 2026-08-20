@@ -52,7 +52,7 @@ export function DropdownMenuComponent({
 }: DropdownMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const elementsRef = useRef<Array<HTMLAnchorElement | null>>([]);
+  const elementsRef = useRef<(HTMLAnchorElement | null)[]>([]);
   const labelsRef = useRef<string[]>([]);
   const tree = useFloatingTree();
 
@@ -176,7 +176,7 @@ export function DropdownMenuComponent({
 
   useEffect(() => {
     if (!tree) {
-      return;
+      return undefined;
     }
 
     function handleTreeClick() {

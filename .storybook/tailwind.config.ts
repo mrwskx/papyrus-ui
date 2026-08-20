@@ -1,7 +1,10 @@
 /** @type {import('tailwindcss').Config} */
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 
-import papyrusUI from '../packages/papyrus-ui/src/plugin';
+// Imported from source, not from the built package, so Tailwind picks up plugin
+// changes without a rebuild.
+// eslint-disable-next-line import-x/no-relative-packages
+import papyrusUIPlugin from '../packages/papyrus-ui/src/plugin';
 
 export default {
   content: [
@@ -13,5 +16,5 @@ export default {
     ),
   ],
   darkMode: ['class'],
-  plugins: [papyrusUI],
+  plugins: [papyrusUIPlugin],
 };

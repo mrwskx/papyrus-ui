@@ -18,7 +18,9 @@ export function useTimeout(): TimeoutAPI {
   );
 
   const clearTimeouts = useCallback((): void => {
-    timeouts.current.forEach(timeout => clearTimeout(timeout));
+    timeouts.current.forEach(timeout => {
+      clearTimeout(timeout);
+    });
     timeouts.current.clear();
   }, []);
 

@@ -15,7 +15,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Delete</DropdownMenu.Item>
@@ -36,10 +36,10 @@ describe('DropdownMenu', () => {
       it('Then the menu component should be hidden', async () => {
         render(
           <>
-            <button>Outside</button>
+            <button type="button">Outside</button>
             <DropdownMenu>
               <DropdownMenu.Trigger>
-                <button>Trigger</button>
+                <button type="button">Trigger</button>
               </DropdownMenu.Trigger>
               <DropdownMenu.Content>
                 <DropdownMenu.Item>Delete</DropdownMenu.Item>
@@ -71,7 +71,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item onClick={onClick}>Delete</DropdownMenu.Item>
@@ -101,7 +101,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
@@ -151,7 +151,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item onClick={mockAction}>Edit</DropdownMenu.Item>
@@ -195,7 +195,7 @@ describe('DropdownMenu', () => {
         const { container } = render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
@@ -220,7 +220,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
@@ -257,7 +257,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
@@ -301,7 +301,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
@@ -352,7 +352,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
@@ -403,7 +403,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
@@ -454,7 +454,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
@@ -529,7 +529,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
@@ -584,7 +584,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
@@ -647,7 +647,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>

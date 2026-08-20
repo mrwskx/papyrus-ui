@@ -132,9 +132,6 @@ describe('Tag', () => {
         expect(button).not.toHaveAttribute('tabIndex', '0');
       });
     });
-  });
-
-  describe('Given a tag component with onRemove handler', () => {
     describe("When a user clicks on the tag's clear-icon", () => {
       it('Then the onRemove handler should be called', () => {
         const onRemoveMock = vi.fn();

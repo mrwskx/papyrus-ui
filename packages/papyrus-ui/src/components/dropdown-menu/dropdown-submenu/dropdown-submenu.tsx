@@ -57,7 +57,7 @@ export function DropdownSubmenu({
 }: DropdownSubmenuProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const elementsRef = useRef<Array<HTMLAnchorElement | null>>([]);
+  const elementsRef = useRef<(HTMLAnchorElement | null)[]>([]);
   const labelsRef = useRef<string[]>([]);
   const parent = useContext(DropdownMenuContext);
   const tree = useFloatingTree();
@@ -82,6 +82,7 @@ export function DropdownSubmenu({
     whileElementsMounted: autoUpdate,
   });
 
+  // eslint-disable-next-line @typescript-eslint/unbound-method -- @floating-ui declares setReference/setFloating in method shorthand; they are standalone callbacks and use no `this`
   const buttonRef = useMergeRefs([refs.setReference, item.ref]);
 
   const click = useClick(context, {
@@ -120,15 +121,15 @@ export function DropdownSubmenu({
       if (e.key === 'ArrowUp') {
         e.preventDefault();
         e.stopPropagation();
-        const item = getPrevItem(refs.floating, e.currentTarget);
-        item?.focus();
+        const target = getPrevItem(refs.floating, e.currentTarget);
+        target?.focus();
       }
 
       if (e.key === 'ArrowDown') {
         e.preventDefault();
         e.stopPropagation();
-        const item = getNextItem(refs.floating, e.currentTarget);
-        item?.focus();
+        const target = getNextItem(refs.floating, e.currentTarget);
+        target?.focus();
       }
 
       if (!refs.reference.current) {
@@ -180,7 +181,7 @@ export function DropdownSubmenu({
 
   useEffect(() => {
     if (!tree) {
-      return;
+      return undefined;
     }
 
     function handleSubMenuOpen(event: { nodeId: string; parentId: string }) {
@@ -215,8 +216,8 @@ export function DropdownSubmenu({
       setIsOpen(true);
 
       requestAnimationFrame(() => {
-        const item = getFirstItem(refs.floating);
-        item?.focus();
+        const target = getFirstItem(refs.floating);
+        target?.focus();
       });
     }
 

@@ -15,7 +15,7 @@ export interface ImageInputProps<
   IsMulti extends boolean = false,
 > {
   accept?: Accept;
-  allowedExtensions?: Array<string>;
+  allowedExtensions?: string[];
   aspectRatio?: number | string;
   className?: string;
   defaultValue?: MaybeMultiValue<Value, IsMulti>;
@@ -50,7 +50,7 @@ export interface ImageInputProps<
   onBlur?: FocusEventHandler<HTMLInputElement>;
   onFocus?: FocusEventHandler<HTMLInputElement>;
   onChange?: (value: MaybeMultiValue<Value, IsMulti>) => void;
-  onUpload?: (files: Blob[]) => Promise<Array<Value>>;
+  onUpload?: (files: Blob[]) => Promise<Value[]>;
 }
 
 const DEFAULT_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif'];

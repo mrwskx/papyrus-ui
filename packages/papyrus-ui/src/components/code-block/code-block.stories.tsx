@@ -115,7 +115,9 @@ WithCopyCallback.args = {
   children: `console.log("This code can be copied!");
 alert("Copy functionality works!");`,
   language: 'javascript',
-  onCopy: () => alert('Code copied to clipboard!'),
+  onCopy: () => {
+    alert('Code copied to clipboard!');
+  },
 };
 
 export const CustomCopyLabel = Template.bind({});

@@ -42,7 +42,7 @@ function MenuBarComponent({
   ...props
 }: MenuBarProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const elementsRef = useRef<Array<HTMLElement | null>>([]);
+  const elementsRef = useRef<(HTMLElement | null)[]>([]);
   const labelsRef = useRef<string[]>([]);
 
   const { refs, context, floatingStyles } = useFloating<HTMLElement>({
@@ -146,6 +146,7 @@ function MenuBarComponent({
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
+    // eslint-disable-next-line react-hooks/refs -- the ref object identity is the dependency; .current is never read here
   }, [refs.floating]);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLUListElement>) => {
@@ -181,6 +182,7 @@ function MenuBarComponent({
       <FloatingTree>
         <FloatingList elementsRef={elementsRef} labelsRef={labelsRef}>
           <ul
+            // eslint-disable-next-line react-hooks/refs, @typescript-eslint/unbound-method -- refs.setFloating is a standalone setter callback, not a ref value or a `this`-bound method
             ref={refs.setFloating}
             className={cn(
               'inline-flex gap-1 focus:outline-none focus-visible:ring',

@@ -192,17 +192,33 @@ RemovableAndClickable.args = {
 export function InteractiveExamples(args: TagProps) {
   return (
     <div className="flex flex-wrap gap-2">
-      <Tag {...args} icon={<BiCheck />} onClick={() => alert('Clicked!')}>
+      <Tag
+        {...args}
+        icon={<BiCheck />}
+        onClick={() => {
+          alert('Clicked!');
+        }}
+      >
         Clickable
       </Tag>
-      <Tag {...args} icon={<BiStar />} onRemove={() => alert('Removed!')}>
+      <Tag
+        {...args}
+        icon={<BiStar />}
+        onRemove={() => {
+          alert('Removed!');
+        }}
+      >
         Removable
       </Tag>
       <Tag
         {...args}
         icon={<BiTag />}
-        onClick={() => alert('Clicked!')}
-        onRemove={() => alert('Removed!')}
+        onClick={() => {
+          alert('Clicked!');
+        }}
+        onRemove={() => {
+          alert('Removed!');
+        }}
       >
         Both
       </Tag>
@@ -216,16 +232,30 @@ export function AllInteractiveCombinations(args: TagProps) {
       <div>
         <h3 className="text-sm font-medium mb-2">Basic Interactive Tags</h3>
         <div className="flex flex-wrap gap-2">
-          <Tag {...args} onClick={() => alert('Basic click!')}>
+          <Tag
+            {...args}
+            onClick={() => {
+              alert('Basic click!');
+            }}
+          >
             Clickable Only
           </Tag>
-          <Tag {...args} onRemove={() => alert('Basic remove!')}>
+          <Tag
+            {...args}
+            onRemove={() => {
+              alert('Basic remove!');
+            }}
+          >
             Removable Only
           </Tag>
           <Tag
             {...args}
-            onClick={() => alert('Click!')}
-            onRemove={() => alert('Remove!')}
+            onClick={() => {
+              alert('Click!');
+            }}
+            onRemove={() => {
+              alert('Remove!');
+            }}
           >
             Clickable & Removable
           </Tag>
@@ -238,22 +268,30 @@ export function AllInteractiveCombinations(args: TagProps) {
           <Tag
             {...args}
             icon={<BiCheck />}
-            onClick={() => alert('Icon click!')}
+            onClick={() => {
+              alert('Icon click!');
+            }}
           >
             Clickable with Icon
           </Tag>
           <Tag
             {...args}
             icon={<BiStar />}
-            onRemove={() => alert('Icon remove!')}
+            onRemove={() => {
+              alert('Icon remove!');
+            }}
           >
             Removable with Icon
           </Tag>
           <Tag
             {...args}
             icon={<BiTag />}
-            onClick={() => alert('Icon click!')}
-            onRemove={() => alert('Icon remove!')}
+            onClick={() => {
+              alert('Icon click!');
+            }}
+            onRemove={() => {
+              alert('Icon remove!');
+            }}
           >
             Both with Icon
           </Tag>
@@ -267,8 +305,12 @@ export function AllInteractiveCombinations(args: TagProps) {
             {...args}
             icon={<BiCheck />}
             variant="success"
-            onClick={() => alert('Success click!')}
-            onRemove={() => alert('Success remove!')}
+            onClick={() => {
+              alert('Success click!');
+            }}
+            onRemove={() => {
+              alert('Success remove!');
+            }}
           >
             Success
           </Tag>
@@ -276,8 +318,12 @@ export function AllInteractiveCombinations(args: TagProps) {
             {...args}
             icon={<BiStar />}
             variant="warning"
-            onClick={() => alert('Warning click!')}
-            onRemove={() => alert('Warning remove!')}
+            onClick={() => {
+              alert('Warning click!');
+            }}
+            onRemove={() => {
+              alert('Warning remove!');
+            }}
           >
             Warning
           </Tag>
@@ -285,8 +331,12 @@ export function AllInteractiveCombinations(args: TagProps) {
             {...args}
             icon={<BiTag />}
             variant="danger"
-            onClick={() => alert('Danger click!')}
-            onRemove={() => alert('Danger remove!')}
+            onClick={() => {
+              alert('Danger click!');
+            }}
+            onRemove={() => {
+              alert('Danger remove!');
+            }}
           >
             Danger
           </Tag>

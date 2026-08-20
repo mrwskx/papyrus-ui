@@ -14,7 +14,7 @@ export interface FileState {
 export type MaybeMultiValue<
   Value,
   IsMulti extends boolean,
-> = IsMulti extends true ? ReadonlyArray<Value> : Value | null;
+> = IsMulti extends true ? readonly Value[] : Value | null;
 
 // Standardized change handler for inputs: always (value, event?)
 export type ChangeHandler<Value, E = unknown> = (
