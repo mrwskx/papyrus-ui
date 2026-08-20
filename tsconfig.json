@@ -18,6 +18,7 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "strict": true,
+    "target": "ESNext",
     "types": ["node", "vitest/globals"]
   },
   "include": ["**/*", ".storybook/**/*"],

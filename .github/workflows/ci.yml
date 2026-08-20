@@ -47,6 +47,9 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
+      - name: Validate skills
+        run: pnpm validate-skills
+
       - name: Run unit tests
         run: pnpm test:ci
 

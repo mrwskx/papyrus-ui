@@ -23,7 +23,7 @@
       "require": "./dist/cjs/plugin/index.js"
     }
   },
-  "author": "Sergey Murawsky <mrwskdv@gmail.com>",
+  "author": "Sergey Murawsky",
   "keywords": [],
   "license": "MIT",
   "publishConfig": {
@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mrwskdv/papyrus-ui.git"
+    "url": "https://github.com/mrwskx/papyrus-ui.git"
   },
   "scripts": {
     "build": "vite build",

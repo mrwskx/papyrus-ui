@@ -18,8 +18,6 @@ Default to professional tightness. Drop filler words, pleasantries, hedging ("ce
 
 Match user's request to skill and invoke.
 
-This table lists the model-invoked skills only. User-invoked skills are not listed — they fire only when the user types their name: `/handoff`, `/implement`, `/improve-codebase-architecture`, `/to-spec`, `/to-tickets`, `/triage`, `/writing-great-skills`.
-
 ### Planning & Design
 
 | Skill                 | Trigger                                                                                        |
@@ -54,7 +52,7 @@ This table lists the model-invoked skills only. User-invoked skills are not list
 
 ### Agent Skills (Issue Tracking & Triage)
 
-**Issue tracker** — GitHub Issues (`github.com/mvshvssv/apsu`), via `gh` CLI. External PRs are not a triage surface. See `docs/agents/issue-tracker.md`.
+**Issue tracker** — GitHub Issues (`github.com/mrwskx/papyrus-ui`), via `gh` CLI. External PRs are not a triage surface. See `docs/agents/issue-tracker.md`.
 
 **Triage labels** — Default label vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
 

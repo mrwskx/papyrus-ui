@@ -239,6 +239,37 @@ export default [
   },
 
   {
+    // These are CLI entry points run by tsx, not library code.
+    name: 'papyrus-ui/scripts',
+    files: ['scripts/**/*.ts'],
+    rules: {
+      // stdout and stderr are how a CLI reports; that is the whole output.
+      'no-console': 'off',
+
+      // airbnb bans for..of because regenerator-runtime is heavyweight when
+      // transpiling to ES5. These run on Node against an ESNext target, so the
+      // cost it guards against does not exist here. The rule's other bans
+      // (for..in, labels, with) are kept.
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'ForInStatement',
+          message:
+            'for..in iterates the prototype chain; use Object.keys/values/entries.',
+        },
+        {
+          selector: 'LabeledStatement',
+          message: 'Labels are a form of GOTO and hurt readability.',
+        },
+        {
+          selector: 'WithStatement',
+          message: '`with` is disallowed in strict mode.',
+        },
+      ],
+    },
+  },
+
+  {
     name: 'papyrus-ui/dev-files',
     files: DEV_FILES,
     rules: {
