@@ -14,11 +14,13 @@ const meta: Meta = {
   },
 };
 
-const Template: StoryFn<LinkProps> = (args: LinkProps) => (
-  <Text>
-    <Link {...args} />
-  </Text>
-);
+const Template: StoryFn<LinkProps> = function Template(args: LinkProps) {
+  return (
+    <Text>
+      <Link {...args} />
+    </Text>
+  );
+};
 
 export const Basic = Template.bind({});
 

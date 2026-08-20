@@ -13,7 +13,6 @@ import {
   useState,
 } from 'react';
 import type {
-  FC,
   FocusEvent,
   HTMLAttributes,
   KeyboardEvent,
@@ -36,8 +35,10 @@ import type { MenuItemProps } from '../menu-item';
 import { MenuContext } from '../menu.context';
 import type { MenuContextType } from '../menu.context';
 
-export interface SubmenuProps
-  extends Omit<HTMLAttributes<HTMLAnchorElement>, 'href'> {
+export interface SubmenuProps extends Omit<
+  HTMLAttributes<HTMLAnchorElement>,
+  'href'
+> {
   disabled?: boolean;
   icon?: ReactElement;
   index?: number;
@@ -53,7 +54,7 @@ const TRANSITION_TIMEOUT = {
   exit: 200,
 };
 
-export const Submenu: FC<SubmenuProps> = ({
+export function Submenu({
   disabled,
   icon,
   index,
@@ -65,7 +66,7 @@ export const Submenu: FC<SubmenuProps> = ({
   onKeyDown,
   children,
   ...props
-}) => {
+}: SubmenuProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
   const [activeIndex, setActiveIndex] = useState<Maybe<number>>(null);
   const parent = useContext(MenuContext);
@@ -171,7 +172,7 @@ export const Submenu: FC<SubmenuProps> = ({
         ref={buttonRef}
         aria-controls={isOpen ? menuId : undefined}
         aria-expanded={isOpen ? 'true' : 'false'}
-        aria-haspopup='menu'
+        aria-haspopup="menu"
         collapsed={parent.collapsed}
         disabled={disabled}
         endIcon={
@@ -179,7 +180,7 @@ export const Submenu: FC<SubmenuProps> = ({
         }
         id={buttonId}
         indent={parent.indent}
-        role='menuitem'
+        role="menuitem"
         selected={selected}
         size={parent.size}
         startIcon={icon}
@@ -210,7 +211,7 @@ export const Submenu: FC<SubmenuProps> = ({
                   status === 'entered' && 'max-h-96',
                 )}
                 id={menuId}
-                role='menu'
+                role="menu"
                 tabIndex={-1}
                 onKeyDown={handleMenuKeyDown}
               >
@@ -226,4 +227,4 @@ export const Submenu: FC<SubmenuProps> = ({
       )}
     </>
   );
-};
+}

@@ -11,7 +11,7 @@ import {
 } from '@floating-ui/react';
 import cn from 'classnames';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { FC, HTMLAttributes, KeyboardEvent } from 'react';
+import type { HTMLAttributes, KeyboardEvent } from 'react';
 
 import {
   getFirstItem,
@@ -33,16 +33,16 @@ export interface MenuBarProps extends HTMLAttributes<HTMLUListElement> {
   variant?: MenuBarVariant;
 }
 
-const MenuBarComponent: FC<MenuBarProps> = ({
+function MenuBarComponent({
   block = false,
   collapsed = false,
   size = 'md',
   variant = 'primary',
   children,
   ...props
-}) => {
+}: MenuBarProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const elementsRef = useRef<Array<HTMLElement | null>>([]);
+  const elementsRef = useRef<(HTMLElement | null)[]>([]);
   const labelsRef = useRef<string[]>([]);
 
   const { refs, context, floatingStyles } = useFloating<HTMLElement>({
@@ -146,6 +146,7 @@ const MenuBarComponent: FC<MenuBarProps> = ({
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
+    // eslint-disable-next-line react-hooks/refs -- the ref object identity is the dependency; .current is never read here
   }, [refs.floating]);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLUListElement>) => {
@@ -181,6 +182,7 @@ const MenuBarComponent: FC<MenuBarProps> = ({
       <FloatingTree>
         <FloatingList elementsRef={elementsRef} labelsRef={labelsRef}>
           <ul
+            // eslint-disable-next-line react-hooks/refs, @typescript-eslint/unbound-method -- refs.setFloating is a standalone setter callback, not a ref value or a `this`-bound method
             ref={refs.setFloating}
             className={cn(
               'inline-flex gap-1 focus:outline-none focus-visible:ring',
@@ -200,7 +202,7 @@ const MenuBarComponent: FC<MenuBarProps> = ({
       </FloatingTree>
     </MenuBarContext.Provider>
   );
-};
+}
 
 export const MenuBar = Object.assign(MenuBarComponent, {
   Submenu: MenuBarSubmenu,

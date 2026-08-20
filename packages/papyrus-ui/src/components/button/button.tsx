@@ -24,7 +24,8 @@ export type ButtonVariant =
   | 'ghost';
 
 export interface ButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLElement>, 'type'>,
+  extends
+    Omit<ButtonHTMLAttributes<HTMLElement>, 'type'>,
     AnchorHTMLAttributes<HTMLElement> {
   /**
    * Specifies the element type to be used for rendering the button.
@@ -221,13 +222,13 @@ export const Button = forwardRef<HTMLElement, ButtonProps>(
       type={Element === 'button' && type == null ? 'button' : type}
       {...props}
     >
-      {loading && <Loader className='text-md' />}
+      {loading && <Loader className="text-md" />}
 
-      {!loading && startIcon && <Icon className='text-md'>{startIcon}</Icon>}
+      {!loading && startIcon && <Icon className="text-md">{startIcon}</Icon>}
 
       {!loading && <span className={cn(labelStyles)}>{children}</span>}
 
-      {!loading && endIcon && <Icon className='text-md'>{endIcon}</Icon>}
+      {!loading && endIcon && <Icon className="text-md">{endIcon}</Icon>}
     </Element>
   ),
 );

@@ -5,15 +5,13 @@ import type { InputBoxProps } from '../../input-box';
 import { Skeleton } from '../skeleton';
 
 export interface InputSkeletonProps
-  extends Pick<InputBoxProps, 'size'>,
+  extends
+    Pick<InputBoxProps, 'size'>,
     Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
   className?: string;
 }
 
-export const InputSkeleton = ({
-  size = 'md',
-  className,
-}: InputSkeletonProps) => {
+export function InputSkeleton({ size = 'md', className }: InputSkeletonProps) {
   const sizeClasses: Record<string, string> = {
     sm: 'min-h-7',
     md: 'min-h-9',
@@ -25,6 +23,6 @@ export const InputSkeleton = ({
       className={cn('w-full rounded-md', sizeClasses[size], className)}
     />
   );
-};
+}
 
 InputSkeleton.displayName = 'InputSkeleton';

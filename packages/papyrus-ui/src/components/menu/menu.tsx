@@ -8,7 +8,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import type { FC, HTMLAttributes, KeyboardEvent } from 'react';
+import type { HTMLAttributes, KeyboardEvent } from 'react';
 
 import type { Maybe } from '../../types';
 import { getFirstItem, getLastItem } from '../../utils/list-navigation';
@@ -27,7 +27,7 @@ export interface MenuProps extends HTMLAttributes<HTMLUListElement> {
   onCollapsedChange?: (collapsed: boolean) => void;
 }
 
-const MenuComponent: FC<MenuProps> = ({
+function MenuComponent({
   collapsed = false,
   size = 'md',
   variant = 'primary',
@@ -36,7 +36,7 @@ const MenuComponent: FC<MenuProps> = ({
   onCollapsedChange,
   onKeyDown,
   ...props
-}) => {
+}: MenuProps) {
   const [activeIndex, setActiveIndex] = useState<Maybe<number>>(null);
   const menuRef = useRef<HTMLUListElement>(null);
 
@@ -95,7 +95,7 @@ const MenuComponent: FC<MenuProps> = ({
           'flex flex-col gap-1 focus:outline-none focus-visible:ring',
           className,
         )}
-        role='menu'
+        role="menu"
         tabIndex={activeIndex == null ? 0 : -1}
         onKeyDown={handleKeyDown}
       >
@@ -107,7 +107,7 @@ const MenuComponent: FC<MenuProps> = ({
       </ul>
     </MenuContext.Provider>
   );
-};
+}
 
 export const Menu = Object.assign(MenuComponent, {
   Submenu,

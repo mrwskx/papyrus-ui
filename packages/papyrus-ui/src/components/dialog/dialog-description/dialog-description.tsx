@@ -2,7 +2,6 @@
 
 import { useId } from '@floating-ui/react';
 import { useContext, useLayoutEffect } from 'react';
-import type { FC } from 'react';
 
 import { Text } from '../../text';
 import type { TextProps } from '../../text';
@@ -10,10 +9,10 @@ import { DialogContext } from '../dialog.context';
 
 export type DialogDescriptionProps = TextProps;
 
-export const DialogDescription: FC<DialogDescriptionProps> = ({
+export function DialogDescription({
   children,
   ...props
-}) => {
+}: DialogDescriptionProps) {
   const id = useId();
   const { setDescriptionId } = useContext(DialogContext);
 
@@ -30,4 +29,4 @@ export const DialogDescription: FC<DialogDescriptionProps> = ({
       {children}
     </Text>
   );
-};
+}

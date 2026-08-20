@@ -1,5 +1,7 @@
 # Papyrus UI
 
+![Papyrus UI](.github/cover.png)
+
 A modern React UI kit with fundamental components built on Tailwind CSS, designed for rapid application development with a consistent design system.
 
 ## Features
@@ -13,7 +15,6 @@ A modern React UI kit with fundamental components built on Tailwind CSS, designe
 ## Packages
 
 - **papyrus-ui**: The main UI kit with fundamental React components built with Tailwind CSS
-- **@papyrus-ui/code-style**: Reusable ESLint and Prettier configurations based on Google Style Guide
 
 ## Quick Start
 
@@ -85,6 +86,7 @@ The library includes a comprehensive set of 40+ components organized into logica
 - **RadioGroup** - Radio button group with single-selection logic
 - **Range** - Slider input with real-time value display
 - **Autocomplete** - Input with type-ahead suggestions and filtering
+- **ImageInput** - Image upload input with dropzone preview and multi-select support
 - **InputMessage** - Validation feedback and user guidance messages
 
 ### 🏷️ **Data Display**
@@ -109,6 +111,8 @@ The library includes a comprehensive set of 40+ components organized into logica
 - **OList** - Ordered lists with various styling options
 - **UList** - Unordered lists with customizable bullets
 - **Marker** - Custom marker container for unordered lists
+- **Code** - Inline code snippet styling for text content
+- **CodeBlock** - Formatted code display with syntax highlighting, line numbers, and copy support
 
 ### 🎨 **Layout & Structure**
 
@@ -212,16 +216,16 @@ git clone https://github.com/your-username/papyrus-ui.git
 
 # Install dependencies
 cd papyrus-ui
-npm install
+pnpm install
 
 # Start development
-npm run docs
+pnpm docs
 
 # Run tests
-npm test
+pnpm test
 
 # Build the package
-npm run build
+pnpm build
 ```
 
 For bug reports and feature requests, please [open an issue](https://github.com/your-username/papyrus-ui/issues) on GitHub.

@@ -6,14 +6,13 @@ import {
   FloatingPortal,
 } from '@floating-ui/react';
 import { useContext } from 'react';
-import type { FC, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 import { Transition } from 'react-transition-group';
 
 import { Listbox } from '../../listbox';
 import { DropdownMenuContext } from '../dropdown-menu.context';
 
-export interface DropdownMenuContentProps
-  extends HTMLAttributes<HTMLDivElement> {
+export interface DropdownMenuContentProps extends HTMLAttributes<HTMLDivElement> {
   initialFocus?: number;
   returnFocus?: boolean;
 }
@@ -24,12 +23,12 @@ const TRANSITION_TIMEOUT = {
   exit: 200,
 };
 
-export const DropdownMenuContent: FC<DropdownMenuContentProps> = ({
+export function DropdownMenuContent({
   children,
   initialFocus = 0,
   returnFocus = true,
   ...props
-}) => {
+}: DropdownMenuContentProps) {
   const {
     context,
     elementsRef,
@@ -61,7 +60,7 @@ export const DropdownMenuContent: FC<DropdownMenuContentProps> = ({
                 ref={node => {
                   refs.setFloating(node);
                 }}
-                className='max-h-80 max-w-xs'
+                className="max-h-80 max-w-xs"
                 style={floatingStyles}
                 visible={status === 'entered'}
                 {...getFloatingProps(props)}
@@ -74,4 +73,4 @@ export const DropdownMenuContent: FC<DropdownMenuContentProps> = ({
       </Transition>
     </FloatingList>
   );
-};
+}

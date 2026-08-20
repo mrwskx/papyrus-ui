@@ -14,7 +14,7 @@ import {
 } from '@floating-ui/react';
 import type { OffsetOptions, Placement } from '@floating-ui/react';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import type { FC, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { PopoverArrow as Arrow } from './popover-arrow';
 import { PopoverContent as Content } from './popover-content';
@@ -23,13 +23,7 @@ import { PopoverContext } from './popover.context';
 import type { PopoverContextType } from './popover.context';
 
 declare type PopoverRole =
-  | 'tooltip'
-  | 'dialog'
-  | 'alertdialog'
-  | 'menu'
-  | 'listbox'
-  | 'grid'
-  | 'tree';
+  'tooltip' | 'dialog' | 'alertdialog' | 'menu' | 'listbox' | 'grid' | 'tree';
 
 export type PopoverTrigger = 'click' | 'focus' | 'hover';
 
@@ -47,7 +41,7 @@ export interface PopoverProps {
   onOpenChange?: (open: boolean) => void;
 }
 
-const PopoverComponent: FC<PopoverProps> = ({
+function PopoverComponent({
   arrowPadding,
   initialOpen = false,
   offset,
@@ -59,7 +53,7 @@ const PopoverComponent: FC<PopoverProps> = ({
   trigger = 'click',
   onOpenChange,
   children,
-}) => {
+}: PopoverProps) {
   const [openState, setOpenState] = useState(() => open ?? initialOpen);
   const arrowRef = useRef<SVGSVGElement | null>(null);
   const isControlled = open !== undefined;
@@ -70,6 +64,7 @@ const PopoverComponent: FC<PopoverProps> = ({
     open: openState,
     whileElementsMounted: autoUpdate,
     middleware: [
+      // eslint-disable-next-line react-hooks/refs -- the middleware stores the ref object; .current is read by floating-ui, not during render
       arrowFn({
         element: arrowRef,
         padding: arrowPadding,
@@ -149,7 +144,7 @@ const PopoverComponent: FC<PopoverProps> = ({
       {children}
     </PopoverContext.Provider>
   );
-};
+}
 
 export const Popover = Object.assign(PopoverComponent, {
   Arrow,

@@ -1,7 +1,7 @@
 ---
 name: Issue Report
 about: Use this template to report a problem
-title: "[VERSION] [PROBLEM SUMMARY]"
+title: '[VERSION] [PROBLEM SUMMARY]'
 labels: bug
 assignees:
 ---
@@ -18,10 +18,10 @@ What is the current behavior?
 
 Please provide any relevant information about your setup. This is important in case the issue is not reproducible except for under certain conditions.
 
-* Project Version:
-* Operating System:
-* Toolchain:
-* Toolchain version:
+- Project Version:
+- Operating System:
+- Toolchain:
+- Toolchain version:
 
 ## Failure Information (for bugs)
 

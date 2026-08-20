@@ -29,7 +29,7 @@ describe('Badge', () => {
       it('Then the badge wraps around the provided children components', () => {
         const { getByTestId } = render(
           <Badge>
-            <div data-testid='child' />
+            <div data-testid="child" />
           </Badge>,
         );
         const child = getByTestId('child');

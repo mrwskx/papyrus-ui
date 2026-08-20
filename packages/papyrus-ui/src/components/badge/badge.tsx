@@ -114,7 +114,7 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
       : undefined;
 
     return (
-      <span {...props} ref={ref} className='inline-block relative'>
+      <span {...props} ref={ref} className="inline-block relative">
         {children}
 
         {typeof badgeContent === 'object' && (
@@ -136,7 +136,7 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
                 className?.includes('bg-') ? '' : `bg-primary-500`,
                 className,
               )}
-              data-testid='badge-dot'
+              data-testid="badge-dot"
               style={badgeStyle}
               title={title}
             />

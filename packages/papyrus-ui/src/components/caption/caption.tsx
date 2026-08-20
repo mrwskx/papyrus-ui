@@ -2,8 +2,10 @@ import cn from 'classnames';
 import { forwardRef } from 'react';
 import type { AllHTMLAttributes, ElementType } from 'react';
 
-export interface CaptionProps
-  extends Omit<AllHTMLAttributes<HTMLElement>, 'as'> {
+export interface CaptionProps extends Omit<
+  AllHTMLAttributes<HTMLElement>,
+  'as'
+> {
   /**
    * Specifies the HTML element type to render the caption as.
    * Can be any valid HTML element.

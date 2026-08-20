@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 
@@ -13,10 +12,10 @@ const meta: Meta<DialogProps> = {
   component: Dialog,
   args: {
     children: [
-      <Dialog.Trigger key='dialog-trigger'>
+      <Dialog.Trigger key="dialog-trigger">
         <Button>Open Dialog</Button>
       </Dialog.Trigger>,
-      <Dialog.Content key='dialog-content'>
+      <Dialog.Content key="dialog-content">
         <Dialog.Header>
           <Dialog.Title>Basic Dialog</Dialog.Title>
           <Dialog.Close />
@@ -37,7 +36,7 @@ const meta: Meta<DialogProps> = {
           </Dialog.Description>
         </Dialog.Body>
         <Dialog.Footer>
-          <Dialog.Close as={Button} variant='plain'>
+          <Dialog.Close as={Button} variant="plain">
             Cancel
           </Dialog.Close>
           <Dialog.Close as={Button}>OK</Dialog.Close>
@@ -47,9 +46,12 @@ const meta: Meta<DialogProps> = {
   },
 };
 
-const Template: StoryFn<DialogProps> = ({ children, ...args }) => (
-  <Dialog {...args}>{children}</Dialog>
-);
+const Template: StoryFn<DialogProps> = function Template({
+  children,
+  ...args
+}) {
+  return <Dialog {...args}>{children}</Dialog>;
+};
 
 export const Basic = Template.bind({});
 
@@ -83,27 +85,27 @@ export function Sizes(args: DialogProps) {
 
   return (
     <>
-      <div className='flex'>
-        <div className='mr-4'>
-          <Button variant='tertiary' onClick={handleOpenSmallDialog}>
+      <div className="flex">
+        <div className="mr-4">
+          <Button variant="tertiary" onClick={handleOpenSmallDialog}>
             Open Small Dialog
           </Button>
         </div>
 
-        <div className='mr-4'>
-          <Button variant='tertiary' onClick={handleOpenMediumDialog}>
+        <div className="mr-4">
+          <Button variant="tertiary" onClick={handleOpenMediumDialog}>
             Open Medium Dialog
           </Button>
         </div>
 
-        <div className='mr-4'>
-          <Button variant='tertiary' onClick={handleOpenLargeDialog}>
+        <div className="mr-4">
+          <Button variant="tertiary" onClick={handleOpenLargeDialog}>
             Open Large Dialog
           </Button>
         </div>
 
         <div>
-          <Button variant='tertiary' onClick={handleOpenExtraLargeDialog}>
+          <Button variant="tertiary" onClick={handleOpenExtraLargeDialog}>
             Open Extra Large Dialog
           </Button>
         </div>
@@ -112,7 +114,7 @@ export function Sizes(args: DialogProps) {
       <Dialog
         {...args}
         isOpen={open && dialogSize === 'sm'}
-        size='sm'
+        size="sm"
         onClose={handleClose}
       >
         <Dialog.Content>
@@ -126,8 +128,8 @@ export function Sizes(args: DialogProps) {
               lectus convallis, ultrices dui non, varius massa.
             </Dialog.Description>
           </Dialog.Body>
-          <Dialog.Footer className='justify-center'>
-            <Button variant='primary' onClick={handleClose}>
+          <Dialog.Footer className="justify-center">
+            <Button variant="primary" onClick={handleClose}>
               OK
             </Button>
           </Dialog.Footer>
@@ -137,7 +139,7 @@ export function Sizes(args: DialogProps) {
       <Dialog
         {...args}
         isOpen={open && dialogSize === 'md'}
-        size='md'
+        size="md"
         onClose={handleClose}
       >
         <Dialog.Content>
@@ -168,10 +170,10 @@ export function Sizes(args: DialogProps) {
             </Dialog.Description>
           </Dialog.Body>
           <Dialog.Footer>
-            <Button variant='plain' onClick={handleClose}>
+            <Button variant="plain" onClick={handleClose}>
               Cancel
             </Button>
-            <Button variant='primary' onClick={handleClose}>
+            <Button variant="primary" onClick={handleClose}>
               OK
             </Button>
           </Dialog.Footer>
@@ -181,7 +183,7 @@ export function Sizes(args: DialogProps) {
       <Dialog
         {...args}
         isOpen={open && dialogSize === 'lg'}
-        size='lg'
+        size="lg"
         onClose={handleClose}
       >
         <Dialog.Content>
@@ -237,10 +239,10 @@ export function Sizes(args: DialogProps) {
             </Dialog.Description>
           </Dialog.Body>
           <Dialog.Footer>
-            <Button variant='plain' onClick={handleClose}>
+            <Button variant="plain" onClick={handleClose}>
               Cancel
             </Button>
-            <Button variant='primary' onClick={handleClose}>
+            <Button variant="primary" onClick={handleClose}>
               OK
             </Button>
           </Dialog.Footer>
@@ -250,7 +252,7 @@ export function Sizes(args: DialogProps) {
       <Dialog
         {...args}
         isOpen={open && dialogSize === 'xl'}
-        size='xl'
+        size="xl"
         onClose={handleClose}
       >
         <Dialog.Content>
@@ -306,10 +308,10 @@ export function Sizes(args: DialogProps) {
             </Dialog.Description>
           </Dialog.Body>
           <Dialog.Footer>
-            <Button variant='primary' onClick={handleClose}>
+            <Button variant="primary" onClick={handleClose}>
               OK
             </Button>
-            <Button variant='plain' onClick={handleClose}>
+            <Button variant="plain" onClick={handleClose}>
               Cancel
             </Button>
           </Dialog.Footer>

@@ -5,8 +5,10 @@ import type { ChangeEvent, InputHTMLAttributes, ReactNode } from 'react';
 import type { ChangeHandler } from '../../types';
 import { Text } from '../text';
 
-export interface RadioProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange'> {
+export interface RadioProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'type' | 'onChange'
+> {
   checked?: boolean;
   defaultChecked?: boolean;
   disabled?: boolean;
@@ -28,15 +30,15 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         <input
           {...props}
           ref={ref}
-          className='radio-input'
+          className="radio-input"
           disabled={disabled}
           readOnly={readOnly}
-          type='radio'
+          type="radio"
           onChange={e => onChange?.(e.target.checked, e)}
         />
       </span>
       {children && (
-        <Text as='span' className='flex-1'>
+        <Text as="span" className="flex-1">
           {children}
         </Text>
       )}

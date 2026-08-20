@@ -38,7 +38,7 @@ function formatText(str = ''): string {
   return str
     .split(' ')
     .slice(0, 2)
-    .map(w => w[0]?.toUpperCase())
+    .map(w => w.charAt(0).toUpperCase())
     .join('');
 }
 
@@ -83,7 +83,7 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
     >
       {!children && !icon && (
         <Text
-          as='span'
+          as="span"
           bold
           className={cn('absolute leading-none text-white', textSizeMap[size])}
         >

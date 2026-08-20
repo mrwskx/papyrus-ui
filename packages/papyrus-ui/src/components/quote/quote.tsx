@@ -12,8 +12,10 @@ const lineVariantClasses = {
   secondary: 'bg-neutral-400',
 };
 
-export interface QuoteProps
-  extends Omit<HTMLAttributes<HTMLQuoteElement>, 'color' | 'size'> {
+export interface QuoteProps extends Omit<
+  HTMLAttributes<HTMLQuoteElement>,
+  'color' | 'size'
+> {
   /**
    * Sets the variant of the text inside the quote.
    *
@@ -41,7 +43,7 @@ export const Quote = forwardRef<HTMLQuoteElement, QuoteProps>(
     <Text
       {...props}
       ref={ref}
-      as='blockquote'
+      as="blockquote"
       className={cn('relative ps-4', className)}
     >
       {children}

@@ -16,8 +16,10 @@ import { InputBox } from '../input-box';
 import type { InputBoxSize } from '../input-box';
 import { InputGroup } from '../input-group';
 
-export interface TextareaProps
-  extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'onChange'> {
+export interface TextareaProps extends Omit<
+  TextareaHTMLAttributes<HTMLTextAreaElement>,
+  'onChange'
+> {
   /**
    * The default value of the uncontrolled input.
    * This is used when the component is uncontrolled and does not have a `value` prop.
@@ -126,13 +128,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       >
         <InputBox disabled={disabled} invalid={invalid} size={size}>
           {isValidElement<IconBaseProps>(startIcon) && (
-            <InputAction className='me-1'>{startIcon}</InputAction>
+            <InputAction className="me-1">{startIcon}</InputAction>
           )}
 
           <textarea
             {...props}
             ref={ref}
-            className='textarea-base'
+            className="textarea-base"
             defaultValue={defaultValue}
             disabled={disabled}
             readOnly={readOnly}
@@ -141,7 +143,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           />
 
           {isValidElement<IconBaseProps>(endIcon) && (
-            <InputAction className='ms-1'>{endIcon}</InputAction>
+            <InputAction className="ms-1">{endIcon}</InputAction>
           )}
         </InputBox>
       </InputGroup>

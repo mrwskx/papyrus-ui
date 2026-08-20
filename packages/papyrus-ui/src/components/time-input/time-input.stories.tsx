@@ -20,11 +20,13 @@ export default {
   },
 };
 
-const Template: StoryFn<TimeInputProps> = args => (
-  <div className='w-64'>
-    <TimeInput {...args} />
-  </div>
-);
+const Template: StoryFn<TimeInputProps> = function Template(args) {
+  return (
+    <div className="w-64">
+      <TimeInput {...args} />
+    </div>
+  );
+};
 
 export const Basic = Template.bind({});
 
@@ -51,9 +53,9 @@ Seconds.args = {
 
 export function Sizes(args: TimeInputProps) {
   return (
-    <div className='flex flex-col w-64'>
+    <div className="flex flex-col w-64">
       {sizes.map((size, i) => (
-        <div key={i} className={i ? 'mt-4' : ''}>
+        <div key={size} className={i ? 'mt-4' : ''}>
           <TimeInput {...args} id={`time-input-size-${size}`} size={size} />
         </div>
       ))}
@@ -63,14 +65,14 @@ export function Sizes(args: TimeInputProps) {
 
 export function WithIcon(args: TimeInputProps) {
   return (
-    <div className='flex flex-col w-64'>
-      <div className='mb-4'>
+    <div className="flex flex-col w-64">
+      <div className="mb-4">
         <TimeInput
           {...args}
-          id='time-input-with-start-icon'
-          label='With Start Icon'
+          id="time-input-with-start-icon"
+          label="With Start Icon"
           startIcon={
-            <Icon className='text-neutral-950'>
+            <Icon className="text-neutral-950">
               <BiSearch />
             </Icon>
           }
@@ -81,12 +83,12 @@ export function WithIcon(args: TimeInputProps) {
         <TimeInput
           {...args}
           endIcon={
-            <Icon className='text-info-600'>
+            <Icon className="text-info-600">
               <BiInfoCircle />
             </Icon>
           }
-          id='time-input-with-end-icon'
-          label='With End Icon'
+          id="time-input-with-end-icon"
+          label="With End Icon"
         />
       </div>
     </div>

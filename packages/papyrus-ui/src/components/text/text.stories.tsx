@@ -11,7 +11,9 @@ const meta: Meta = {
   },
 };
 
-export const Template: StoryFn<TextProps> = args => <Text {...args} />;
+export const Template: StoryFn<TextProps> = function Template(args) {
+  return <Text {...args} />;
+};
 
 export const Basic = Template.bind({});
 

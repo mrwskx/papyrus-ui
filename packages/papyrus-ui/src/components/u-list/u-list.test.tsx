@@ -46,7 +46,7 @@ describe('UList', () => {
     describe('When component is rendered with Tailwind list utilities', () => {
       it('Then should apply custom className', () => {
         const { container } = render(
-          <UList className='list-disc'>
+          <UList className="list-disc">
             <li>Item 1</li>
           </UList>,
         );
@@ -58,7 +58,7 @@ describe('UList', () => {
 
       it('Then should support list-none className', () => {
         const { container } = render(
-          <UList className='list-none'>
+          <UList className="list-none">
             <li>Item 1</li>
           </UList>,
         );

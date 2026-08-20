@@ -21,13 +21,13 @@ export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
   ({ className, invalid, children, ...props }, ref) => (
     <Text
       ref={ref}
-      as='div'
+      as="div"
       className={cn(
         invalid ? 'text-danger-600' : 'text-neutral-500',
         className,
       )}
       role={invalid ? 'alert' : 'status'}
-      size='sm'
+      size="sm"
       {...props}
     >
       {children}

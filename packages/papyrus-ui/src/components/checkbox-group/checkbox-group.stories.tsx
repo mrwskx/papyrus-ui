@@ -11,31 +11,35 @@ const meta: Meta<typeof CheckboxGroup> = {
     label: 'Checkbox Group',
     name: 'checkboxGroup',
     children: [
-      <Checkbox key={1} value='1'>
+      <Checkbox key={1} value="1">
         Label 1
       </Checkbox>,
-      <Checkbox key={2} value='2'>
+      <Checkbox key={2} value="2">
         Label 2
       </Checkbox>,
-      <Checkbox key={3} value='3'>
+      <Checkbox key={3} value="3">
         Label 3
       </Checkbox>,
     ],
   },
 };
 
-const Template: StoryFn<typeof CheckboxGroup> = args => (
-  <div className={args.block ? 'w-96' : ''}>
-    <CheckboxGroup {...args} />
-  </div>
-);
+const Template: StoryFn<typeof CheckboxGroup> = function Template(args) {
+  const { block } = args;
+
+  return (
+    <div className={block ? 'w-96' : ''}>
+      <CheckboxGroup {...args} />
+    </div>
+  );
+};
 
 export const SingleCheckbox = Template.bind({});
 
 SingleCheckbox.args = {
   label: 'Single Checkbox',
   defaultValue: false, // Single checkbox selection, default value can be a boolean (false or true)
-  children: <Checkbox value='true'>I agree with terms and conditions</Checkbox>,
+  children: <Checkbox value="true">I agree with terms and conditions</Checkbox>,
 };
 
 export const RowLayout = Template.bind({});

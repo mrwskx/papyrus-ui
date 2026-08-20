@@ -3,7 +3,6 @@ import { ErrorCode, useDropzone } from 'react-dropzone';
 import type { Accept, FileError, FileRejection } from 'react-dropzone';
 
 import type { FileOrUrl, FileState, Maybe, MaybeMultiValue } from '../types';
-export type { FileOrUrl, FileState, MaybeMultiValue } from '../types';
 
 export interface UseDropzoneUploadProps<
   Value = unknown,
@@ -26,7 +25,7 @@ export interface UseDropzoneUploadProps<
   readonly tooManyFilesMessage?: string;
   readonly uploadFailedMessage?: string;
   readonly value?: MaybeMultiValue<Value, IsMulti>;
-  readonly onUpload?: (files: Blob[]) => Promise<ReadonlyArray<Value>>;
+  readonly onUpload?: (files: Blob[]) => Promise<readonly Value[]>;
   readonly onChange?: (value: MaybeMultiValue<Value, IsMulti>) => void;
 }
 
@@ -47,9 +46,13 @@ function getFilesState<Data>(
   getName: (data: Data) => string,
   getUrl: (data: Data) => FileOrUrl,
 ): FileState[] {
-  const arr = ((Array.isArray(val) && val) ||
-    (val != null && [val]) ||
-    []) as Data[];
+  let arr: Data[] = [];
+
+  if (Array.isArray(val)) {
+    arr = val as Data[];
+  } else if (val != null) {
+    arr = [val as Data];
+  }
 
   return arr.map(data => ({
     data,
@@ -162,6 +165,9 @@ export function useDropzoneUpload<
           return prev.filter(v => !v.file || !files.includes(v.file));
         });
       } catch (e) {
+        // The upload error is otherwise swallowed; consumers only ever see the
+        // generic uploadFailedMessage.
+        // eslint-disable-next-line no-console
         console.error(e);
         setError(uploadFailedMessage);
         // replace intermediate loading state of current media with invalid state
@@ -282,7 +288,7 @@ export function useDropzoneUpload<
         const next = [...prev];
         next.splice(index, 1);
 
-        if (!next?.some(item => item.invalid)) {
+        if (!next.some(item => item.invalid)) {
           setError(null);
         }
 

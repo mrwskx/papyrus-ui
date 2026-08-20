@@ -4,8 +4,10 @@ import type { AllHTMLAttributes } from 'react';
 
 export type CodeSize = 'sm' | 'md';
 
-export interface CodeProps
-  extends Omit<AllHTMLAttributes<HTMLElement>, 'size'> {
+export interface CodeProps extends Omit<
+  AllHTMLAttributes<HTMLElement>,
+  'size'
+> {
   /**
    * The code content to display.
    */

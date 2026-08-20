@@ -11,16 +11,16 @@ const meta: Meta<RadioSkeletonProps> = {
   args: {
     children: (
       <>
-        <TextSkeleton className='w-40' />
-        <TextSkeleton className='w-40' />
+        <TextSkeleton className="w-40" />
+        <TextSkeleton className="w-40" />
       </>
     ),
   },
 };
 
-const Template: StoryFn<RadioSkeletonProps> = args => (
-  <RadioSkeleton {...args} />
-);
+const Template: StoryFn<RadioSkeletonProps> = function Template(args) {
+  return <RadioSkeleton {...args} />;
+};
 
 export const Basic = Template.bind({});
 

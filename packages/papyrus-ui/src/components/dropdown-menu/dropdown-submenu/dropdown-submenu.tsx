@@ -28,12 +28,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import type {
-  ButtonHTMLAttributes,
-  FC,
-  KeyboardEvent,
-  ReactElement,
-} from 'react';
+import type { ButtonHTMLAttributes, KeyboardEvent, ReactElement } from 'react';
 import { BiChevronRight } from 'react-icons/bi';
 
 import {
@@ -46,24 +41,23 @@ import { DropdownMenuContent } from '../dropdown-menu-content';
 import { DropdownMenuContext } from '../dropdown-menu.context';
 import type { DropdownMenuContextType } from '../dropdown-menu.context';
 
-export interface DropdownSubmenuProps
-  extends ButtonHTMLAttributes<HTMLAnchorElement> {
+export interface DropdownSubmenuProps extends ButtonHTMLAttributes<HTMLAnchorElement> {
   icon?: ReactElement;
   initialOpen?: boolean;
   label: string;
 }
 
-export const DropdownSubmenu: FC<DropdownSubmenuProps> = ({
+export function DropdownSubmenu({
   icon,
   initialOpen = false,
   label,
   onKeyDown,
   children,
   ...props
-}) => {
+}: DropdownSubmenuProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const elementsRef = useRef<Array<HTMLAnchorElement | null>>([]);
+  const elementsRef = useRef<(HTMLAnchorElement | null)[]>([]);
   const labelsRef = useRef<string[]>([]);
   const parent = useContext(DropdownMenuContext);
   const tree = useFloatingTree();
@@ -88,6 +82,7 @@ export const DropdownSubmenu: FC<DropdownSubmenuProps> = ({
     whileElementsMounted: autoUpdate,
   });
 
+  // eslint-disable-next-line @typescript-eslint/unbound-method -- @floating-ui declares setReference/setFloating in method shorthand; they are standalone callbacks and use no `this`
   const buttonRef = useMergeRefs([refs.setReference, item.ref]);
 
   const click = useClick(context, {
@@ -126,15 +121,15 @@ export const DropdownSubmenu: FC<DropdownSubmenuProps> = ({
       if (e.key === 'ArrowUp') {
         e.preventDefault();
         e.stopPropagation();
-        const item = getPrevItem(refs.floating, e.currentTarget);
-        item?.focus();
+        const target = getPrevItem(refs.floating, e.currentTarget);
+        target?.focus();
       }
 
       if (e.key === 'ArrowDown') {
         e.preventDefault();
         e.stopPropagation();
-        const item = getNextItem(refs.floating, e.currentTarget);
-        item?.focus();
+        const target = getNextItem(refs.floating, e.currentTarget);
+        target?.focus();
       }
 
       if (!refs.reference.current) {
@@ -186,7 +181,7 @@ export const DropdownSubmenu: FC<DropdownSubmenuProps> = ({
 
   useEffect(() => {
     if (!tree) {
-      return;
+      return undefined;
     }
 
     function handleSubMenuOpen(event: { nodeId: string; parentId: string }) {
@@ -221,8 +216,8 @@ export const DropdownSubmenu: FC<DropdownSubmenuProps> = ({
       setIsOpen(true);
 
       requestAnimationFrame(() => {
-        const item = getFirstItem(refs.floating);
-        item?.focus();
+        const target = getFirstItem(refs.floating);
+        target?.focus();
       });
     }
 
@@ -234,11 +229,11 @@ export const DropdownSubmenu: FC<DropdownSubmenuProps> = ({
       <MenuButton
         ref={buttonRef}
         endIcon={<BiChevronRight />}
-        role='menuitem'
-        size='sm'
+        role="menuitem"
+        size="sm"
         startIcon={icon}
         tabIndex={isActive ? 0 : -1}
-        variant='secondary'
+        variant="secondary"
         {...getReferenceProps(
           parent.getItemProps({
             onFocus: handleFocus,
@@ -257,4 +252,4 @@ export const DropdownSubmenu: FC<DropdownSubmenuProps> = ({
       </DropdownMenuContext.Provider>
     </FloatingNode>
   );
-};
+}

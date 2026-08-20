@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 
 import { Skeleton } from './skeleton';
 import type { SkeletonProps } from './skeleton';
@@ -11,6 +11,8 @@ const meta: Meta = {
   },
 };
 
-export const Basic: StoryFn<SkeletonProps> = args => <Skeleton {...args} />;
+export function Basic(args: SkeletonProps) {
+  return <Skeleton {...args} />;
+}
 
 export default meta;

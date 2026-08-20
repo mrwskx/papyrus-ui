@@ -5,8 +5,10 @@ import type { ChangeEvent, InputHTMLAttributes, ReactNode } from 'react';
 import type { ChangeHandler } from '../../types';
 import { Text } from '../text';
 
-export interface CheckboxProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange'> {
+export interface CheckboxProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'type' | 'onChange'
+> {
   checked?: boolean;
   defaultChecked?: boolean;
   disabled?: boolean;
@@ -28,15 +30,15 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         <input
           {...props}
           ref={ref}
-          className='checkbox-input'
+          className="checkbox-input"
           disabled={disabled}
           readOnly={readOnly}
-          type='checkbox'
+          type="checkbox"
           onChange={e => onChange?.(e.target.checked, e)}
         />
       </span>
       {children && (
-        <Text as='span' className='flex-1'>
+        <Text as="span" className="flex-1">
           {children}
         </Text>
       )}

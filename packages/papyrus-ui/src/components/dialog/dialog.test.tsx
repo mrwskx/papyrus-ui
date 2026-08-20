@@ -9,7 +9,7 @@ describe('Dialog', () => {
         render(
           <Dialog>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -33,7 +33,7 @@ describe('Dialog', () => {
         const { rerender } = render(
           <Dialog isOpen={false}>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -46,7 +46,7 @@ describe('Dialog', () => {
         rerender(
           <Dialog isOpen>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -65,7 +65,7 @@ describe('Dialog', () => {
         const { rerender } = render(
           <Dialog isOpen>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -78,7 +78,7 @@ describe('Dialog', () => {
         rerender(
           <Dialog isOpen={false}>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -96,14 +96,14 @@ describe('Dialog', () => {
   describe('Given a dialog component with open and onOpenChange props', () => {
     describe('When the popover is opened and user click outside the popover content', () => {
       it('Then the onClose callback should be called', async () => {
-        const onClose = jest.fn();
+        const onClose = vi.fn();
 
         render(
           <>
-            <button>Outside</button>
+            <button type="button">Outside</button>
             <Dialog isOpen onClose={onClose}>
               <Dialog.Trigger>
-                <button>Trigger</button>
+                <button type="button">Trigger</button>
               </Dialog.Trigger>
               <Dialog.Content>
                 <div>Content</div>
@@ -124,12 +124,12 @@ describe('Dialog', () => {
   describe('Given a dialog component with the `closeOnEscClick` prop', () => {
     describe('When the `closeOnEscClick` prop is set to true and the user presses the "Escape" key', () => {
       it('Then the dialog should close', async () => {
-        const onClose = jest.fn();
+        const onClose = vi.fn();
 
         render(
           <Dialog closeOnEscClick onClose={onClose}>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -155,12 +155,12 @@ describe('Dialog', () => {
 
     describe('When the `closeOnEscClick` prop is set to false and the user presses the "Escape" key', () => {
       it('Then the dialog should not close', async () => {
-        const onClose = jest.fn();
+        const onClose = vi.fn();
 
         render(
           <Dialog closeOnEscClick={false} onClose={onClose}>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -188,12 +188,12 @@ describe('Dialog', () => {
   describe('Given a dialog component with the `closeOnOutsideClick` prop', () => {
     describe('When the `closeOnOutsideClick` prop is set to true and the user clicks outside the dialog content', () => {
       it('Then the dialog should close', async () => {
-        const onClose = jest.fn();
+        const onClose = vi.fn();
 
         render(
           <Dialog closeOnOutsideClick onClose={onClose}>
             <Dialog.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Dialog.Trigger>
             <Dialog.Content>
               <div>Content</div>
@@ -219,14 +219,14 @@ describe('Dialog', () => {
 
     describe('When the `closeOnOutsideClick` prop is set to false and the user clicks outside the dialog content', () => {
       it('Then the dialog should not close', async () => {
-        const onClose = jest.fn();
+        const onClose = vi.fn();
 
         render(
           <>
-            <button>Outside</button>
+            <button type="button">Outside</button>
             <Dialog closeOnOutsideClick={false} onClose={onClose}>
               <Dialog.Trigger>
-                <button>Trigger</button>
+                <button type="button">Trigger</button>
               </Dialog.Trigger>
               <Dialog.Content>
                 <div>Content</div>

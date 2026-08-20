@@ -5,7 +5,6 @@ import { useContext } from 'react';
 import type {
   AnchorHTMLAttributes,
   ElementType,
-  FC,
   FocusEvent,
   MouseEvent,
   ReactElement,
@@ -14,8 +13,10 @@ import type {
 import { MenuButton } from '../../menu-button';
 import { DropdownMenuContext } from '../dropdown-menu.context';
 
-export interface DropdownMenuItemProps
-  extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
+export interface DropdownMenuItemProps extends Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  'children'
+> {
   as?: ElementType;
   danger?: boolean;
   description?: string;
@@ -26,7 +27,7 @@ export interface DropdownMenuItemProps
   children: string;
 }
 
-export const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
+export function DropdownMenuItem({
   disabled,
   description,
   startIcon,
@@ -35,12 +36,13 @@ export const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
   onFocus,
   children,
   ...props
-}) => {
+}: DropdownMenuItemProps) {
   const { activeIndex, getItemProps, setActiveIndex } =
     useContext(DropdownMenuContext);
 
   const item = useListItem({ label: disabled ? null : children });
   const tree = useFloatingTree();
+  // eslint-disable-next-line react-hooks/refs -- useListItem returns index as a plain number, not a ref
   const isActive = item.index === activeIndex;
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -55,13 +57,14 @@ export const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 
   return (
     <MenuButton
+      // eslint-disable-next-line react-hooks/refs -- useListItem returns ref as a callback ref; forwarding it is its purpose
       ref={item.ref}
       description={description}
       endIcon={endIcon}
-      size='sm'
+      size="sm"
       startIcon={startIcon}
       tabIndex={isActive ? 0 : -1}
-      variant='secondary'
+      variant="secondary"
       {...getItemProps({
         disabled,
         onClick: handleClick,
@@ -72,4 +75,4 @@ export const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
       {children}
     </MenuButton>
   );
-};
+}

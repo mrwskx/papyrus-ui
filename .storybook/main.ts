@@ -1,4 +1,4 @@
-import { dirname, join, resolve } from 'path';
+import { dirname, join, resolve } from 'node:path';
 
 import type { StorybookConfig } from '@storybook/react-vite';
 import autoprefixer from 'autoprefixer';
@@ -33,12 +33,12 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },
-  viteFinal(config: UserConfig) {
-    return mergeConfig(config, {
+  viteFinal(viteConfig: UserConfig) {
+    return mergeConfig(viteConfig, {
       css: {
         postcss: {
           plugins: [
-            tailwindcss(resolve(__dirname, './tailwind.config.js')),
+            tailwindcss(resolve(__dirname, './tailwind.config.ts')),
             autoprefixer(),
           ],
         },

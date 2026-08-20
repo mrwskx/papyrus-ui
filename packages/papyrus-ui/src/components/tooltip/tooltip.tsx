@@ -1,5 +1,5 @@
 import type { OffsetOptions, Placement } from '@floating-ui/react';
-import type { FC, ReactElement, ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import { Popover } from '../popover';
 import type { PopoverTrigger } from '../popover';
@@ -80,7 +80,7 @@ const DEFAULT_OFFSET = {
 
 const DEFAULT_TRIGGER: PopoverTrigger[] = ['focus', 'hover'];
 
-export const Tooltip: FC<TooltipProps> = ({
+export function Tooltip({
   offset = DEFAULT_OFFSET,
   padding = 4,
   placement = 'top',
@@ -88,27 +88,29 @@ export const Tooltip: FC<TooltipProps> = ({
   trigger = DEFAULT_TRIGGER,
   children,
   ...props
-}) => (
-  <Popover
-    {...props}
-    arrowPadding={ARROW_PADDING}
-    modal={false}
-    offset={offset}
-    overflowPadding={padding}
-    placement={placement}
-    role='tooltip'
-    trigger={trigger}
-  >
-    <Popover.Trigger>{children}</Popover.Trigger>
-    <Popover.Content className='min-h-7 max-w-80 rounded-md bg-black/80 px-2 py-1 shadow-md'>
-      <Text as='div' className='text-white' size='sm'>
-        {title}
-      </Text>
-      <Popover.Arrow
-        className='fill-black/80'
-        height={ARROW_HEIGHT}
-        width={ARROW_WIDTH}
-      />
-    </Popover.Content>
-  </Popover>
-);
+}: TooltipProps) {
+  return (
+    <Popover
+      {...props}
+      arrowPadding={ARROW_PADDING}
+      modal={false}
+      offset={offset}
+      overflowPadding={padding}
+      placement={placement}
+      role="tooltip"
+      trigger={trigger}
+    >
+      <Popover.Trigger>{children}</Popover.Trigger>
+      <Popover.Content className="min-h-7 max-w-80 rounded-md bg-black/80 px-2 py-1 shadow-md">
+        <Text as="div" className="text-white" size="sm">
+          {title}
+        </Text>
+        <Popover.Arrow
+          className="fill-black/80"
+          height={ARROW_HEIGHT}
+          width={ARROW_WIDTH}
+        />
+      </Popover.Content>
+    </Popover>
+  );
+}

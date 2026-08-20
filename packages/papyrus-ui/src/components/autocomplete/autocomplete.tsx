@@ -345,7 +345,7 @@ export const Autocomplete = forwardRef(
     );
 
     const containerRef = useRef<HTMLDivElement>(null);
-    const listRef = useRef<Array<HTMLElement | null>>([]);
+    const listRef = useRef<(HTMLElement | null)[]>([]);
     const isControlled = typeof value !== 'undefined';
     const inputId = useId(id);
 
@@ -405,6 +405,7 @@ export const Autocomplete = forwardRef(
     const { getReferenceProps, getFloatingProps, getItemProps } =
       useInteractions([role, click, dismiss, listNav]);
 
+    // eslint-disable-next-line @typescript-eslint/unbound-method -- @floating-ui declares setReference/setFloating in method shorthand; they are standalone callbacks and use no `this`
     const mergedRefs = useMergeRefs(refs.setReference, ref);
 
     const resetInputValue = useCallback(() => {
@@ -430,9 +431,9 @@ export const Autocomplete = forwardRef(
       [getLabel, options],
     );
 
-    const updateOptions = useDebounceCallback(async (nextQuery: string) => {
+    const updateOptions = useDebounceCallback((nextQuery: string) => {
       if (onSearch) {
-        await onSearch(nextQuery);
+        void onSearch(nextQuery);
       } else {
         filterOptions(nextQuery);
       }
@@ -459,12 +460,12 @@ export const Autocomplete = forwardRef(
       resetInputValue();
     }, [resetInputValue]);
 
-    const changeValue = (options: Value[]) => {
+    const changeValue = (nextValue: Value[]) => {
       if (isControlled) {
-        const nextOptions = toValue(options, multiple);
+        const nextOptions = toValue(nextValue, multiple);
         onChange?.(nextOptions);
       } else {
-        setSelectedOptions(options);
+        setSelectedOptions(nextValue);
       }
     };
 
@@ -571,19 +572,19 @@ export const Autocomplete = forwardRef(
           size={size}
         >
           {isValidElement<IconBaseProps>(startIcon) && (
-            <InputAction className='me-1'>{startIcon}</InputAction>
+            <InputAction className="me-1">{startIcon}</InputAction>
           )}
 
-          <span className='flex flex-1 -mt-1 -mx-0.5 flex-wrap'>
+          <span className="flex flex-1 -mt-1 -mx-0.5 flex-wrap">
             {multiple &&
               selectedOptions.map((item, idx) => (
-                <span key={idx} className='block mt-1 px-0.5'>
+                <span key={getLabel(item)} className="block mt-1 px-0.5">
                   <Tag
                     data-index={idx}
                     disabled={disabled}
                     rounded
                     tabIndex={-1}
-                    variant='tertiary'
+                    variant="tertiary"
                     onMouseDown={handleRemoveMouseDown}
                     onRemove={() => {
                       if (onChange) {
@@ -602,26 +603,26 @@ export const Autocomplete = forwardRef(
             {(!multiple ||
               selectedOptions.length === 0 ||
               (!disabled && !readOnly)) && (
-              <span className='block mt-1 px-0.5 w-full'>
+              <span className="block mt-1 px-0.5 w-full">
                 <input
                   aria-activedescendant={
                     activeIndex != null
                       ? slug(inputId, OPTION_ID, activeIndex)
                       : ''
                   }
-                  aria-autocomplete='list'
+                  aria-autocomplete="list"
                   aria-controls={isOpen ? slug(inputId, LISTBOX_ID) : ''}
                   aria-invalid={invalid}
                   aria-owns={isOpen ? slug(inputId, LISTBOX_ID) : ''}
-                  autoComplete='off'
+                  autoComplete="off"
                   autoFocus={autoFocus}
-                  className='input-base'
+                  className="input-base"
                   disabled={disabled}
                   id={inputId}
                   name={name}
                   placeholder={placeholder}
                   readOnly={readOnly}
-                  type='text'
+                  type="text"
                   {...getReferenceProps({
                     ref: mergedRefs,
                     value: inputValue,
@@ -639,11 +640,11 @@ export const Autocomplete = forwardRef(
             !readOnly &&
             isFocused &&
             (inputValue.length > 0 || selectedOptions.length > 0) && (
-              <InputAction className='ms-1'>
+              <InputAction className="ms-1">
                 <Icon
                   aria-label={clearLabel}
-                  className='text-lg color-neutral-950 hover:opacity-60'
-                  role='button'
+                  className="text-lg color-neutral-950 hover:opacity-60"
+                  role="button"
                   tabIndex={-1}
                   onMouseDown={handleClearMouseDown}
                 >
@@ -653,7 +654,7 @@ export const Autocomplete = forwardRef(
             )}
 
           {isValidElement(endIcon) && (
-            <InputAction className='ms-1'>{endIcon}</InputAction>
+            <InputAction className="ms-1">{endIcon}</InputAction>
           )}
         </InputBox>
 
@@ -671,6 +672,7 @@ export const Autocomplete = forwardRef(
               modal={false}
             >
               <Listbox
+                // eslint-disable-next-line @typescript-eslint/unbound-method -- @floating-ui declares setReference/setFloating in method shorthand; they are standalone callbacks and use no `this`
                 ref={refs.setFloating}
                 id={slug(inputId, LISTBOX_ID)}
                 style={floatingStyles}
@@ -678,13 +680,13 @@ export const Autocomplete = forwardRef(
                 {...getFloatingProps()}
               >
                 {(loading || !optionsState) && (
-                  <Option disabled role='none'>
+                  <Option disabled role="none">
                     {loadingLabel}
                   </Option>
                 )}
 
-                {!loading && optionsState && optionsState.length === 0 && (
-                  <Option disabled role='none'>
+                {!loading && optionsState?.length === 0 && (
+                  <Option disabled role="none">
                     {noResultLabel}
                   </Option>
                 )}
@@ -695,12 +697,12 @@ export const Autocomplete = forwardRef(
 
                     return (
                       <OptionComponent
-                        key={idx}
+                        key={getLabel(item)}
                         active={idx === activeIndex}
                         data-index={idx}
                         endIcon={
                           isSelected ? (
-                            <BiCheck className='text-primary-600' />
+                            <BiCheck className="text-primary-600" />
                           ) : undefined
                         }
                         id={slug(inputId, OPTION_ID, idx)}

@@ -17,7 +17,7 @@ describe('ImageInput', () => {
   describe('Given the image-input component with a label and custom placeholder', () => {
     describe('When it is rendered', () => {
       it('Then it should render the label and the custom placeholder', () => {
-        render(<ImageInput label='Avatar' placeholder='Upload avatar' />);
+        render(<ImageInput label="Avatar" placeholder="Upload avatar" />);
         expect(screen.getByText('Avatar')).toBeInTheDocument();
         expect(screen.getByText('Upload avatar')).toBeInTheDocument();
       });
@@ -45,7 +45,7 @@ describe('ImageInput', () => {
         const getName = () => 'Avatar Image';
         const getUrl = () => 'https://example.com/avatar.jpg';
 
-        const Wrapper = () => {
+        function Wrapper() {
           const [val, setVal] = useState<typeof initial | null>(initial);
           return (
             <ImageInput
@@ -55,7 +55,7 @@ describe('ImageInput', () => {
               onChange={setVal}
             />
           );
-        };
+        }
 
         render(<Wrapper />);
 

@@ -35,14 +35,14 @@ export function Basic(args: IconButtonProps) {
 
 export function Variants(args: IconButtonProps) {
   return (
-    <div className='flex flex-col gap-3'>
-      <div className='flex flex-wrap justify-center -mt-4 -mx-2'>
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-wrap justify-center -mt-4 -mx-2">
         {variants
           .filter(variant => variant !== 'ghost')
-          .map((variant, i) => (
+          .map(variant => (
             <div
-              key={i}
-              className='mt-4 px-2'
+              key={variant}
+              className="mt-4 px-2"
               title={`${startCase(variant)} variant IconButton`}
             >
               <IconButton
@@ -53,12 +53,12 @@ export function Variants(args: IconButtonProps) {
             </div>
           ))}
       </div>
-      <div className='bg-gradient-to-br from-primary-800 to-primary-900 py-2'>
-        <div className='flex flex-wrap justify-center -mt-4 -mx-2'>
+      <div className="bg-gradient-to-br from-primary-800 to-primary-900 py-2">
+        <div className="flex flex-wrap justify-center -mt-4 -mx-2">
           {variants
             .filter(variant => variant === 'ghost')
-            .map((variant, i) => (
-              <div key={i} className='mt-4 px-2'>
+            .map(variant => (
+              <div key={variant} className="mt-4 px-2">
                 <IconButton {...args} variant={variant} />
               </div>
             ))}
@@ -70,9 +70,9 @@ export function Variants(args: IconButtonProps) {
 
 export function Sizes(args: IconButtonProps) {
   return (
-    <div className='flex items-center flex-wrap -mt-4 -mx-2'>
-      {sizes.map((size, i) => (
-        <div key={i} className='mt-4 px-2'>
+    <div className="flex items-center flex-wrap -mt-4 -mx-2">
+      {sizes.map(size => (
+        <div key={size} className="mt-4 px-2">
           <IconButton {...args} size={size} title={`${size} size IconButton`} />
         </div>
       ))}
@@ -90,11 +90,11 @@ export function WithAvatar(args: IconButtonProps) {
       {...args}
       avatar={
         <Avatar>
-          <img alt='Profile' src='https://i.pravatar.cc/300' />
+          <img alt="Profile" src="https://i.pravatar.cc/300" />
         </Avatar>
       }
       rounded
-      variant='tertiary'
+      variant="tertiary"
     />
   );
 }

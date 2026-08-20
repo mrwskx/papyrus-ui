@@ -15,7 +15,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Delete</DropdownMenu.Item>
@@ -36,10 +36,10 @@ describe('DropdownMenu', () => {
       it('Then the menu component should be hidden', async () => {
         render(
           <>
-            <button>Outside</button>
+            <button type="button">Outside</button>
             <DropdownMenu>
               <DropdownMenu.Trigger>
-                <button>Trigger</button>
+                <button type="button">Trigger</button>
               </DropdownMenu.Trigger>
               <DropdownMenu.Content>
                 <DropdownMenu.Item>Delete</DropdownMenu.Item>
@@ -66,12 +66,12 @@ describe('DropdownMenu', () => {
   describe('Given DropdownMenu component is rendered with valid DropdownMenu.Item children', () => {
     describe('When user clicks on a menu item', () => {
       it('Then the associated action should be triggered, the menu should be hidden, and the trigger should be focused', async () => {
-        const onClick = jest.fn();
+        const onClick = vi.fn();
 
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item onClick={onClick}>Delete</DropdownMenu.Item>
@@ -101,7 +101,7 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
@@ -114,7 +114,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -145,13 +145,13 @@ describe('DropdownMenu', () => {
 
     describe('When user presses Enter or Space key on the menu item', () => {
       it('Then the associated action should be triggered, the menu should be hidden and the trigger should be focused', async () => {
-        const mockAction = jest.fn();
+        const mockAction = vi.fn();
 
         // Render the DropdownMenu component with a mock menu item
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item onClick={mockAction}>Edit</DropdownMenu.Item>
@@ -164,7 +164,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -195,7 +195,7 @@ describe('DropdownMenu', () => {
         const { container } = render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
@@ -220,11 +220,11 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item>Facebook</DropdownMenu.Item>
                 <DropdownMenu.Item>Twitter</DropdownMenu.Item>
                 <DropdownMenu.Item>LinkedIn</DropdownMenu.Item>
@@ -252,16 +252,16 @@ describe('DropdownMenu', () => {
 
     describe('When the user clicks on a submenu item', () => {
       it('Then the associated action should be triggered, the menu should be hidden, and the trigger should be focused', async () => {
-        const mockAction = jest.fn();
+        const mockAction = vi.fn();
 
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item onClick={mockAction}>
                   Facebook
                 </DropdownMenu.Item>
@@ -301,11 +301,11 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item>Facebook</DropdownMenu.Item>
                 <DropdownMenu.Item>Twitter</DropdownMenu.Item>
                 <DropdownMenu.Item>LinkedIn</DropdownMenu.Item>
@@ -318,7 +318,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -352,11 +352,11 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item>Facebook</DropdownMenu.Item>
                 <DropdownMenu.Item>Twitter</DropdownMenu.Item>
                 <DropdownMenu.Item>LinkedIn</DropdownMenu.Item>
@@ -369,7 +369,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -403,11 +403,11 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item>Facebook</DropdownMenu.Item>
                 <DropdownMenu.Item>Twitter</DropdownMenu.Item>
                 <DropdownMenu.Item>LinkedIn</DropdownMenu.Item>
@@ -420,7 +420,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -454,11 +454,11 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item>Facebook</DropdownMenu.Item>
                 <DropdownMenu.Item>Twitter</DropdownMenu.Item>
                 <DropdownMenu.Item>LinkedIn</DropdownMenu.Item>
@@ -471,7 +471,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -529,11 +529,11 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item>Facebook</DropdownMenu.Item>
                 <DropdownMenu.Item>Twitter</DropdownMenu.Item>
                 <DropdownMenu.Item>LinkedIn</DropdownMenu.Item>
@@ -546,7 +546,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -584,11 +584,11 @@ describe('DropdownMenu', () => {
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item>Facebook</DropdownMenu.Item>
                 <DropdownMenu.Item>Twitter</DropdownMenu.Item>
                 <DropdownMenu.Item>LinkedIn</DropdownMenu.Item>
@@ -601,7 +601,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');
@@ -641,17 +641,17 @@ describe('DropdownMenu', () => {
 
     describe('When the user interacts with submenu items using Space or Enter key', () => {
       it('Then the associated action should be triggered, the menu should be hidden, and the trigger should be focused', async () => {
-        const mockAction = jest.fn();
+        const mockAction = vi.fn();
 
         // Render the DropdownMenu component with menu items and submenus
         render(
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Submenu label='Share'>
+              <DropdownMenu.Submenu label="Share">
                 <DropdownMenu.Item onClick={mockAction}>
                   Facebook
                 </DropdownMenu.Item>
@@ -666,7 +666,7 @@ describe('DropdownMenu', () => {
         await userEvent.click(screen.getByText('Trigger'));
 
         await waitFor(() => {
-          expect(screen.getByText('Edit')).toBeVisible();
+          expect(screen.getByRole('menu')).toHaveFocus();
         });
 
         await userEvent.keyboard('{arrowdown}');

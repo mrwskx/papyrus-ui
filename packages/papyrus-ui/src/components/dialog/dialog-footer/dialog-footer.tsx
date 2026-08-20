@@ -2,7 +2,7 @@
 
 import cn from 'classnames';
 import { useContext } from 'react';
-import type { FC, HTMLAttributes, ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 import { DialogContext } from '../dialog.context';
 
@@ -11,11 +11,11 @@ export interface DialogFooterProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }
 
-export const DialogFooter: FC<DialogFooterProps> = ({
+export function DialogFooter({
   className,
   children,
   ...props
-}) => {
+}: DialogFooterProps) {
   const { size } = useContext(DialogContext);
 
   return (
@@ -31,4 +31,4 @@ export const DialogFooter: FC<DialogFooterProps> = ({
       {children}
     </div>
   );
-};
+}

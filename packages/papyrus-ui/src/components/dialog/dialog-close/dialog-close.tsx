@@ -1,7 +1,7 @@
 'use client';
 
 import { useContext } from 'react';
-import type { FC, MouseEvent, ComponentType } from 'react';
+import type { MouseEvent, ComponentType } from 'react';
 import { BiX } from 'react-icons/bi';
 
 import type { ButtonProps } from '../../button';
@@ -12,12 +12,12 @@ export interface DialogCloseProps extends Omit<ButtonProps, 'as' | 'href'> {
   as?: ComponentType<ButtonProps>;
 }
 
-export const DialogClose: FC<DialogCloseProps> = ({
+export function DialogClose({
   as: Element,
   onClick,
   children,
   ...props
-}) => {
+}: DialogCloseProps) {
   const { close } = useContext(DialogContext);
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
@@ -37,11 +37,11 @@ export const DialogClose: FC<DialogCloseProps> = ({
     <IconButton
       {...props}
       rounded
-      size='sm'
-      variant='plain'
+      size="sm"
+      variant="plain"
       onClick={handleClick}
     >
       <BiX />
     </IconButton>
   );
-};
+}

@@ -17,7 +17,7 @@ describe('TimeInput', () => {
   describe('Given the TimeInput component with a placeholder', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the placeholder', () => {
-        render(<TimeInput placeholder='HH:MM' />);
+        render(<TimeInput placeholder="HH:MM" />);
         expect(screen.getByRole('textbox')).toHaveAttribute(
           'placeholder',
           'HH:MM',
@@ -47,7 +47,7 @@ describe('TimeInput', () => {
   describe('Given the TimeInput component with `defaultValue`', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the default value', () => {
-        render(<TimeInput defaultValue='12:30' />);
+        render(<TimeInput defaultValue="12:30" />);
         expect(screen.getByRole('textbox')).toHaveValue('12:30');
       });
     });
@@ -56,7 +56,7 @@ describe('TimeInput', () => {
   describe('Given the TimeInput component with the `hour12` prop set to true', () => {
     describe('When it is rendered', () => {
       it('Then it should not allow the time to be not in 12-hour format (AM/PM)', () => {
-        render(<TimeInput defaultValue='12:30' hour12 />);
+        render(<TimeInput defaultValue="12:30" hour12 />);
         expect(screen.getByRole('textbox')).toHaveValue('12:30');
       });
     });
@@ -65,7 +65,7 @@ describe('TimeInput', () => {
   describe('Given the TimeInput component with a valid `startIcon` component', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the startIcon', () => {
-        render(<TimeInput startIcon={<div data-testid='start-icon' />} />);
+        render(<TimeInput startIcon={<div data-testid="start-icon" />} />);
         expect(screen.getByTestId('start-icon')).toBeInTheDocument();
       });
     });
@@ -74,7 +74,7 @@ describe('TimeInput', () => {
   describe('Given the TimeInput component with a valid `endIcon` component', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the endIcon', () => {
-        render(<TimeInput endIcon={<div data-testid='end-icon' />} />);
+        render(<TimeInput endIcon={<div data-testid="end-icon" />} />);
         expect(screen.getByTestId('end-icon')).toBeInTheDocument();
       });
     });
@@ -83,7 +83,7 @@ describe('TimeInput', () => {
   describe('Given the TimeInput component with `onChange` handler', () => {
     describe('When a user types a value into the input field', () => {
       it('Then it should call the `onChange` handler with the new value', async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(<TimeInput onChange={onChange} />);
         await userEvent.type(screen.getByRole('textbox'), '12:45');
 
@@ -95,16 +95,16 @@ describe('TimeInput', () => {
   describe('Given the TimeInput component with the `value` prop', () => {
     describe('When it is rendered', () => {
       it('Then it should render with the `value`', () => {
-        render(<TimeInput value='15:30' />);
+        render(<TimeInput value="15:30" />);
         expect(screen.getByRole('textbox')).toHaveValue('15:30');
       });
     });
 
     describe('When the `value` prop changes', () => {
       it('Then it should render with the new value', () => {
-        const { rerender } = render(<TimeInput value='15:30' />);
+        const { rerender } = render(<TimeInput value="15:30" />);
         expect(screen.getByRole('textbox')).toHaveValue('15:30');
-        rerender(<TimeInput value='16:45' />);
+        rerender(<TimeInput value="16:45" />);
         expect(screen.getByRole('textbox')).toHaveValue('16:45');
       });
     });

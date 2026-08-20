@@ -8,11 +8,13 @@ const meta: Meta<RangeSkeletonProps> = {
   component: RangeSkeleton,
 };
 
-const Template: StoryFn<RangeSkeletonProps> = args => (
-  <div className='w-80'>
-    <RangeSkeleton {...args} />
-  </div>
-);
+const Template: StoryFn<RangeSkeletonProps> = function Template(args) {
+  return (
+    <div className="w-80">
+      <RangeSkeleton {...args} />
+    </div>
+  );
+};
 
 export const Basic = Template.bind({});
 

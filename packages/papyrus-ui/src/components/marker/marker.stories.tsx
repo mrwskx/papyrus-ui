@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import { BiCheck } from 'react-icons/bi';
 
 import { Icon } from '../icon';
@@ -19,13 +19,15 @@ const meta: Meta = {
   },
 };
 
-export const Basic: StoryFn<MarkerProps> = args => (
-  <UList className='list-none'>
-    <li>
-      <Marker {...args} />
-      List Item
-    </li>
-  </UList>
-);
+export function Basic(args: MarkerProps) {
+  return (
+    <UList className="list-none">
+      <li>
+        <Marker {...args} />
+        List Item
+      </li>
+    </UList>
+  );
+}
 
 export default meta;

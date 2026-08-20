@@ -14,12 +14,14 @@ const meta: Meta = {
   },
 };
 
-const Template: StoryFn<ListSkeletonProps> = args => (
-  <ListSkeleton {...args}>
-    <TextSkeleton className='w-96' />
-    <TextSkeleton className='w-96' />
-  </ListSkeleton>
-);
+const Template: StoryFn<ListSkeletonProps> = function Template(args) {
+  return (
+    <ListSkeleton {...args}>
+      <TextSkeleton className="w-96" />
+      <TextSkeleton className="w-96" />
+    </ListSkeleton>
+  );
+};
 
 export const Basic = Template.bind({});
 

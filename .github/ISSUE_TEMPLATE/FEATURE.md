@@ -1,7 +1,7 @@
 ---
 name: Feature Request
 about: Use this template for requesting new features
-title: "[FEATURE NAME]"
+title: '[FEATURE NAME]'
 labels: enhancement
 assignees:
 ---
@@ -22,6 +22,6 @@ If applicable, provide a sample code snippet that demonstrates the gist of featu
 
 Please provide any relevant information about your setup, which will help us ensure the requested support will work for you.
 
-* Project Version:
-* Operating System:
-* Toolchain version:
+- Project Version:
+- Operating System:
+- Toolchain version:

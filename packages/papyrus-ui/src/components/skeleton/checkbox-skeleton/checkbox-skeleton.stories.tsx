@@ -11,16 +11,16 @@ const meta: Meta<CheckboxSkeletonProps> = {
   args: {
     children: (
       <>
-        <TextSkeleton className='w-40' />
-        <TextSkeleton className='w-40' />
+        <TextSkeleton className="w-40" />
+        <TextSkeleton className="w-40" />
       </>
     ),
   },
 };
 
-const Template: StoryFn<CheckboxSkeletonProps> = args => (
-  <CheckboxSkeleton {...args} />
-);
+const Template: StoryFn<CheckboxSkeletonProps> = function Template(args) {
+  return <CheckboxSkeleton {...args} />;
+};
 
 export const Basic = Template.bind({});
 

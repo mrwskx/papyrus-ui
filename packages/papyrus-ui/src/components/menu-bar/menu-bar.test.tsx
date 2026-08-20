@@ -12,7 +12,7 @@ describe('MenuBar', () => {
   describe('Given MenuBar component is rendered with valid MenuBar.Item children', () => {
     describe('When user clicks on a menu item', () => {
       it('Then the associated action should be triggered', async () => {
-        const onClick = jest.fn();
+        const onClick = vi.fn();
 
         render(
           <MenuBar>
@@ -68,7 +68,7 @@ describe('MenuBar', () => {
 
     describe('When user presses Enter or Space key on the menu item', () => {
       it('Then the associated action should be triggered', async () => {
-        const mockAction = jest.fn();
+        const mockAction = vi.fn();
 
         // Render the MenuBar component with a mock menu item
         render(
@@ -122,7 +122,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -146,13 +146,13 @@ describe('MenuBar', () => {
     describe('When the user clicks on a submenu item', () => {
       it('Then the associated action should be triggered and the submenu should be collapsed', async () => {
         // Mock function
-        const mockAction = jest.fn();
+        const mockAction = vi.fn();
 
         // Render the MenuBar component with menu items and submenus
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item onClick={mockAction}>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -185,7 +185,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -223,7 +223,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -261,7 +261,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -306,7 +306,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -356,7 +356,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -395,7 +395,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -442,7 +442,7 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -489,9 +489,9 @@ describe('MenuBar', () => {
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
-              <MenuBar.Submenu label='Electronics'>
+              <MenuBar.Submenu label="Electronics">
                 <MenuBar.Item>Mobile Phones</MenuBar.Item>
                 <MenuBar.Item>Computers</MenuBar.Item>
                 <MenuBar.Item>TV</MenuBar.Item>
@@ -542,13 +542,13 @@ describe('MenuBar', () => {
 
     describe('When the user interacts with submenu items using Space or Enter key', () => {
       it('Then the associated action should be triggered and the submenu should be collapsed', async () => {
-        const mockAction = jest.fn();
+        const mockAction = vi.fn();
 
         // Render the MenuBar component with menu items and submenus
         render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item onClick={mockAction}>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>
@@ -597,7 +597,7 @@ describe('MenuBar', () => {
         const { container } = render(
           <MenuBar>
             <MenuBar.Item>Home</MenuBar.Item>
-            <MenuBar.Submenu label='Products'>
+            <MenuBar.Submenu label="Products">
               <MenuBar.Item>Electronics</MenuBar.Item>
               <MenuBar.Item>Clothing</MenuBar.Item>
               <MenuBar.Item>Accessories</MenuBar.Item>

@@ -8,7 +8,9 @@ const meta: Meta = {
   component: Quote,
 };
 
-const Template: StoryFn<QuoteProps> = args => <Quote {...args} />;
+const Template: StoryFn<QuoteProps> = function Template(args) {
+  return <Quote {...args} />;
+};
 
 export const Basic = Template.bind({});
 Basic.args = {
@@ -48,6 +50,12 @@ SecondaryVariant.args = {
   variant: 'secondary',
   children:
     'Success is not final, failure is not fatal: It is the courage to continue that counts.',
+};
+
+export const TertiaryVariant = Template.bind({});
+TertiaryVariant.args = {
+  variant: 'secondary',
+  children: 'This demonstrates the tertiary emphasis style.',
 };
 
 export default meta;

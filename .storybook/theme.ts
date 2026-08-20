@@ -3,7 +3,9 @@ import { create } from '@storybook/theming';
 export const theme = create({
   base: 'light',
   brandTitle: 'Papyrus UI',
-  brandImage: '/images/logo.svg',
-  colorPrimary: '#7c3aed',
-  colorSecondary: '#4f46e5',
+  brandImage: '/images/logo.png',
+  colorPrimary: '#ea580c',
+  colorSecondary: '#1281f9',
+  fontBase: '"DM Sans", sans-serif',
+  fontCode: '"IBM Plex Mono", monospace',
 });

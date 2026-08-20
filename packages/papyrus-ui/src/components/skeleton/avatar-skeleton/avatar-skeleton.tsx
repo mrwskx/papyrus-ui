@@ -7,10 +7,10 @@ export interface AvatarSkeletonProps {
   className?: string;
 }
 
-export const AvatarSkeleton = ({
+export function AvatarSkeleton({
   size = 'md',
   className,
-}: AvatarSkeletonProps) => {
+}: AvatarSkeletonProps) {
   const sizeClasses: Record<string, string> = {
     xs: 'w-5 h-5',
     sm: 'w-6 h-6',
@@ -29,6 +29,6 @@ export const AvatarSkeleton = ({
       )}
     />
   );
-};
+}
 
 AvatarSkeleton.displayName = 'AvatarSkeleton';

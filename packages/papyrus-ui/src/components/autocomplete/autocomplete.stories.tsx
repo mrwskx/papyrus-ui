@@ -20,11 +20,13 @@ const meta: Meta<typeof Autocomplete> = {
   },
 };
 
-const Template: StoryFn<AutocompleteProps> = args => (
-  <div className='min-h-[256px] w-64'>
-    <Autocomplete {...args} options={OPTIONS_LIST} />
-  </div>
-);
+const Template: StoryFn<AutocompleteProps> = function Template(args) {
+  return (
+    <div className="min-h-[256px] w-64">
+      <Autocomplete {...args} options={OPTIONS_LIST} />
+    </div>
+  );
+};
 
 export const Basic = Template.bind({
   id: 'autocomplete-basic',
@@ -75,9 +77,9 @@ Disabled.args = {
 
 export function Sizes(args: AutocompleteProps) {
   return (
-    <div className='flex flex-col min-h-[384px] w-64'>
+    <div className="flex flex-col min-h-[384px] w-64">
       {SIZE_OPTIONS.map((size, i) => (
-        <div key={i} className={i ? 'mt-4' : ''}>
+        <div key={size} className={i ? 'mt-4' : ''}>
           <Autocomplete
             {...args}
             id={`autocomplete-size-${size}`}
@@ -92,31 +94,31 @@ export function Sizes(args: AutocompleteProps) {
 
 export function WithIcon(args: AutocompleteProps) {
   return (
-    <div className='flex flex-col min-h-[384px] w-64'>
-      <div className='mt-4'>
+    <div className="flex flex-col min-h-[384px] w-64">
+      <div className="mt-4">
         <Autocomplete
           {...args}
-          id='autocomplete-with-start-icon'
-          label='With Start Icon'
+          id="autocomplete-with-start-icon"
+          label="With Start Icon"
           options={OPTIONS_LIST}
           startIcon={
-            <Icon className='text-neutral-950'>
+            <Icon className="text-neutral-950">
               <BiSearch />
             </Icon>
           }
         />
       </div>
 
-      <div className='mt-4'>
+      <div className="mt-4">
         <Autocomplete
           {...args}
           endIcon={
-            <Icon className='text-info-600'>
+            <Icon className="text-info-600">
               <BiInfoCircle />
             </Icon>
           }
-          id='autocomplete-with-end-icon'
-          label='With End Icon'
+          id="autocomplete-with-end-icon"
+          label="With End Icon"
           options={OPTIONS_LIST}
         />
       </div>

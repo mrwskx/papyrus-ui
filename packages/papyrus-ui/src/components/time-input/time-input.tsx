@@ -17,11 +17,10 @@ import { InputBox } from '../input-box';
 import type { InputBoxSize } from '../input-box';
 import { InputGroup } from '../input-group';
 
-export interface TimeInputProps
-  extends Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'defaultValue' | 'size' | 'type' | 'value' | 'onChange'
-  > {
+export interface TimeInputProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'defaultValue' | 'size' | 'type' | 'value' | 'onChange'
+> {
   /**
    * The default value of the uncontrolled input.
    * This is used when the component is uncontrolled and does not have a `value` prop.
@@ -129,7 +128,7 @@ function getDateByValue(value: string) {
 
 function isValidDate(date: Date, hour12: boolean) {
   return !(
-    isNaN(date.getTime()) ||
+    Number.isNaN(date.getTime()) ||
     date.getDay() !== 0 ||
     (hour12 && date.getHours() > 12)
   );
@@ -244,6 +243,9 @@ export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
         .split(':')
         .map(v => parseInt(v, 10));
 
+      // A mask without seconds yields two parts, so p3 is undefined at runtime;
+      // TS types it as number because noUncheckedIndexedAccess is off.
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       const [hrs, min, sec] = [p1, p2, p3 ?? 0];
 
       if (hour12 && hrs > 12) {
@@ -287,12 +289,12 @@ export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
       >
         <InputBox disabled={disabled} invalid={invalid} size={size}>
           {isValidElement<IconBaseProps>(startIcon) && (
-            <InputAction className='me-1'>{startIcon}</InputAction>
+            <InputAction className="me-1">{startIcon}</InputAction>
           )}
 
           <PatternFormat
             allowEmptyFormatting
-            className='input-base'
+            className="input-base"
             disabled={disabled}
             format={seconds ? SECONDS_FORMAT : MINUTES_FORMAT}
             getInputRef={ref}
@@ -307,7 +309,7 @@ export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
           />
 
           {isValidElement(endIcon) && (
-            <InputAction className='ms-1'>{endIcon}</InputAction>
+            <InputAction className="ms-1">{endIcon}</InputAction>
           )}
         </InputBox>
       </InputGroup>

@@ -136,7 +136,7 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>(
     },
     ref,
   ) => {
-    const isInteractive = Boolean(onClick || onRemove);
+    const isInteractive = Boolean(onClick ?? onRemove);
 
     const handleClick = (e: MouseEvent) => !disabled && onClick?.(e);
 
@@ -153,6 +153,9 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>(
     };
 
     return (
+      // role and tabIndex below are set whenever the tag is interactive; the
+      // rule cannot see through the conditional expressions that assign them.
+      // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <span
         ref={ref}
         aria-disabled={disabled}
@@ -175,7 +178,7 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>(
         onKeyDown={handleKeyDown}
         {...props}
       >
-        {icon && <Icon className='text-sm'>{icon}</Icon>}
+        {icon && <Icon className="text-sm">{icon}</Icon>}
 
         <span className={cn(labelStyles, labelSizeStyles[size])}>
           {children}
@@ -183,8 +186,8 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>(
 
         {!disabled && onRemove && (
           <Icon
-            className='text-sm hover:opacity-60 cursor-pointer'
-            data-testid='clear-icon'
+            className="text-sm hover:opacity-60 cursor-pointer"
+            data-testid="clear-icon"
             onMouseDown={e => {
               e.stopPropagation();
               onRemove();

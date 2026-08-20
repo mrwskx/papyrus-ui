@@ -17,7 +17,7 @@ describe('CodeBlock', () => {
     describe('When component is rendered', () => {
       it('Then data-language attribute should be set', () => {
         const { container } = render(
-          <CodeBlock language='javascript'>const x = 1;</CodeBlock>,
+          <CodeBlock language="javascript">const x = 1;</CodeBlock>,
         );
         const preElement = container.querySelector('pre');
         expect(preElement).toHaveAttribute('data-language', 'javascript');
@@ -42,9 +42,7 @@ describe('CodeBlock', () => {
   describe('Given CodeBlock with wrap true', () => {
     describe('When component is rendered', () => {
       it('Then should have word wrap classes', () => {
-        const { container } = render(
-          <CodeBlock wrap={true}>long code</CodeBlock>,
-        );
+        const { container } = render(<CodeBlock wrap>long code</CodeBlock>);
         const preElement = container.querySelector('pre');
         expect(preElement).toHaveClass('overflow-x-hidden');
         expect(preElement).toHaveClass('whitespace-pre-wrap');
@@ -57,7 +55,7 @@ describe('CodeBlock', () => {
     describe('When component is rendered', () => {
       it('Then should have small text class', () => {
         const { container } = render(
-          <CodeBlock size='sm'>small code</CodeBlock>,
+          <CodeBlock size="sm">small code</CodeBlock>,
         );
         const preElement = container.querySelector('pre');
         expect(preElement).toHaveClass('text-code-sm');
@@ -93,14 +91,14 @@ describe('CodeBlock', () => {
   describe('Given CodeBlock with onCopy callback', () => {
     describe('When copy button is clicked', () => {
       it('Then should call onCopy callback', () => {
-        const onCopy = jest.fn();
+        const onCopy = vi.fn();
         const { container } = render(
           <CodeBlock onCopy={onCopy}>test code</CodeBlock>,
         );
         const copyButton = container.querySelector(
           '[title="Copy to clipboard"]',
         );
-        (copyButton as HTMLElement)?.click();
+        (copyButton as HTMLElement).click();
         expect(onCopy).toHaveBeenCalled();
       });
     });

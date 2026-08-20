@@ -10,7 +10,7 @@ describe('Marker', () => {
       it('Then the correct icon should be rendered', () => {
         const { getByTestId } = render(
           <Marker>
-            <BiCheck data-testid='icon' />
+            <BiCheck data-testid="icon" />
           </Marker>,
         );
 

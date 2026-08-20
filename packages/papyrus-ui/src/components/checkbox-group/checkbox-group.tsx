@@ -224,8 +224,11 @@ export const CheckboxGroup = forwardRef(
                   ),
                   disabled: disabled || child.props.disabled,
                   readOnly: readOnly || child.props.readOnly,
-                  onChange: (_checked, e) =>
-                    handleChange(e as ChangeEvent<HTMLInputElement>),
+                  onChange: (_checked, e) => {
+                    if (e) {
+                      handleChange(e);
+                    }
+                  },
                   onFocus,
                   onBlur,
                 })

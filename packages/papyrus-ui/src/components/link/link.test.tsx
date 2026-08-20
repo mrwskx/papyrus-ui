@@ -6,9 +6,9 @@ describe('Link', () => {
   describe('Given a link component with the default "a" element', () => {
     describe('When rendered', () => {
       it('Then the link should render an "a" tag by default', () => {
-        render(<Link href='#'>Link</Link>);
+        render(<Link href="/docs">Link</Link>);
         expect(screen.getByRole('link')).toBeInTheDocument();
-        expect(screen.getByRole('link')).toHaveAttribute('href', '#');
+        expect(screen.getByRole('link')).toHaveAttribute('href', '/docs');
       });
     });
   });
@@ -16,7 +16,7 @@ describe('Link', () => {
   describe('Given a link component with a custom "as" prop', () => {
     describe('When rendered with the "button" element', () => {
       it('Then the link should render a "button" tag', () => {
-        render(<Link as='button'>Button</Link>);
+        render(<Link as="button">Button</Link>);
         expect(screen.getByRole('button')).toBeInTheDocument();
         expect(screen.getByRole('button')).toHaveTextContent('Button');
       });
@@ -25,7 +25,7 @@ describe('Link', () => {
     describe('When rendered with a custom element type', () => {
       it('Then the link should render that custom element', () => {
         render(
-          <Link as='span' className='custom-class'>
+          <Link as="span" className="custom-class">
             Custom Element
           </Link>,
         );
@@ -40,7 +40,7 @@ describe('Link', () => {
     describe('When the disabled prop is set to true', () => {
       it('Then the link should be rendered with disabled theme', () => {
         render(
-          <Link as='button' disabled>
+          <Link as="button" disabled>
             Disabled Link
           </Link>,
         );
@@ -51,10 +51,10 @@ describe('Link', () => {
 
     describe('When the link is disabled and clicked', () => {
       it('Then the link should not trigger any action', async () => {
-        const onClick = jest.fn();
+        const onClick = vi.fn();
 
         render(
-          <Link as='button' disabled onClick={onClick}>
+          <Link as="button" disabled onClick={onClick}>
             Disabled Link
           </Link>,
         );
@@ -71,7 +71,7 @@ describe('Link', () => {
   describe('Given a link component with "className" prop', () => {
     describe('When a custom class is passed', () => {
       it('Then the link should render with the custom class', () => {
-        render(<Link className='custom-link-class'>Custom Class Link</Link>);
+        render(<Link className="custom-link-class">Custom Class Link</Link>);
         expect(screen.getByText('Custom Class Link')).toBeInTheDocument();
         expect(screen.getByText('Custom Class Link')).toHaveClass(
           'custom-link-class',
@@ -83,7 +83,7 @@ describe('Link', () => {
   describe('Given a link component with a click event handler', () => {
     describe('When the link is clicked', () => {
       it('Then the click handler should be called', async () => {
-        const onClick = jest.fn();
+        const onClick = vi.fn();
         render(<Link onClick={onClick}>Clickable Link</Link>);
         await userEvent.click(screen.getByText('Clickable Link'));
 
@@ -97,7 +97,7 @@ describe('Link', () => {
   describe('Given a link component with "type" prop for button', () => {
     describe('When the type is not provided', () => {
       it('Then the button should have type="button"', () => {
-        render(<Link as='button'>Button without Type</Link>);
+        render(<Link as="button">Button without Type</Link>);
         expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
       });
     });
@@ -105,7 +105,7 @@ describe('Link', () => {
     describe('When the type is provided as "submit"', () => {
       it('Then the button should have type="submit"', () => {
         render(
-          <Link as='button' type='submit'>
+          <Link as="button" type="submit">
             Submit Button
           </Link>,
         );

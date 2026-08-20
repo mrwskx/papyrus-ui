@@ -9,7 +9,7 @@ describe('IconButton', () => {
   describe('Given that the button component is rendered with an onClick callback', () => {
     describe('When the close button is clicked', () => {
       it('Then the onClick callback should be triggered', async () => {
-        const onClickMock = jest.fn();
+        const onClickMock = vi.fn();
 
         render(
           <IconButton onClick={onClickMock}>
@@ -49,7 +49,7 @@ describe('IconButton', () => {
           <IconButton
             avatar={
               <Avatar data-testid={testId}>
-                <img alt='Profile' src='https://i.pravatar.cc/300' />
+                <img alt="Profile" src="https://i.pravatar.cc/300" />
               </Avatar>
             }
           />,
@@ -66,7 +66,7 @@ describe('IconButton', () => {
         const testId = 'icon-button-link';
 
         render(
-          <IconButton as='a' data-testid={testId} href='#'>
+          <IconButton as="a" data-testid={testId} href="#">
             <BiSolidLike />
           </IconButton>,
         );

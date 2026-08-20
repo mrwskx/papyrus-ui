@@ -1,0 +1,65 @@
+# Code Style
+
+This repo local style rule: mechanical convention tooling cannot enforce.
+
+## Tooling owns style
+
+`eslint.config.js`, `.prettierrc.json`, `tsconfig.json` = style definition here. No hand-police what they enforce. No restate rule in prose — read config.
+
+Before call work done:
+
+```bash
+pnpm lint:fix
+pnpm format
+pnpm typecheck
+pnpm test
+```
+
+`.husky/pre-commit` run `pnpm lint && pnpm format:check`, reject commit if either fail. Skip these only move failure later.
+
+Fix code, not linter: silence rule to make `pnpm lint` green not fix. See **Escape hatches** for narrow legit disable.
+
+## Prototypes
+
+Tooling still apply to spike. Judgment rule — no.
+
+## Comments
+
+Explain why, not what. Keep density low — comment earn place by carry context code cannot.
+
+```ts
+// Good — Tolerates the cell padding Prettier adds when it aligns Markdown tables.
+// Bad  — Matches a skill row.
+const SKILL_ROW = /\|[ \t]*`([a-z-]+)`[ \t]*\|/g;
+```
+
+## Escape hatches
+
+No `eslint-disable` or `@ts-expect-error` without reason attach. Use `--` form so reason travel with directive:
+
+```ts
+// eslint-disable-next-line no-param-reassign -- writing through the ref is the point
+ref.current = node;
+```
+
+Reason say why rule wrong _here_. Restate what rule check earn nothing. Narrow to one line — file-wide disable hide next violation.
+
+## Scripts
+
+One directory per script, named for script. `index.ts` = I/O composition root. Pure logic in `<name>.utils.ts`. Test colocated `<name>.utils.test.ts` — cover `.utils`, not `index.ts`.
+
+```
+scripts/
+├── generate-pr-description/
+│   ├── index.ts                              # argv, git, stdout
+│   ├── generate-pr-description.utils.ts      # pure functions
+│   └── generate-pr-description.utils.test.ts
+└── validate-skills/
+    ├── index.ts                              # reads files, prints, throws
+    ├── validate-skills.utils.ts              # pure functions
+    └── validate-skills.utils.test.ts
+```
+
+`index.ts` hold every side effect — read, spawn, print, throw. Keep it straight-line: no branch worth test belong there. Push decision into `.utils` where test reach it without filesystem.
+
+Pass resolved value into pure function, not the means to fetch it. `findMissingSkills` take `(path) => boolean` and `findSymlinkIssue` take link target string — caller do I/O first. Run script by `tsx`, wire as `package.json` script.

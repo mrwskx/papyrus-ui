@@ -11,7 +11,9 @@ const meta: Meta = {
   },
 };
 
-export const Template: StoryFn<CodeProps> = args => <Code {...args} />;
+export const Template: StoryFn<CodeProps> = function Template(args) {
+  return <Code {...args} />;
+};
 
 export const Basic = Template.bind({});
 
@@ -33,13 +35,15 @@ MediumSize.args = {
   size: 'md',
 };
 
-export const InParagraph: StoryFn<CodeProps> = () => (
-  <p className='text-body-md-primary'>
-    To log a message to the console, use <Code>console.log()</Code> in your
-    JavaScript code. You can also use <Code size='sm'>console.error()</Code> for
-    error messages.
-  </p>
-);
+export function InParagraph() {
+  return (
+    <p className="text-body-md-primary">
+      To log a message to the console, use <Code>console.log()</Code> in your
+      JavaScript code. You can also use <Code size="sm">console.error()</Code>{' '}
+      for error messages.
+    </p>
+  );
+}
 
 export const VariableNames = Template.bind({});
 

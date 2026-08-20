@@ -10,24 +10,28 @@ const meta: Meta<typeof RadioGroup> = {
   args: {
     label: 'Radio Group',
     children: [
-      <Radio key={1} value='1'>
+      <Radio key={1} value="1">
         Label 1
       </Radio>,
-      <Radio key={2} value='2'>
+      <Radio key={2} value="2">
         Label 2
       </Radio>,
-      <Radio key={3} value='3'>
+      <Radio key={3} value="3">
         Label 3
       </Radio>,
     ],
   },
 };
 
-const Template: StoryFn<typeof RadioGroup> = args => (
-  <div className={args.block ? 'w-96' : ''}>
-    <RadioGroup {...args} />
-  </div>
-);
+const Template: StoryFn<typeof RadioGroup> = function Template(args) {
+  const { block } = args;
+
+  return (
+    <div className={block ? 'w-96' : ''}>
+      <RadioGroup {...args} />
+    </div>
+  );
+};
 
 export const RowLayout = Template.bind({});
 

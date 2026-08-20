@@ -10,7 +10,9 @@ const meta: Meta = {
   },
 };
 
-const Template: StoryFn<InputMessageProps> = args => <InputMessage {...args} />;
+const Template: StoryFn<InputMessageProps> = function Template(args) {
+  return <InputMessage {...args} />;
+};
 
 export const Basic = Template.bind({});
 

@@ -14,11 +14,10 @@ import { InputGroup } from '../input-group';
 
 export type NumericValue = number | null;
 
-export interface NumericInputProps
-  extends Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'defaultValue' | 'size' | 'type' | 'value' | 'onChange'
-  > {
+export interface NumericInputProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'defaultValue' | 'size' | 'type' | 'value' | 'onChange'
+> {
   /**
    * If `true`, allows leading zeros in the numeric input.
    *
@@ -212,12 +211,12 @@ export const NumericInput = forwardRef<HTMLInputElement, NumericInputProps>(
       >
         <InputBox disabled={disabled} invalid={invalid} size={size}>
           {isValidElement<IconBaseProps>(startIcon) && (
-            <InputAction className='me-1'>{startIcon}</InputAction>
+            <InputAction className="me-1">{startIcon}</InputAction>
           )}
 
           <NumericFormat
             {...props}
-            className='input-base'
+            className="input-base"
             disabled={disabled}
             getInputRef={ref}
             id={inputId}
@@ -227,7 +226,7 @@ export const NumericInput = forwardRef<HTMLInputElement, NumericInputProps>(
           />
 
           {isValidElement(endIcon) && (
-            <InputAction className='ms-1'>{endIcon}</InputAction>
+            <InputAction className="ms-1">{endIcon}</InputAction>
           )}
         </InputBox>
       </InputGroup>

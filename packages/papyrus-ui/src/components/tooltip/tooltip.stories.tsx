@@ -14,7 +14,9 @@ const meta: Meta<TooltipProps> = {
   },
 };
 
-const Template: StoryFn<TooltipProps> = args => <Tooltip {...args} />;
+const Template: StoryFn<TooltipProps> = function Template(args) {
+  return <Tooltip {...args} />;
+};
 
 export const Basic = Template.bind({});
 

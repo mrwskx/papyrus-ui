@@ -9,7 +9,7 @@ describe('Popover', () => {
         render(
           <Popover>
             <Popover.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Popover.Trigger>
             <Popover.Content>
               <div>Content</div>
@@ -30,10 +30,10 @@ describe('Popover', () => {
       it('Then the popover.Content should be hidden', async () => {
         render(
           <>
-            <button>Outside</button>
+            <button type="button">Outside</button>
             <Popover>
               <Popover.Trigger>
-                <button>Trigger</button>
+                <button type="button">Trigger</button>
               </Popover.Trigger>
               <Popover.Content>
                 <div>Content</div>
@@ -63,7 +63,7 @@ describe('Popover', () => {
         render(
           <Popover initialOpen>
             <Popover.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Popover.Trigger>
             <Popover.Content>
               <div>Content</div>
@@ -82,7 +82,7 @@ describe('Popover', () => {
         const { rerender } = render(
           <Popover open={false}>
             <Popover.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Popover.Trigger>
             <Popover.Content>
               <div>Content</div>
@@ -95,7 +95,7 @@ describe('Popover', () => {
         rerender(
           <Popover open>
             <Popover.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Popover.Trigger>
             <Popover.Content>
               <div>Content</div>
@@ -114,7 +114,7 @@ describe('Popover', () => {
         const { rerender } = render(
           <Popover open>
             <Popover.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Popover.Trigger>
             <Popover.Content>
               <div>Content</div>
@@ -127,7 +127,7 @@ describe('Popover', () => {
         rerender(
           <Popover open={false}>
             <Popover.Trigger>
-              <button>Trigger</button>
+              <button type="button">Trigger</button>
             </Popover.Trigger>
             <Popover.Content>
               <div>Content</div>
@@ -145,14 +145,14 @@ describe('Popover', () => {
   describe('Given a popover component with open and onOpenChange props', () => {
     describe('When the popover is opened and user click outside the popover content', () => {
       it('Then the onOpenChange callback should be called with the new open state', async () => {
-        const onOpenChange = jest.fn();
+        const onOpenChange = vi.fn();
 
         render(
           <>
-            <button>Outside</button>
+            <button type="button">Outside</button>
             <Popover open onOpenChange={onOpenChange}>
               <Popover.Trigger>
-                <button>Trigger</button>
+                <button type="button">Trigger</button>
               </Popover.Trigger>
               <Popover.Content>
                 <div>Content</div>

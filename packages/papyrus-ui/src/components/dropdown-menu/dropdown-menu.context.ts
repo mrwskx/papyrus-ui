@@ -13,7 +13,7 @@ import type {
 export interface DropdownMenuContextType {
   activeIndex: number | null;
   context: FloatingContext<HTMLElement>;
-  elementsRef: MutableRefObject<Array<HTMLElement | null>>;
+  elementsRef: MutableRefObject<(HTMLElement | null)[]>;
   floatingStyles: CSSProperties;
   getFloatingProps: (
     userProps?: HTMLProps<HTMLElement>,

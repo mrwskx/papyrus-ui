@@ -34,7 +34,6 @@ import {
 } from 'react';
 import type {
   ButtonHTMLAttributes,
-  FC,
   FocusEvent,
   KeyboardEvent,
   ReactElement,
@@ -68,7 +67,7 @@ const TRANSITION_TIMEOUT = {
   exit: ENTER_TIMEOUT,
 };
 
-export const MenuBarSubmenu: FC<SubMenuProps> = ({
+export function MenuBarSubmenu({
   icon,
   initialOpen = false,
   label,
@@ -76,10 +75,10 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
   onFocus,
   onKeyDown,
   ...props
-}) => {
+}: SubMenuProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const elementsRef = useRef<Array<HTMLAnchorElement | null>>([]);
+  const elementsRef = useRef<(HTMLAnchorElement | null)[]>([]);
   const labelsRef = useRef<string[]>([]);
   const parent = useContext(MenuBarContext);
   const tree = useFloatingTree();
@@ -114,6 +113,7 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
     whileElementsMounted: autoUpdate,
   });
 
+  // eslint-disable-next-line @typescript-eslint/unbound-method -- @floating-ui declares setReference/setFloating in method shorthand; they are standalone callbacks and use no `this`
   const buttonRef = useMergeRefs([refs.setReference, item.ref]);
 
   const click = useClick(context, {
@@ -152,15 +152,15 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
       if (e.key === 'ArrowUp') {
         e.preventDefault();
         e.stopPropagation();
-        const item = getPrevItem(refs.floating, e.currentTarget);
-        item?.focus();
+        const target = getPrevItem(refs.floating, e.currentTarget);
+        target?.focus();
       }
 
       if (e.key === 'ArrowDown') {
         e.preventDefault();
         e.stopPropagation();
-        const item = getNextItem(refs.floating, e.currentTarget);
-        item?.focus();
+        const target = getNextItem(refs.floating, e.currentTarget);
+        target?.focus();
       }
 
       if (!refs.reference.current) {
@@ -179,15 +179,15 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
         e.stopPropagation();
         setIsOpen(false);
 
-        const item = getPrevItem(
+        const target = getPrevItem(
           parent.refs.floating,
           refs.reference.current as HTMLAnchorElement,
         );
 
-        item?.focus();
+        target?.focus();
 
-        if (item?.getAttribute('aria-haspopup') === 'menu') {
-          item.click();
+        if (target?.getAttribute('aria-haspopup') === 'menu') {
+          target.click();
         }
       }
 
@@ -200,15 +200,15 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
         e.stopPropagation();
         setIsOpen(false);
 
-        const item = getNextItem(
+        const target = getNextItem(
           parent.refs.floating,
           refs.reference.current as HTMLAnchorElement,
         );
 
-        item?.focus();
+        target?.focus();
 
-        if (item?.getAttribute('aria-haspopup') === 'menu') {
-          item.click();
+        if (target?.getAttribute('aria-haspopup') === 'menu') {
+          target.click();
         }
       }
     },
@@ -270,8 +270,8 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
       setIsOpen(true);
 
       requestAnimationFrame(() => {
-        const item = getFirstItem(refs.floating);
-        item?.focus();
+        const target = getFirstItem(refs.floating);
+        target?.focus();
       });
     }
 
@@ -281,8 +281,8 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
       setIsOpen(true);
 
       requestAnimationFrame(() => {
-        const item = getLastItem(refs.floating);
-        item?.focus();
+        const target = getLastItem(refs.floating);
+        target?.focus();
       });
     }
 
@@ -291,7 +291,7 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
 
   useEffect(() => {
     if (!tree) {
-      return;
+      return undefined;
     }
 
     function handleTreeClick() {
@@ -328,7 +328,7 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
         collapsed={parent.collapsed}
         direction={parent.isNested ? 'vertical' : 'horizontal'}
         endIcon={parent.isNested ? <BiChevronRight /> : <BiChevronDown />}
-        role='menuitem'
+        role="menuitem"
         size={parent.isNested ? 'sm' : parent.size}
         startIcon={icon}
         tabIndex={isActive ? 0 : -1}
@@ -365,8 +365,9 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
                   modal={false}
                 >
                   <Listbox
+                    // eslint-disable-next-line @typescript-eslint/unbound-method -- @floating-ui declares setReference/setFloating in method shorthand; they are standalone callbacks and use no `this`
                     ref={refs.setFloating}
-                    className='max-h-80 max-w-xs z-10'
+                    className="max-h-80 max-w-xs z-10"
                     style={floatingStyles}
                     visible={status === 'entered'}
                     {...getFloatingProps()}
@@ -381,4 +382,4 @@ export const MenuBarSubmenu: FC<SubMenuProps> = ({
       </MenuBarContext.Provider>
     </FloatingNode>
   );
-};
+}

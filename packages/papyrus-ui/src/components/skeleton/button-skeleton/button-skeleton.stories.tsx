@@ -13,9 +13,9 @@ const meta: Meta<ButtonSkeletonProps> = {
   },
 };
 
-const Template: StoryFn<ButtonSkeletonProps> = args => (
-  <ButtonSkeleton {...args} />
-);
+const Template: StoryFn<ButtonSkeletonProps> = function Template(args) {
+  return <ButtonSkeleton {...args} />;
+};
 
 export const Basic = Template.bind({});
 
@@ -31,11 +31,13 @@ SizeLg.args = {
   size: 'lg',
 };
 
-export const Block: StoryFn<ButtonSkeletonProps> = args => (
-  <div className='w-96'>
-    <Template {...args} block />{' '}
-  </div>
-);
+export function Block(args: ButtonSkeletonProps) {
+  return (
+    <div className="w-96">
+      <Template {...args} block />{' '}
+    </div>
+  );
+}
 
 export const Rounded = Template.bind({});
 

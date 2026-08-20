@@ -19,11 +19,13 @@ const meta: Meta = {
   },
 };
 
-const Template: StoryFn<AlertProps> = args => (
-  <div className='w-80'>
-    <Alert {...args} />
-  </div>
-);
+const Template: StoryFn<AlertProps> = function Template(args) {
+  return (
+    <div className="w-80">
+      <Alert {...args} />
+    </div>
+  );
+};
 
 export const Basic = Template.bind({});
 
@@ -35,23 +37,25 @@ const VARIANTS: AlertVariant[] = [
   'danger',
 ];
 
-export const Variants: StoryFn<AlertProps> = args => (
-  <div className='w-80'>
-    {VARIANTS.map((variant, i) => (
-      <Fragment key={i}>
-        <Heading className={cn('mb-1.5', i > 0 ? 'mt-6' : 'mt-0')} level={3}>
-          {capitalize(variant)}
-        </Heading>
+export function Variants(args: AlertProps) {
+  return (
+    <div className="w-80">
+      {VARIANTS.map((variant, i) => (
+        <Fragment key={variant}>
+          <Heading className={cn('mb-1.5', i > 0 ? 'mt-6' : 'mt-0')} level={3}>
+            {capitalize(variant)}
+          </Heading>
 
-        <Template
-          {...args}
-          message={`${capitalize(variant)} Alert`}
-          variant={variant}
-        />
-      </Fragment>
-    ))}
-  </div>
-);
+          <Template
+            {...args}
+            message={`${capitalize(variant)} Alert`}
+            variant={variant}
+          />
+        </Fragment>
+      ))}
+    </div>
+  );
+}
 
 export const WithCloseButton = Template.bind({});
 
@@ -71,8 +75,8 @@ export const WithAvatar = Template.bind({});
 
 WithAvatar.args = {
   icon: (
-    <Avatar size='md'>
-      <img alt='Profile' src='https://i.pravatar.cc/300' />
+    <Avatar size="md">
+      <img alt="Profile" src="https://i.pravatar.cc/300" />
     </Avatar>
   ),
 };

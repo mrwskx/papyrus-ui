@@ -41,7 +41,7 @@ interface SnackbarItemState {
   onHide: () => void;
 }
 
-const Template: StoryFn<SnackbarProps> = args => {
+const Template: StoryFn<SnackbarProps> = function Template(args) {
   const [items, setItems] = useState<readonly SnackbarItemState[]>([]);
 
   const createdItems = useRef(0);
@@ -58,8 +58,12 @@ const Template: StoryFn<SnackbarProps> = args => {
       message: capitalize(faker.lorem.words({ min: 1, max: 3 })),
       description: capitalize(faker.lorem.words({ min: 1, max: 6 })),
       variant: faker.helpers.arrayElement(variants),
-      onDismiss: () => remove(id),
-      onHide: () => remove(id),
+      onDismiss: () => {
+        remove(id);
+      },
+      onHide: () => {
+        remove(id);
+      },
     };
 
     setItems(prevState => [item, ...prevState]);
@@ -68,7 +72,7 @@ const Template: StoryFn<SnackbarProps> = args => {
 
   return (
     <div
-      className='flex flex-col items-center justify-center h-96'
+      className="flex flex-col items-center justify-center h-96"
       style={{ width: '60vw' }}
     >
       <Button onClick={onPush}>Push Message</Button>
@@ -96,94 +100,102 @@ Placement.args = {
   placement: 'bottom-start',
 };
 
-export const Variants: StoryFn<SnackbarProps> = args => (
-  <div
-    className='flex flex-col items-center justify-center h-96'
-    style={{ width: '60vw' }}
-  >
-    <Snackbar {...args}>
-      {variants.map(variant => (
+export function Variants(args: SnackbarProps) {
+  return (
+    <div
+      className="flex flex-col items-center justify-center h-96"
+      style={{ width: '60vw' }}
+    >
+      <Snackbar {...args}>
+        {variants.map(variant => (
+          <Snackbar.Item
+            key={variant}
+            message={capitalize(faker.lorem.words({ min: 1, max: 3 }))}
+            variant={variant}
+            onDismiss={() => {
+              // Do nothing
+            }}
+          >
+            {capitalize(faker.lorem.words({ min: 1, max: 3 }))}
+          </Snackbar.Item>
+        ))}
+      </Snackbar>
+    </div>
+  );
+}
+
+export function WithAction(args: SnackbarProps) {
+  return (
+    <div
+      className="flex flex-col items-center justify-center h-96"
+      style={{ width: '60vw' }}
+    >
+      <Snackbar {...args}>
         <Snackbar.Item
-          key={variant}
+          actionLabel="View More"
           message={capitalize(faker.lorem.words({ min: 1, max: 3 }))}
-          variant={variant}
+          onActionClick={() => {
+            // Do nothing
+          }}
           onDismiss={() => {
             // Do nothing
           }}
         >
           {capitalize(faker.lorem.words({ min: 1, max: 3 }))}
         </Snackbar.Item>
-      ))}
-    </Snackbar>
-  </div>
-);
+      </Snackbar>
+    </div>
+  );
+}
 
-export const WithAction: StoryFn<SnackbarProps> = args => (
-  <div
-    className='flex flex-col items-center justify-center h-96'
-    style={{ width: '60vw' }}
-  >
-    <Snackbar {...args}>
-      <Snackbar.Item
-        actionLabel='View More'
-        message={capitalize(faker.lorem.words({ min: 1, max: 3 }))}
-        onActionClick={() => {
-          // Do nothing
-        }}
-        onDismiss={() => {
-          // Do nothing
-        }}
-      >
-        {capitalize(faker.lorem.words({ min: 1, max: 3 }))}
-      </Snackbar.Item>
-    </Snackbar>
-  </div>
-);
+export function WithCustomIcon(args: SnackbarProps) {
+  return (
+    <div
+      className="flex flex-col items-center justify-center h-96"
+      style={{ width: '60vw' }}
+    >
+      <Snackbar {...args}>
+        <Snackbar.Item
+          icon={
+            <Icon className="text-3xl text-white">
+              <BiBell />
+            </Icon>
+          }
+          message={capitalize(faker.lorem.words({ min: 1, max: 3 }))}
+          onDismiss={() => {
+            // Do nothing
+          }}
+        >
+          {capitalize(faker.lorem.words({ min: 1, max: 3 }))}
+        </Snackbar.Item>
+      </Snackbar>
+    </div>
+  );
+}
 
-export const WithCustomIcon: StoryFn<SnackbarProps> = args => (
-  <div
-    className='flex flex-col items-center justify-center h-96'
-    style={{ width: '60vw' }}
-  >
-    <Snackbar {...args}>
-      <Snackbar.Item
-        icon={
-          <Icon className='text-3xl text-white'>
-            <BiBell />
-          </Icon>
-        }
-        message={capitalize(faker.lorem.words({ min: 1, max: 3 }))}
-        onDismiss={() => {
-          // Do nothing
-        }}
-      >
-        {capitalize(faker.lorem.words({ min: 1, max: 3 }))}
-      </Snackbar.Item>
-    </Snackbar>
-  </div>
-);
-
-export const WithAvatar: StoryFn<SnackbarProps> = args => (
-  <div
-    className='flex flex-col items-center justify-center h-96'
-    style={{ width: '60vw' }}
-  >
-    <Snackbar {...args}>
-      <Snackbar.Item
-        icon={
-          <Avatar size='md'>
-            <img alt='Profile' src='https://i.pravatar.cc/300' />
-          </Avatar>
-        }
-        message={capitalize(faker.lorem.words({ min: 1, max: 3 }))}
-        onDismiss={() => {
-          // Do nothing
-        }}
-      >
-        {capitalize(faker.lorem.words({ min: 1, max: 3 }))}
-      </Snackbar.Item>
-    </Snackbar>
-  </div>
-);
+export function WithAvatar(args: SnackbarProps) {
+  return (
+    <div
+      className="flex flex-col items-center justify-center h-96"
+      style={{ width: '60vw' }}
+    >
+      <Snackbar {...args}>
+        <Snackbar.Item
+          icon={
+            <Avatar size="md">
+              <img alt="Profile" src="https://i.pravatar.cc/300" />
+            </Avatar>
+          }
+          message={capitalize(faker.lorem.words({ min: 1, max: 3 }))}
+          onDismiss={() => {
+            // Do nothing
+          }}
+        >
+          {capitalize(faker.lorem.words({ min: 1, max: 3 }))}
+        </Snackbar.Item>
+      </Snackbar>
+    </div>
+  );
+}
 
 export default meta;

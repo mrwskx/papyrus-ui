@@ -10,7 +10,7 @@ export type OptionProps = Omit<
 
 export const Option = forwardRef<HTMLAnchorElement, OptionProps>(
   ({ children, ...props }, ref) => (
-    <MenuButton ref={ref} role='option' variant='secondary' {...props}>
+    <MenuButton ref={ref} role="option" variant="secondary" {...props}>
       {children}
     </MenuButton>
   ),

@@ -5,7 +5,6 @@ import { useContext } from 'react';
 import type {
   AnchorHTMLAttributes,
   ElementType,
-  FC,
   FocusEvent,
   MouseEvent,
   ReactElement,
@@ -14,8 +13,10 @@ import type {
 import { MenuButton } from '../../menu-button';
 import { MenuBarContext } from '../menu-bar.context';
 
-export interface MenuBarItemProps
-  extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
+export interface MenuBarItemProps extends Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  'children'
+> {
   as?: ElementType;
   danger?: boolean;
   description?: string;
@@ -26,7 +27,7 @@ export interface MenuBarItemProps
   children: string;
 }
 
-export const MenuBarItem: FC<MenuBarItemProps> = ({
+export function MenuBarItem({
   disabled,
   description,
   startIcon,
@@ -35,7 +36,7 @@ export const MenuBarItem: FC<MenuBarItemProps> = ({
   onFocus,
   children,
   ...props
-}) => {
+}: MenuBarItemProps) {
   const {
     activeIndex,
     collapsed,
@@ -48,6 +49,7 @@ export const MenuBarItem: FC<MenuBarItemProps> = ({
 
   const item = useListItem({ label: disabled ? null : children });
   const tree = useFloatingTree();
+  // eslint-disable-next-line react-hooks/refs -- useListItem returns index as a plain number, not a ref
   const isActive = item.index === activeIndex;
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -62,6 +64,7 @@ export const MenuBarItem: FC<MenuBarItemProps> = ({
 
   return (
     <MenuButton
+      // eslint-disable-next-line react-hooks/refs -- useListItem returns ref as a callback ref; forwarding it is its purpose
       ref={item.ref}
       collapsed={collapsed}
       description={description}
@@ -81,4 +84,4 @@ export const MenuBarItem: FC<MenuBarItemProps> = ({
       {children}
     </MenuButton>
   );
-};
+}

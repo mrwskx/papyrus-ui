@@ -32,7 +32,7 @@ export const UList = forwardRef<HTMLUListElement, UListProps>(
   ({ className, children, ...props }, ref) => (
     <Text
       ref={ref}
-      as='ul'
+      as="ul"
       className={cn(
         'list',
         !className?.includes('list-') && 'list-disc',

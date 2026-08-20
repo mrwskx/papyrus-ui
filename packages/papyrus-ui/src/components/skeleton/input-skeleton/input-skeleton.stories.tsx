@@ -11,11 +11,13 @@ const meta: Meta<InputSkeletonProps> = {
   },
 };
 
-const Template: StoryFn<InputSkeletonProps> = args => (
-  <div className='w-96'>
-    <InputSkeleton {...args} />
-  </div>
-);
+const Template: StoryFn<InputSkeletonProps> = function Template(args) {
+  return (
+    <div className="w-96">
+      <InputSkeleton {...args} />
+    </div>
+  );
+};
 
 export const Basic = Template.bind({});
 

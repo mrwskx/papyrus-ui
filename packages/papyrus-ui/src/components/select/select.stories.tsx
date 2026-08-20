@@ -26,18 +26,20 @@ export default {
     label: 'Character',
     defaultValue: 0,
     children: SELECT_OPTIONS.map((val, idx) => (
-      <option key={idx} value={idx}>
+      <option key={val} value={idx}>
         {val}
       </option>
     )),
   },
 };
 
-const Template: StoryFn<SelectProps> = args => (
-  <div className='w-64'>
-    <Select {...args} />
-  </div>
-);
+const Template: StoryFn<SelectProps> = function Template(args) {
+  return (
+    <div className="w-64">
+      <Select {...args} />
+    </div>
+  );
+};
 
 export const Basic = Template.bind({});
 
@@ -55,12 +57,12 @@ Multiple.args = {
 
 export function Sizes(args: SelectProps) {
   return (
-    <div className='flex flex-col w-64'>
+    <div className="flex flex-col w-64">
       {SIZE_OPTIONS.map((size, i) => (
-        <div key={i} className={i ? 'mt-4' : ''}>
+        <div key={size} className={i ? 'mt-4' : ''}>
           <Select {...args} id={`select-size-${size}`} size={size}>
             {SELECT_OPTIONS.map((val, idx) => (
-              <option key={idx} value={idx}>
+              <option key={val} value={idx}>
                 {val}
               </option>
             ))}
@@ -73,20 +75,20 @@ export function Sizes(args: SelectProps) {
 
 export function WithIcon(args: SelectProps) {
   return (
-    <div className='flex flex-col w-64'>
-      <div className='mb-4'>
+    <div className="flex flex-col w-64">
+      <div className="mb-4">
         <Select
           {...args}
-          id='select-with-start-icon'
-          label='With Start Icon'
+          id="select-with-start-icon"
+          label="With Start Icon"
           startIcon={
-            <Icon className='text-neutral-950'>
+            <Icon className="text-neutral-950">
               <BiSearch />
             </Icon>
           }
         >
           {SELECT_OPTIONS.map((val, idx) => (
-            <option key={idx} value={idx}>
+            <option key={val} value={idx}>
               {val}
             </option>
           ))}
@@ -97,15 +99,15 @@ export function WithIcon(args: SelectProps) {
         <Select
           {...args}
           endIcon={
-            <Icon className='text-info-600'>
+            <Icon className="text-info-600">
               <BiInfoCircle />
             </Icon>
           }
-          id='select-with-end-icon'
-          label='With End Icon'
+          id="select-with-end-icon"
+          label="With End Icon"
         >
           {SELECT_OPTIONS.map((val, idx) => (
-            <option key={idx} value={idx}>
+            <option key={val} value={idx}>
               {val}
             </option>
           ))}

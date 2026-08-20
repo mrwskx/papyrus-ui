@@ -8,8 +8,10 @@ import { Icon } from '../icon';
 
 export type CodeBlockSize = 'sm' | 'md';
 
-export interface CodeBlockProps
-  extends Omit<AllHTMLAttributes<HTMLPreElement>, 'size' | 'wrap'> {
+export interface CodeBlockProps extends Omit<
+  AllHTMLAttributes<HTMLPreElement>,
+  'size' | 'wrap'
+> {
   /**
    * The code content to display.
    */
@@ -71,6 +73,7 @@ export const CodeBlock = forwardRef<HTMLPreElement, CodeBlockProps>(
     ref,
   ) => {
     const lines = children ? children.split('\n') : [];
+    const lineNumbers = lines.map((_, index) => index + 1);
     const hasContent = children && children.trim().length > 0;
 
     return (
@@ -88,24 +91,24 @@ export const CodeBlock = forwardRef<HTMLPreElement, CodeBlockProps>(
           {...props}
         >
           {hasContent && showLineNumbers ? (
-            <div className='flex max-w-full'>
-              <div className='select-none text-neutral-500 pr-4 border-r border-neutral-200 mr-4 text-right min-w-[2.5rem]'>
-                {lines.map((_, index) => (
-                  <div key={index + 1}>{index + 1}</div>
+            <div className="flex max-w-full">
+              <div className="select-none text-neutral-500 pr-4 border-r border-neutral-200 mr-4 text-right min-w-[2.5rem]">
+                {lineNumbers.map(lineNumber => (
+                  <div key={lineNumber}>{lineNumber}</div>
                 ))}
               </div>
-              <code className='flex-1 block'>{children}</code>
+              <code className="flex-1 block">{children}</code>
             </div>
           ) : (
-            <code className='block max-w-full'>{children}</code>
+            <code className="block max-w-full">{children}</code>
           )}
         </pre>
 
         {children && (
-          <div className='absolute flex items-center justify-center top-0 end-0 p-2'>
+          <div className="absolute flex items-center justify-center top-0 end-0 p-2">
             <Icon
-              className='text-sm text-neutral-500 hover:text-neutral-950 cursor-pointer transition-colors duration-200'
-              role='button'
+              className="text-sm text-neutral-500 hover:text-neutral-950 cursor-pointer transition-colors duration-200"
+              role="button"
               tabIndex={0}
               title={copyLabel}
               onClick={() => {

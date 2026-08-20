@@ -1,7 +1,6 @@
 import cn from 'classnames';
 import type {
   ComponentType,
-  FC,
   HTMLAttributes,
   ReactElement,
   ReactNode,
@@ -20,11 +19,7 @@ import { Icon } from '../icon';
 import { Text } from '../text';
 
 export type AlertVariant =
-  | 'primary'
-  | 'info'
-  | 'danger'
-  | 'warning'
-  | 'success';
+  'primary' | 'info' | 'danger' | 'warning' | 'success';
 
 export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
   closeLabel?: string;
@@ -59,7 +54,7 @@ const iconVariantClasses = {
   danger: 'text-danger-600',
 };
 
-export const Alert: FC<AlertProps> = ({
+export function Alert({
   closeLabel = 'Close',
   icon,
   message,
@@ -69,7 +64,7 @@ export const Alert: FC<AlertProps> = ({
   onClose,
   children,
   ...props
-}) => {
+}: AlertProps) {
   const IconComponent = iconByVariant[variant];
 
   return (
@@ -84,35 +79,35 @@ export const Alert: FC<AlertProps> = ({
       role={role}
     >
       <Icon className={cn('text-2xl', iconVariantClasses[variant])}>
-        {icon ?? <IconComponent size='1em' />}
+        {icon ?? <IconComponent size="1em" />}
       </Icon>
 
-      <div className='flex-1 overflow-hidden'>
+      <div className="flex-1 overflow-hidden">
         {children ? (
           <>
-            <Heading as='div' className='mb-0.5' level={5}>
+            <Heading as="div" className="mb-0.5" level={5}>
               {message}
             </Heading>
-            <Text as='div' className='text-neutral-600' size='sm'>
+            <Text as="div" className="text-neutral-600" size="sm">
               {children}
             </Text>
           </>
         ) : (
-          <Text as='div'>{message}</Text>
+          <Text as="div">{message}</Text>
         )}
       </div>
 
       {onClose && (
         <Icon
           aria-label={closeLabel}
-          className='absolute top-2 end-2 text-md text-neutral-800 hover:opacity-60 transition-opacity'
-          role='button'
+          className="absolute top-2 end-2 text-md text-neutral-800 hover:opacity-60 transition-opacity"
+          role="button"
           tabIndex={0}
           onClick={onClose}
         >
-          <BiX size='1rem' />
+          <BiX size="1rem" />
         </Icon>
       )}
     </div>
   );
-};
+}

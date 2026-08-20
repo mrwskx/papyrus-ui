@@ -25,11 +25,10 @@ export type SelectValue<IsMulti extends boolean> = IsMulti extends true
   ? string[]
   : string | undefined;
 
-export interface SelectProps<IsMulti extends boolean = false>
-  extends Omit<
-    SelectHTMLAttributes<HTMLSelectElement>,
-    'defaultValue' | 'size' | 'value' | 'onChange'
-  > {
+export interface SelectProps<IsMulti extends boolean = false> extends Omit<
+  SelectHTMLAttributes<HTMLSelectElement>,
+  'defaultValue' | 'size' | 'value' | 'onChange'
+> {
   /**
    * The default value of the uncontrolled input.
    * This is used when the component is uncontrolled and does not have a `value` prop.
@@ -160,10 +159,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       >
         <InputBox disabled={disabled} invalid={invalid} size={size}>
           {isValidElement<IconBaseProps>(startIcon) && (
-            <InputAction className='mr-1'>{startIcon}</InputAction>
+            <InputAction className="mr-1">{startIcon}</InputAction>
           )}
 
-          <div className='flex-1 relative'>
+          <div className="flex-1 relative">
             <select
               ref={ref}
               className={cn(
@@ -180,7 +179,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             </select>
 
             {!multiple && (
-              <InputAction className='absolute top-0 right-0 bottom-0 m-auto'>
+              <InputAction className="absolute top-0 right-0 bottom-0 m-auto">
                 <Icon
                   className={cn(
                     disabled ? 'text-neutral-950/40' : 'text-neutral-950',
@@ -193,7 +192,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           </div>
 
           {isValidElement(endIcon) && (
-            <InputAction className='ms-1'>{endIcon}</InputAction>
+            <InputAction className="ms-1">{endIcon}</InputAction>
           )}
         </InputBox>
       </InputGroup>
