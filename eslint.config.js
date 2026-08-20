@@ -236,20 +236,11 @@ export default [
     name: 'papyrus-ui/node-files',
     files: NODE_FILES,
     languageOptions: { globals: globals.node },
-  },
-
-  {
-    // These are CLI entry points run by tsx, not library code.
-    name: 'papyrus-ui/scripts',
-    files: ['scripts/**/*.ts'],
     rules: {
-      // stdout and stderr are how a CLI reports; that is the whole output.
-      'no-console': 'off',
-
       // airbnb bans for..of because regenerator-runtime is heavyweight when
-      // transpiling to ES5. These run on Node against an ESNext target, so the
-      // cost it guards against does not exist here. The rule's other bans
-      // (for..in, labels, with) are kept.
+      // transpiling to ES5. Nothing here is transpiled — these files run on
+      // Node against an ESNext target — so the cost it guards against does not
+      // exist. The rule's other bans (for..in, labels, with) are kept.
       'no-restricted-syntax': [
         'error',
         {
@@ -266,6 +257,16 @@ export default [
           message: '`with` is disallowed in strict mode.',
         },
       ],
+    },
+  },
+
+  {
+    // These are CLI entry points run by tsx, not library code.
+    name: 'papyrus-ui/scripts',
+    files: ['scripts/**/*.ts'],
+    rules: {
+      // stdout and stderr are how a CLI reports; that is the whole output.
+      'no-console': 'off',
     },
   },
 
