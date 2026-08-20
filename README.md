@@ -15,7 +15,6 @@ A modern React UI kit with fundamental components built on Tailwind CSS, designe
 ## Packages
 
 - **papyrus-ui**: The main UI kit with fundamental React components built with Tailwind CSS
-- **@papyrus-ui/code-style**: Reusable ESLint and Prettier configurations based on Google Style Guide
 
 ## Quick Start
 

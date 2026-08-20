@@ -32,10 +32,7 @@ export default [
   // Project-specific overrides
   {
     name: 'papyrus-ui/plugin-overrides',
-    files: [
-      './packages/code-style/src/**/*',
-      './packages/papyrus-ui/src/plugin/index.ts',
-    ],
+    files: ['./packages/papyrus-ui/src/plugin/index.ts'],
     rules: {
       'import/no-default-export': 'off',
     },

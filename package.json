@@ -8,8 +8,7 @@
   },
   "scripts": {
     "docs": "storybook dev --no-open -p 6006",
-    "build": "pnpm build:papyrus-ui && pnpm build:code-style && pnpm build:docs",
-    "build:code-style": "lerna run --scope @papyrus-ui/code-style --stream build",
+    "build": "pnpm build:papyrus-ui && pnpm build:docs",
     "build:docs": "storybook build",
     "build:papyrus-ui": "lerna run --scope papyrus-ui --stream build",
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
@@ -92,7 +91,7 @@
     "vitest": "^4.1.11"
   },
   "dependencies": {
-    "@papyrus-ui/code-style": "workspace:*"
+    "@papyrus-ui/code-style": "^0.9.21"
   },
   "packageManager": "pnpm@11.8.0"
 }
