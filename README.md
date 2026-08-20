@@ -216,16 +216,16 @@ git clone https://github.com/your-username/papyrus-ui.git
 
 # Install dependencies
 cd papyrus-ui
-npm install
+pnpm install
 
 # Start development
-npm run docs
+pnpm docs
 
 # Run tests
-npm test
+pnpm test
 
 # Build the package
-npm run build
+pnpm build
 ```
 
 For bug reports and feature requests, please [open an issue](https://github.com/your-username/papyrus-ui/issues) on GitHub.

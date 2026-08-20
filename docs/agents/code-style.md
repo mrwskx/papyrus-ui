@@ -35,7 +35,14 @@ const SKILL_ROW = /\|[ \t]*`([a-z-]+)`[ \t]*\|/g;
 
 ## Escape hatches
 
-No `eslint-disable` or `@ts-expect-error` without comment justify. Codebase now hold zero of either.
+No `eslint-disable` or `@ts-expect-error` without reason attach. Use `--` form so reason travel with directive:
+
+```ts
+// eslint-disable-next-line no-param-reassign -- writing through the ref is the point
+ref.current = node;
+```
+
+Reason say why rule wrong _here_. Restate what rule check earn nothing. Narrow to one line — file-wide disable hide next violation.
 
 ## Scripts
 
@@ -43,8 +50,16 @@ One directory per script, named for script. `index.ts` = I/O composition root. P
 
 ```
 scripts/
+├── generate-pr-description/
+│   ├── index.ts                              # argv, git, stdout
+│   ├── generate-pr-description.utils.ts      # pure functions
+│   └── generate-pr-description.utils.test.ts
 └── validate-skills/
-    ├── index.ts                      # reads files, prints, throws
-    ├── validate-skills.utils.ts      # pure functions
+    ├── index.ts                              # reads files, prints, throws
+    ├── validate-skills.utils.ts              # pure functions
     └── validate-skills.utils.test.ts
 ```
+
+`index.ts` hold every side effect — read, spawn, print, throw. Keep it straight-line: no branch worth test belong there. Push decision into `.utils` where test reach it without filesystem.
+
+Pass resolved value into pure function, not the means to fetch it. `findMissingSkills` take `(path) => boolean` and `findSymlinkIssue` take link target string — caller do I/O first. Run script by `tsx`, wire as `package.json` script.

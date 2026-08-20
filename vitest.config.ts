@@ -9,7 +9,7 @@ export default defineConfig({
     testTimeout: 30000,
     coverage: {
       provider: 'v8',
-      include: ['packages/*/src/**'],
+      include: ['packages/*/src/**/*.{ts,tsx}'],
       exclude: ['**/*.stories.*', '**/index.*', '**/*.d.ts'],
     },
   },
