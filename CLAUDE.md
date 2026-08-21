@@ -2,7 +2,7 @@
 
 ## Overview
 
-Papyrus UI is a React UI kit (packages/papyrus-ui) with 40+ accessible components built on Tailwind CSS. The repo is an npm/lerna workspace with Storybook-based docs and a component library published to npm.
+Papyrus UI is a React UI kit (`src/`) with 40+ accessible components built on Tailwind CSS. The repo is a single pnpm package with Storybook-based docs, published to npm as `papyrus-ui`.
 
 ## Purpose
 

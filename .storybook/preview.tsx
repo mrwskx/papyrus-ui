@@ -1,8 +1,9 @@
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Decorator, Preview } from '@storybook/react';
 import cn from 'classnames';
-import { Code, Heading, Link, OList, Text, UList } from 'papyrus-ui';
 import type { ComponentProps } from 'react';
+
+import { Code, Heading, Link, OList, Text, UList } from '../src';
 
 import { theme } from './theme';
 

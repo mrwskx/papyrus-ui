@@ -282,6 +282,21 @@ export default [
   },
 
   {
+    // scripts/package.json exists only to mark the directory as ESM (the tsx
+    // entry points use top-level await). It declares no dependencies, so the
+    // rule has to resolve against the repo-root manifest instead of the
+    // nearest one.
+    name: 'papyrus-ui/scripts-package-dir',
+    files: ['scripts/**/*.ts'],
+    rules: {
+      'import-x/no-extraneous-dependencies': [
+        'error',
+        { devDependencies: true, packageDir: import.meta.dirname },
+      ],
+    },
+  },
+
+  {
     name: 'papyrus-ui/default-export-exemptions',
     files: [
       '**/*.stories.{ts,tsx,js,jsx}',
@@ -289,7 +304,7 @@ export default [
       '**/*.config.{js,cjs,mjs,ts,cts,mts}',
       '**/.*rc.{js,cjs,mjs,ts}',
       '.storybook/**/*.{ts,tsx,js,jsx}',
-      'packages/papyrus-ui/src/plugin/index.ts',
+      'src/plugin/index.ts',
     ],
     rules: {
       'import-x/no-default-export': 'off',

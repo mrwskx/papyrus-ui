@@ -1,0 +1,72 @@
+# Maintains a standing release PR on main: every conventional commit that
+# lands updates the proposed version and CHANGELOG entry. Merging that PR tags
+# the release, publishes the GitHub Release, and pushes to npm.
+#
+# The app token (rather than GITHUB_TOKEN) is deliberate: pushes made with
+# GITHUB_TOKEN do not trigger workflows, so the release PR would never get its
+# required `ci` check and could only be merged by admin bypass.
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: release-please-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mint app token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.RELEASE_PLEASE_APP_ID }}
+          private-key: ${{ secrets.RELEASE_PLEASE_PRIVATE_KEY }}
+
+      - name: Run release-please
+        id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+      - name: Checkout
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        if: ${{ steps.release.outputs.release_created }}
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        if: ${{ steps.release.outputs.release_created }}
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        if: ${{ steps.release.outputs.release_created }}
+        run: pnpm build
+
+      - name: Publish to npm
+        if: ${{ steps.release.outputs.release_created }}
+        run: pnpm publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

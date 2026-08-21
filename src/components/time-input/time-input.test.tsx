@@ -87,7 +87,7 @@ describe('TimeInput', () => {
         render(<TimeInput onChange={onChange} />);
         await userEvent.type(screen.getByRole('textbox'), '12:45');
 
-        expect(onChange).toBeCalledWith('12:45');
+        expect(onChange).toHaveBeenCalledWith('12:45');
       });
     });
   });

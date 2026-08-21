@@ -29,7 +29,7 @@ const config: StorybookConfig = {
     },
   },
   staticDirs: ['./public'],
-  stories: ['../packages/**/*.mdx', '../packages/**/*.stories.tsx'],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },
