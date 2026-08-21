@@ -208,7 +208,7 @@ We welcome contributions to enhance Papyrus UI! Here's how you can help:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/papyrus-ui.git
+git clone https://github.com/mrwskx/papyrus-ui.git
 
 # Install dependencies
 cd papyrus-ui
@@ -224,4 +224,4 @@ pnpm test
 pnpm build
 ```
 
-For bug reports and feature requests, please [open an issue](https://github.com/your-username/papyrus-ui/issues) on GitHub.
+For bug reports and feature requests, please [open an issue](https://github.com/mrwskx/papyrus-ui/issues) on GitHub.
