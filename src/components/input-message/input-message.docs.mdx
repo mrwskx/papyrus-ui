@@ -1,0 +1,38 @@
+import InputMessage, { Basic, Invalid } from './input-message.stories';
+import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs';
+
+<Meta of={InputMessage} />
+
+# InputMessage
+
+The InputMessage component is designed to display messages below an input field. It can be used for both error alerts and regular messages, with different variants for visual distinction.
+
+## When to use
+
+The InputMessage component is used to display messages beneath an input element, typically for form validation messages, status notifications, or additional information. It supports several variants, such as error, success, and info, for different message types.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+### Invalid
+
+Use the `invalid` property to display an error message.
+
+<Canvas of={Invalid} />
+
+## Guidelines
+
+- **Positioning**: InputMessage is typically used below an input element. Use margin properties (`my`, `mt`, etc.) to adjust the position of the message.
+
+- **Content**: Keep messages concise and to the point, especially for error and warning messages. Use success and info messages for additional context or positive feedback.
+
+## Accessibility
+
+By default `role="status"` is used for input message. If `invalid` property is set to `true`, then `role="alert"` is used.
+
+## Component API
+
+<ArgTypes />

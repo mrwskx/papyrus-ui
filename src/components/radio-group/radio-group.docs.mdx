@@ -1,0 +1,103 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import RadioGroup, {
+  Disabled,
+  Message,
+  ReadOnly,
+  ErrorMessage,
+  RowLayout,
+  BlockLayout,
+  ColumnLayout,
+  Description,
+} from './radio-group.stories';
+
+<Meta of={RadioGroup} />
+
+# RadioGroup
+
+The `RadioGroup` component is used to group multiple radio buttons into a single unit, ensuring that only one option can
+be selected at a time. It provides a way to manage the selection of radio buttons, with support for different layouts
+and validation states.
+
+## When to use
+
+Use the `RadioGroup` component when you need to present multiple options and only allow one selection. Common use cases
+include questions where users can select one option from a list, such as selecting a payment method, subscription type,
+or gender. This component ensures that the selection is exclusive within the group.
+
+## Examples
+
+### Row Layout
+
+Displays radio buttons horizontally in a row layout.
+
+<Canvas of={RowLayout} />
+
+### Block Layout
+
+Ensures that the radio buttons take up equal space when displayed in a full-width row layout.
+
+<Canvas of={BlockLayout} />
+
+### Column Layout
+
+Displays the radio buttons vertically in a column layout.
+
+<Canvas of={ColumnLayout} />
+
+### Description
+
+The `RadioGroup` component with description displayed above the group. The description can be used for additional
+information or instructions for the user.
+
+<Canvas of={Description} />
+
+### Error Message
+
+Displays an error message below the radio button group when the group is marked as invalid. This is typically used for
+form validation.
+
+<Canvas of={ErrorMessage} />
+
+### Hint
+
+The `RadioGroup` component with a hint message displayed below the group. This message can be used as a lower-priority
+feedback when no validation error has occurred.
+
+<Canvas of={Message} />
+
+### Disabled
+
+Disables the entire radio group, preventing any interaction with the radio buttons. This is useful when you want to make
+the radio buttons non-interactive.
+
+<Canvas of={Disabled} />
+
+### ReadOnly
+
+The `RadioGroup` component with radio buttons in a read-only state. This ensures that users cannot interact with the
+radio buttons while still allowing them to view the selected option.
+
+<Canvas of={ReadOnly} />
+
+## Guidelines
+
+- The `Radio` component should always be used as a child of the `RadioGroup` component. A
+  `RadioGroup` is meant to contain multiple radio buttons, and only one can be selected at a time. It should not be used
+  for a single radio button, as this defeats the purpose of grouping options with exclusive selections.
+
+- When the `RadioGroup` component is used, it should contain multiple radio buttons, and the user
+  should only be able to select one option.
+
+- Choose the appropriate layout based on the design needs. Use `row` when the radio buttons
+  need to be aligned horizontally and `column` when they should be stacked vertically.
+
+- Use **`label`** property to provide a label for the radio group.
+
+- Use **`description`**property to provide additional context or instructions for the radio group.
+
+- Display helpful hints with the `message` prop or error messages with `invalid` for user guidance, especially in form
+  validation scenarios.
+
+## Component API
+
+<ArgTypes />

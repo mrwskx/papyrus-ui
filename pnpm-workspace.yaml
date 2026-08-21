@@ -1,0 +1,12 @@
+overrides:
+  vite: ^6.3.5
+  vite-plugin-dts: ^4.5.4
+
+allowBuilds:
+  '@swc/core': set this to true or false
+  esbuild: true
+  nx: set this to true or false
+  unrs-resolver: true
+
+minimumReleaseAgeExclude:
+  - eslint-plugin-storybook@10.5.10

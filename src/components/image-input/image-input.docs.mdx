@@ -1,0 +1,96 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import ImageInputStories, {
+  Basic,
+  WithValue,
+  Multiple,
+  FullWidthPreview,
+  Rounded,
+  Description,
+  Message,
+  Invalid,
+  Disabled,
+  ReadOnly,
+  AspectRatio,
+  Dimensions,
+} from './image-input.stories';
+
+<Meta of={ImageInputStories} />
+
+## ImageInput
+
+An input for uploading and previewing images with an integrated dropzone and optional multi-select.
+
+### When to use
+
+- **Allow quick image uploads**: Provide a simple drag-and-drop experience.
+- **Show previews**: Display thumbnails to confirm selected images before submission.
+- **Support multi-image workflows**: Let users add multiple images with inline remove.
+
+### Examples
+
+#### Basic
+
+<Canvas of={Basic} />
+
+#### With Value
+
+Prefill the component with an existing image by providing `value`, `getName`, and `getUrl`.
+
+<Canvas of={WithValue} />
+
+#### Multiple
+
+Enable selection of multiple images.
+
+<Canvas of={Multiple} />
+
+#### Full Width Preview
+
+Make the empty preview stretch to the container width.
+
+<Canvas of={FullWidthPreview} />
+
+#### Rounded
+
+Display a circular preview (useful for avatars).
+
+<Canvas of={Rounded} />
+
+#### Description
+
+<Canvas of={Description} />
+
+#### Message
+
+<Canvas of={Message} />
+
+#### Invalid
+
+<Canvas of={Invalid} />
+
+#### Disabled
+
+<Canvas of={Disabled} />
+
+#### Read Only
+
+<Canvas of={ReadOnly} />
+
+#### Aspect Ratio
+
+<Canvas of={AspectRatio} />
+
+#### Dimensions
+
+<Canvas of={Dimensions} />
+
+### Guidelines
+
+- **Localize labels**: Customize `editLabel`, `removeLabel`, `loadingText`, and messages.
+- **Validation messages**: Use `fileInvalidFormatMessage`, `fileTooLargeMessage`, `imageTooSmallMessage`, and `tooManyFilesMessage`.
+- **Accessibility**: Provide a meaningful `label` and `placeholder`. Ensure images have descriptive names via `getName` for `alt` text.
+- **Controlled vs uncontrolled**: Use `value`/`onChange` for controlled forms, otherwise `defaultValue`.
+
+### Component API
+
+<ArgTypes />

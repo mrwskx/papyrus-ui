@@ -1,0 +1,87 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import Code, {
+  Basic,
+  SmallSize,
+  MediumSize,
+  InParagraph,
+  VariableNames,
+  FunctionCall,
+  LongCode,
+} from './code.stories';
+
+<Meta of={Code} />
+
+# Code
+
+The `Code` component is designed for displaying inline code snippets within text content. It provides consistent monospace styling with proper contrast and readability for code elements that appear inline with regular text.
+
+## When to use
+
+Use the `Code` component when you need to:
+
+- Display inline code snippets within paragraphs or other text content
+- Highlight variable names, function names, or code keywords in documentation
+- Show short code examples that don't require a full code block
+- Maintain consistent monospace styling for code elements
+- Provide visual distinction between code and regular text
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+### Small Size
+
+For more compact inline code, use the 'sm' size:
+
+<Canvas of={SmallSize} />
+
+### Medium Size
+
+The default size provides good readability:
+
+<Canvas of={MediumSize} />
+
+### In Paragraph
+
+The component works seamlessly within text content:
+
+<Canvas of={InParagraph} />
+
+### Variable Names
+
+Perfect for highlighting variable names in documentation:
+
+<Canvas of={VariableNames} />
+
+### Function Calls
+
+Great for showing function calls and method names:
+
+<Canvas of={FunctionCall} />
+
+### Long Code
+
+The component handles longer inline code snippets:
+
+<Canvas of={LongCode} />
+
+## Accessibility
+
+- **Semantic HTML**: Uses the `<code>` element for proper semantic meaning
+- **Monospace Font**: Ensures code is displayed with consistent character spacing
+- **Color Contrast**: Light background provides sufficient contrast for readability
+- **Inline Flow**: Maintains proper text flow when used within paragraphs
+
+## Best Practices
+
+- **Inline Usage**: Use for short code snippets that appear within text content
+- **Size Selection**: Use 'sm' size for compact displays, 'md' for standard readability
+- **Semantic Meaning**: Reserve for actual code content, not just stylistic emphasis
+- **Accessibility**: Ensure sufficient contrast when customizing colors
+- **Content Length**: Keep content short; use CodeBlock component for longer code
+
+## API
+
+<ArgTypes />

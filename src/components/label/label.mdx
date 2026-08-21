@@ -1,0 +1,36 @@
+import Label, { Basic } from './label.stories';
+import { Meta, ArgTypes, Canvas } from '@storybook/addon-docs';
+
+<Meta of={Label} />
+
+# Label
+
+The Label component is used to represent text in forms or UI elements that typically describe or provide context to an
+input field.
+
+## When To Use
+
+Use the Label component to provide clear and accessible labels for form fields such as input, select, or textarea
+elements.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+## Guidelines
+
+- Ensure that labels are short, clear, and to the point. This helps users quickly understand the purpose of the input
+  field or element the label is describing.
+
+- If the label text is not associated with a form control, change the rendered html tag to another using `as` prop
+
+## Accessibility
+
+Labels should always be programmatically associated with form elements by using the for attribute or ensuring proximity
+in the DOM structure.
+
+## Component API
+
+<ArgTypes />

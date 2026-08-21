@@ -1,0 +1,106 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import CheckboxGroup, {
+  SingleCheckbox,
+  Disabled,
+  Message,
+  ReadOnly,
+  ErrorMessage,
+  RowLayout,
+  BlockLayout,
+  ColumnLayout,
+  Description,
+} from './checkbox-group.stories';
+
+<Meta of={CheckboxGroup} />
+
+# CheckboxGroup
+
+The `CheckboxGroup` component is used to group multiple checkboxes into a single unit. It provides a way to manage the selection of checkboxes, with support for different layouts and validation states.
+
+## When to use
+
+Use the `CheckboxGroup` component when you have multiple checkboxes that belong to the same group and you need to manage their selection. It supports both single and multiple checkbox selections, layout configurations (row/column), and various validation and accessibility features.
+
+## Examples
+
+### Single Checkbox
+
+The `CheckboxGroup` component with a single checkbox, where the value is a boolean (`true` or `false`). This is useful for cases like agreeing to terms and conditions.
+
+<Canvas of={SingleCheckbox} />
+
+### Row Layout
+
+Displays checkboxes horizontally in a row layout. This layout is often used when you need to align checkboxes next to each other.
+
+<Canvas of={RowLayout} />
+
+### Block Layout
+
+Ensures that the checkboxes take up equal space when displayed in a row layout. This layout is useful when you want the checkboxes to be equally distributed across the container.
+
+<Canvas of={BlockLayout} />
+
+### Column Layout
+
+Displays the checkboxes vertically in a column layout. This layout is often used when you have a list of options or a
+form.
+
+<Canvas of={ColumnLayout} />
+
+### Description
+
+The `CheckboxGroup` component with description displayed above the group. The description can be used for additional
+information or instructions for the user.
+
+<Canvas of={Description} />
+
+### Invalid
+
+Displays an error message below the checkbox group when the group is marked as invalid. This is typically used for form
+validation.
+
+<Canvas of={ErrorMessage} />
+
+### Message
+
+The `CheckboxGroup` component with a hint message displayed below the group. This message can be used as a
+lower-priority feedback when no validation error has been occurred.
+
+<Canvas of={Message} />
+
+### Disabled
+
+Disables the entire checkbox group, preventing any interaction with the checkboxes. This is useful when you want to make
+the checkboxes non-interactive.
+
+<Canvas of={Disabled} />
+
+### ReadOnly
+
+The `CheckboxGroup` component with checkboxes in a read-only state. This ensures that users cannot interact with the
+checkboxes while still allowing them to view the selected options.
+
+<Canvas of={ReadOnly} />
+
+## Guidelines
+
+- The `Checkbox` component should always be used as a child of the `CheckboxGroup` component.
+
+- When the `CheckboxGroup` contains a single checkbox, the `defaultValue` or `value` prop
+  should be explicitly set as a boolean (`true` or `false`). This ensures proper behavior, as a boolean value is
+  expected for single checkbox selection.
+
+- Choose the appropriate layout based on the design needs. Use `row` when the checkboxes need
+  to be aligned horizontally and `column` when they should be stacked vertically.
+
+- Use **`label`** to provide a label for the checkbox group.
+
+- Use **`description`** to provide additional context or instructions for the checkbox group.
+
+- Display helpful hints with the `message` prop or error messages with `invalid` for user guidance, especially in form
+  validation scenarios.
+
+## Component API
+
+<ArgTypes />

@@ -1,0 +1,87 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import Snackbar, {
+  Basic,
+  Placement,
+  Variants,
+  WithAction,
+  WithCustomIcon,
+  WithAvatar,
+} from './snackbar.stories';
+import { SnackbarItem } from './snackbar-item';
+
+<Meta of={Snackbar} />
+
+# Snackbar
+
+A small, non-intrusive notification component in a user interface that includes a close button for the user to dismiss or hide the notification.
+
+## When to Use
+
+The Snackbar component is suitable for situations where you want to deliver concise information or notifications that users can easily dismiss when they have read or acknowledged the message. It offers a non-disruptive way to provide updates and feedback while allowing users to continue their tasks without significant interruption.
+
+### Examples of Use:
+
+- **Confirmation and Feedback:** Provide confirmation or feedback after completing an action or process.
+- **Error or Warning Messages:** Display errors or warnings to communicate issues or alerts.
+- **Information or Updates:** Share important information or updates, such as system maintenance or new features.
+- **Privacy or Consent Messages:** Present privacy or cookie consent messages in compliance with regulations.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+### Placement
+
+Possible values: 'top-start', 'top', 'top-end', 'bottom-start', 'bottom', 'bottom-end'.
+
+<Canvas of={Placement} />
+
+### Variants
+
+Possible values: 'danger', 'warning', 'info', 'success', 'light'.
+
+<Canvas of={Variants} />
+
+### With Action
+
+Set `actionLabel` and `onActionClick` to add an action to the Snackbar component.
+
+<Canvas of={WithAction} />
+
+### With Custom Icon
+
+Set `icon` to represent the icon of the Snackbar component.
+
+<Canvas of={WithCustomIcon} />
+
+### With Avatar
+
+The `icon` can also be used to represent an avatar image.
+
+<Canvas of={WithAvatar} />
+
+## Guidelines
+
+- **Keep it concise:** Provide brief and concise information. Avoid overwhelming users with excessive text.
+- **Use appropriate variants:** Choose the appropriate variant based on the nature of the message.
+- **Set a reasonable auto-close timeout:** Ensure the timeout duration is reasonable, allowing enough time for users to read the notification.
+- **Avoid stacking or overlapping:** Prevent visual clutter by replacing or dismissing existing notifications when a new one appears.
+- **Test and iterate:** Regularly test the component in different scenarios and gather user feedback.
+- **Focus Management:** Ensure proper keyboard focus management when the Snackbar is displayed and dismissed.
+
+## Accessibility
+
+- **Dismiss with Esc key:** Users should be able to dismiss the latest Snackbar in the stack by pressing the Esc key.
+- **Role attributes:** By default, the Snackbar component is rendered with the 'alert' role for important, time-sensitive information. The 'status' role can be used for non-critical updates that don't require immediate attention.
+
+## Component API
+
+### Snackbar
+
+<ArgTypes of={Snackbar} />
+
+### Snackbar Item
+
+<ArgTypes of={SnackbarItem} />

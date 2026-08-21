@@ -1,0 +1,115 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+
+import OList, {
+  Basic,
+  BoldText,
+  PrimaryFont,
+  SecondaryFont,
+  SmallText,
+  WithCustomNumbering,
+} from './o-list.stories';
+
+<Meta of={OList} />
+
+# OList
+
+The OList component is used to create ordered lists. It is a wrapper for the `<ol>` element.
+
+## When to use
+
+- Step-by-Step Instructions: Ordered lists are often used to present a sequence of steps or instructions, such
+  as cooking recipes or DIY tutorials.
+
+- Procedural Documentation: Technical documentation and user manuals frequently use ordered lists to outline procedures,
+  ensuring users follow a specific sequence of actions.
+
+- Tutorials and Guides: Educational content, tutorials, and guides often employ ordered lists to structure information
+  in a logical order.
+
+- Table of Contents: In longer documents or books, ordered lists are used to create a table of contents, providing
+  an organized overview of the content's structure.
+
+- Legal Documents: Legal documents, contracts, and agreements may use ordered lists to outline clauses, terms,
+  or articles.
+
+- Reference Lists: Create reference lists, citation lists, or bibliographies that require a specific ordering of sources
+  or references.
+
+- Timelines: Display chronological events or historical timelines using ordered lists with numeric or date-based labels.
+
+- Survey Questions: In questionnaires and surveys, ordered lists can be used to present questions in a structured order.
+
+- Ordered Rankings: Display ranked items, such as top 10 lists, leaderboards, or priority lists, with numeric labels.
+
+- Sequential Data: When presenting sequential data, like numbered sections of a document, ordered lists ensure
+  a consistent numbering scheme.
+
+- Mathematical Sequences: Ordered lists are used to represent mathematical sequences or series, indicating the order
+  of terms.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+The OList component applies `list-decimal` style by default for decimal numbering, along with consistent spacing styles. To use a different numbering style, you can override with Tailwind CSS utilities.
+
+### Custom Numbering Styles
+
+To apply specific numbering styles, you can use Tailwind CSS utilities:
+
+<Canvas of={WithCustomNumbering} />
+
+### Small Text
+
+For smaller text, use the 'sm' size:
+
+<Canvas of={SmallText} />
+
+### Font Variants
+
+You can switch between the primary and secondary font families using the `fontVariant` prop.
+
+#### Primary Font (default)
+
+<Canvas of={PrimaryFont} />
+
+#### Secondary Font
+
+<Canvas of={SecondaryFont} />
+
+### Bold Text
+
+Use `bold` property for bold text.
+
+## Guidelines
+
+- **List Item Content**: Use ListItem component to wrap list item content in `<li>` element. Each list item should contain
+  a single item of content or a group of related content.
+
+- **Numbering Styles**: The component applies `list-decimal` by default. To customize numbering styles (alphabetical, Roman numerals, or no numbering), use Tailwind CSS utilities or custom styles. For example:
+  - Use `list-[lower-alpha]` for alphabetical numbering
+  - Use `list-[lower-roman]` for lowercase Roman numerals
+  - Use `list-[upper-roman]` for uppercase Roman numerals
+  - Use `list-none` to remove numbering
+
+- **List Length**: Keep ordered lists to a reasonable length. If a list becomes too long, consider breaking it into smaller
+  sub-lists or sections for improved comprehension.
+
+- **Nesting**: You can nest ordered lists within other ordered lists or within unordered lists. This is useful
+  for representing hierarchies or sub-steps.
+
+## Accessibility
+
+- **Semantic Structure**: Use ordered lists when the sequence or order of items is semantically meaningful. Don't use
+  ordered lists for content that doesn't require a specific sequence.
+
+- **Use List Elements**: Wrap each list item in `<li>` (list item) elements. Never use list-style markers (e.g., numbers,
+  letters) manually without the proper list structure.
+
+More info: [https://www.w3.org/WAI/tutorials/page-structure/lists/](https://www.w3.org/WAI/tutorials/page-structure/lists/)
+
+## API
+
+<ArgTypes />

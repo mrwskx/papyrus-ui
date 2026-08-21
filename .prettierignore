@@ -1,0 +1,14 @@
+**/node_modules
+**/dist
+
+coverage
+storybook-static
+
+# Generated — pnpm rewrites this on every install.
+pnpm-lock.yaml
+.husky/_/
+
+# Vendored from mattpocock/skills — kept byte-identical to upstream so a skill
+# can still be diffed against its source.
+.agents/skills/
+.claude/skills/

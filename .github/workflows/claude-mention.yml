@@ -1,0 +1,59 @@
+name: Claude Mention
+
+# Iteration surface for pull requests: comment `@claude <instruction>` on a PR
+# or a review thread. Issues are deliberately excluded — `/implement` is the
+# only way to start work from an issue.
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+
+jobs:
+  claude:
+    if: >-
+      contains(github.event.comment.body, '@claude') &&
+      (github.event_name == 'pull_request_review_comment' ||
+       github.event.issue.pull_request)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: claude-mention-${{ github.event.issue.number || github.event.pull_request.number }}
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Configure git identity
+        run: |
+          git config user.name "claude[bot]"
+          git config user.email "claude[bot]@users.noreply.github.com"
+
+      - name: Respond to the mention
+        uses: anthropics/claude-code-action@v1
+        with:
+          # No prompt input: interactive mode, so Claude responds to the
+          # @claude trigger phrase and posts progress on the thread.
+          # Do NOT pass github_token — see claude-implement.yml.
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: --model claude-sonnet-5

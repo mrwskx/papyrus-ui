@@ -1,0 +1,133 @@
+import { Meta, ArgTypes, Canvas } from '@storybook/addon-docs';
+import Tag, {
+  Basic,
+  Sizes,
+  Variants,
+  Rounded,
+  Clickable,
+  Removable,
+  Disabled,
+  WithIcon,
+  WithIconAndClickable,
+  RemovableAndClickable,
+  InteractiveExamples,
+  AllInteractiveCombinations,
+} from './tag.stories';
+
+<Meta of={Tag} />
+
+# Tag
+
+A visual element designed to represent a discrete piece of information or a user-selected category. A Tag typically
+displays a small area that conveys a specific label or tag associated with an item, attribute, or action in the user
+interface.
+
+## When to use
+
+- Filtering Content: Tags are often used in interfaces where content needs to be filtered based on specific criteria or
+  categories. Users can click on tags representing different attributes, characteristics, or topics to filter and view
+  content that matches those tags.
+
+- User Profile Skills/Interests: Tags are frequently employed in user profile settings to represent a user's skills,
+  interests, or expertise. Users can add tags to their profiles to showcase their areas of expertise, hobbies, or
+  professional skills. his helps in creating a more detailed and personalized user profile.
+
+- Content Tagging in Blogging or CMS: Tags are often used in blogging or content management systems to tag content with
+  specific topics, categories, or keywords. This helps in organizing content and making it easier for users to find
+  content that matches their interests.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+### Sizes
+
+Use the `size` prop to change the size of the tag. Available sizes are `sm`, `md`, and `lg`.
+
+<Canvas of={Sizes} />
+
+### Variants
+
+Use `variant` prop to change the appearance of the tag.
+
+<Canvas of={Variants} />
+
+### Rounded
+
+Use the `rounded` prop to change the shape of the tag to rounded.
+
+<Canvas of={Rounded} />
+
+### Clickable
+
+Use the `onClick` prop to make the tag clickable and add an `onClick` handler.
+
+<Canvas of={Clickable} />
+
+### With Icon
+
+Use the `icon` prop to add an icon to the tag. This is useful for providing visual context or indicating the type of content.
+
+<Canvas of={WithIcon} />
+
+### With Icon and Clickable
+
+Combine the `icon` prop with `onClick` to create an interactive tag with visual indicators.
+
+<Canvas of={WithIconAndClickable} />
+
+### Removable
+
+Use the `onRemove` prop to make the tag removable. This adds a close button (×) to the tag that users can click to remove it. The `Del` key will also trigger the remove action when the tag is focused.
+
+<Canvas of={Removable} />
+
+### Removable and Clickable
+
+Combine both `onClick` and `onRemove` props to create a tag that can be both clicked for navigation/selection and removed when no longer needed. This is perfect for filter tags or selected items that users might want to interact with or remove.
+
+<Canvas of={RemovableAndClickable} />
+
+### Disabled
+
+Use the `disabled` prop to add disabled styles to the tag. Disabled tags cannot be clicked or removed, and they appear with reduced opacity to indicate their inactive state.
+
+<Canvas of={Disabled} />
+
+### Interactive Examples
+
+This example showcases different combinations of interactive features. You can see how tags behave when they have click handlers, remove handlers, or both.
+
+<Canvas of={InteractiveExamples} />
+
+### All Interactive Combinations
+
+A comprehensive showcase of all possible interactive combinations, including tags with icons and different variants. This demonstrates how tags can be used in various contexts like filtering, categorization, and user selection.
+
+<Canvas of={AllInteractiveCombinations} />
+
+## Guidelines
+
+- **Accessibility**: When `onClick` or `onRemove` props are provided, the role is automatically set to `button` and `tabindex` is set to `0`. You don't need to provide these props manually unless you have specific accessibility requirements.
+
+- **Color Contrast**: Ensure that colors provided in variant styles have sufficient contrast ratio for accessibility compliance.
+
+- **Icon Usage**: Icons should be meaningful and help users understand the tag's purpose or content type. Use consistent iconography throughout your application.
+
+- **Interactive Behavior**:
+  - Clickable tags are great for navigation, filtering, or selection
+  - Removable tags work well for filters, selected items, or temporary states
+  - Combined functionality is perfect for complex interactions like filter management
+
+- **Keyboard Navigation**: Tags with `onClick` handlers are focusable and respond to `Enter` and `Space` keys. Tags with `onRemove` handlers also respond to the `Delete` key.
+
+- **Size Selection**: Choose the appropriate size based on your content density and visual hierarchy:
+  - `sm`: For compact interfaces or when space is limited
+  - `md`: Standard size for most use cases
+  - `lg`: For emphasis or when tags contain longer text
+
+## API
+
+<ArgTypes />

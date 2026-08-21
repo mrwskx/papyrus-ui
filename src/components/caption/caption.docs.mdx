@@ -1,0 +1,30 @@
+import Caption, { Basic } from './caption.stories';
+import { Meta, ArgTypes, Canvas } from '@storybook/addon-docs';
+
+<Meta of={Caption} />
+
+# Caption
+
+The `Caption` component is used to display smaller descriptive text, usually accompanying images, figures, or tables.
+
+## When To Use
+
+- **Image Descriptions**: Use `Caption` to provide context or descriptions for images, tables, or charts.
+
+- **Small Annotations**: Useful for adding smaller, secondary information like timestamps, notes, or disclaimers beneath
+  primary content.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+### Guidelines
+
+Consider using a lighter or neutral color such as `neutral-500` to ensure the caption doesn't overpower the primary text
+but remains readable.
+
+## Component API
+
+<ArgTypes />

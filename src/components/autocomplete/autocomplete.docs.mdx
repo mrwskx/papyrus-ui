@@ -1,0 +1,115 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import Autocomplete, {
+  Basic,
+  Sizes,
+  Invalid,
+  Multiple,
+  Disabled,
+  WithIcon,
+  Description,
+  Message,
+} from './autocomplete.stories';
+
+<Meta of={Autocomplete} />
+
+# Autocomplete
+
+A component that provides suggestions to the user as they
+type.
+
+## When to use
+
+- Large set of possible values: Autocomplete can help reduce
+  the number of options that users need to sift through, making it easier for them
+  to find what they're looking for.
+
+- Enforcing Consistency: Autocomplete can enforce consistency
+  by presenting only valid options to the user, helping to prevent spelling errors
+  or other mistakes.
+
+- Saving time: Autocomplete can save users time by reducing
+  the amount of typing they need to do and by providing suggestions that are
+  relevant to what they're looking for.
+
+- Complex data entry: Autocomplete can be useful for complex data entry,
+  such as entering addresses or product names, where a pre-defined list
+  of options can simplify the process for the user.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+### Multiple
+
+The `multiple` property allows multiple values to be selected. Users will see tags displaying the selected values.
+
+<Canvas of={Multiple} />
+
+### Sizes
+
+The `size` property can be used to specify the size of the input box. Available values are `sm`, `md`, and `lg`.
+
+<Canvas of={Sizes} />
+
+### With Icon
+
+Use `startIcon` and `endIcon` properties to add icons to the input box.
+
+<Canvas of={WithIcon} />
+
+### Description
+
+Displays description above the input. The description can be used for additional information or instructions for the
+user.
+
+<Canvas of={Description} />
+
+### Message
+
+Displays a hint message below the input. This message can be used as a lower-priority feedback when no validation error
+has been occurred.
+
+<Canvas of={Message} />
+
+### Invalid
+
+Setting the `invalid` property to `true` indicates an error or issue with the input value.
+
+<Canvas of={Invalid} />
+
+### Disabled
+
+Disabled input
+
+<Canvas of={Disabled} />
+
+## Guidelines
+
+- When no suggestions are available because of an error, provide clear error
+  feedback using `loadingError` property.
+
+- Provide placeholder text that contains a brief description of what the input
+  field is for and what type of information is expected using `placeholder`
+  property.
+
+- Use localized values for text that is accessible for the user or screen
+  readers. Use these properties to provide custom labels: `clearLabel`,
+  `loadingLabel`, and `noResultLabel`.
+
+- Use **`label`** property to provide a label for the input.
+
+- Use **`description`**property to provide additional context or instructions for the input.
+
+- Display helpful hints with the `message` prop or error messages with `invalid` for user guidance, especially in form
+  validation scenarios.
+
+## Accessibility
+
+Autocomplete is implemented as part of a [combobox pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox)
+defined in WAI ARIA Practices.
+
+## Component API
+
+<ArgTypes />

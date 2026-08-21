@@ -1,0 +1,99 @@
+import { Meta, ArgTypes, Canvas } from '@storybook/addon-docs';
+import TimeInput, {
+  Basic,
+  Hour12,
+  Seconds,
+  Sizes,
+  WithIcon,
+  Description,
+  Message,
+  Invalid,
+  Disabled,
+} from './time-input.stories';
+
+<Meta of={TimeInput} />
+
+# TimeInput
+
+Input component for time values.
+
+## When To Use
+
+When you need to collect time input from the user.
+
+## Examples
+
+### Basic
+
+The `TimeInput` component can be used for a simple time input field without seconds.
+
+<Canvas of={Basic} />
+
+### 12-hour Format
+
+The `hour12` property can be used to switch the input to a 12-hour format (AM/PM). This is useful when collecting time in regions that use 12-hour time formatting.
+
+<Canvas of={Hour12} />
+
+### With Seconds
+
+The `seconds` property enables the inclusion of seconds in the time input, allowing users to enter time in the `HH:MM:SS` format.
+
+<Canvas of={Seconds} />
+
+### Sizes
+
+The `size` property can be used to specify the size of the input box. Available values are `sm`, `md`, and `lg`.
+
+<Canvas of={Sizes} />
+
+### With Icon
+
+Use `startIcon` and `endIcon` props to add icons to the time input. You can place icons at the beginning or end of the input field.
+
+<Canvas of={WithIcon} />
+
+### Description
+
+Displays a description above the input. The description can be used for additional information or instructions for the user.
+
+<Canvas of={Description} />
+
+### Message
+
+Displays a hint message below the input. This message can be used as lower-priority feedback when no validation error has occurred.
+
+<Canvas of={Message} />
+
+### Invalid
+
+Setting the `invalid` property to `true` indicates an error or issue with the input value.
+
+<Canvas of={Invalid} />
+
+### Disabled
+
+Disabled input field, preventing the user from interacting with the input.
+
+<Canvas of={Disabled} />
+
+## Guidelines
+
+- Provide placeholder text that briefly describes what the input field is for and what type of information is expected, using the `placeholder` property.
+- Use localized values for time input, making the component accessible for users and screen readers.
+- For **12-hour format** time input, the `Select` input can be used in addition to the `TimeInput` component to select the part of the day (AM/PM).
+- Use the `label` property to provide a label for the time input, ensuring proper accessibility.
+- Use the `description` property to provide additional context or instructions for the input.
+- Display helpful hints with the `message` prop or error messages with `invalid` for user guidance, especially in form validation scenarios.
+- Ensure that the `hour12` and `seconds` props are configured correctly for users in different locales and time formats.
+
+## Accessibility
+
+- Ensure that the `label` is associated with the input field using the `htmlFor` attribute to provide accessibility for screen readers.
+- If `invalid` is `true`, ensure the error state is clear for screen readers and visually impaired users.
+
+For more detailed accessibility guidelines, see [Fluent UI Accessibility Guidelines](https://developer.microsoft.com/en-us/fluentui#/controls/web/textinput#accessibility).
+
+## API
+
+<ArgTypes />

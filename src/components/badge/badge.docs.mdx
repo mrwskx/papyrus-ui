@@ -1,0 +1,100 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import Badge, {
+  Basic,
+  Dot,
+  BackgroundColor,
+  OverflowCount,
+  ZeroCount,
+  Position,
+  Offset,
+  CustomContent,
+  Standalone,
+} from './badge.stories';
+
+<Meta of={Badge} />
+
+# Badge
+
+Badges are used to display counts, labels, or statuses for items in a user interface.
+
+## When to use
+
+- Notification Counts: Displaying the count of unread notifications or alerts. For example, indicating the number of new
+  messages or pending tasks.
+
+- Status Indicators: Using a colored dot to indicate the status of an item, user, or process. For instance,
+  online/offline status of users.
+
+- Badges on Icons: Overlaying badges on icons to show additional information. Common in navigation menus or product
+  icons.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+### Background Color
+
+Set `beckgroundColor` to change the background color of the badge. This property accepts color tokens from the theme.
+
+<Canvas of={BackgroundColor} />
+
+### Dot
+
+Set `dot` as `true` to show a dot without number.
+
+<Canvas of={Dot} />
+
+### Overflow Count
+
+`overflowCount` is displayed when count is larger than overflowCount. The default value of overflowCount is 99.
+
+<Canvas of={OverflowCount} />
+
+### Zero Count
+
+Set `showZero` as `true` to show a zero when count is zero. The default value of showZero is false.
+
+<Canvas of={ZeroCount} />
+
+### Position
+
+Set `position` to change the position of the badge. The default value of position is `top-right`.
+
+<Canvas of={Position} />
+
+### Offset
+
+Use `offsetX` and `offsetY` to set the offset of the badge.
+
+<Canvas of={Offset} />
+
+### Custom Content
+
+You can use a custom component as the content of the badge.
+
+<Canvas of={CustomContent} />
+
+### Standalone
+
+You can use a badge without children.
+
+<Canvas of={Standalone} />
+
+## Guidelines
+
+- Use Color Meaningfully: Choose colors that align with your UI's color scheme and have appropriate meaning.
+  For example, red for alerts or green for success.
+
+- Positioning: Position badges logically to indicate relevance. Top-right corners are often used, but consider the
+  context and user flow.
+
+## Accessibility
+
+Ensure badges are accessible to all users. Use proper contrast ratios and provide a meaningful title attribute
+for tooltips.
+
+## API
+
+<ArgTypes of={Badge} />

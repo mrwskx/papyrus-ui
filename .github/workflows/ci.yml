@@ -1,0 +1,56 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches-ignore:
+      - 'main'
+
+  workflow_dispatch:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check dependency licenses
+        run: pnpm check:licenses
+
+      - name: Build library
+        run: pnpm build
+
+      - name: Build Storybook
+        run: pnpm build:storybook
+
+      - name: Lint code
+        run: pnpm lint
+
+      - name: Check formatting
+        run: pnpm format:check
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Validate skills
+        run: pnpm validate-skills
+
+      - name: Run unit tests
+        run: pnpm test:ci
+
+      - name: Upload results to Codecov
+        uses: codecov/codecov-action@v3

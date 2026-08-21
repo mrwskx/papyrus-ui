@@ -1,0 +1,34 @@
+import { Meta, ArgTypes, Canvas } from '@storybook/addon-docs';
+import Radio, { Basic, Disabled } from './radio.stories';
+
+<Meta of={Radio} />
+
+# Radio
+
+Input of type radio
+
+## When To Use
+
+- When a user needs to select one option from a list of options.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+### Disabled
+
+Disabled input
+
+<Canvas of={Disabled} />
+
+## Guidelines
+
+- Use Radio component within RadioGroup to manage checked values.
+
+- Provide descriptive label as a child node.
+
+## API
+
+<ArgTypes />

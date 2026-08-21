@@ -1,0 +1,66 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import MenuBar, {
+  Basic,
+  Size,
+  Variant,
+  Collapsed,
+  WithDescriptions,
+} from './menu-bar.stories';
+
+<Meta of={MenuBar} />
+
+# MenuBar
+
+Horizontal menu bar component with dropdown submenus.
+
+## When to use
+
+- To navigate between pages.
+
+- For toolbars with dropdown menus.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+### Sizes
+
+Use `size` property to change the size meu items.
+
+<Canvas of={Size} />
+
+### Variants
+
+Use `variant` property to change the variant of the menu. Available variants are `primary`, `secondary`, and `ghost`.
+
+<Canvas of={Variant} />
+
+### With Descriptions
+
+Use the `description` prop on MenuBar.Item to provide additional context or help text for menu bar items. This is particularly useful for toolbars where users need more information about what each option does.
+
+<Canvas of={WithDescriptions} />
+
+### Collapsed
+
+Use `collapsed` property to display the menu collapsed.
+
+<Canvas of={Collapsed} />
+
+## Guidelines
+
+- Use only MenuBar.Item and MenuBar.Submenu components as children of MenuBar component.
+
+## Accessibility
+
+- Use `aria-label` or `aria-labelledby` to provide a meaningful label for the menu.
+
+- If it is a navigation menu, the menu should be inside a `nav` element.
+
+See more details at [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/).
+
+## API
+
+<ArgTypes />
