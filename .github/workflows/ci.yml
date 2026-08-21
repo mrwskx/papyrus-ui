@@ -4,10 +4,6 @@ on:
   push:
     branches-ignore:
       - 'main'
-      - 'release/*'
-
-  repository_dispatch:
-    types: [release-pr-created]
 
   workflow_dispatch:
 
@@ -35,8 +31,11 @@ jobs:
       - name: Check dependency licenses
         run: pnpm check:licenses
 
-      - name: Build packages
+      - name: Build library
         run: pnpm build
+
+      - name: Build Storybook
+        run: pnpm build:storybook
 
       - name: Lint code
         run: pnpm lint
