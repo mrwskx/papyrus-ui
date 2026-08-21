@@ -1,6 +1,6 @@
 {
   "name": "papyrus-ui",
-  "version": "0.9.21",
+  "version": "0.10.0",
   "description": "The UI kit with fundamental React components based on the Papyrus UI design system.",
   "author": "Sergey Murawsky",
   "license": "MIT",
