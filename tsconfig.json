@@ -3,11 +3,10 @@
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "alwaysStrict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
-    "lib": ["dom", "esnext"],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -22,6 +21,5 @@
     "types": ["node", "vitest/globals"]
   },
   "include": ["**/*", ".storybook/**/*"],
-  "exclude": ["node_modules", "**/node_modules/**/*", "**/dist/**/*"],
-  "typeRoots": ["./global.d.ts"]
+  "exclude": ["node_modules", "**/node_modules/**/*", "**/dist/**/*"]
 }

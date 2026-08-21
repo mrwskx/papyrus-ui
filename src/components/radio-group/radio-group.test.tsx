@@ -72,7 +72,7 @@ describe('RadioGroup', () => {
 
         fireEvent.click(screen.getByLabelText('Label 1'));
         expect(screen.getByLabelText('Label 1')).not.toBeChecked();
-        expect(onChange).toBeCalledTimes(0);
+        expect(onChange).toHaveBeenCalledTimes(0);
       });
     });
   });
@@ -106,7 +106,7 @@ describe('RadioGroup', () => {
         );
         fireEvent.click(screen.getByLabelText('Label 1'));
         expect(screen.getByLabelText('Label 1')).not.toBeChecked();
-        expect(onChange).toBeCalledTimes(0);
+        expect(onChange).toHaveBeenCalledTimes(0);
       });
     });
   });
@@ -137,7 +137,7 @@ describe('RadioGroup', () => {
 
         fireEvent.click(screen.getByLabelText('Label 1'));
         expect(screen.getByLabelText('Label 1')).not.toBeChecked();
-        expect(onChange).toBeCalledTimes(0);
+        expect(onChange).toHaveBeenCalledTimes(0);
       });
     });
   });
@@ -173,7 +173,7 @@ describe('RadioGroup', () => {
         );
         fireEvent.click(screen.getByLabelText('Label 1'));
         expect(screen.getByLabelText('Label 1')).not.toBeChecked();
-        expect(onChange).toBeCalledTimes(0);
+        expect(onChange).toHaveBeenCalledTimes(0);
       });
     });
   });
