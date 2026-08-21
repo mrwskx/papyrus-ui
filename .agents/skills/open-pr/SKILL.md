@@ -6,7 +6,8 @@ description: >
   job finds it already correct and exits immediately), and creates the PR
   from the repo's PULL_REQUEST_TEMPLATE.md. Use when the user says "open a
   PR", "open a pull request", "create a PR", "push and open PR", or invokes
-  `/open-pr`.
+  `/open-pr`. Pass `--draft`, or run under GitHub Actions, to open it as a
+  draft.
 ---
 
 ## Steps
@@ -61,8 +62,13 @@ Read `.github/PULL_REQUEST_TEMPLATE.md`. Replace the HTML-comment line under `##
 
 ### 5. Create the PR
 
+Open as a draft when either holds:
+
+- the invocation asked for one (`/open-pr --draft`)
+- `$GITHUB_ACTIONS` is set — an unattended run never opens a PR that is ready for review
+
 ```bash
-gh pr create --title "<title>" --base main --body "$(cat <<'EOF'
+gh pr create [--draft] --title "<title>" --base main --body "$(cat <<'EOF'
 <body>
 EOF
 )"
