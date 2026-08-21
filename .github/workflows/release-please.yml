@@ -41,6 +41,43 @@ jobs:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
+      # release-please commits CHANGELOG.md/package.json straight through the
+      # GitHub API, bypassing prettier, so the release PR fails `format:check`
+      # in ci.yml until we format it ourselves and push the fix back.
+      - name: Checkout release PR branch
+        if: ${{ steps.release.outputs.pr }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ fromJSON(steps.release.outputs.pr).headBranchName }}
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Setup pnpm
+        if: ${{ steps.release.outputs.pr }}
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        if: ${{ steps.release.outputs.pr }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        if: ${{ steps.release.outputs.pr }}
+        run: pnpm install --frozen-lockfile
+
+      - name: Format release PR files
+        if: ${{ steps.release.outputs.pr }}
+        run: |
+          pnpm format
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore: format release files"
+            git push origin HEAD:${{ fromJSON(steps.release.outputs.pr).headBranchName }}
+          fi
+
       - name: Checkout
         if: ${{ steps.release.outputs.release_created }}
         uses: actions/checkout@v4
