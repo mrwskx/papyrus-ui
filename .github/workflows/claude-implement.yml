@@ -1,0 +1,103 @@
+name: Claude Implement
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  guard:
+    # Issues only, and only for a deliberate `/implement` command.
+    if: >-
+      !github.event.issue.pull_request &&
+      startsWith(github.event.comment.body, '/implement')
+    runs-on: ubuntu-latest
+    outputs:
+      ok: ${{ steps.check.outputs.ok }}
+      reason: ${{ steps.check.outputs.reason }}
+    steps:
+      - name: Check preconditions
+        id: check
+        env:
+          HAS_LABEL: ${{ contains(github.event.issue.labels.*.name, 'ready-for-agent') }}
+          TRUSTED_AUTHOR: ${{ contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association) }}
+        run: |
+          if [[ "$TRUSTED_AUTHOR" != "true" ]]; then
+            # The action gates who *triggers* a run, not who wrote the body it reads.
+            # An outside-authored issue is untrusted input to an agent with write access.
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "reason=this issue was opened by an outside author. Rewrite it as a maintainer-authored spec with \`/to-spec\` before implementing." >> "$GITHUB_OUTPUT"
+          elif [[ "$HAS_LABEL" != "true" ]]; then
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "reason=this issue is not labelled \`ready-for-agent\`. Run \`/triage\` first, or apply the label if it is already specified." >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  implement:
+    needs: guard
+    if: needs.guard.outputs.ok == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: claude-implement-${{ github.event.issue.number }}
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # /open-pr needs history for `git rev-list origin/main..HEAD`.
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Configure git identity
+        run: |
+          git config user.name "claude[bot]"
+          git config user.email "claude[bot]@users.noreply.github.com"
+
+      - name: Implement the issue
+        uses: anthropics/claude-code-action@v1
+        with:
+          # Do NOT pass github_token: with the default GITHUB_TOKEN, GitHub will
+          # not fire workflows on the agent's commits and ci.yml never runs.
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: '/implement ${{ github.event.issue.number }}'
+          # No plugin_marketplaces/plugins: ponytail and ponytail-review are
+          # vendored into .agents/skills, so the checkout resolves them and the
+          # run makes no marketplace fetch.
+          claude_args: |
+            --model claude-sonnet-5
+            --max-turns 40
+
+  refuse:
+    needs: guard
+    if: needs.guard.outputs.ok != 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Explain why nothing ran
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+          REASON: ${{ needs.guard.outputs.reason }}
+        run: |
+          gh issue comment "$ISSUE" --repo "$REPO" \
+            --body "Did not start an implementation run: $REASON"

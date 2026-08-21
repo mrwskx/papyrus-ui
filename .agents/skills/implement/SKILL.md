@@ -1,12 +1,25 @@
 ---
 name: implement
-description: Read a GitHub issue and implement the fix or feature. Never closes, comments on, or edits the issue. User-invoked only.
+description: Read a GitHub issue and implement the fix or feature. Never closes, comments on, or edits the issue. Invoked explicitly only — by the user locally, or by the claude-implement workflow under GitHub Actions.
 disable-model-invocation: true
 ---
 
 # Implement
 
 Read a GitHub issue and implement the fix or feature.
+
+## Surface
+
+Steps 4–6 differ depending on where the skill runs. Check once, up front:
+
+```bash
+[ -n "$GITHUB_ACTIONS" ] && echo unattended || echo local
+```
+
+- **local** — a supervised session. You summarize and stop; the user commits.
+- **unattended** — a GitHub Actions run. There is no user and the runner is destroyed when the job ends, so uncommitted work is lost. Commit as you go and finish with a draft PR.
+
+Everything before Step 4 is identical on both surfaces.
 
 ## Step 1 — Resolve issue number
 
@@ -53,13 +66,19 @@ Write in vertical slices — one behavior at a time. No speculative code, no abs
 
 Run typechecking and single test files regularly throughout. Run the full test suite once at the end.
 
+**Unattended only:** invoke `/commit-changes` after each vertical slice, as soon as its tests pass. An unattended run can be cut short by a turn cap or a job timeout at any point — committing per slice means what it finished so far survives as a reviewable branch instead of being discarded with the runner.
+
 **Completion criterion:** the issue's acceptance criteria are met, all existing tests pass, and no code exists that the issue didn't require.
 
 ## Step 5 — Review
 
-Invoke `/code-review` on the completed work before summarizing.
+**Local only.** Invoke `/code-review` on the completed work before summarizing.
 
-## Step 6 — Summary
+Skip this step when unattended. `/code-review` fans out three parallel sub-agents, and an unattended run's output is a draft PR that gets reviewed anyway — locally, or by commenting `@claude` on the PR.
+
+## Step 6 — Finish
+
+### Local
 
 Output a concise summary:
 
@@ -70,3 +89,9 @@ Output a concise summary:
 - What was deliberately skipped (ponytail tradeoffs, if any)
 
 **Do not commit.** Stop here — committing is the user's next step.
+
+### Unattended
+
+Commit anything still uncommitted with `/commit-changes`, then invoke `/open-pr --draft`.
+
+Report the same summary as the local path, plus the PR URL. Do not comment on, edit, or close the issue — the constraint from Step 2 holds on both surfaces. The draft PR is the whole output; linking it back to the issue is the reviewer's call.
