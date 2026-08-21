@@ -1,0 +1,56 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import Tooltip, {
+  Basic,
+  Placement,
+  OpenControlled,
+  TriggerOnClick,
+} from './tooltip.stories';
+
+<Meta of={Tooltip} />
+
+# Tooltip
+
+A small pop-up component that provides additional information when users hover over, click, or focus on an element. Tooltips are typically used to offer hints, explanations, or extra details that help the user interact with UI elements.
+
+## When to Use
+
+The Tooltip component is useful for providing brief, contextual information or instructions to users without cluttering the interface. It is commonly used to explain the purpose of icons, buttons, or other UI elements that might not have a visible label.
+
+## Examples
+
+### Basic
+
+A simple tooltip displayed when hovering over the button. The tooltip provides extra information without overwhelming the user.
+
+<Canvas of={Basic} />
+
+### Placement
+
+The `placement` prop controls where the tooltip appears relative to the target element. Possible values include `top`, `bottom`, `left`, `right`, and their aligned variations like `top-start`, `top-end`, `bottom-start`, `bottom-end`.
+
+<Canvas of={Placement} />
+
+### Open Controlled
+
+The visibility of the tooltip can be controlled programmatically with the `open` prop. When `open` is set to `true`, the tooltip is always visible, regardless of user interaction.
+
+<Canvas of={OpenControlled} />
+
+### Trigger On Click
+
+The tooltip can be triggered by different events: hover, click, or focus. By default, the tooltip will show on hover and focus. However, you can customize the `trigger` prop to use a different event or multiple triggers. For example, this tooltip is triggered by a click event.
+
+<Canvas of={TriggerOnClick} />
+
+## Guidelines
+
+- **Keep it concise:** Tooltips should provide brief, relevant information. Avoid overwhelming users with excessive text in the tooltip.
+- **Positioning considerations:** Choose a position that prevents the tooltip from overlapping or getting clipped by the viewport edges. You can adjust the placement using the `placement` prop.
+- **Accessible triggers:** Use triggers like hover, click, or focus to display the tooltip. Make sure the tooltip is also accessible via keyboard (e.g., focusable elements should show the tooltip when focused).
+- **Ensure visibility:** Make sure the tooltip is clearly visible and readable against the background, with sufficient contrast for accessibility.
+
+## Component API
+
+### Tooltip
+
+<ArgTypes of={Tooltip} />

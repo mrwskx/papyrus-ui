@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // The base config is noEmit for repo-wide typechecking; the declaration
+    // build has to opt back in, and TypeScript rejects emitDeclarationOnly
+    // alongside noEmit.
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "dist/types",
+    "preserveSymlinks": true
+  },
+  "include": ["src"],
+  "exclude": ["**/*.test.ts", "**/*.test.tsx"]
+}

@@ -1,0 +1,53 @@
+import { Meta, ArgTypes, Canvas } from '@storybook/addon-docs';
+import Table, { Basic, Sizes, Striped, Bordered } from './table.stories';
+
+<Meta of={Table} />
+
+# Table
+
+A versatile and customizable table component used to display structured data in rows and columns. This component supports features like striped rows, borders, and customizable sizes for improved usability and aesthetics.
+
+## When to Use
+
+The `Table` component is ideal for displaying tabular data in a clean and organized manner. It is commonly used for:
+
+- **Data display:** Show structured information, such as lists, datasets, and statistics.
+- **Reports:** Display detailed reports with headers, rows, and columns.
+- **Comparison data:** Compare items, products, or values in a side-by-side format.
+- **Interactive tables:** Use with filters, sorting, and pagination for better data interaction.
+
+## Examples
+
+### Basic
+
+A simple table with borders and a striped row style.
+
+<Canvas of={Basic} />
+
+### Sizes
+
+Use the `size` prop to adjust the table's size. Available values are `sm` and `md`. The size affects padding and spacing.
+
+<Canvas of={Sizes} />
+
+### Striped
+
+Enable the `striped` prop to alternate the row colors for better readability.
+
+<Canvas of={Striped} />
+
+### Bordered
+
+The `bordered` prop adds borders around each individual cell, not just the row separators. This makes each cell clearly distinguishable for better visual organization.
+
+<Canvas of={Bordered} />
+
+## Guidelines
+
+- **Table size:** Use `sm` for compact tables and `md` for standard tables. The size affects the internal padding and spacing, allowing for flexible layout design.
+- **Borders and Stripes:** When using `bordered`, consider whether you want to visually separate each cell. `striped` rows improve readability, especially in large tables with many rows.
+- **Accessibility:** Ensure each header (`<th>`) is descriptive and corresponds to its column's data for accessibility purposes. The table should be usable with screen readers, and consider using ARIA roles for better accessibility.
+
+## API
+
+<ArgTypes of={Table} />

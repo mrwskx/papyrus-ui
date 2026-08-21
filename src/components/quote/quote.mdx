@@ -1,0 +1,70 @@
+import Quote, {
+  Basic,
+  PrimaryFont,
+  PrimaryVariant,
+  SecondaryFont,
+  SecondaryVariant,
+  SmallText,
+  TertiaryVariant,
+} from './quote.stories';
+import { Meta, ArgTypes, Canvas } from '@storybook/addon-docs';
+
+<Meta of={Quote} />
+
+# Quote
+
+The `Quote` component is used to display block quotes, offering different text sizes and variants to fit various use cases.
+
+## When to use
+
+The `Quote` component is mainly used for displaying quotations.
+
+## Examples
+
+### Basic
+
+A simple quote with default settings:
+
+<Canvas of={Basic} />
+
+### Variants
+
+#### Primary (default)
+
+<Canvas of={PrimaryVariant} />
+
+#### Secondary
+
+<Canvas of={SecondaryVariant} />
+
+#### Tertiary
+
+<Canvas of={TertiaryVariant} />
+
+### Font Variants
+
+You can switch between the primary and secondary font families using the `fontVariant` prop.
+
+#### Primary Font (default)
+
+<Canvas of={PrimaryFont} />
+
+#### Secondary Font
+
+<Canvas of={SecondaryFont} />
+
+### Small Quote
+
+A small-sized quote:
+
+<Canvas of={SmallText} />
+
+## Guidelines
+
+- **Readable Text Size**: Choose the appropriate size (sm, md) based on the length and emphasis of the quote.
+
+- **Word Breaking**: Use breakWord when you have long or unbreakable content that may overflow the container.
+
+## Component API
+
+<ArgTypes />

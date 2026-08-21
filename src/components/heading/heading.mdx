@@ -1,0 +1,51 @@
+import Heading, { Basic, VariantsAndSizes } from './heading.stories';
+import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs';
+
+<Meta of={Heading} />
+
+# Heading
+
+The Heading component is designed to display headings in various sizes and styles.
+
+## When to use
+
+The Heading component is used to create headings of various sizes and styles for different sections of a web page.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+### Variants And Sizes
+
+Variants and Sizes combination overview.
+
+<Canvas of={VariantsAndSizes} />
+
+## Guidelines
+
+- **Choose the right size**: The larger size typically matches higher heading hierarchy and vice-versa, according to its
+  tag (`h1`, `h2`, etc.)
+
+- **Consider truncation**: Use the truncate prop for text that may overflow its container, ensuring readability without
+  breaking layout.
+
+- **Word Breaking**: Use breakWord when you have long or unbreakable content inside the quote that may overflow the
+  container.
+
+## Accessibility
+
+- **Semantic HTML**: Ensure that the as property is set to a semantic HTML element (e.g., h1, h2) to provide proper
+  document structure and improve accessibility.
+
+- **Font Sizes**: Use appropriate sizes to ensure that headings are easily readable and distinguishable.
+
+- **Highlighting**: Ensure that highlighted text meets sufficient contrast ratios for readability.
+
+- **Truncation**: Provide alternative text or context if truncation is used, ensuring that users who rely on screen
+  readers understand the full content.
+
+## Component API
+
+<ArgTypes />

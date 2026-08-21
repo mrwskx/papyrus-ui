@@ -1,0 +1,76 @@
+import { Meta, ArgTypes, Canvas } from '@storybook/addon-docs';
+import IconButton, {
+  Basic,
+  Rounded,
+  Sizes,
+  Variants,
+  WithAvatar,
+} from './icon-button.stories';
+
+<Meta of={IconButton} />
+
+# IconButton
+
+An element that represents a clickable icon, often used to trigger specific actions or functions within a web
+application.
+
+## When to use
+
+- Social Media Actions: Adding icons for actions such as liking, sharing, commenting, and following in social media
+  interfaces.
+
+- Navigation: Creating navigation menus with icon-based buttons for items like home, settings, notifications, and user
+  profiles.
+
+- Toolbar Actions: Including icons for actions like save, print, export, and refresh in application toolbars.
+
+- Media Controls: Implementing play, pause, forward, backward, and volume control icons in multimedia applications.
+
+- Action Triggers: Employing icons to initiate actions like deleting, editing, or archiving items in data management
+  interfaces.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+### Sizes
+
+Use size modifiers to change the size of the icon button. Available sizes are `sm`, `md`, and `lg`.
+
+<Canvas of={Sizes} />
+
+### Variants
+
+Use the `variant` prop to change the appearance of the icon button.
+
+<Canvas of={Variants} />
+
+### With Avatar
+
+Use the `avatar` prop if you want to add an avatar to the icon button.
+
+<Canvas of={WithAvatar} />
+
+### Rounded
+
+Use the `rounded` prop to make the icon button rounded.
+
+<Canvas of={Rounded} />
+
+## Guidelines
+
+- Use Icon compoenent as children to render icons within IconButton.
+
+- Set Avatar component to the avatar prop to render avatar within IconButton.
+
+## Accessibility
+
+Use descriptive title or aria-label attribute to provide context for the icon button.
+
+See more details in [WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#button).
+
+## API
+
+<ArgTypes />

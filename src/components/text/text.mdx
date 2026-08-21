@@ -1,0 +1,70 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import Text, {
+  Basic,
+  SmallText,
+  PrimaryFont,
+  SecondaryFont,
+  BoldText,
+} from './text.stories';
+
+<Meta of={Text} />
+
+# Text
+
+The `Text` component is designed for displaying body text, usually as paragraphs, but it can render other HTML tags as well, depending on the `as` prop. It offers flexibility for setting text size, font-family variants, alignment, truncation, and more.
+
+## When to use
+
+Use the `Text` component for body content where customizable typography is required. It’s ideal for paragraphs, captions, or any inline text where you need to control font size, style, and alignment.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+### Small Text
+
+For smaller text, use the 'sm' size:
+
+<Canvas of={SmallText} />
+
+### Font Variants
+
+You can switch between the primary and secondary font families using the `fontVariant` prop.
+
+#### Primary Font (default)
+
+<Canvas of={PrimaryFont} />
+
+#### Secondary Font
+
+<Canvas of={SecondaryFont} />
+
+### Bold Text
+
+Use `bold` property for bold text.
+
+<Canvas of={BoldText} />
+
+## Accessibility
+
+- **Contrast Ratios**: Ensure that the text color has a sufficient contrast ratio against the background. According to
+  the [WCAG 2.1 guidelines](https://www.w3.org/TR/WCAG21/), the contrast ratio should be at least:
+
+  - 4.5:1 for normal text (below 24px).
+  - 3:1 for large text (above 24px or 19px bold).
+
+- **Semantic HTML**: The `Text` component allows for the use of different HTML tags through the `as` prop. Ensure
+  appropriate semantic elements are used for accessibility. For example:
+
+  - Use `<p>` for paragraphs.
+  - Use `<span>` for inline text.
+  - Use `<h1>` to `<h6>` for headings.
+
+- **Truncation**: Provide alternative text or context if truncation is used, ensuring that users who rely on screen
+  readers understand the full content.
+
+## API
+
+<ArgTypes />

@@ -1,0 +1,104 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+
+import UList, {
+  Basic,
+  BoldText,
+  PrimaryFont,
+  SecondaryFont,
+  SmallText,
+  WithIcons,
+  WithNoBullets,
+  NestedList,
+} from './u-list.stories';
+
+<Meta of={UList} />
+
+# UList
+
+The UList component is used to create unordered lists. It is a wrapper for the `<ul>` element.
+
+## When to use
+
+- Bulleted Lists: Present lists of items with simple bullet points to convey information in an easy-to-read format.
+
+- Icon Lists: Combine icons or symbols with list items to create visually appealing lists, such as a list of social
+  media icons and links.
+
+- Checklists: Create checklists for tasks, to-do lists, or shopping lists, allowing users to mark items as completed.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+The UList component applies `list-disc` style by default for disc bullets, along with consistent spacing styles. To use a different bullet style, you can override with Tailwind CSS utilities.
+
+### Custom List Styles
+
+To apply a specific list style type, you can use Tailwind CSS utilities:
+
+#### With No Bullets
+
+<Canvas of={WithNoBullets} />
+
+### Nested Lists
+
+You can nest lists within list items to create hierarchies. Use different bullet styles for nested levels to improve visual distinction. In this example, the first level uses the default `list-disc` style, while nested lists use `list-[circle]` style.
+
+<Canvas of={NestedList} />
+
+### With Icons
+
+Use Marker component to add icons to list items.
+
+<Canvas of={WithIcons} />
+
+### Small Text
+
+For smaller text, use the 'sm' size:
+
+<Canvas of={SmallText} />
+
+### Font Variants
+
+You can switch between the primary and secondary font families using the `fontVariant` prop.
+
+#### Primary Font (default)
+
+<Canvas of={PrimaryFont} />
+
+#### Secondary Font
+
+<Canvas of={SecondaryFont} />
+
+### Bold Text
+
+Use `bold` property for bold text.
+
+<Canvas of={BoldText} />
+
+## Guidelines
+
+- **List Item Content**: Use ListItem component to wrap list item content in `<li>` element. Each list item should contain
+  a single item of content or a group of related content.
+
+- **List Length**: Keep unordered lists to a reasonable length. If a list becomes too long, consider breaking it into smaller
+  sub-lists or sections for improved comprehension.
+
+- **Nesting**: You can nest ordered lists within other unordered lists or within unordered lists. This is useful
+  for representing hierarchies or sub-steps.
+
+## Accessibility
+
+- **Semantic Structure**: Use unordered lists when the order of items is not semantically meaningful, and the items can be
+  presented in any order.
+
+- **Use List Elements**: Wrap each list item in `<li>` (list item) elements. Never use list-style markers (e.g., numbers,
+  letters) manually without the proper list structure.
+
+More info: [https://www.w3.org/WAI/tutorials/page-structure/lists/](https://www.w3.org/WAI/tutorials/page-structure/lists/)
+
+## API
+
+<ArgTypes />

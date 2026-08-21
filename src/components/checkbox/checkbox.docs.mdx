@@ -1,0 +1,40 @@
+import { Meta, ArgTypes, Canvas } from '@storybook/addon-docs';
+import Checkbox, { Basic, Disabled } from './checkbox.stories';
+
+<Meta of={Checkbox} />
+
+# Checkbox
+
+Input of type checkbox
+
+## When To Use
+
+- When the user needs to select one or more options from a list of options.
+
+- When the user can choose between two mutually exclusive options.
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+### Disabled
+
+Disabled input
+
+<Canvas of={Disabled} />
+
+## Guidelines
+
+- Use Checkbox component within CheckboxGroup to manage checked values.
+
+- Provide descriptive label as a child node.
+
+## Accessibility
+
+See: [https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox)
+
+## API
+
+<ArgTypes />

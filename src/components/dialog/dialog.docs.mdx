@@ -1,0 +1,68 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import Dialog, {
+  Basic,
+  Sizes,
+  WithDisabledEscAndOutsideClick,
+} from './dialog.stories';
+
+<Meta of={Dialog} />
+
+# Dialog
+
+A modal dialog component used to display content that requires user interaction. The dialog can be used for alerts, confirmations, forms, or other types of content that need to interrupt the user's workflow.
+
+## When to Use
+
+The Dialog component is ideal when you need to collect input, confirm actions, or provide important information that requires the user's attention.
+
+### Examples of Use:
+
+- **Confirmation dialogs:** Confirm an action (e.g., delete an item).
+- **Form dialogs:** Collect user input in a modal form.
+- **Alert dialogs:** Display urgent information that requires user action (e.g., error or warning).
+- **Information dialogs:** Provide general information that users should acknowledge.
+
+## Examples
+
+### Basic
+
+A simple dialog with `Dialog.Trigger` and `Dialog.Content`. This example shows how the dialog can be opened by triggering the `Dialog.Trigger` component.
+
+<Canvas of={Basic} />
+
+### Sizes
+
+The `size` property controls the dimensions of the dialog. Available values are `sm` (small), `md` (medium), `lg` (large), and `xl` (extra large).
+
+<Canvas of={Sizes} />
+
+### With Disabled Escape and Outside Click
+
+This story demonstrates the behavior of the dialog when `closeOnEscClick` and `closeOnOutsideClick` are set to `false`. This prevents the dialog from closing when the Escape key is pressed or when a click occurs outside the dialog content.
+
+<Canvas of={WithDisabledEscAndOutsideClick} />
+
+## Guidelines
+
+- **Valid Children:**
+  - The valid children for the `Dialog` component are `Dialog.Trigger` and `Dialog.Content`. For the content layout inside the dialog, the following sub-components are typically used:
+    - `Dialog.Header`: Defines the header section of the dialog.
+    - `Dialog.Body`: Contains the main content of the dialog.
+    - `Dialog.Footer`: Used for actions like buttons in the footer of the dialog.
+    - `Dialog.Title`: Displays the title of the dialog (typically inside `Dialog.Header`).
+    - `Dialog.Close`: Typically used as a close button, which can be placed inside the header.
+    - `Dialog.Description`: Provides an optional description of the dialog’s purpose or instructions (typically inside `Dialog.Body`).
+  - Developers are free to use a custom layout, but using the default structure with these components ensures consistency and accessibility.
+- **Control closing behavior:** Decide whether the dialog should close when the Escape key or a click outside occurs, depending on the importance of the content.
+- **Use appropriate sizes:** Select the appropriate dialog size (`sm`, `md`, `lg`, `xl`) based on the amount of content and available space.
+- **Ensure accessibility:** Provide the proper roles and ARIA attributes to ensure screen readers and other assistive technologies can interact with the dialog. Use `role="dialog"` for standard dialogs and `role="alertdialog"` for urgent dialogs.
+
+## Accessibility
+
+- **Esc Key:** Users should be able to dismiss the dialog by pressing the Escape key unless explicitly disabled.
+- **Click Outside:** Allow users to dismiss the dialog by clicking outside of the dialog, unless the dialog content is critical and should not be dismissed in this way.
+- **Role attributes:** Use the `role="dialog"` or `role="alertdialog"` to indicate the dialog type, helping screen readers and assistive technologies understand its purpose.
+
+## Component API
+
+<ArgTypes of={Dialog} />

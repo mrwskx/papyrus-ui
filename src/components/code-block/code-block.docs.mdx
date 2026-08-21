@@ -1,0 +1,106 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import CodeBlock, {
+  Basic,
+  SmallSize,
+  WithLineNumbers,
+  LongCode,
+  WrappedCode,
+  WithCopyCallback,
+  CustomCopyLabel,
+  PythonCode,
+  EmptyCodeBlock,
+} from './code-block.stories';
+
+<Meta of={CodeBlock} />
+
+# CodeBlock
+
+The `CodeBlock` component is designed for displaying formatted code snippets with syntax highlighting support, line numbers, and customizable styling. It provides a clean, readable way to present code in documentation, tutorials, or any application that needs to display code.
+
+## When to use
+
+Use the `CodeBlock` component when you need to:
+
+- Display code snippets in documentation or tutorials
+- Show formatted code examples with proper monospace font
+- Present code with optional line numbers for reference
+- Handle long code lines with scrolling or wrapping options
+- Provide semantic context with language specification
+- Allow users to copy code to clipboard with built-in copy functionality
+
+## Examples
+
+### Basic
+
+<Canvas of={Basic} />
+
+### Small Size
+
+For more compact code displays, use the 'sm' size:
+
+<Canvas of={SmallSize} />
+
+### With Line Numbers
+
+Enable line numbers for easier reference and discussion:
+
+<Canvas of={WithLineNumbers} />
+
+### Long Code with Scrolling
+
+By default (when wrap is false), long lines will scroll horizontally:
+
+<Canvas of={LongCode} />
+
+### Word Wrapped Code
+
+Enable wrapping to wrap long lines instead of scrolling:
+
+<Canvas of={WrappedCode} />
+
+### Copy Functionality
+
+All code blocks include a copy button. You can provide a callback for when code is copied:
+
+<Canvas of={WithCopyCallback} />
+
+### Custom Copy Label
+
+You can customize the title of the copy button to provide helpful tooltips:
+
+<Canvas of={CustomCopyLabel} />
+
+### Different Languages
+
+The component supports semantic language specification:
+
+<Canvas of={PythonCode} />
+
+### Empty Code Block
+
+The component handles empty content gracefully:
+
+<Canvas of={EmptyCodeBlock} />
+
+## Accessibility
+
+- **Semantic HTML**: The component uses `<pre>` and `<code>` elements for proper semantic structure
+- **Language Context**: The `language` prop adds a `data-language` attribute for assistive technologies and syntax highlighters
+- **Keyboard Navigation**: Code content and copy button are properly focusable and navigable
+- **Screen Reader Support**: Line numbers are marked as non-selectable to avoid interfering with screen readers
+- **Copy Button Tooltips**: Use the `copyLabel` prop to provide helpful tooltips for the copy button
+- **Color Contrast**: Light theme provides sufficient contrast ratios for readability
+
+## Best Practices
+
+- **Language Specification**: Always specify the `language` prop when possible for better semantic meaning
+- **Line Numbers**: Use line numbers for longer code blocks or when referencing specific lines
+- **Scrolling vs Wrapping**: Choose between `wrap: false` (scrolling) and `wrap: true` (wrapping) based on your layout needs
+- **Size Selection**: Use 'sm' size for inline or compact displays, 'md' for standard code blocks
+- **Content Length**: Consider breaking very long code blocks into smaller, more digestible sections
+- **Copy Functionality**: Provide an `onCopy` callback to give users feedback when code is copied
+- **User Experience**: Use the `copyLabel` prop to provide helpful tooltips for the copy button
+
+## API
+
+<ArgTypes />
