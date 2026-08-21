@@ -12,10 +12,6 @@ A modern React UI kit with fundamental components built on Tailwind CSS, designe
 - 🔧 **Customizable**: Easy theming and customization through Tailwind config
 - 📱 **Responsive**: Mobile-first responsive design out of the box
 
-## Packages
-
-- **papyrus-ui**: The main UI kit with fundamental React components built with Tailwind CSS
-
 ## Quick Start
 
 ### 1. Installation
@@ -219,7 +215,7 @@ cd papyrus-ui
 pnpm install
 
 # Start development
-pnpm docs
+pnpm storybook
 
 # Run tests
 pnpm test
