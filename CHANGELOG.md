@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.10.1](https://github.com/mrwskx/papyrus-ui/compare/v0.10.0...v0.10.1) (2026-08-21)
+
+### Bug Fixes
+
+- **release:** grant id-token permission for npm trusted publishing ([99e1114](https://github.com/mrwskx/papyrus-ui/commit/99e1114ada422652c3c7326955a0a7f674c60326))
+
 ## [0.10.0](https://github.com/mrwskx/papyrus-ui/compare/v0.9.21...v0.10.0) (2026-08-21)
 
 ### Features
