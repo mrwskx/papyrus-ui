@@ -73,6 +73,11 @@ jobs:
 
       - name: Implement the issue
         uses: anthropics/claude-code-action@v1
+        # The PreToolUse hook on `Skill(implement)` re-checks authorization from
+        # inside the agent, and reads the issue it is allowed to work from here.
+        env:
+          GATE_ISSUE: ${{ github.event.issue.number }}
+          GATE_JOB: implement
         with:
           # Do NOT pass github_token: with the default GITHUB_TOKEN, GitHub will
           # not fire workflows on the agent's commits and ci.yml never runs.
