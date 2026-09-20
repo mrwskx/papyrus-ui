@@ -62,4 +62,4 @@ scripts/
 
 `index.ts` hold every side effect — read, spawn, print, throw. Keep it straight-line: no branch worth test belong there. Push decision into `.utils` where test reach it without filesystem.
 
-Pass resolved value into pure function, not the means to fetch it. `findMissingSkills` take `(path) => boolean` and `findSymlinkIssue` take link target string — caller do I/O first. Run script by `tsx`, wire as `package.json` script.
+Pass resolved value into pure function, not the means to fetch it. `findMissingSkills` take `(path) => boolean` and `findSymlinkIssue` take link target string — caller do I/O first. Run script by `tsx`. Wire as `package.json` script only when a human run it local — `pnpm validate-skills` earn its entry, a CI-only or hook-only entry point no. Those invoke by path: `pnpm tsx scripts/<name>/index.ts`, same as `generate-pr-description` do from `pr-description.yml` and the `open-pr` skill. Manifest script = local development surface, not inventory of every script.
