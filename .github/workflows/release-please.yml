@@ -5,6 +5,11 @@
 # The app token (rather than GITHUB_TOKEN) is deliberate: pushes made with
 # GITHUB_TOKEN do not trigger workflows, so the release PR would never get its
 # required `ci` check and could only be merged by admin bypass.
+#
+# `bump-minor-pre-major` in release-please-config.json is likewise deliberate:
+# below 1.0.0 a breaking change bumps the minor. 1.0.0 is a stability promise to
+# every npm consumer, so it is reached by a `Release-As: 1.0.0` commit when we
+# decide the API has settled — never as a side effect of breaking something.
 name: Release
 
 on:

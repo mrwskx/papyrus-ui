@@ -33,7 +33,7 @@ Completion criterion: `ISSUE` noted (may be empty).
 
 ### 3. Read commitlint rules
 
-Read `commitlint.config.js` from the project root. It defines custom rules beyond Conventional Commits defaults — read the rule implementations directly to learn their intent; don't rely on a fixed list here, since the file is the source of truth and can change independently of this skill.
+Read `.commitlintrc.mjs` from the project root. It defines custom rules beyond Conventional Commits defaults — read the rule implementations directly to learn their intent; don't rely on a fixed list here, since the file is the source of truth and can change independently of this skill.
 
 Completion criterion: custom rules understood; if the file is absent, skip this step and skip lint validation in step 5.
 
