@@ -4,7 +4,7 @@ This repo local style rule: mechanical convention tooling cannot enforce.
 
 ## Tooling owns style
 
-`eslint.config.js`, `.prettierrc.json`, `tsconfig.json` = style definition here. No hand-police what they enforce. No restate rule in prose — read config.
+`eslint.config.mjs`, `.prettierrc.json`, `tsconfig.json` = style definition here. No hand-police what they enforce. No restate rule in prose — read config.
 
 Before call work done:
 
