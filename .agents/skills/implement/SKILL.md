@@ -1,7 +1,6 @@
 ---
 name: implement
-description: Read a GitHub issue and implement the fix or feature. Never closes, comments on, or edits the issue. Invoked explicitly only — by the user locally, or by the claude-implement workflow under GitHub Actions.
-disable-model-invocation: true
+description: Read a GitHub issue and implement the fix or feature. Never closes, comments on, or edits the issue. Under GitHub Actions the run is authorized before it starts.
 ---
 
 # Implement
@@ -17,7 +16,9 @@ Steps 4–6 differ depending on where the skill runs. Check once, up front:
 ```
 
 - **local** — a supervised session. You summarize and stop; the user commits.
-- **unattended** — a GitHub Actions run. There is no user and the runner is destroyed when the job ends, so uncommitted work is lost. Commit as you go and finish with a draft PR.
+- **unattended** — a GitHub Actions run. There is no user and the runner is destroyed when the job ends, so uncommitted work is lost. Commit as you go; the workflow opens the PR.
+
+Unattended, a hook may deny this skill when you invoke it yourself — usually because you are in the read-only `converse` job and should escalate instead. The denial says what to do. Do that and stop. The workflow's own route is authorized before the run starts, so reaching Step 4 there means the issue already cleared it.
 
 Everything before Step 4 is identical on both surfaces.
 
@@ -92,6 +93,8 @@ Output a concise summary:
 
 ### Unattended
 
-Commit anything still uncommitted with `/commit-changes`, then invoke `/open-pr --draft`.
+Commit anything still uncommitted with `/commit-changes`.
 
-Report the same summary as the local path, plus the PR URL. Do not comment on, edit, or close the issue — the constraint from Step 2 holds on both surfaces. The draft PR is the whole output; linking it back to the issue is the reviewer's call.
+The branch is the output. The workflow opens the PR from it once the run ends — titled from the issue, Overview generated from your commits. Do not open one yourself.
+
+Report the same summary as the local path. Do not comment on, edit, or close the issue — the constraint from Step 2 holds on both surfaces.

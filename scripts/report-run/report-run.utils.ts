@@ -116,10 +116,12 @@ export function classify(facts: RunFacts): Report | null {
     };
   }
 
-  // `converse` answers questions and commits nothing; only the classes above
-  // can go wrong for it. Everything below asks what the run produced, which is
-  // a question that tier has no answer to.
-  if (facts.tier !== 'converse') {
+  // Everything below asks what the run produced — a branch, commits, a PR —
+  // and only `implement` owes that answer. `converse` commits nothing by
+  // design, and `pr` iterates on a pull request that already exists, so for
+  // both of them "finished having pushed nothing" is the normal ending and
+  // reporting it would put a false alarm on every question asked of them.
+  if (facts.tier === 'implement') {
     if (pushedNothing(facts)) {
       const denials = facts.execution?.permission_denials_count ?? 0;
 
