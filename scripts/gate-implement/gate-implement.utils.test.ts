@@ -1,5 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { decide, toIssueFacts, AGENT_LABEL } from './gate-implement.utils';
+import {
+  decide,
+  decideOnUnreadableBlockers,
+  toIssueFacts,
+  AGENT_LABEL,
+} from './gate-implement.utils';
 import type { IssueFacts } from './gate-implement.utils';
 
 // An issue a maintainer marked ready. Every case below is this one with
@@ -10,6 +15,7 @@ const authorized: IssueFacts = {
   labels: [AGENT_LABEL, 'feature'],
   authorAssociation: 'OWNER',
   isPullRequest: false,
+  blockedBy: [],
 };
 
 describe('toIssueFacts', () => {
@@ -21,15 +27,15 @@ describe('toIssueFacts', () => {
   };
 
   it('flattens the labels and renames the author association', () => {
-    expect(toIssueFacts(payload)).toEqual(authorized);
+    expect(toIssueFacts(payload, [])).toEqual(authorized);
   });
 
   // The endpoint serves pull requests under the same path, and only this field
   // tells the two apart.
   it('reads a pull request off the pull_request field', () => {
-    expect(toIssueFacts({ ...payload, pull_request: {} }).isPullRequest).toBe(
-      true,
-    );
+    expect(
+      toIssueFacts({ ...payload, pull_request: {} }, []).isPullRequest,
+    ).toBe(true);
   });
 });
 
@@ -103,6 +109,99 @@ describe('decide', () => {
     }
   });
 
+  describe('blocking issues', () => {
+    it('denies an issue with an open blocker, naming it', () => {
+      const decision = decide(
+        { ...authorized, blockedBy: [{ number: 91, state: 'open' }] },
+        'implement',
+      );
+
+      expect(decision.allow).toBe(false);
+      expect(decision).toMatchObject({
+        reason: expect.stringContaining('blocked by #91'),
+      });
+    });
+
+    // A closed blocker is a dependency that was satisfied, not one to wait on.
+    it('ignores a closed blocker', () => {
+      expect(
+        decide(
+          { ...authorized, blockedBy: [{ number: 91, state: 'closed' }] },
+          'implement',
+        ),
+      ).toEqual({ allow: true });
+    });
+
+    it('names only the open blockers when the edges are mixed', () => {
+      const decision = decide(
+        {
+          ...authorized,
+          blockedBy: [
+            { number: 91, state: 'closed' },
+            { number: 92, state: 'open' },
+          ],
+        },
+        'implement',
+      );
+
+      expect(decision).toMatchObject({
+        reason: expect.stringContaining('blocked by #92'),
+      });
+    });
+
+    it('counts the rest rather than listing every blocker', () => {
+      const blockedBy = [10, 20, 30, 40, 50, 60].map(number => ({
+        number,
+        state: 'open',
+      }));
+      const decision = decide({ ...authorized, blockedBy }, 'implement');
+
+      expect(decision).toMatchObject({
+        reason: expect.stringContaining('#10, #20, #30 and 3 others'),
+      });
+    });
+
+    it('writes one remaining blocker without an s', () => {
+      const blockedBy = [10, 20, 30, 40].map(number => ({
+        number,
+        state: 'open',
+      }));
+      const decision = decide({ ...authorized, blockedBy }, 'implement');
+
+      expect(decision).toMatchObject({
+        reason: expect.stringContaining('and 1 other.'),
+      });
+    });
+
+    // Authorization is the earlier question: an unlabelled issue is refused for
+    // the label, not for a blocker a maintainer never approved work on anyway.
+    it('reports the missing label before a blocker', () => {
+      const decision = decide(
+        {
+          ...authorized,
+          labels: [],
+          blockedBy: [{ number: 91, state: 'open' }],
+        },
+        'implement',
+      );
+
+      expect(decision).toMatchObject({
+        reason: expect.stringContaining(AGENT_LABEL),
+      });
+    });
+
+    it('tells the converse job it is blocked rather than to escalate', () => {
+      const decision = decide(
+        { ...authorized, blockedBy: [{ number: 91, state: 'open' }] },
+        'converse',
+      );
+
+      expect(decision).toMatchObject({
+        reason: expect.stringContaining('blocked by #91'),
+      });
+    });
+  });
+
   // The routing denial: authorized, but the read-only job cannot finish the work.
   it('tells the converse job to escalate, with the issue number in the command', () => {
     const decision = decide(authorized, 'converse');
@@ -118,6 +217,35 @@ describe('decide', () => {
     const decision = decide({ ...authorized, labels: [] }, 'converse');
     expect(decision).toMatchObject({
       reason: expect.stringContaining(AGENT_LABEL),
+    });
+  });
+});
+
+describe('decideOnUnreadableBlockers', () => {
+  // The dependency graph is not enabled on every repository, and denying on
+  // its absence would refuse every run here permanently.
+  it('treats a 404 as no blockers', () => {
+    expect(decideOnUnreadableBlockers('gh: Not Found (HTTP 404)')).toEqual({
+      allow: true,
+    });
+  });
+
+  it.each(['403', '500', '502'])('refuses on HTTP %s, naming it', status => {
+    const decision = decideOnUnreadableBlockers(`gh: failed (HTTP ${status})`);
+
+    expect(decision.allow).toBe(false);
+    expect(decision).toMatchObject({
+      reason: expect.stringContaining(`HTTP ${status}`),
+    });
+  });
+
+  // A spawn failure or a timeout carries no status at all.
+  it('refuses when the failure names no status', () => {
+    const decision = decideOnUnreadableBlockers('Error: spawn gh ENOENT');
+
+    expect(decision.allow).toBe(false);
+    expect(decision).toMatchObject({
+      reason: expect.stringContaining('HTTP unknown'),
     });
   });
 });
