@@ -217,6 +217,18 @@ describe('classify', () => {
     expect(classify(converse)).toBeNull();
   });
 
+  it('stays quiet when pr pushes nothing, which a question does not', () => {
+    const pr: RunFacts = {
+      ...clean,
+      tier: 'pr',
+      branchPushed: false,
+      commitsAhead: 0,
+      prNumber: null,
+    };
+
+    expect(classify(pr)).toBeNull();
+  });
+
   it('still reports converse failing', () => {
     const report = classify({
       ...clean,
