@@ -45,7 +45,7 @@ git rev-list --count origin/main..HEAD
 ### 3. Generate the Overview
 
 ```bash
-pnpm tsx scripts/generate-pr-description/index.ts "$(git rev-parse origin/main)" "$(git rev-parse HEAD)" "$(gh repo view --json nameWithOwner -q .nameWithOwner)"
+pnpm -s tsx scripts/generate-pr-description/index.ts "$(git rev-parse origin/main)" "$(git rev-parse HEAD)" "$(gh repo view --json nameWithOwner -q .nameWithOwner)"
 ```
 
 This is the exact script `.github/workflows/pr-description.yml` runs to auto-populate `## Overview` on `pull_request: opened` — same base/head/repo shape, same output. Producing it up front means that workflow's own check (section already has non-comment content → `exit 0`) fires on the first run, so it never re-generates.
