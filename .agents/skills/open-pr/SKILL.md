@@ -45,10 +45,10 @@ git rev-list --count origin/main..HEAD
 ### 3. Generate the Overview
 
 ```bash
-pnpm -s tsx scripts/generate-pr-description/index.ts "$(git rev-parse origin/main)" "$(git rev-parse HEAD)" "$(gh repo view --json nameWithOwner -q .nameWithOwner)"
+pnpm -s tsx scripts/generate-pr-description/index.ts "$(git rev-parse origin/main)" "$(git rev-parse HEAD)" "$(gh repo view --json nameWithOwner -q .nameWithOwner)" "$(git symbolic-ref --short HEAD)"
 ```
 
-This is the exact script `.github/workflows/pr-description.yml` runs to auto-populate `## Overview` on `pull_request: opened` — same base/head/repo shape, same output. Producing it up front means that workflow's own check (section already has non-comment content → `exit 0`) fires on the first run, so it never re-generates.
+This is the exact script `.github/workflows/pr-description.yml` runs to auto-populate `## Overview` on `pull_request: opened` — same base/head/repo/branch shape, same output. Producing it up front means that workflow's own check (section already has non-comment content → `exit 0`) fires on the first run, so it never re-generates.
 
 If the command prints nothing (no commits ahead of `origin/main`), abort — there's nothing to open a PR for.
 
