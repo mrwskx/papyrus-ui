@@ -232,7 +232,7 @@ jobs:
           # Temp file, not awk -v: an assignment cannot carry newlines.
           overview=$(mktemp)
           trap 'rm -f "$overview"' EXIT
-          pnpm tsx scripts/generate-pr-description/index.ts \
+          pnpm -s tsx scripts/generate-pr-description/index.ts \
             "$(git rev-parse origin/main)" "$(git rev-parse "origin/$BRANCH")" \
             "$GITHUB_REPOSITORY" > "$overview"
 
