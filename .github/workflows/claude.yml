@@ -232,7 +232,7 @@ jobs:
           # Temp file, not awk -v: an assignment cannot carry newlines.
           overview=$(mktemp)
           trap 'rm -f "$overview"' EXIT
-          pnpm tsx scripts/generate-pr-description/index.ts \
+          pnpm -s tsx scripts/generate-pr-description/index.ts \
             "$(git rev-parse origin/main)" "$(git rev-parse "origin/$BRANCH")" \
             "$GITHUB_REPOSITORY" > "$overview"
 
@@ -398,6 +398,19 @@ jobs:
             --max-turns 15
             --allowedTools Read,Glob,Grep,Skill,TodoWrite,Bash(gh issue view:*),Bash(gh issue list:*),Bash(gh pr view:*),Bash(gh pr list:*),Bash(gh pr diff:*),Bash(gh run view:*),Bash(gh workflow run:*),Bash(git log:*),Bash(git diff:*),Bash(git show:*)
             --append-system-prompt "You are the read-only tier. You have no Write, Edit or general Bash tools and cannot change, commit or push anything. If answering needs a code change, do not attempt it and do not retry after a denial. Invoke the implement skill instead: it will either authorize an escalation or tell you why the run is not permitted. Report that outcome and stop."
+
+      # The same runner-local file the reporter reads, kept after the job so a
+      # run can be diagnosed once it is gone. It carries which tools a run was
+      # denied, which the job log does not: that log holds only the action's
+      # `init` and `result` lines, five apart, with no per-turn stream.
+      - name: Preserve the execution log
+        if: ${{ always() && steps.claude.outputs.execution_file != '' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: claude-execution-converse-${{ github.run_id }}
+          path: ${{ steps.claude.outputs.execution_file }}
+          retention-days: 14
+          if-no-files-found: warn
 
       # Last, and `always()`: the endings worth reporting are the ones no other
       # step survives to describe — a cancelled job, a gate that refused before
