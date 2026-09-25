@@ -234,7 +234,7 @@ jobs:
           trap 'rm -f "$overview"' EXIT
           pnpm -s tsx scripts/generate-pr-description/index.ts \
             "$(git rev-parse origin/main)" "$(git rev-parse "origin/$BRANCH")" \
-            "$GITHUB_REPOSITORY" > "$overview"
+            "$GITHUB_REPOSITORY" "$ISSUE" > "$overview"
 
           # Same body shape as /open-pr: the template with ## Overview filled in,
           # so pr-description.yml finds it populated and exits immediately.

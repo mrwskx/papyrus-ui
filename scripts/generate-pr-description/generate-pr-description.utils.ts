@@ -116,10 +116,31 @@ export function groupBySection(commits: Commit[]): Map<string, Commit[]> {
   return ordered;
 }
 
-export function generateOverview(commits: Commit[]): string {
+// Matches the branch either starting with, or having a path segment that
+// starts with, `<issue>-` or `issue-<issue>-`. Requires a `/` boundary so
+// e.g. `2fa-support` isn't mistaken for issue 2.
+const BRANCH_ISSUE_PATTERN = /(?:^|\/)(?:issue-)?(\d+)(?:-|$)/;
+
+export function deriveIssueRef(branch: string): string {
+  return BRANCH_ISSUE_PATTERN.exec(branch)?.[1] ?? '';
+}
+
+export function resolveIssueRef(issueOrBranch: string): string {
+  if (!issueOrBranch) return '';
+  return /^\d+$/.test(issueOrBranch)
+    ? issueOrBranch
+    : deriveIssueRef(issueOrBranch);
+}
+
+export function generateOverview(commits: Commit[], issueRef = ''): string {
   if (commits.length === 0) return '';
+
+  const footnote = issueRef ? `Refs #${issueRef}` : '';
+  const withFootnote = (body: string) =>
+    footnote ? `${body}\n\n${footnote}` : body;
+
   const [first] = commits;
-  if (commits.length === 1) return formatEntry(first);
+  if (commits.length === 1) return withFootnote(formatEntry(first));
 
   const sections = groupBySection(commits);
   const parts: string[] = [];
@@ -129,5 +150,5 @@ export function generateOverview(commits: Commit[]): string {
     parts.push(`### ${section}\n\n${entries}`);
   }
 
-  return parts.join('\n\n');
+  return withFootnote(parts.join('\n\n'));
 }
