@@ -5,10 +5,12 @@ import {
   FloatingList,
   FloatingPortal,
 } from '@floating-ui/react';
+import cn from 'classnames';
 import { useContext } from 'react';
 import type { HTMLAttributes } from 'react';
 import { Transition } from 'react-transition-group';
 
+import { getAncestorThemeScope } from '../../../utils/get-ancestor-theme-scope';
 import { Listbox } from '../../listbox';
 import { DropdownMenuContext } from '../dropdown-menu.context';
 
@@ -39,6 +41,8 @@ export function DropdownMenuContent({
     refs,
   } = useContext(DropdownMenuContext);
 
+  const themeScope = getAncestorThemeScope(refs.reference.current);
+
   return (
     <FloatingList elementsRef={elementsRef} labelsRef={labelsRef}>
       <Transition
@@ -60,7 +64,7 @@ export function DropdownMenuContent({
                 ref={node => {
                   refs.setFloating(node);
                 }}
-                className="max-h-80 max-w-xs"
+                className={cn('max-h-80 max-w-xs', themeScope)}
                 style={floatingStyles}
                 visible={status === 'entered'}
                 {...getFloatingProps(props)}

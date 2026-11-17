@@ -10,6 +10,7 @@ import { useContext } from 'react';
 import type { HTMLAttributes, ReactNode } from 'react';
 import { Transition } from 'react-transition-group';
 
+import { getAncestorThemeScope } from '../../../utils/get-ancestor-theme-scope';
 import { ANIMATION_DURATION } from '../dialog.constants';
 import { DialogContext } from '../dialog.context';
 
@@ -39,6 +40,8 @@ export function DialogContent({
     descriptionId,
   } = useContext(DialogContext);
 
+  const themeScope = getAncestorThemeScope(refs.reference.current);
+
   return (
     <Transition
       in={isOpen}
@@ -51,6 +54,7 @@ export function DialogContent({
         <FloatingPortal>
           <FloatingOverlay
             className={cn(
+              themeScope,
               'fixed inset-0 flex flex-col items-center w-full h-full bg-black/50 opacity-0 transition z-30',
               size === 'sm' && 'justify-center p-4 overflow-y-auto',
               size === 'md' &&

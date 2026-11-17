@@ -142,6 +142,83 @@ describe('Popover', () => {
     });
   });
 
+  describe('Given a popover.Trigger nested inside a `.dark` ancestor', () => {
+    describe('When the popover.Content is open', () => {
+      it('Then the popover.Content should have the "dark" class', async () => {
+        render(
+          <div className="dark">
+            <Popover>
+              <Popover.Trigger>
+                <button type="button">Trigger</button>
+              </Popover.Trigger>
+              <Popover.Content>
+                <div>Content</div>
+              </Popover.Content>
+            </Popover>
+          </div>,
+        );
+
+        await userEvent.click(screen.getByText('Trigger'));
+
+        await waitFor(() => {
+          expect(screen.getByText('Content').parentElement).toHaveClass('dark');
+        });
+      });
+    });
+  });
+
+  describe('Given a popover.Trigger nested inside a `.light` ancestor', () => {
+    describe('When the popover.Content is open', () => {
+      it('Then the popover.Content should have the "light" class', async () => {
+        render(
+          <div className="light">
+            <Popover>
+              <Popover.Trigger>
+                <button type="button">Trigger</button>
+              </Popover.Trigger>
+              <Popover.Content>
+                <div>Content</div>
+              </Popover.Content>
+            </Popover>
+          </div>,
+        );
+
+        await userEvent.click(screen.getByText('Trigger'));
+
+        await waitFor(() => {
+          expect(screen.getByText('Content').parentElement).toHaveClass(
+            'light',
+          );
+        });
+      });
+    });
+  });
+
+  describe('Given a popover.Trigger with no `.light` or `.dark` ancestor', () => {
+    describe('When the popover.Content is open', () => {
+      it('Then the popover.Content should have neither the "light" nor the "dark" class', async () => {
+        render(
+          <Popover>
+            <Popover.Trigger>
+              <button type="button">Trigger</button>
+            </Popover.Trigger>
+            <Popover.Content>
+              <div>Content</div>
+            </Popover.Content>
+          </Popover>,
+        );
+
+        await userEvent.click(screen.getByText('Trigger'));
+
+        await waitFor(() => {
+          const content = screen.getByText('Content').parentElement;
+          expect(content).not.toHaveClass('light');
+          expect(content).not.toHaveClass('dark');
+        });
+      });
+    });
+  });
+
   describe('Given a popover component with isOpen and onOpenChange props', () => {
     describe('When the popover is opened and user click outside the popover content', () => {
       it('Then the onOpenChange callback should be called with the new open state', async () => {

@@ -4,6 +4,7 @@ import { forwardRef, useContext } from 'react';
 import type { HTMLAttributes } from 'react';
 import { Transition } from 'react-transition-group';
 
+import { getAncestorThemeScope } from '../../../utils/get-ancestor-theme-scope';
 import { useMergeRefs } from '../../../utils/use-merge-refs';
 import { PopoverContext } from '../popover.context';
 
@@ -24,6 +25,8 @@ export const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>(
       refs.setFloating(node);
     });
 
+    const themeScope = getAncestorThemeScope(refs.reference.current);
+
     return (
       <Transition
         in={isOpen}
@@ -38,6 +41,7 @@ export const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>(
               <div
                 ref={meredRef}
                 className={cn(
+                  themeScope,
                   'z-40 opacity-0 transition-opacity',
                   status === 'entered' && 'opacity-100',
                   className,
