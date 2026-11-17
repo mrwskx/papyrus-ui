@@ -92,7 +92,7 @@ function MenuComponent({
         {...props}
         ref={menuRef}
         className={cn(
-          'flex flex-col gap-1 focus:outline-none focus-visible:ring',
+          'flex flex-col gap-1 focus:outline-none focus-visible:ring focus-visible:ring-focus',
           className,
         )}
         role="menu"
