@@ -26,6 +26,12 @@
       "path": "skills/productivity/handoff",
       "hash": "cdbcb9150df241254a5178eeebfa7c20c9a09613b19aea56eb4d4ca79893666e"
     },
+    "impeccable": {
+      "source": "pbakaus/impeccable",
+      "path": ".claude/skills/impeccable",
+      "version": "4.9.1",
+      "hash": "40bdfafd75e01b24bf4f8eb5600abd1cfbd4c613cc48f7398a960fcd9e2b8f83"
+    },
     "improve-codebase-architecture": {
       "source": "mattpocock/skills",
       "path": "skills/engineering/improve-codebase-architecture",

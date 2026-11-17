@@ -31,14 +31,15 @@ Match user's request to skill and invoke.
 
 ### Building
 
-| Skill                       | Trigger                                                                                     |
-| --------------------------- | ------------------------------------------------------------------------------------------- |
-| `implement`                 | `/implement`, "implement issue N", "work issue N", "pick up issue N"                        |
-| `tdd`                       | "test-first", "red-green", "write the test first", "add integration tests"                  |
-| `prototype`                 | "prototype this", "spike it", "does this state model feel right", "try a few UI variations" |
-| `diagnosing-bugs`           | "diagnose this", "debug this", something broken / throwing / failing / slow                 |
-| `resolving-merge-conflicts` | "resolve the conflicts", "fix this merge", "finish the rebase"                              |
-| `ponytail`                  | "be lazy", "simplest solution", "yagni", "do less", complaints about over-engineering       |
+| Skill                       | Trigger                                                                                              |
+| --------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `implement`                 | `/implement`, "implement issue N", "work issue N", "pick up issue N"                                 |
+| `tdd`                       | "test-first", "red-green", "write the test first", "add integration tests"                           |
+| `prototype`                 | "prototype this", "spike it", "does this state model feel right", "try a few UI variations"          |
+| `diagnosing-bugs`           | "diagnose this", "debug this", something broken / throwing / failing / slow                          |
+| `resolving-merge-conflicts` | "resolve the conflicts", "fix this merge", "finish the rebase"                                       |
+| `ponytail`                  | "be lazy", "simplest solution", "yagni", "do less", complaints about over-engineering                |
+| `impeccable`                | "audit the design", "critique this page", "polish this component", "colorize this UI", `/impeccable` |
 
 ### Review & Ship
 
