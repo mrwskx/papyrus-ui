@@ -2,7 +2,7 @@ import { dirname, join, resolve } from 'node:path';
 
 import type { StorybookConfig } from '@storybook/react-vite';
 import autoprefixer from 'autoprefixer';
-import tailwindcss from 'tailwindcss';
+import tailwindcss from 'tailwindcss3';
 import { mergeConfig } from 'vite';
 import type { UserConfig } from 'vite';
 

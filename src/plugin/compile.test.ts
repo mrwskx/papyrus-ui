@@ -1,7 +1,7 @@
 import { compile as compileV4 } from '@tailwindcss/node';
 import path from 'node:path';
 import postcss from 'postcss';
-import tailwindcss3 from 'tailwindcss';
+import tailwindcss3 from 'tailwindcss3';
 
 import papyrusUIPlugin from '.';
 
@@ -32,7 +32,7 @@ describe('papyrusUIPlugin on tailwindcss 3', () => {
 describe('papyrusUIPlugin on tailwindcss 4', () => {
   it('generates the theme utility, opacity-modified color and @apply component class', async () => {
     const result = await compileV4(
-      '@import "tailwindcss4";\n@plugin "./index.ts";',
+      '@import "tailwindcss";\n@plugin "./index.ts";',
       { base: PLUGIN_DIR, onDependency: () => {} },
     );
     const css = result.build(CANDIDATES);

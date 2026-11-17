@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss3').Config} */
 import { resolve } from 'node:path';
 
 // Imported from source, not from dist, so Tailwind picks up plugin changes
