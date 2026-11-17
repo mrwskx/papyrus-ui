@@ -24,7 +24,7 @@ npm install tailwindcss papyrus-ui
 
 ### 2. Setup Tailwind CSS
 
-Create a `tailwind.config.js` file in your project root:
+**Tailwind 3** — create a `tailwind.config.js` file in your project root:
 
 ```js
 /** @type {import('tailwindcss').Config} */
@@ -33,13 +33,28 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
     './node_modules/papyrus-ui/**/*.{js,ts,jsx,tsx}',
   ],
-  presets: [require('papyrus-ui/plugin')],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('papyrus-ui/plugin')],
 };
 ```
+
+**Tailwind 4** — add the plugin to your CSS entry point:
+
+```css
+@import 'tailwindcss';
+@plugin 'papyrus-ui/plugin';
+
+@source './node_modules/papyrus-ui';
+```
+
+### 3. Load the fonts
+
+The theme names `DM Sans`, `Vollkorn` and `IBM Plex Mono` as the sans, serif and mono
+font families. Load them in your app (e.g. via `next/font`, a `<link>` to Google Fonts,
+or self-hosted `@font-face` rules) — the plugin only references the names, it does not
+load the fonts.
 
 ### 4. Use Components
 
@@ -140,7 +155,7 @@ You can customize the design system by extending the Tailwind configuration:
 
 ```js
 module.exports = {
-  presets: [require('papyrus-ui/plugin')],
+  plugins: [require('papyrus-ui/plugin')],
   theme: {
     extend: {
       colors: {
