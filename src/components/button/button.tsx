@@ -95,7 +95,8 @@ const sizeMap: Record<ButtonSize, string> = {
 const baseStyles = [
   'inline-flex items-center justify-center',
   'border border-solid',
-  'transition-color',
+  'enabled:cursor-pointer',
+  'transition-colors',
   'gap-1.5',
   'focus:outline-none',
 ];
@@ -110,7 +111,7 @@ const variantStyles = {
     'hover:bg-primary-500',
     'active:bg-primary-700',
     'disabled:bg-neutral-300',
-    'focus-visible:ring',
+    'focus-visible:ring focus-visible:ring-focus',
   ],
   secondary: [
     'border-primary-400',
@@ -119,7 +120,7 @@ const variantStyles = {
     'hover:bg-primary-600/10',
     'active:bg-primary-600/20',
     'disabled:opacity-disabled disabled:border-neutral-400 disabled:bg-transparent disabled:text-neutral-600',
-    'focus-visible:ring',
+    'focus-visible:ring focus-visible:ring-focus',
   ],
   tertiary: [
     'border-neutral-300',
@@ -128,7 +129,7 @@ const variantStyles = {
     'hover:bg-neutral-500/20',
     'active:bg-neutral-500/30',
     'disabled:opacity-disabled disabled:bg-neutral-500/10',
-    'focus-visible:ring',
+    'focus-visible:ring focus-visible:ring-focus',
   ],
   plain: [
     'border-transparent',
@@ -136,7 +137,7 @@ const variantStyles = {
     'hover:bg-neutral-500/10',
     'active:hover:bg-neutral-500/20',
     'disabled:opacity-disabled disabled:bg-transparent',
-    'focus-visible:ring',
+    'focus-visible:ring focus-visible:ring-focus',
   ],
   info: [
     'border-transparent',
@@ -146,7 +147,7 @@ const variantStyles = {
     'hover:bg-info-500',
     'active:bg-info-700',
     'disabled:bg-neutral-300',
-    'focus-visible:ring',
+    'focus-visible:ring focus-visible:ring-focus',
   ],
   success: [
     'border-transparent',
@@ -156,7 +157,7 @@ const variantStyles = {
     'hover:bg-success-500',
     'active:bg-success-700',
     'disabled:bg-neutral-300',
-    'focus-visible:ring',
+    'focus-visible:ring focus-visible:ring-focus',
   ],
   warning: [
     'border-transparent',
@@ -166,7 +167,7 @@ const variantStyles = {
     'hover:bg-warning-500',
     'active:bg-warning-700',
     'disabled:bg-neutral-300',
-    'focus-visible:ring',
+    'focus-visible:ring focus-visible:ring-focus',
   ],
   danger: [
     'border-transparent',
@@ -176,7 +177,7 @@ const variantStyles = {
     'hover:bg-danger-500',
     'active:bg-danger-700',
     'disabled:bg-neutral-300',
-    'focus-visible:ring',
+    'focus-visible:ring focus-visible:ring-focus',
   ],
   ghost: [
     'border-white/80',

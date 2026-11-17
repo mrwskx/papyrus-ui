@@ -185,7 +185,7 @@ function MenuBarComponent({
             // eslint-disable-next-line react-hooks/refs, @typescript-eslint/unbound-method -- refs.setFloating is a standalone setter callback, not a ref value or a `this`-bound method
             ref={refs.setFloating}
             className={cn(
-              'inline-flex gap-1 focus:outline-none focus-visible:ring',
+              'inline-flex gap-1 focus:outline-none focus-visible:ring focus-visible:ring-focus',
               block && 'w-full',
               props.className,
             )}

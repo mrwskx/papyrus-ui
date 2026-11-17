@@ -37,6 +37,7 @@ const rootValidClasses = [
   'text-neutral-500',
   'focus-visible:border-primary-500',
   'focus-visible:text-primary-500',
+  'focus-visible:ring-focus',
 ];
 
 const rootDroppableClasses = [
@@ -70,6 +71,7 @@ const rootReadOnlyClasses = [
   'border-neutral-400',
   'text-neutral-500',
   'cursor-default',
+  'focus-visible:ring-focus',
 ];
 
 const rootDisabledClasses = [
@@ -77,6 +79,7 @@ const rootDisabledClasses = [
   'bg-neutral-50/50',
   'text-neutral-500/50',
   'cursor-default',
+  'focus-visible:ring-focus',
 ];
 
 const placeholderClasses = [

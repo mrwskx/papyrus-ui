@@ -37,17 +37,17 @@ import type {
   RefAttributes,
 } from 'react';
 import type { IconBaseProps } from 'react-icons';
-import { BiCheck, BiX } from 'react-icons/bi';
+import { BiCheck } from 'react-icons/bi';
 import { Transition } from 'react-transition-group';
 
 import type { Maybe, MaybeMultiValue } from '../../types';
 import { slug } from '../../utils/slug';
 import { useId } from '../../utils/use-id';
 import { useMergeRefs } from '../../utils/use-merge-refs';
-import { Icon } from '../icon';
 import { InputAction } from '../input-action';
 import { InputBox } from '../input-box';
 import type { InputBoxSize } from '../input-box';
+import { InputClear } from '../input-clear';
 import { InputGroup } from '../input-group';
 import { Listbox } from '../listbox/listbox';
 import { Option } from '../option';
@@ -536,9 +536,7 @@ export const Autocomplete = forwardRef(
       }
     };
 
-    const handleClearMouseDown = (e: MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-      e.stopPropagation();
+    const handleClear = () => {
       changeValue([]);
       setInputValue('');
     };
@@ -641,15 +639,7 @@ export const Autocomplete = forwardRef(
             isFocused &&
             (inputValue.length > 0 || selectedOptions.length > 0) && (
               <InputAction className="ms-1">
-                <Icon
-                  aria-label={clearLabel}
-                  className="text-lg color-neutral-950 hover:opacity-60"
-                  role="button"
-                  tabIndex={-1}
-                  onMouseDown={handleClearMouseDown}
-                >
-                  <BiX />
-                </Icon>
+                <InputClear label={clearLabel} onClear={handleClear} />
               </InputAction>
             )}
 

@@ -61,7 +61,7 @@ const interactiveStyles = [
   'bg-neutral-50',
   'cursor-text',
   'hover:border-primary-500',
-  'focus-within:border-primary-500 focus-within:ring-4',
+  'focus-within:border-primary-500 focus-within:ring-4 focus-within:ring-focus',
 ];
 
 const invalidStyles = [
