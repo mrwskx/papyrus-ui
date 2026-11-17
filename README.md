@@ -27,19 +27,27 @@ npm install tailwindcss papyrus-ui
 Create a `tailwind.config.js` file in your project root:
 
 ```js
+import papyrusPlugin from 'papyrus-ui/plugin';
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
     './node_modules/papyrus-ui/**/*.{js,ts,jsx,tsx}',
   ],
-  presets: [require('papyrus-ui/plugin')],
+  presets: [papyrusPlugin],
   theme: {
     extend: {},
   },
   plugins: [],
 };
 ```
+
+papyrus-ui ships ESM only. `import` works everywhere; `require('papyrus-ui')` also works on
+Node 20.19+ and 22.12+, which load a synchronous ESM graph unflagged. Jest's CommonJS runtime
+doesn't transform `node_modules` by default, so Jest users should add `papyrus-ui` to
+[`transformIgnorePatterns`](https://jestjs.io/docs/configuration#transformignorepatterns-arraystring)
+or move to [Vitest](https://vitest.dev).
 
 ### 4. Use Components
 
@@ -139,8 +147,10 @@ The library includes a comprehensive set of 40+ components organized into logica
 You can customize the design system by extending the Tailwind configuration:
 
 ```js
-module.exports = {
-  presets: [require('papyrus-ui/plugin')],
+import papyrusPlugin from 'papyrus-ui/plugin';
+
+export default {
+  presets: [papyrusPlugin],
   theme: {
     extend: {
       colors: {

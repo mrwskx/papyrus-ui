@@ -22,34 +22,24 @@ const outputSharedOptions = {
 export default defineConfig({
   build: {
     lib: {
-      entry: [
-        resolve(__dirname, 'src/index.ts'),
-        resolve(__dirname, 'src/plugin/index.ts'),
-      ],
+      entry: {
+        index: resolve(__dirname, 'src/index.ts'),
+        'plugin/index': resolve(__dirname, 'src/plugin/index.ts'),
+      },
+      formats: ['es'],
     },
     rollupOptions: {
       external,
-      output: [
-        {
-          ...outputSharedOptions,
-          entryFileNames: 'es/[name].js',
-          exports: 'named',
-          format: 'es',
-          generatedCode: {
-            constBindings: true,
-            preset: 'es2015',
-          },
+      output: {
+        ...outputSharedOptions,
+        entryFileNames: 'es/[name].js',
+        exports: 'named',
+        format: 'es',
+        generatedCode: {
+          constBindings: true,
+          preset: 'es2015',
         },
-        {
-          ...outputSharedOptions,
-          entryFileNames: 'cjs/[name].js',
-          format: 'cjs',
-          generatedCode: {
-            constBindings: true,
-            preset: 'es2015',
-          },
-        },
-      ],
+      },
       plugins: [preserveDirectives()],
     },
     sourcemap: true,
@@ -59,6 +49,7 @@ export default defineConfig({
     dts({
       outDir: 'dist/types',
       tsconfigPath: './tsconfig.build.json',
+      rollupTypes: true,
     }),
   ],
 });
