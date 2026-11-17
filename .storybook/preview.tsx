@@ -1,5 +1,5 @@
 import { withThemeByClassName } from '@storybook/addon-themes';
-import type { Decorator, Preview } from '@storybook/react';
+import type { Decorator, Preview } from '@storybook/react-vite';
 import cn from 'classnames';
 import type { ComponentProps } from 'react';
 
@@ -14,25 +14,27 @@ const preview: Preview = {
     layout: 'centered',
     viewMode: 'docs',
     backgrounds: {
-      default: 'White',
-      values: [
-        {
+      options: {
+        primary: {
           name: 'Primary',
           value: '#056CF2',
         },
-        {
+
+        tertiary: {
           name: 'Tertiary',
           value: '#f7f7f7',
         },
-        {
+
+        white: {
           name: 'White',
           value: '#ffffff',
         },
-        {
+
+        black: {
           name: 'Black',
           value: '#000000',
         },
-      ],
+      },
     },
     controls: {
       hideNoControlsWarning: true,
@@ -89,6 +91,12 @@ const preview: Preview = {
           <Code size="sm" {...props} />
         ),
       },
+    },
+  },
+
+  initialGlobals: {
+    backgrounds: {
+      value: 'white',
     },
   },
 };

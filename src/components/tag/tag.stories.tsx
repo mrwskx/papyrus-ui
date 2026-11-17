@@ -1,4 +1,4 @@
-import type { StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react-vite';
 import { capitalize, toUpper } from 'lodash';
 import { BiCheck, BiStar, BiTag } from 'react-icons/bi';
 

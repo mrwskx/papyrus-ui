@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 import { BiBell, BiSolidError } from 'react-icons/bi';
 
 import { Avatar } from '../avatar';

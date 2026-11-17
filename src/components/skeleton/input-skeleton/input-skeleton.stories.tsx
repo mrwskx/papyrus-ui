@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 
 import { InputSkeleton } from './input-skeleton';
 import type { InputSkeletonProps } from './input-skeleton';
