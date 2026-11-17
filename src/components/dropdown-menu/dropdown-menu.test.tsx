@@ -32,6 +32,33 @@ describe('DropdownMenu', () => {
       });
     });
 
+    describe('When a className and style are passed to DropdownMenu.Content', () => {
+      it('Then both should reach the DOM without breaking the built-in behavior', async () => {
+        render(
+          <DropdownMenu>
+            <DropdownMenu.Trigger>
+              <button type="button">Trigger</button>
+            </DropdownMenu.Trigger>
+            <DropdownMenu.Content
+              className="custom-class"
+              style={{ color: 'rgb(1, 2, 3)' }}
+            >
+              <DropdownMenu.Item>Delete</DropdownMenu.Item>
+            </DropdownMenu.Content>
+          </DropdownMenu>,
+        );
+
+        await userEvent.click(screen.getByRole('button'));
+
+        await waitFor(() => {
+          const menu = screen.getByRole('menu');
+          expect(menu).toHaveClass('custom-class');
+          expect(menu).toHaveStyle({ color: 'rgb(1, 2, 3)' });
+          expect(menu.style.position).toBe('fixed');
+        });
+      });
+    });
+
     describe('When popover is open and user click outside the popover content', () => {
       it('Then the menu component should be hidden', async () => {
         render(
