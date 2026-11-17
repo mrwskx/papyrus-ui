@@ -15,3 +15,12 @@ declare module 'jest-axe' {
 }
 
 declare module 'jest-axe/extend-expect';
+
+// @tailwindcss/node ships types only through its `exports` map, which
+// `moduleResolution: "node"` doesn't read. Declare the surface used here.
+declare module '@tailwindcss/node' {
+  export function compile(
+    css: string,
+    options: { base: string; onDependency: (path: string) => void },
+  ): Promise<{ build(candidates: string[]): string }>;
+}
