@@ -383,7 +383,7 @@ export function MenuBarSubmenu({
                       'max-h-80 max-w-xs z-10',
                       contentClassName,
                     )}
-                    style={floatingStyles}
+                    style={{ ...floatingStyles, ...contentStyle }}
                     visible={status === 'entered'}
                     {...getFloatingProps()}
                   >

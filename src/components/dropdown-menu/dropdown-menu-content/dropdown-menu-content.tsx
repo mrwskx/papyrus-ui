@@ -67,7 +67,7 @@ export function DropdownMenuContent({
                   refs.setFloating(node);
                 }}
                 className={cn(themeScope, 'max-h-80 max-w-xs', className)}
-                style={floatingStyles}
+                style={{ ...floatingStyles, ...style }}
                 visible={status === 'entered'}
                 {...getFloatingProps(props)}
               >
