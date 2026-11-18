@@ -20,8 +20,9 @@ element that opens them, so they stay in the same scope.
 
 ## Consequences
 
-- An app's own `dark:` utilities must match the library's rule. The Installation docs give
-  the Tailwind 4 setting (`@custom-variant dark`). The Tailwind 3 setting
+- An app's own `dark:` utilities must match the library's rule. `papyrus-ui/theme.css` ships
+  the `dark` custom variant itself, so an app needs no `@custom-variant dark` line of its own
+  ([ADR-0006](./0006-theme-ships-as-tailwind-4-css.md)). The Tailwind 3 setting
   (`darkMode: ['variant', …]`) no longer applies ([ADR-0005](./0005-tailwind-4-only.md)).
 - A user's saved theme choice still needs a small inline `<head>` script, because CSS
   cannot read storage.

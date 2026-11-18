@@ -23,11 +23,7 @@
       "import": "./dist/es/index.js",
       "default": "./dist/es/index.js"
     },
-    "./plugin": {
-      "types": "./dist/types/plugin/index.d.ts",
-      "import": "./dist/es/plugin/index.js",
-      "default": "./dist/es/plugin/index.js"
-    }
+    "./theme.css": "./dist/theme.css"
   },
   "publishConfig": {
     "access": "public"

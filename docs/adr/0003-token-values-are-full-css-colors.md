@@ -1,5 +1,9 @@
 # Token values are full CSS colors, and utilities wrap them in `color-mix`
 
+Its `<alpha-value>` wrapping is superseded by
+[ADR-0006](./0006-theme-ships-as-tailwind-4-css.md): Tailwind 4 applies opacity modifiers to a
+color registered as a theme variable without it.
+
 Every color token holds a complete CSS color. Each Tailwind color is registered as
 `color-mix(in srgb, var(--pp-…) calc(<alpha-value> * 100%), transparent)`. Opacity
 modifiers such as `bg-primary/50` keep working on both Tailwind 3 and 4, and apps can
