@@ -24,25 +24,7 @@ npm install tailwindcss papyrus-ui
 
 ### 2. Setup Tailwind CSS
 
-**Tailwind 3** — create a `tailwind.config.js` file in your project root:
-
-```js
-import papyrusPlugin from 'papyrus-ui/plugin';
-
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/papyrus-ui/**/*.{js,ts,jsx,tsx}',
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [papyrusPlugin],
-};
-```
-
-**Tailwind 4** — add the plugin to your CSS entry point:
+Add the plugin to your CSS entry point:
 
 ```css
 @import 'tailwindcss';
@@ -159,37 +141,27 @@ The library includes a comprehensive set of 40+ components organized into logica
 
 ### Theme Customization
 
-You can customize the design system by extending the Tailwind configuration:
+You can customize the design system by extending the theme in your CSS entry point:
 
-```js
-import papyrusPlugin from 'papyrus-ui/plugin';
+```css
+@import 'tailwindcss';
+@plugin 'papyrus-ui/plugin';
 
-export default {
-  plugins: [papyrusPlugin],
-  theme: {
-    extend: {
-      colors: {
-        primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-        },
-        secondary: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-        },
-      },
-      borderRadius: {
-        xl: '1rem',
-      },
-    },
-  },
-};
+@source './node_modules/papyrus-ui';
+
+@theme {
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-secondary-50: #f8fafc;
+  --color-secondary-100: #f1f5f9;
+  --color-secondary-500: #64748b;
+  --color-secondary-600: #475569;
+  --color-secondary-700: #334155;
+  --radius-xl: 1rem;
+}
 ```
 
 ### Component Variants

@@ -1,5 +1,7 @@
 # One JavaScript plugin serves Tailwind 3 and Tailwind 4
 
+Superseded by [ADR-0005](./0005-tailwind-4-only.md), which drops the Tailwind 3 peer range.
+
 The package keeps the peer range `tailwindcss: ^3 || ^4` and ships one JavaScript plugin.
 Tailwind 3 loads it with `plugins: [require('papyrus-ui/plugin')]`, and Tailwind 4 with
 `@plugin "papyrus-ui/plugin"`. Tailwind 4 loads a Tailwind 3-style plugin unchanged,
