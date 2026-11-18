@@ -43,6 +43,7 @@ import type {
 import { BiChevronDown, BiChevronRight } from 'react-icons/bi';
 import { Transition } from 'react-transition-group';
 
+import { getAncestorThemeScope } from '../../../utils/get-ancestor-theme-scope';
 import {
   getFirstItem,
   getLastItem,
@@ -150,6 +151,7 @@ export function MenuBarSubmenu({
   );
 
   const handleMenuItemKeyDown = useCallback(
+    // eslint-disable-next-line react-hooks/preserve-manual-memoization -- resolving the theme scope below also reads refs.reference.current, which the compiler folds into this callback's inferred deps; refs.reference is the stable dependency that actually matters here
     (e: KeyboardEvent<HTMLAnchorElement>) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -328,6 +330,7 @@ export function MenuBarSubmenu({
   }, [tree, isOpen, nodeId, parentId]);
 
   const isActive = parent.activeIndex === item.index;
+  const themeScope = getAncestorThemeScope(refs.reference.current);
 
   return (
     <FloatingNode id={nodeId}>
@@ -375,7 +378,11 @@ export function MenuBarSubmenu({
                   <Listbox
                     // eslint-disable-next-line @typescript-eslint/unbound-method -- @floating-ui declares setReference/setFloating in method shorthand; they are standalone callbacks and use no `this`
                     ref={refs.setFloating}
-                    className={cn('max-h-80 max-w-xs z-10', contentClassName)}
+                    className={cn(
+                      themeScope,
+                      'max-h-80 max-w-xs z-10',
+                      contentClassName,
+                    )}
                     style={{ ...floatingStyles, ...contentStyle }}
                     visible={status === 'entered'}
                     {...getFloatingProps()}
