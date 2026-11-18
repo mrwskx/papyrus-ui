@@ -21,7 +21,7 @@ element that opens them, so they stay in the same scope.
 ## Consequences
 
 - An app's own `dark:` utilities must match the library's rule. The Installation docs give
-  the setting for Tailwind 3 (`darkMode: ['variant', …]`) and Tailwind 4
-  (`@custom-variant dark`).
+  the Tailwind 4 setting (`@custom-variant dark`). The Tailwind 3 setting
+  (`darkMode: ['variant', …]`) no longer applies ([ADR-0005](./0005-tailwind-4-only.md)).
 - A user's saved theme choice still needs a small inline `<head>` script, because CSS
   cannot read storage.
