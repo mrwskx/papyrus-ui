@@ -73,33 +73,37 @@ const interactiveVariantStyles = {
   primary: [
     'hover:bg-primary-500',
     'active:bg-primary-700',
-    'focus-visible:ring',
+    'focus-visible:ring focus-visible:ring-focus',
   ],
   secondary: [
     'hover:bg-primary-500/20',
     'active:bg-primary-500/30',
-    'focus-visible:ring',
+    'focus-visible:ring focus-visible:ring-focus',
   ],
   tertiary: [
     'hover:bg-neutral-500/20',
     'active:bg-neutral-500/30',
-    'focus-visible:ring',
+    'focus-visible:ring focus-visible:ring-focus',
   ],
-  info: ['hover:bg-info-500/20', 'active:bg-info-500/30', 'focus-visible:ring'],
+  info: [
+    'hover:bg-info-500/20',
+    'active:bg-info-500/30',
+    'focus-visible:ring focus-visible:ring-focus',
+  ],
   success: [
     'hover:bg-success-500/20',
     'active:bg-success-500/30',
-    'focus-visible:ring',
+    'focus-visible:ring focus-visible:ring-focus',
   ],
   warning: [
     'hover:bg-warning-500/20',
     'active:bg-warning-500/30',
-    'focus-visible:ring',
+    'focus-visible:ring focus-visible:ring-focus',
   ],
   danger: [
     'hover:bg-danger-500/20',
     'active:bg-danger-500/30',
-    'focus-visible:ring',
+    'focus-visible:ring focus-visible:ring-focus',
   ],
   ghost: [
     'hover:bg-white/30',

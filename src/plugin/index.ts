@@ -3,6 +3,9 @@ import plugin from 'tailwindcss/plugin';
 import { config } from './config';
 
 const papyrusUIPlugin = plugin(props => {
+  // Tailwind 4 types theme() as `any`; every path read here is a CSS string.
+  const theme = (path: string) => props.theme(path) as string;
+
   // Global base styles
   props.addBase({
     '[data-floating-ui-portal]': {
@@ -16,11 +19,11 @@ const papyrusUIPlugin = plugin(props => {
     '.input-base': {
       '@apply font-sans text-body-md-primary text-neutral-950 block w-full bg-transparent':
         {},
-      WebkitTextFillColor: props.theme('colors.neutral.700'),
+      WebkitTextFillColor: theme('colors.neutral.700'),
 
       '&::placeholder': {
         '@apply text-neutral-500 opacity-100': {},
-        WebkitTextFillColor: props.theme('colors.neutral.500'),
+        WebkitTextFillColor: theme('colors.neutral.500'),
       },
 
       '&:focus-visible': {
@@ -29,12 +32,12 @@ const papyrusUIPlugin = plugin(props => {
 
       '&:disabled:not(:placeholder-shown)': {
         '@apply text-neutral-950 opacity-disabled': {},
-        WebkitTextFillColor: props.theme('colors.neutral.700'),
+        WebkitTextFillColor: theme('colors.neutral.700'),
       },
 
       '&:disabled:placeholder-shown': {
         '@apply text-neutral-500 opacity-disabled': {},
-        WebkitTextFillColor: props.theme('colors.neutral.500'),
+        WebkitTextFillColor: theme('colors.neutral.500'),
       },
     },
 
@@ -47,7 +50,7 @@ const papyrusUIPlugin = plugin(props => {
 
       '&::placeholder': {
         '@apply text-neutral-500 opacity-100': {},
-        WebkitTextFillColor: props.theme('colors.neutral.500'),
+        WebkitTextFillColor: theme('colors.neutral.500'),
       },
 
       '&:focus-visible': {
@@ -56,12 +59,12 @@ const papyrusUIPlugin = plugin(props => {
 
       '&:disabled:not(:placeholder-shown)': {
         '@apply text-neutral-950 opacity-disabled': {},
-        WebkitTextFillColor: props.theme('colors.neutral.700'),
+        WebkitTextFillColor: theme('colors.neutral.700'),
       },
 
       '&:disabled:placeholder-shown': {
         '@apply text-neutral-500 opacity-disabled': {},
-        WebkitTextFillColor: props.theme('colors.neutral.500'),
+        WebkitTextFillColor: theme('colors.neutral.500'),
       },
     },
 
@@ -73,7 +76,7 @@ const papyrusUIPlugin = plugin(props => {
 
       '&::placeholder': {
         '@apply text-neutral-500 opacity-100': {},
-        WebkitTextFillColor: props.theme('colors.neutral.500'),
+        WebkitTextFillColor: theme('colors.neutral.500'),
       },
 
       '&:focus-visible': {
@@ -82,12 +85,12 @@ const papyrusUIPlugin = plugin(props => {
 
       '&:disabled:not(:placeholder-shown)': {
         '@apply text-neutral-950 opacity-disabled': {},
-        WebkitTextFillColor: props.theme('colors.neutral.700'),
+        WebkitTextFillColor: theme('colors.neutral.700'),
       },
 
       '&:disabled:placeholder-shown': {
         '@apply text-neutral-500 opacity-disabled': {},
-        WebkitTextFillColor: props.theme('colors.neutral.500'),
+        WebkitTextFillColor: theme('colors.neutral.500'),
       },
     },
 
@@ -118,7 +121,7 @@ const papyrusUIPlugin = plugin(props => {
 
       '&:focus-visible': {
         outline: 'none',
-        '@apply ring': {},
+        '@apply ring ring-focus': {},
       },
 
       '&:checked': {
@@ -163,7 +166,7 @@ const papyrusUIPlugin = plugin(props => {
 
       '&:focus-visible': {
         outline: 'none',
-        '@apply ring': {},
+        '@apply ring ring-focus': {},
       },
 
       '&:checked': {
@@ -183,12 +186,12 @@ const papyrusUIPlugin = plugin(props => {
 
       '&::-webkit-slider-runnable-track': {
         '@apply h-1 rounded-full bg-neutral-200': {},
-        boxShadow: props.theme('boxShadow.inset'),
+        boxShadow: theme('boxShadow.inset'),
       },
 
       '&::-moz-range-track': {
         '@apply h-1 rounded-full bg-neutral-200': {},
-        boxShadow: props.theme('boxShadow.inset'),
+        boxShadow: theme('boxShadow.inset'),
       },
 
       '&::-webkit-slider-thumb': {
@@ -196,19 +199,19 @@ const papyrusUIPlugin = plugin(props => {
           {},
         WebkitAppearance: 'none',
         marginTop: '-0.25rem',
-        boxShadow: props.theme('boxShadow.sm'),
+        boxShadow: theme('boxShadow.sm'),
       },
 
       '&::-moz-range-thumb': {
         '@apply w-3 h-3 rounded-full border-none bg-primary-600 shadow-sm transition-transform':
           {},
-        boxShadow: props.theme('boxShadow.sm'),
+        boxShadow: theme('boxShadow.sm'),
       },
 
       '&::-ms-thumb': {
         '@apply w-3 h-3 rounded-full border-none bg-primary-600 shadow-sm transition-transform':
           {},
-        boxShadow: props.theme('boxShadow.sm'),
+        boxShadow: theme('boxShadow.sm'),
       },
 
       '&:hover::-webkit-slider-thumb': {
@@ -224,11 +227,11 @@ const papyrusUIPlugin = plugin(props => {
       },
 
       '&:focus-visible::-webkit-slider-thumb': {
-        '@apply ring': {},
+        '@apply ring ring-focus': {},
       },
 
       '&:focus-visible::-moz-range-thumb': {
-        '@apply ring': {},
+        '@apply ring ring-focus': {},
       },
 
       '&:disabled': {
