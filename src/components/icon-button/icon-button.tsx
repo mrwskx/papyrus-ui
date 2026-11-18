@@ -153,7 +153,8 @@ export const IconButton = forwardRef<HTMLElement, IconButtonProps>(
         sizeMap[size],
         !avatar && variantStyles[variant],
         avatar && avatarStyles,
-        avatar || rounded ? 'rounded-full' : 'rounded-input',
+        avatar && 'rounded-full',
+        !avatar && (rounded ? 'rounded-pill' : 'rounded-input'),
         className,
       )}
       disabled={disabled}
