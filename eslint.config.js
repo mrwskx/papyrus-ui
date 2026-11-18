@@ -298,7 +298,6 @@ export default [
       '**/*.config.{js,cjs,mjs,ts,cts,mts}',
       '**/.*rc.{js,cjs,mjs,ts}',
       '.storybook/**/*.{ts,tsx,js,jsx}',
-      'src/plugin/index.ts',
     ],
     rules: {
       'import-x/no-default-export': 'off',
