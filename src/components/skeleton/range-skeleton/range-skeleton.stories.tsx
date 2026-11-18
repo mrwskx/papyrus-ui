@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 
 import { RangeSkeleton } from './range-skeleton';
 import type { RangeSkeletonProps } from './range-skeleton';

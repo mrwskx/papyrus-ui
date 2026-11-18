@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 
 import { ButtonSkeleton } from './button-skeleton';
 import type { ButtonSkeletonProps } from './button-skeleton';

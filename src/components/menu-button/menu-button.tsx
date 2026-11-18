@@ -41,7 +41,7 @@ const rootDirectionPrimaryClasses = {
 };
 
 const linkDefaultClasses =
-  'relative flex justify-center items-center gap-2 rounded-md text-start transition-colors cursor-pointer focus:outline-none focus-visible:ring';
+  'relative flex justify-center items-center gap-2 rounded-md text-start transition-colors cursor-pointer focus:outline-none focus-visible:ring focus-visible:ring-focus';
 
 const linkSizeClasses = {
   sm: 'px-2.5 py-0.5',

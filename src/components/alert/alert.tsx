@@ -100,7 +100,7 @@ export function Alert({
       {onClose && (
         <Icon
           aria-label={closeLabel}
-          className="absolute top-2 end-2 text-md text-neutral-800 hover:opacity-60 transition-opacity"
+          className="absolute top-2 end-2 text-md text-neutral-800 cursor-pointer hover:opacity-60 transition-opacity"
           role="button"
           tabIndex={0}
           onClick={onClose}

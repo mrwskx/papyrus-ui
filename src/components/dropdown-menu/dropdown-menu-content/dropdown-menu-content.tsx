@@ -5,10 +5,12 @@ import {
   FloatingList,
   FloatingPortal,
 } from '@floating-ui/react';
+import cn from 'classnames';
 import { useContext } from 'react';
 import type { HTMLAttributes } from 'react';
 import { Transition } from 'react-transition-group';
 
+import { getAncestorThemeScope } from '../../../utils/get-ancestor-theme-scope';
 import { Listbox } from '../../listbox';
 import { DropdownMenuContext } from '../dropdown-menu.context';
 
@@ -25,8 +27,10 @@ const TRANSITION_TIMEOUT = {
 
 export function DropdownMenuContent({
   children,
+  className,
   initialFocus = 0,
   returnFocus = true,
+  style,
   ...props
 }: DropdownMenuContentProps) {
   const {
@@ -38,6 +42,8 @@ export function DropdownMenuContent({
     labelsRef,
     refs,
   } = useContext(DropdownMenuContext);
+
+  const themeScope = getAncestorThemeScope(refs.reference.current);
 
   return (
     <FloatingList elementsRef={elementsRef} labelsRef={labelsRef}>
@@ -60,8 +66,8 @@ export function DropdownMenuContent({
                 ref={node => {
                   refs.setFloating(node);
                 }}
-                className="max-h-80 max-w-xs"
-                style={floatingStyles}
+                className={cn(themeScope, 'max-h-80 max-w-xs', className)}
+                style={{ ...floatingStyles, ...style }}
                 visible={status === 'entered'}
                 {...getFloatingProps(props)}
               >

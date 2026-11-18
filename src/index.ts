@@ -24,6 +24,7 @@ export * from './components/icon-button';
 export * from './components/image-input';
 export * from './components/input-action';
 export * from './components/input-box';
+export * from './components/input-clear';
 export * from './components/input-group';
 export * from './components/input-message';
 export * from './components/label';

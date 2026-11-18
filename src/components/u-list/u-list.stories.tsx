@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 import { BiCog, BiGridAlt, BiStats } from 'react-icons/bi';
 
 import { Icon } from '../icon';

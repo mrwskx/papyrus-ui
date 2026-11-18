@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react-vite';
 import { BiCheck } from 'react-icons/bi';
 
 import { Icon } from '../icon';

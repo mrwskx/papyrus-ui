@@ -24,6 +24,7 @@ import {
   size as sizeFn,
   FloatingPortal,
 } from '@floating-ui/react';
+import cn from 'classnames';
 import {
   useCallback,
   useContext,
@@ -34,6 +35,7 @@ import {
 } from 'react';
 import type {
   ButtonHTMLAttributes,
+  CSSProperties,
   FocusEvent,
   KeyboardEvent,
   ReactElement,
@@ -41,6 +43,7 @@ import type {
 import { BiChevronDown, BiChevronRight } from 'react-icons/bi';
 import { Transition } from 'react-transition-group';
 
+import { getAncestorThemeScope } from '../../../utils/get-ancestor-theme-scope';
 import {
   getFirstItem,
   getLastItem,
@@ -57,6 +60,10 @@ export interface SubMenuProps extends ButtonHTMLAttributes<HTMLAnchorElement> {
   icon?: ReactElement;
   defaultIsOpen?: boolean;
   label: string;
+  /** className applied to the submenu's floating content, not its trigger. */
+  contentClassName?: string;
+  /** style merged with the submenu's floating position. */
+  contentStyle?: CSSProperties;
 }
 
 const ENTER_TIMEOUT = 200;
@@ -72,6 +79,8 @@ export function MenuBarSubmenu({
   defaultIsOpen = false,
   label,
   children,
+  contentClassName,
+  contentStyle,
   onFocus,
   onKeyDown,
   ...props
@@ -142,6 +151,7 @@ export function MenuBarSubmenu({
   );
 
   const handleMenuItemKeyDown = useCallback(
+    // eslint-disable-next-line react-hooks/preserve-manual-memoization -- resolving the theme scope below also reads refs.reference.current, which the compiler folds into this callback's inferred deps; refs.reference is the stable dependency that actually matters here
     (e: KeyboardEvent<HTMLAnchorElement>) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -320,6 +330,7 @@ export function MenuBarSubmenu({
   }, [tree, isOpen, nodeId, parentId]);
 
   const isActive = parent.activeIndex === item.index;
+  const themeScope = getAncestorThemeScope(refs.reference.current);
 
   return (
     <FloatingNode id={nodeId}>
@@ -367,8 +378,12 @@ export function MenuBarSubmenu({
                   <Listbox
                     // eslint-disable-next-line @typescript-eslint/unbound-method -- @floating-ui declares setReference/setFloating in method shorthand; they are standalone callbacks and use no `this`
                     ref={refs.setFloating}
-                    className="max-h-80 max-w-xs z-10"
-                    style={floatingStyles}
+                    className={cn(
+                      themeScope,
+                      'max-h-80 max-w-xs z-10',
+                      contentClassName,
+                    )}
+                    style={{ ...floatingStyles, ...contentStyle }}
                     visible={status === 'entered'}
                     {...getFloatingProps()}
                   >

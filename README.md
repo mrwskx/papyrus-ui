@@ -24,7 +24,7 @@ npm install tailwindcss papyrus-ui
 
 ### 2. Setup Tailwind CSS
 
-Create a `tailwind.config.js` file in your project root:
+**Tailwind 3** — create a `tailwind.config.js` file in your project root:
 
 ```js
 import papyrusPlugin from 'papyrus-ui/plugin';
@@ -35,12 +35,20 @@ export default {
     './src/**/*.{js,ts,jsx,tsx}',
     './node_modules/papyrus-ui/**/*.{js,ts,jsx,tsx}',
   ],
-  presets: [papyrusPlugin],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [papyrusPlugin],
 };
+```
+
+**Tailwind 4** — add the plugin to your CSS entry point:
+
+```css
+@import 'tailwindcss';
+@plugin 'papyrus-ui/plugin';
+
+@source './node_modules/papyrus-ui';
 ```
 
 papyrus-ui ships ESM only. `import` works everywhere; `require('papyrus-ui')` also works on
@@ -48,6 +56,13 @@ Node 20.19+ and 22.12+, which load a synchronous ESM graph unflagged. Jest's Com
 doesn't transform `node_modules` by default, so Jest users should add `papyrus-ui` to
 [`transformIgnorePatterns`](https://jestjs.io/docs/configuration#transformignorepatterns-arraystring)
 or move to [Vitest](https://vitest.dev).
+
+### 3. Load the fonts
+
+The theme names `DM Sans`, `Vollkorn` and `IBM Plex Mono` as the sans, serif and mono
+font families. Load them in your app (e.g. via `next/font`, a `<link>` to Google Fonts,
+or self-hosted `@font-face` rules) — the plugin only references the names, it does not
+load the fonts.
 
 ### 4. Use Components
 
@@ -150,7 +165,7 @@ You can customize the design system by extending the Tailwind configuration:
 import papyrusPlugin from 'papyrus-ui/plugin';
 
 export default {
-  presets: [papyrusPlugin],
+  plugins: [papyrusPlugin],
   theme: {
     extend: {
       colors: {
