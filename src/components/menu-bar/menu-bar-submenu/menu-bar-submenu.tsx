@@ -378,7 +378,11 @@ export function MenuBarSubmenu({
                   <Listbox
                     // eslint-disable-next-line @typescript-eslint/unbound-method -- @floating-ui declares setReference/setFloating in method shorthand; they are standalone callbacks and use no `this`
                     ref={refs.setFloating}
-                    className={cn(themeScope, 'max-h-80 max-w-xs z-10', contentClassName)}
+                    className={cn(
+                      themeScope,
+                      'max-h-80 max-w-xs z-10',
+                      contentClassName,
+                    )}
                     style={floatingStyles}
                     visible={status === 'entered'}
                     {...getFloatingProps()}
