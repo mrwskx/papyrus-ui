@@ -370,7 +370,10 @@ export const theme: Config['theme'] = {
       DEFAULT: 'transparent',
     },
     ringColor: {
-      DEFAULT: 'rgba(9, 105, 218, .6)', // primary-600/60
+      // DEFAULT colors a bare `ring` on Tailwind 3 only; Tailwind 4 ignores it,
+      // so components name `ring-focus` (ADR-0004).
+      DEFAULT: 'rgba(9, 105, 218, .5)', // primary-600/50
+      focus: 'rgba(9, 105, 218, .5)',
     },
   },
 };

@@ -1,14 +1,11 @@
 import { createRequire } from 'node:module';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
 
 import type { StorybookConfig } from '@storybook/react-vite';
-import autoprefixer from 'autoprefixer';
-import tailwindcss from 'tailwindcss';
+import tailwindcss from '@tailwindcss/vite';
 import { mergeConfig } from 'vite';
 import type { UserConfig } from 'vite';
 
-const configDir = dirname(fileURLToPath(import.meta.url));
 const require = createRequire(import.meta.url);
 
 function getAbsolutePath(value: string): string {
@@ -37,16 +34,7 @@ const config: StorybookConfig = {
     reactDocgen: 'react-docgen-typescript',
   },
   viteFinal(viteConfig: UserConfig) {
-    return mergeConfig(viteConfig, {
-      css: {
-        postcss: {
-          plugins: [
-            tailwindcss(resolve(configDir, './tailwind.config.ts')),
-            autoprefixer(),
-          ],
-        },
-      },
-    });
+    return mergeConfig(viteConfig, { plugins: [tailwindcss()] });
   },
 };
 

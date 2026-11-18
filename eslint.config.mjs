@@ -95,6 +95,7 @@ export default [
       '**/coverage/**',
       '**/__reports__/**',
       '.husky/_/**',
+      '.agents/skills/**',
     ],
   },
 
