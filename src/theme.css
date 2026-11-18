@@ -80,6 +80,77 @@
   --color-neutral-900: #111827;
   --color-neutral-950: #030712;
 
+  /*
+   * Shared color tokens (ADR-0002), registered under Tailwind 4's
+   * per-property namespaces so each is generated for exactly one kind of
+   * utility. Values are declared per theme further down, in the three
+   * blocks ADR-0001 requires; a token that points at another resolves
+   * where it is declared, so the values live there, not here.
+   */
+  --background-color-canvas: var(--pp-bg-canvas);
+  --background-color-surface: var(--pp-bg-surface);
+  --background-color-sunken: var(--pp-bg-sunken);
+  --background-color-inverse: var(--pp-bg-inverse);
+  --background-color-backdrop: var(--pp-bg-backdrop);
+  --background-color-control: var(--pp-bg-control);
+
+  --text-color-default: var(--pp-fg-default);
+  --text-color-muted: var(--pp-fg-muted);
+  --text-color-subtle: var(--pp-fg-subtle);
+  --text-color-on-emphasis: var(--pp-fg-on-emphasis);
+  --text-color-inverse: var(--pp-fg-inverse);
+
+  --border-color-default: var(--pp-border-default);
+  --border-color-control: var(--pp-border-control);
+
+  --background-color-primary: var(--pp-bg-primary);
+  --background-color-primary-hover: var(--pp-bg-primary-hover);
+  --background-color-primary-press: var(--pp-bg-primary-press);
+  --background-color-primary-muted: var(--pp-bg-primary-muted);
+  --text-color-primary: var(--pp-fg-primary);
+  --text-color-primary-muted: var(--pp-fg-primary-muted);
+  --border-color-primary-muted: var(--pp-border-primary-muted);
+
+  --background-color-info: var(--pp-bg-info);
+  --background-color-info-hover: var(--pp-bg-info-hover);
+  --background-color-info-press: var(--pp-bg-info-press);
+  --background-color-info-muted: var(--pp-bg-info-muted);
+  --text-color-info: var(--pp-fg-info);
+  --text-color-info-muted: var(--pp-fg-info-muted);
+  --border-color-info-muted: var(--pp-border-info-muted);
+
+  --background-color-success: var(--pp-bg-success);
+  --background-color-success-hover: var(--pp-bg-success-hover);
+  --background-color-success-press: var(--pp-bg-success-press);
+  --background-color-success-muted: var(--pp-bg-success-muted);
+  --text-color-success: var(--pp-fg-success);
+  --text-color-success-muted: var(--pp-fg-success-muted);
+  --border-color-success-muted: var(--pp-border-success-muted);
+
+  --background-color-warning: var(--pp-bg-warning);
+  --background-color-warning-hover: var(--pp-bg-warning-hover);
+  --background-color-warning-press: var(--pp-bg-warning-press);
+  --background-color-warning-muted: var(--pp-bg-warning-muted);
+  --text-color-warning: var(--pp-fg-warning);
+  --text-color-warning-muted: var(--pp-fg-warning-muted);
+  --border-color-warning-muted: var(--pp-border-warning-muted);
+
+  --background-color-danger: var(--pp-bg-danger);
+  --background-color-danger-hover: var(--pp-bg-danger-hover);
+  --background-color-danger-press: var(--pp-bg-danger-press);
+  --background-color-danger-muted: var(--pp-bg-danger-muted);
+  --text-color-danger: var(--pp-fg-danger);
+  --text-color-danger-muted: var(--pp-fg-danger-muted);
+  --border-color-danger-muted: var(--pp-border-danger-muted);
+
+  --background-color-neutral: var(--pp-bg-neutral);
+  --background-color-neutral-hover: var(--pp-bg-neutral-hover);
+  --background-color-neutral-press: var(--pp-bg-neutral-press);
+  --background-color-neutral-muted: var(--pp-bg-neutral-muted);
+  --text-color-neutral: var(--pp-fg-neutral);
+  --text-color-neutral-muted: var(--pp-fg-neutral-muted);
+  --border-color-neutral-muted: var(--pp-border-neutral-muted);
+
   /* Headings - Primary */
   --text-h1-sans: 2.25rem;
   --text-h1-sans--line-height: 1.112;
@@ -236,7 +307,306 @@
   --opacity-disabled: 0.4;
 
   --default-ring-width: 3px;
-  --ring-color-focus: rgba(9, 105, 218, 0.5);
+  --ring-color-focus: var(--pp-ring-focus);
+}
+
+/*
+ * Base tokens (ADR-0002): the Papyrus palette, as CSS variables only. No
+ * Tailwind utilities are generated for these — components reach them only
+ * through the shared tokens below, which point at them per theme.
+ */
+:root {
+  --pp-cobalt-50: #eff6ff;
+  --pp-cobalt-100: #dcebff;
+  --pp-cobalt-200: #bbd9ff;
+  --pp-cobalt-300: #96c1f8;
+  --pp-cobalt-400: #71a6e9;
+  --pp-cobalt-500: #4d89d4;
+  --pp-cobalt-600: #326eb7;
+  --pp-cobalt-700: #21599c;
+  --pp-cobalt-800: #144680;
+  --pp-cobalt-900: #0d3461;
+  --pp-cobalt-950: #062344;
+
+  --pp-slate-50: #f6f9fd;
+  --pp-slate-100: #eef2f6;
+  --pp-slate-200: #e0e4e9;
+  --pp-slate-300: #cdd2d8;
+  --pp-slate-400: #9fa5ac;
+  --pp-slate-500: #6a7178;
+  --pp-slate-600: #585e65;
+  --pp-slate-700: #42484f;
+  --pp-slate-800: #2f353c;
+  --pp-slate-900: #1e252b;
+  --pp-slate-950: #131920;
+  --pp-slate-975: #0a1017;
+
+  --pp-steel-50: #e6f9fe;
+  --pp-steel-100: #d4eff6;
+  --pp-steel-200: #b3deea;
+  --pp-steel-300: #8cc9d9;
+  --pp-steel-400: #60b1c4;
+  --pp-steel-500: #3296ab;
+  --pp-steel-600: #007b8f;
+  --pp-steel-700: #006576;
+  --pp-steel-800: #004f5e;
+  --pp-steel-900: #003b46;
+  --pp-steel-950: #002830;
+
+  --pp-moss-50: #ebfaed;
+  --pp-moss-100: #dbf0de;
+  --pp-moss-200: #bfe0c5;
+  --pp-moss-300: #9ecba6;
+  --pp-moss-400: #7bb386;
+  --pp-moss-500: #589967;
+  --pp-moss-600: #3d7d4d;
+  --pp-moss-700: #2c683c;
+  --pp-moss-800: #1e532d;
+  --pp-moss-900: #143e20;
+  --pp-moss-950: #0b2a14;
+
+  --pp-ochre-50: #fff3e6;
+  --pp-ochre-100: #fae6d0;
+  --pp-ochre-200: #efd0ad;
+  --pp-ochre-300: #e0b585;
+  --pp-ochre-400: #cc9859;
+  --pp-ochre-500: #b37a2e;
+  --pp-ochre-600: #975f03;
+  --pp-ochre-700: #7d4e00;
+  --pp-ochre-800: #633d00;
+  --pp-ochre-900: #4b2c00;
+  --pp-ochre-950: #341d00;
+
+  --pp-brick-50: #fff2f0;
+  --pp-brick-100: #ffe2de;
+  --pp-brick-200: #ffc6be;
+  --pp-brick-300: #f7a59c;
+  --pp-brick-400: #e68379;
+  --pp-brick-500: #cf6258;
+  --pp-brick-600: #b0463e;
+  --pp-brick-700: #96342e;
+  --pp-brick-800: #7a2520;
+  --pp-brick-900: #5c1a16;
+  --pp-brick-950: #410f0d;
+}
+
+/*
+ * Shared color tokens (ADR-0002), declared in all three theme blocks from
+ * ADR-0001, each setting `color-scheme`. A token that points at another
+ * resolves where it is declared, so every shared token is redeclared here
+ * per theme rather than aliased once.
+ */
+:root,
+.light {
+  color-scheme: light;
+
+  --pp-bg-canvas: white;
+  --pp-bg-surface: white;
+  --pp-bg-sunken: var(--pp-slate-50);
+  --pp-bg-inverse: var(--pp-slate-900);
+  --pp-bg-backdrop: color-mix(in srgb, var(--pp-slate-975) 60%, transparent);
+  --pp-bg-control: var(--pp-slate-100);
+
+  --pp-fg-default: var(--pp-slate-950);
+  --pp-fg-muted: var(--pp-slate-600);
+  --pp-fg-subtle: var(--pp-slate-500);
+  --pp-fg-on-emphasis: white;
+  --pp-fg-inverse: var(--pp-slate-50);
+
+  --pp-border-default: var(--pp-slate-200);
+  --pp-border-control: var(--pp-slate-500);
+
+  --pp-ring-focus: var(--pp-cobalt-500);
+
+  --pp-bg-primary: var(--pp-cobalt-600);
+  --pp-bg-primary-hover: var(--pp-cobalt-700);
+  --pp-bg-primary-press: var(--pp-cobalt-800);
+  --pp-bg-primary-muted: var(--pp-cobalt-50);
+  --pp-fg-primary: var(--pp-cobalt-600);
+  --pp-fg-primary-muted: var(--pp-cobalt-800);
+  --pp-border-primary-muted: var(--pp-cobalt-200);
+
+  --pp-bg-info: var(--pp-steel-600);
+  --pp-bg-info-hover: var(--pp-steel-700);
+  --pp-bg-info-press: var(--pp-steel-800);
+  --pp-bg-info-muted: var(--pp-steel-50);
+  --pp-fg-info: var(--pp-steel-600);
+  --pp-fg-info-muted: var(--pp-steel-800);
+  --pp-border-info-muted: var(--pp-steel-200);
+
+  --pp-bg-success: var(--pp-moss-600);
+  --pp-bg-success-hover: var(--pp-moss-700);
+  --pp-bg-success-press: var(--pp-moss-800);
+  --pp-bg-success-muted: var(--pp-moss-50);
+  --pp-fg-success: var(--pp-moss-600);
+  --pp-fg-success-muted: var(--pp-moss-800);
+  --pp-border-success-muted: var(--pp-moss-200);
+
+  --pp-bg-warning: var(--pp-ochre-600);
+  --pp-bg-warning-hover: var(--pp-ochre-700);
+  --pp-bg-warning-press: var(--pp-ochre-800);
+  --pp-bg-warning-muted: var(--pp-ochre-50);
+  --pp-fg-warning: var(--pp-ochre-600);
+  --pp-fg-warning-muted: var(--pp-ochre-800);
+  --pp-border-warning-muted: var(--pp-ochre-200);
+
+  --pp-bg-danger: var(--pp-brick-600);
+  --pp-bg-danger-hover: var(--pp-brick-700);
+  --pp-bg-danger-press: var(--pp-brick-800);
+  --pp-bg-danger-muted: var(--pp-brick-50);
+  --pp-fg-danger: var(--pp-brick-600);
+  --pp-fg-danger-muted: var(--pp-brick-800);
+  --pp-border-danger-muted: var(--pp-brick-200);
+
+  --pp-bg-neutral: var(--pp-slate-600);
+  --pp-bg-neutral-hover: var(--pp-slate-700);
+  --pp-bg-neutral-press: var(--pp-slate-800);
+  --pp-bg-neutral-muted: var(--pp-slate-50);
+  --pp-fg-neutral: var(--pp-slate-600);
+  --pp-fg-neutral-muted: var(--pp-slate-800);
+  --pp-border-neutral-muted: var(--pp-slate-200);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+
+    --pp-bg-canvas: var(--pp-slate-975);
+    --pp-bg-surface: var(--pp-slate-950);
+    --pp-bg-sunken: var(--pp-slate-950);
+    --pp-bg-inverse: var(--pp-slate-200);
+    --pp-bg-backdrop: color-mix(in srgb, black 60%, transparent);
+    --pp-bg-control: var(--pp-slate-900);
+
+    --pp-fg-default: var(--pp-slate-50);
+    --pp-fg-muted: var(--pp-slate-300);
+    --pp-fg-subtle: var(--pp-slate-400);
+    --pp-fg-on-emphasis: white;
+    --pp-fg-inverse: var(--pp-slate-950);
+
+    --pp-border-default: var(--pp-slate-800);
+    --pp-border-control: var(--pp-slate-500);
+
+    --pp-ring-focus: var(--pp-cobalt-400);
+
+    --pp-bg-primary: var(--pp-cobalt-600);
+    --pp-bg-primary-hover: var(--pp-cobalt-700);
+    --pp-bg-primary-press: var(--pp-cobalt-800);
+    --pp-bg-primary-muted: var(--pp-cobalt-950);
+    --pp-fg-primary: var(--pp-cobalt-400);
+    --pp-fg-primary-muted: var(--pp-cobalt-200);
+    --pp-border-primary-muted: var(--pp-cobalt-800);
+
+    --pp-bg-info: var(--pp-steel-600);
+    --pp-bg-info-hover: var(--pp-steel-700);
+    --pp-bg-info-press: var(--pp-steel-800);
+    --pp-bg-info-muted: var(--pp-steel-950);
+    --pp-fg-info: var(--pp-steel-400);
+    --pp-fg-info-muted: var(--pp-steel-200);
+    --pp-border-info-muted: var(--pp-steel-800);
+
+    --pp-bg-success: var(--pp-moss-600);
+    --pp-bg-success-hover: var(--pp-moss-700);
+    --pp-bg-success-press: var(--pp-moss-800);
+    --pp-bg-success-muted: var(--pp-moss-950);
+    --pp-fg-success: var(--pp-moss-400);
+    --pp-fg-success-muted: var(--pp-moss-200);
+    --pp-border-success-muted: var(--pp-moss-800);
+
+    --pp-bg-warning: var(--pp-ochre-600);
+    --pp-bg-warning-hover: var(--pp-ochre-700);
+    --pp-bg-warning-press: var(--pp-ochre-800);
+    --pp-bg-warning-muted: var(--pp-ochre-950);
+    --pp-fg-warning: var(--pp-ochre-400);
+    --pp-fg-warning-muted: var(--pp-ochre-200);
+    --pp-border-warning-muted: var(--pp-ochre-800);
+
+    --pp-bg-danger: var(--pp-brick-600);
+    --pp-bg-danger-hover: var(--pp-brick-700);
+    --pp-bg-danger-press: var(--pp-brick-800);
+    --pp-bg-danger-muted: var(--pp-brick-950);
+    --pp-fg-danger: var(--pp-brick-400);
+    --pp-fg-danger-muted: var(--pp-brick-200);
+    --pp-border-danger-muted: var(--pp-brick-800);
+
+    --pp-bg-neutral: var(--pp-slate-600);
+    --pp-bg-neutral-hover: var(--pp-slate-700);
+    --pp-bg-neutral-press: var(--pp-slate-800);
+    --pp-bg-neutral-muted: var(--pp-slate-950);
+    --pp-fg-neutral: var(--pp-slate-400);
+    --pp-fg-neutral-muted: var(--pp-slate-200);
+    --pp-border-neutral-muted: var(--pp-slate-800);
+  }
+}
+
+.dark {
+  color-scheme: dark;
+
+  --pp-bg-canvas: var(--pp-slate-975);
+  --pp-bg-surface: var(--pp-slate-950);
+  --pp-bg-sunken: var(--pp-slate-950);
+  --pp-bg-inverse: var(--pp-slate-200);
+  --pp-bg-backdrop: color-mix(in srgb, black 60%, transparent);
+  --pp-bg-control: var(--pp-slate-900);
+
+  --pp-fg-default: var(--pp-slate-50);
+  --pp-fg-muted: var(--pp-slate-300);
+  --pp-fg-subtle: var(--pp-slate-400);
+  --pp-fg-on-emphasis: white;
+  --pp-fg-inverse: var(--pp-slate-950);
+
+  --pp-border-default: var(--pp-slate-800);
+  --pp-border-control: var(--pp-slate-500);
+
+  --pp-ring-focus: var(--pp-cobalt-400);
+
+  --pp-bg-primary: var(--pp-cobalt-600);
+  --pp-bg-primary-hover: var(--pp-cobalt-700);
+  --pp-bg-primary-press: var(--pp-cobalt-800);
+  --pp-bg-primary-muted: var(--pp-cobalt-950);
+  --pp-fg-primary: var(--pp-cobalt-400);
+  --pp-fg-primary-muted: var(--pp-cobalt-200);
+  --pp-border-primary-muted: var(--pp-cobalt-800);
+
+  --pp-bg-info: var(--pp-steel-600);
+  --pp-bg-info-hover: var(--pp-steel-700);
+  --pp-bg-info-press: var(--pp-steel-800);
+  --pp-bg-info-muted: var(--pp-steel-950);
+  --pp-fg-info: var(--pp-steel-400);
+  --pp-fg-info-muted: var(--pp-steel-200);
+  --pp-border-info-muted: var(--pp-steel-800);
+
+  --pp-bg-success: var(--pp-moss-600);
+  --pp-bg-success-hover: var(--pp-moss-700);
+  --pp-bg-success-press: var(--pp-moss-800);
+  --pp-bg-success-muted: var(--pp-moss-950);
+  --pp-fg-success: var(--pp-moss-400);
+  --pp-fg-success-muted: var(--pp-moss-200);
+  --pp-border-success-muted: var(--pp-moss-800);
+
+  --pp-bg-warning: var(--pp-ochre-600);
+  --pp-bg-warning-hover: var(--pp-ochre-700);
+  --pp-bg-warning-press: var(--pp-ochre-800);
+  --pp-bg-warning-muted: var(--pp-ochre-950);
+  --pp-fg-warning: var(--pp-ochre-400);
+  --pp-fg-warning-muted: var(--pp-ochre-200);
+  --pp-border-warning-muted: var(--pp-ochre-800);
+
+  --pp-bg-danger: var(--pp-brick-600);
+  --pp-bg-danger-hover: var(--pp-brick-700);
+  --pp-bg-danger-press: var(--pp-brick-800);
+  --pp-bg-danger-muted: var(--pp-brick-950);
+  --pp-fg-danger: var(--pp-brick-400);
+  --pp-fg-danger-muted: var(--pp-brick-200);
+  --pp-border-danger-muted: var(--pp-brick-800);
+
+  --pp-bg-neutral: var(--pp-slate-600);
+  --pp-bg-neutral-hover: var(--pp-slate-700);
+  --pp-bg-neutral-press: var(--pp-slate-800);
+  --pp-bg-neutral-muted: var(--pp-slate-950);
+  --pp-fg-neutral: var(--pp-slate-400);
+  --pp-fg-neutral-muted: var(--pp-slate-200);
+  --pp-border-neutral-muted: var(--pp-slate-800);
 }
 
 /*
