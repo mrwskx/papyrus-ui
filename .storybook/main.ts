@@ -1,3 +1,4 @@
+import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 
 import type { StorybookConfig } from '@storybook/react-vite';
@@ -5,17 +6,17 @@ import tailwindcss from '@tailwindcss/vite';
 import { mergeConfig } from 'vite';
 import type { UserConfig } from 'vite';
 
+const require = createRequire(import.meta.url);
+
 function getAbsolutePath(value: string): string {
   return dirname(require.resolve(join(value, 'package.json')));
 }
 
 const config: StorybookConfig = {
   addons: [
-    getAbsolutePath('@storybook/addon-essentials'),
     getAbsolutePath('@storybook/addon-themes'),
-    getAbsolutePath('@storybook/addon-storysource'),
     getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-mdx-gfm'),
+    getAbsolutePath('@storybook/addon-docs'),
   ],
   core: {
     disableTelemetry: true,

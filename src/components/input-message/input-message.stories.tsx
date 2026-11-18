@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 
 import { InputMessage } from './input-message';
 import type { InputMessageProps } from './input-message';

@@ -306,15 +306,6 @@ export default [
   },
 
   ...storybook.configs['flat/recommended'],
-  {
-    // eslint-plugin-storybook 10 is ESLint 10-safe (its remaining legacy calls
-    // are guarded) and declares no `storybook` peer, so it runs against this
-    // repo's Storybook 8. One rule encodes a 9/10-only convention: importing
-    // types from @storybook/react is correct on 8. Re-enable with the upgrade.
-    name: 'papyrus-ui/storybook-8',
-    files: ['**/*.stories.{ts,tsx}', '.storybook/**/*.{ts,tsx}'],
-    rules: { 'storybook/no-renderer-packages': 'off' },
-  },
 
   {
     name: 'papyrus-ui/vitest',

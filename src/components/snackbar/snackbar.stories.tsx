@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import type { StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react-vite';
 import { capitalize } from 'lodash';
 import { useRef, useState } from 'react';
 import { BiBell } from 'react-icons/bi';

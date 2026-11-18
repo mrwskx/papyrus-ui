@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 
 import { LabelSkeleton } from './label-skeleton';
 import type { LabelSkeletonProps } from './label-skeleton';
