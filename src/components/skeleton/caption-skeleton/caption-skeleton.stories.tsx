@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 
 import { CaptionSkeleton } from './caption-skeleton';
 import type { CaptionSkeletonProps } from './caption-skeleton';

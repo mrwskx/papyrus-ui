@@ -143,6 +143,33 @@ describe('MenuBar', () => {
       });
     });
 
+    describe('When contentClassName and contentStyle are passed to MenuBar.Submenu', () => {
+      it('Then both should reach the submenu content without breaking its positioning', async () => {
+        render(
+          <MenuBar>
+            <MenuBar.Submenu
+              contentClassName="custom-class"
+              contentStyle={{ color: 'rgb(1, 2, 3)' }}
+              label="Products"
+            >
+              <MenuBar.Item>Electronics</MenuBar.Item>
+            </MenuBar.Submenu>
+          </MenuBar>,
+        );
+
+        await userEvent.click(
+          screen.getByRole('menuitem', { name: 'Products' }),
+        );
+
+        await waitFor(() => {
+          const menu = screen.getByRole('menu');
+          expect(menu).toHaveClass('custom-class');
+          expect(menu).toHaveStyle({ color: 'rgb(1, 2, 3)' });
+          expect(menu.style.position).toBe('fixed');
+        });
+      });
+    });
+
     describe('When the user clicks on a submenu item', () => {
       it('Then the associated action should be triggered and the submenu should be collapsed', async () => {
         // Mock function

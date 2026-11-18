@@ -5,20 +5,18 @@ import type {
   ChangeEvent,
   FocusEvent,
   InputHTMLAttributes,
-  MouseEvent,
   ReactElement,
   ReactNode,
 } from 'react';
 import type { IconBaseProps } from 'react-icons';
-import { BiX } from 'react-icons/bi';
 
 import type { ChangeHandler } from '../../types';
 import { useId } from '../../utils/use-id';
 import { useMergeRefs } from '../../utils/use-merge-refs';
-import { Icon } from '../icon';
 import { InputAction } from '../input-action';
 import { InputBox } from '../input-box';
 import type { InputBoxSize } from '../input-box';
+import { InputClear } from '../input-clear';
 import { InputGroup } from '../input-group';
 
 export interface TextInputProps extends Omit<
@@ -178,9 +176,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       onBlur?.(e);
     };
 
-    const handleClear = (e: MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-      e.stopPropagation();
+    const handleClear = () => {
       inputRef.current?.focus();
       changeValue('');
     };
@@ -214,16 +210,11 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
           {isClearable && (
             <InputAction className="ms-1">
-              <Icon
-                aria-label={clearLabel}
-                className="text-xl color-neutral-800 hover:opacity-60"
+              <InputClear
                 data-testid="clear-icon"
-                role="button"
-                tabIndex={-1}
-                onMouseDown={handleClear}
-              >
-                <BiX />
-              </Icon>
+                label={clearLabel}
+                onClear={handleClear}
+              />
             </InputAction>
           )}
 

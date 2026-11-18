@@ -27,8 +27,10 @@ const TRANSITION_TIMEOUT = {
 
 export function DropdownMenuContent({
   children,
+  className,
   initialFocus = 0,
   returnFocus = true,
+  style,
   ...props
 }: DropdownMenuContentProps) {
   const {
@@ -64,7 +66,7 @@ export function DropdownMenuContent({
                 ref={node => {
                   refs.setFloating(node);
                 }}
-                className={cn('max-h-80 max-w-xs', themeScope)}
+                className={cn(themeScope, 'max-h-80 max-w-xs', className)}
                 style={floatingStyles}
                 visible={status === 'entered'}
                 {...getFloatingProps(props)}

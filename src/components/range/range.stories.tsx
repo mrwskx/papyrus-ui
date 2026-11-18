@@ -1,4 +1,4 @@
-import type { StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react-vite';
 
 import { Range } from './range';
 import type { RangeProps } from './range';

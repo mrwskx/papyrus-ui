@@ -24,6 +24,8 @@ export function Divider({
     <Element
       {...props}
       className={cn(
+        // `hr` gets a top border from preflight; the line is the background only.
+        'border-0',
         className?.includes('bg-') ? '' : 'bg-current',
         directionClass[direction],
         className,

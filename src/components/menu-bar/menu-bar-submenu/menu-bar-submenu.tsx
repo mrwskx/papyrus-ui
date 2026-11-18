@@ -35,6 +35,7 @@ import {
 } from 'react';
 import type {
   ButtonHTMLAttributes,
+  CSSProperties,
   FocusEvent,
   KeyboardEvent,
   ReactElement,
@@ -59,6 +60,10 @@ export interface SubMenuProps extends ButtonHTMLAttributes<HTMLAnchorElement> {
   icon?: ReactElement;
   defaultIsOpen?: boolean;
   label: string;
+  /** className applied to the submenu's floating content, not its trigger. */
+  contentClassName?: string;
+  /** style merged with the submenu's floating position. */
+  contentStyle?: CSSProperties;
 }
 
 const ENTER_TIMEOUT = 200;
@@ -74,6 +79,8 @@ export function MenuBarSubmenu({
   defaultIsOpen = false,
   label,
   children,
+  contentClassName,
+  contentStyle,
   onFocus,
   onKeyDown,
   ...props
@@ -371,7 +378,7 @@ export function MenuBarSubmenu({
                   <Listbox
                     // eslint-disable-next-line @typescript-eslint/unbound-method -- @floating-ui declares setReference/setFloating in method shorthand; they are standalone callbacks and use no `this`
                     ref={refs.setFloating}
-                    className={cn('max-h-80 max-w-xs z-10', themeScope)}
+                    className={cn(themeScope, 'max-h-80 max-w-xs z-10', contentClassName)}
                     style={floatingStyles}
                     visible={status === 'entered'}
                     {...getFloatingProps()}
