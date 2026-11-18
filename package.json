@@ -14,20 +14,19 @@
     "package.json",
     "README.md"
   ],
+  "type": "module",
   "types": "dist/types/index.d.ts",
-  "main": "dist/cjs/index.js",
-  "module": "dist/es/index.js",
   "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/es/index.js",
-      "require": "./dist/cjs/index.js"
+      "default": "./dist/es/index.js"
     },
     "./plugin": {
       "types": "./dist/types/plugin/index.d.ts",
       "import": "./dist/es/plugin/index.js",
-      "require": "./dist/cjs/plugin/index.js"
+      "default": "./dist/es/plugin/index.js"
     }
   },
   "publishConfig": {
