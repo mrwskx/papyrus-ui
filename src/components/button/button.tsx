@@ -217,7 +217,7 @@ export const Button = forwardRef<HTMLElement, ButtonProps>(
         variantStyles[variant],
         sizeMap[size],
         block && 'w-full',
-        rounded ? 'rounded-pill' : 'rounded-input',
+        rounded ? 'rounded-pill' : 'rounded-control',
         className,
       )}
       type={Element === 'button' && type == null ? 'button' : type}

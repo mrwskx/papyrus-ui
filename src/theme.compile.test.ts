@@ -9,9 +9,9 @@ const CANDIDATES = [
   'bg-primary-500/50',
   'input-base',
   'ring-focus',
-  'rounded-raised',
+  'rounded-control',
   'shadow-popover',
-  'inset-shadow-track',
+  'inset-shadow-slider-track',
 ];
 
 const SRC_DIR = path.resolve(process.cwd(), 'src');
@@ -31,9 +31,9 @@ describe('theme.css on tailwindcss 4', () => {
     expect(css).toContain('.bg-primary-500\\/50');
     expect(css).toContain('.input-base');
     expect(css).toContain('.ring-focus');
-    expect(css).toContain('.rounded-raised');
+    expect(css).toContain('.rounded-control');
     expect(css).toContain('.shadow-popover');
-    expect(css).toContain('.inset-shadow-track');
+    expect(css).toContain('.inset-shadow-slider-track');
   });
 
   it('declares shadow roles with darker, tighter values in dark mode', async () => {
