@@ -98,7 +98,7 @@ export const InputBox = forwardRef<HTMLDivElement, InputBoxProps>(
         !disabled && invalid && invalidStyles,
         disabled && disabledStyles,
         sizeMap[size],
-        rounded ? 'rounded-pill' : 'rounded-input',
+        rounded ? 'rounded-button' : 'rounded-input',
         className,
       )}
       {...elementProps}

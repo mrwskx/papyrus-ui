@@ -101,7 +101,7 @@ export function Tooltip({
       trigger={trigger}
     >
       <Popover.Trigger>{children}</Popover.Trigger>
-      <Popover.Content className="min-h-7 max-w-80 rounded-small bg-black/80 px-2 py-1 shadow-popover">
+      <Popover.Content className="min-h-7 max-w-80 rounded-tooltip bg-black/80 px-2 py-1 shadow-listbox">
         <Text as="div" className="text-white" size="sm">
           {title}
         </Text>

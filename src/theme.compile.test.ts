@@ -9,8 +9,8 @@ const CANDIDATES = [
   'bg-primary-500/50',
   'input-base',
   'ring-focus',
-  'rounded-raised',
-  'shadow-popover',
+  'rounded-dialog',
+  'shadow-listbox',
   'inset-shadow-track',
 ];
 
@@ -31,8 +31,8 @@ describe('theme.css on tailwindcss 4', () => {
     expect(css).toContain('.bg-primary-500\\/50');
     expect(css).toContain('.input-base');
     expect(css).toContain('.ring-focus');
-    expect(css).toContain('.rounded-raised');
-    expect(css).toContain('.shadow-popover');
+    expect(css).toContain('.rounded-dialog');
+    expect(css).toContain('.shadow-listbox');
     expect(css).toContain('.inset-shadow-track');
   });
 
@@ -44,7 +44,7 @@ describe('theme.css on tailwindcss 4', () => {
         onDependency: () => {},
       },
     );
-    const css = result.build(['shadow-popover']);
+    const css = result.build(['shadow-listbox']);
 
     expect(css).toContain(':root, .light {');
     expect(css).toContain('.dark {');

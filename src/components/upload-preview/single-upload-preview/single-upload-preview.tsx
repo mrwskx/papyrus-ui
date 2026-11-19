@@ -184,7 +184,7 @@ export const SingleUploadPreview = forwardRef<
         ref={ref}
         className={cn(
           rootBaseClasses,
-          rounded ? 'rounded-pill' : 'rounded-input',
+          rounded ? 'rounded-button' : 'rounded-input',
           !disabled &&
             !readOnly && [
               'cursor-pointer',

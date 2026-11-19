@@ -71,7 +71,7 @@ export function Alert({
     <div
       {...props}
       className={cn(
-        'relative flex items-center rounded-boxed border gap-3 ps-3 py-2 overflow-hidden',
+        'relative flex items-center rounded-alert border gap-3 ps-3 py-2 overflow-hidden',
         rootVariantClasses[variant],
         onClose ? 'pe-8' : 'pe-3',
         className,

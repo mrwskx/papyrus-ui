@@ -77,15 +77,15 @@ export function DialogContent({
                 aria-describedby={descriptionId}
                 aria-labelledby={labelId}
                 className={cn(
-                  'bg-white flex flex-col w-full shadow-overlay overflow-hidden',
+                  'bg-white flex flex-col w-full shadow-dialog overflow-hidden',
                   size === 'sm' &&
-                    'relative flex-none max-w-sm max-h-full rounded-raised ',
+                    'relative flex-none max-w-sm max-h-full rounded-dialog ',
                   size === 'md' &&
-                    'absolute sm:relative inset-0 flex-none sm:max-w-lg h-full sm:h-auto max-h-full sm:rounded-raised',
+                    'absolute sm:relative inset-0 flex-none sm:max-w-lg h-full sm:h-auto max-h-full sm:rounded-dialog',
                   size === 'lg' &&
-                    'absolute sm:relative inset-0 flex-none sm:max-w-4xl h-full sm:h-auto max-h-full sm:rounded-raised',
+                    'absolute sm:relative inset-0 flex-none sm:max-w-4xl h-full sm:h-auto max-h-full sm:rounded-dialog',
                   size === 'xl' &&
-                    'absolute lg:relative inset-0 flex-1 min-h-full h-full lg:rounded-raised',
+                    'absolute lg:relative inset-0 flex-1 min-h-full h-full lg:rounded-dialog',
                 )}
                 {...getFloatingProps(props)}
               >
