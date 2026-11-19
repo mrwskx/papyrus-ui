@@ -301,13 +301,28 @@
   --text-code-md--font-weight: 400;
   --text-code-md--letter-spacing: 0;
 
-  --radius-input: 0.375rem;
+  --radius-control: 0.375rem;
   --radius-tag: 0.375rem;
+  --radius-dialog: 0.75rem;
+  --radius-listbox: 0.75rem;
+  --radius-alert: 0.5rem;
+  --radius-codeblock: 0.5rem;
+  --radius-tooltip: 0.375rem;
+  --radius-code: 0.375rem;
+  --radius-pill: calc(infinity * 1px);
 
   --opacity-disabled: 0.4;
 
   --default-ring-width: 3px;
   --ring-color-focus: var(--pp-ring-focus);
+
+  --shadow-control:
+    0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-popover:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-dialog:
+    0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --inset-shadow-slider-track: inset 0 1px 2px 0 rgb(0 0 0 / 0.1);
 }
 
 /*
@@ -394,7 +409,10 @@
  * Shared color tokens (ADR-0002), declared in all three theme blocks from
  * ADR-0001, each setting `color-scheme`. A token that points at another
  * resolves where it is declared, so every shared token is redeclared here
- * per theme rather than aliased once.
+ * per theme rather than aliased once. Radius roles don't vary per theme, so
+ * they are declared once above, in @theme. Shadow roles do: dark mode gets
+ * depth from a lighter surface plus a border rather than a cast shadow, so
+ * its shadows read darker and tighter.
  */
 :root,
 .light {
@@ -465,6 +483,14 @@
   --pp-fg-neutral: var(--pp-slate-600);
   --pp-fg-neutral-muted: var(--pp-slate-800);
   --pp-border-neutral-muted: var(--pp-slate-200);
+
+  --shadow-control:
+    0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-popover:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-dialog:
+    0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --inset-shadow-slider-track: inset 0 1px 2px 0 rgb(0 0 0 / 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -536,6 +562,13 @@
     --pp-fg-neutral: var(--pp-slate-400);
     --pp-fg-neutral-muted: var(--pp-slate-200);
     --pp-border-neutral-muted: var(--pp-slate-800);
+
+    --shadow-control: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+    --shadow-popover:
+      0 4px 6px -2px rgb(0 0 0 / 0.6), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+    --shadow-dialog:
+      0 2px 4px -1px rgb(0 0 0 / 0.5), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+    --inset-shadow-slider-track: inset 0 1px 2px 0 rgb(0 0 0 / 0.4);
   }
 }
 
@@ -607,6 +640,13 @@
   --pp-fg-neutral: var(--pp-slate-400);
   --pp-fg-neutral-muted: var(--pp-slate-200);
   --pp-border-neutral-muted: var(--pp-slate-800);
+
+  --shadow-control: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+  --shadow-popover:
+    0 4px 6px -2px rgb(0 0 0 / 0.6), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+  --shadow-dialog:
+    0 2px 4px -1px rgb(0 0 0 / 0.5), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+  --inset-shadow-slider-track: inset 0 1px 2px 0 rgb(0 0 0 / 0.4);
 }
 
 /*
@@ -795,34 +835,25 @@
   -webkit-appearance: none;
 
   &::-webkit-slider-runnable-track {
-    @apply h-1 rounded-full bg-neutral-200;
+    @apply h-1 rounded-full bg-neutral-200 inset-shadow-slider-track;
   }
 
   &::-moz-range-track {
-    @apply h-1 rounded-full bg-neutral-200;
+    @apply h-1 rounded-full bg-neutral-200 inset-shadow-slider-track;
   }
 
   &::-webkit-slider-thumb {
-    @apply appearance-none w-3 h-3 rounded-full bg-primary-600 shadow-sm transition-transform;
+    @apply appearance-none w-3 h-3 rounded-full bg-primary-600 shadow-control transition-transform;
     -webkit-appearance: none;
     margin-top: -0.25rem;
-    box-shadow:
-      0 1px 3px 0 rgb(0 0 0 / 0.1),
-      0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
 
   &::-moz-range-thumb {
-    @apply w-3 h-3 rounded-full border-none bg-primary-600 shadow-sm transition-transform;
-    box-shadow:
-      0 1px 3px 0 rgb(0 0 0 / 0.1),
-      0 1px 2px -1px rgb(0 0 0 / 0.1);
+    @apply w-3 h-3 rounded-full border-none bg-primary-600 shadow-control transition-transform;
   }
 
   &::-ms-thumb {
-    @apply w-3 h-3 rounded-full border-none bg-primary-600 shadow-sm transition-transform;
-    box-shadow:
-      0 1px 3px 0 rgb(0 0 0 / 0.1),
-      0 1px 2px -1px rgb(0 0 0 / 0.1);
+    @apply w-3 h-3 rounded-full border-none bg-primary-600 shadow-control transition-transform;
   }
 
   &:hover::-webkit-slider-thumb {

@@ -26,7 +26,7 @@ export const Code = forwardRef<HTMLElement, CodeProps>(
     <code
       ref={ref}
       className={cn(
-        'font-mono bg-neutral-100 text-neutral-950 rounded-md border border-neutral-200 px-1',
+        'font-mono bg-neutral-100 text-neutral-950 rounded-code border border-neutral-200 px-1',
         size === 'sm' && 'text-code-sm',
         size === 'md' && 'text-code-md',
         className,

@@ -81,7 +81,7 @@ export const CodeBlock = forwardRef<HTMLPreElement, CodeBlockProps>(
         <pre
           ref={ref}
           className={cn(
-            'rounded-lg border border-neutral-200 bg-neutral-50 font-mono text-neutral-950 ps-4 pe-8 py-4',
+            'rounded-codeblock border border-neutral-200 bg-neutral-50 font-mono text-neutral-950 ps-4 pe-8 py-4',
             size === 'sm' && 'text-code-sm',
             size === 'md' && 'text-code-md',
             wrap && 'overflow-x-hidden whitespace-pre-wrap break-words',
