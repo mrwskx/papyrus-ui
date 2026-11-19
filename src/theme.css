@@ -232,19 +232,19 @@
 
   --radius-input: 0.375rem;
   --radius-tag: 0.375rem;
-  --radius-dialog: 0.75rem;
-  --radius-alert: 0.5rem;
-  --radius-tooltip: 0.375rem;
-  --radius-button: calc(infinity * 1px);
+  --radius-raised: 0.75rem;
+  --radius-boxed: 0.5rem;
+  --radius-small: 0.375rem;
+  --radius-pill: calc(infinity * 1px);
 
   --opacity-disabled: 0.4;
 
   --default-ring-width: 3px;
   --ring-color-focus: rgba(9, 105, 218, 0.5);
 
-  --shadow-button:
+  --shadow-control:
     0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --shadow-listbox:
+  --shadow-popover:
     0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-dialog:
     0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -261,9 +261,9 @@
 .light {
   color-scheme: light;
 
-  --shadow-button:
+  --shadow-control:
     0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --shadow-listbox:
+  --shadow-popover:
     0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-dialog:
     0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -274,8 +274,8 @@
   :root:not(.light) {
     color-scheme: dark;
 
-    --shadow-button: 0 1px 2px 0 rgb(0 0 0 / 0.5);
-    --shadow-listbox:
+    --shadow-control: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+    --shadow-popover:
       0 4px 6px -2px rgb(0 0 0 / 0.6), 0 2px 4px -2px rgb(0 0 0 / 0.5);
     --shadow-dialog:
       0 2px 4px -1px rgb(0 0 0 / 0.5), 0 1px 2px -1px rgb(0 0 0 / 0.4);
@@ -286,8 +286,8 @@
 .dark {
   color-scheme: dark;
 
-  --shadow-button: 0 1px 2px 0 rgb(0 0 0 / 0.5);
-  --shadow-listbox:
+  --shadow-control: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+  --shadow-popover:
     0 4px 6px -2px rgb(0 0 0 / 0.6), 0 2px 4px -2px rgb(0 0 0 / 0.5);
   --shadow-dialog:
     0 2px 4px -1px rgb(0 0 0 / 0.5), 0 1px 2px -1px rgb(0 0 0 / 0.4);
@@ -488,17 +488,17 @@
   }
 
   &::-webkit-slider-thumb {
-    @apply appearance-none w-3 h-3 rounded-full bg-primary-600 shadow-button transition-transform;
+    @apply appearance-none w-3 h-3 rounded-full bg-primary-600 shadow-control transition-transform;
     -webkit-appearance: none;
     margin-top: -0.25rem;
   }
 
   &::-moz-range-thumb {
-    @apply w-3 h-3 rounded-full border-none bg-primary-600 shadow-button transition-transform;
+    @apply w-3 h-3 rounded-full border-none bg-primary-600 shadow-control transition-transform;
   }
 
   &::-ms-thumb {
-    @apply w-3 h-3 rounded-full border-none bg-primary-600 shadow-button transition-transform;
+    @apply w-3 h-3 rounded-full border-none bg-primary-600 shadow-control transition-transform;
   }
 
   &:hover::-webkit-slider-thumb {

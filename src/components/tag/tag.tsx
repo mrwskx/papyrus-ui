@@ -168,7 +168,7 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>(
           sizeStyles[size],
           variantStyles[variant],
           disabled && 'opacity-disabled',
-          rounded ? 'rounded-button' : 'rounded-tag',
+          rounded ? 'rounded-pill' : 'rounded-tag',
           !disabled && onClick
             ? [interactiveStyles, interactiveVariantStyles[variant]]
             : ['cursor-text'],

@@ -79,13 +79,13 @@ export function DialogContent({
                 className={cn(
                   'bg-white flex flex-col w-full shadow-dialog overflow-hidden',
                   size === 'sm' &&
-                    'relative flex-none max-w-sm max-h-full rounded-dialog ',
+                    'relative flex-none max-w-sm max-h-full rounded-raised ',
                   size === 'md' &&
-                    'absolute sm:relative inset-0 flex-none sm:max-w-lg h-full sm:h-auto max-h-full sm:rounded-dialog',
+                    'absolute sm:relative inset-0 flex-none sm:max-w-lg h-full sm:h-auto max-h-full sm:rounded-raised',
                   size === 'lg' &&
-                    'absolute sm:relative inset-0 flex-none sm:max-w-4xl h-full sm:h-auto max-h-full sm:rounded-dialog',
+                    'absolute sm:relative inset-0 flex-none sm:max-w-4xl h-full sm:h-auto max-h-full sm:rounded-raised',
                   size === 'xl' &&
-                    'absolute lg:relative inset-0 flex-1 min-h-full h-full lg:rounded-dialog',
+                    'absolute lg:relative inset-0 flex-1 min-h-full h-full lg:rounded-raised',
                 )}
                 {...getFloatingProps(props)}
               >
