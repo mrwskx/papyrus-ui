@@ -1,6 +1,9 @@
 # Papyrus UI
 
-![Papyrus UI](.github/cover.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/cover-dark.svg" />
+  <img alt="Papyrus UI" src=".github/cover-light.svg" />
+</picture>
 
 A modern React UI kit with fundamental components built on Tailwind CSS, designed for rapid application development with a consistent design system.
 
