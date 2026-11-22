@@ -1,13 +1,38 @@
+import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Decorator, Preview } from '@storybook/react-vite';
 import cn from 'classnames';
+import { useSyncExternalStore } from 'react';
 import type { ComponentProps } from 'react';
 
 import { Code, Heading, Link, OList, Text, UList } from '../src';
 
-import { theme } from './theme';
+import { darkTheme, theme } from './theme';
 
 import './style.css';
+
+// A literal because Storybook's theme math cannot parse var(): slate-975, the
+// dark canvas, so docs previews match the Canvas view.
+const darkDocsTheme = { ...darkTheme, appContentBg: '#0a1017' };
+
+const subscribe = (onChange: () => void) => {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, { attributeFilter: ['class'] });
+
+  return () => {
+    observer.disconnect();
+  };
+};
+
+// color-scheme, not the class: with no class the theme follows the system (ADR-0001).
+const getIsDark = () =>
+  getComputedStyle(document.documentElement).colorScheme === 'dark';
+
+function ThemedDocsContainer(props: ComponentProps<typeof DocsContainer>) {
+  const isDark = useSyncExternalStore(subscribe, getIsDark);
+
+  return <DocsContainer {...props} theme={isDark ? darkDocsTheme : theme} />;
+}
 
 const preview: Preview = {
   parameters: {
@@ -40,7 +65,7 @@ const preview: Preview = {
       hideNoControlsWarning: true,
     },
     docs: {
-      theme,
+      container: ThemedDocsContainer,
       components: {
         a: Link,
         h1: ({ className, ...props }: ComponentProps<typeof Heading>) => (
@@ -91,12 +116,6 @@ const preview: Preview = {
           <Code size="sm" {...props} />
         ),
       },
-    },
-  },
-
-  initialGlobals: {
-    backgrounds: {
-      value: 'white',
     },
   },
 };
