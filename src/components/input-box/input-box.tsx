@@ -50,6 +50,8 @@ const sizeMap: Record<InputBoxSize, string> = {
 // Base styles that are always applied
 const baseStyles = [
   'flex items-center',
+  'text-default',
+  'bg-sunken',
   'border border-solid',
   'transition-colors',
   'overflow-hidden',
@@ -57,25 +59,19 @@ const baseStyles = [
 ];
 
 const interactiveStyles = [
-  'border-neutral-400',
-  'bg-neutral-50',
+  'border-control',
   'cursor-text',
-  'hover:border-primary-500',
-  'focus-within:border-primary-500 focus-within:ring-4 focus-within:ring-focus',
+  'hover:border-primary',
+  'focus-within:border-primary focus-within:ring-4 focus-within:ring-focus',
 ];
 
 const invalidStyles = [
-  'border-danger-500',
-  'bg-neutral-50',
+  'border-danger',
   'cursor-text',
-  'focus-within:ring-4 focus-within:ring-danger-500/50',
+  'focus-within:ring-4 focus-within:ring-danger',
 ];
 
-const disabledStyles = [
-  'bg-neutral-50/50',
-  'border-neutral-200',
-  'cursor-default',
-];
+const disabledStyles = ['border-default', 'cursor-default'];
 
 export const InputBox = forwardRef<HTMLDivElement, InputBoxProps>(
   (

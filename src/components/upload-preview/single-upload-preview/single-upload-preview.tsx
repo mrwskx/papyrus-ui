@@ -23,7 +23,7 @@ const rootBaseClasses = [
   'relative',
   'flex flex-col items-center justify-center',
   'border',
-  'bg-neutral-50',
+  'bg-sunken',
   'leading-none',
   'transition-all',
   'overflow-hidden',
@@ -33,51 +33,45 @@ const rootBaseClasses = [
 ];
 
 const rootValidClasses = [
-  'border-neutral-400',
-  'text-neutral-500',
-  'focus-visible:border-primary-500',
-  'focus-visible:text-primary-500',
+  'focus-visible:border-primary',
+  'focus-visible:text-primary',
   'focus-visible:ring-focus',
 ];
 
+// Rest and active are exclusive: token names, unlike scale steps, do not sort
+// so that the active class wins the cascade.
+const rootRestClasses = ['border-control', 'text-subtle'];
+
 const rootDroppableClasses = [
   'border-dashed',
-  'hover:border-primary-500',
-  'hover:text-primary-500',
+  'hover:border-primary',
+  'hover:text-primary',
 ];
 
-const rootActiveClasses = ['border-primary-500', 'text-primary-500'];
+const rootActiveClasses = ['border-primary', 'text-primary'];
 
+// The full-strength border, as on InputBox: the tint's border is too faint to
+// mark a control's boundary (3:1). It cannot get stronger, so hover tints.
 const rootInvalidClasses = [
-  'border-danger-400',
-  'text-danger-500',
+  'border-danger',
+  'text-danger',
   'focus:outline-none',
   'focus-visible:ring',
   'focus-visible:ring-offset-0',
-  'focus-visible:ring-danger-500/50',
-  'focus-visible:border-danger-500',
-  'focus-visible:text-danger-500',
+  'focus-visible:ring-danger',
 ];
 
-const rootInvalidDroppableClasses = [
-  'border-dashed',
-  'border-danger-200',
-  'hover:border-danger-500',
-];
-
-const rootInvalidActiveClasses = ['border-danger-500'];
+const rootInvalidDroppableClasses = ['border-dashed', 'hover:bg-danger-muted'];
 
 const rootReadOnlyClasses = [
-  'border-neutral-400',
-  'text-neutral-500',
+  ...rootRestClasses,
   'cursor-default',
   'focus-visible:ring-focus',
 ];
 
 const rootDisabledClasses = [
-  'border-neutral-200',
-  'bg-neutral-50/50',
-  'text-neutral-500/50',
+  'border-default',
+  'text-default',
   'cursor-default',
   'focus-visible:ring-focus',
 ];
@@ -95,7 +89,7 @@ const overlayClasses = [
   'absolute inset-0',
   'flex items-center justify-center',
   'w-full h-full',
-  'bg-black/50',
+  'bg-backdrop',
   'opacity-0',
   'transition-opacity',
   'p-1',
@@ -189,19 +183,15 @@ export const SingleUploadPreview = forwardRef<
             !readOnly && [
               'cursor-pointer',
               invalid
-                ? [
-                    rootInvalidClasses,
-                    droppable && rootInvalidDroppableClasses,
-                    active && rootInvalidActiveClasses,
-                  ]
+                ? [rootInvalidClasses, droppable && rootInvalidDroppableClasses]
                 : [
                     rootValidClasses,
                     droppable && rootDroppableClasses,
-                    active && rootActiveClasses,
+                    active ? rootActiveClasses : rootRestClasses,
                   ],
             ],
           disabled && rootDisabledClasses,
-          readOnly && rootReadOnlyClasses,
+          !disabled && readOnly && rootReadOnlyClasses,
           className,
         )}
         style={{
@@ -219,7 +209,9 @@ export const SingleUploadPreview = forwardRef<
             width={width}
           />
         ) : (
-          <div className={cn(placeholderClasses)}>
+          <div
+            className={cn(placeholderClasses, disabled && 'opacity-disabled')}
+          >
             {loading ? (
               <>
                 <Loader className="text-lg" />

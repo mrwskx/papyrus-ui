@@ -41,7 +41,7 @@ const rootDirectionPrimaryClasses = {
 };
 
 const linkDefaultClasses =
-  'relative flex justify-center items-center gap-2 rounded-md text-start transition-colors cursor-pointer focus:outline-none focus-visible:ring focus-visible:ring-focus';
+  'relative flex justify-center items-center gap-2 rounded-control text-start transition-colors cursor-pointer focus:outline-none focus-visible:ring focus-visible:ring-focus';
 
 const linkSizeClasses = {
   sm: 'px-2.5 py-0.5',
@@ -55,8 +55,8 @@ const linkDefaultVariantClasses = {
     active: 'text-neutral-950 bg-neutral-500/10 active:bg-neutral-400/20',
   },
   secondary: {
-    base: 'text-neutral-950 hover:bg-neutral-500/10 active:bg-neutral-400/20',
-    active: 'text-neutral-950 bg-neutral-500/10 active:bg-neutral-400/20',
+    base: 'text-default hover:bg-layer-hover active:bg-layer-press',
+    active: 'text-default bg-layer-hover active:bg-layer-press',
   },
   ghost: {
     base: 'text-white hover:bg-white/30 active:bg-white/40',
@@ -70,8 +70,8 @@ const linkDefaultSelectedVariantClasses = {
     active: 'ext-neutral-950 bg-neutral-500/10 active:bg-neutral-400/20',
   },
   secondary: {
-    base: 'text-primary-600 bg-primary-400/20 hover:bg-primary-500/10 active:bg-primary-400/20',
-    active: 'text-primary-600 bg-primary-500/10 active:bg-neutral-400/20',
+    base: 'text-primary-muted bg-primary-muted hover:bg-primary-muted-press',
+    active: 'text-primary-muted bg-primary-muted-press',
   },
   ghost: {
     base: 'text-white bg-primary-600 hover:bg-primary-500',
@@ -85,8 +85,9 @@ const linkDefaultDangerVariantClasses = {
     active: 'text-danger-600 bg-neutral-500/10 active:bg-neutral-400/20',
   },
   secondary: {
-    base: 'text-danger-600 hover:bg-neutral-500/10 active:bg-neutral-400/20',
-    active: 'text-danger-600 bg-neutral-500/10 active:bg-neutral-400/20',
+    base: 'text-danger hover:bg-layer-hover active:bg-layer-press active:text-danger-muted',
+    active:
+      'text-danger bg-layer-hover active:bg-layer-press active:text-danger-muted',
   },
   ghost: {
     base: 'text-danger-500 hover:bg-white/30 active:bg-white/40',
@@ -100,8 +101,8 @@ const linkDefaultDangerSelectedVariantClasses = {
     active: 'text-danger-600 bg-neutral-500/10 active:bg-neutral-400/20',
   },
   secondary: {
-    base: 'text-danger-600 bg-primary-400/20 hover:bg-primary-500/10 active:bg-primary-400/20',
-    active: 'text-danger-600 bg-primary-500/10 active:bg-primary-400/20',
+    base: 'text-danger-muted bg-primary-muted hover:bg-primary-muted-press',
+    active: 'text-danger-muted bg-primary-muted-press',
   },
   ghost: {
     base: 'text-danger-500 bg-primary-600 hover:bg-primary-500',
@@ -176,25 +177,25 @@ const iconDefaultClasses = 'text-lg';
 
 const iconDefaultVariantClasses = {
   primary: 'text-neutral-500',
-  secondary: 'text-neutral-500',
+  secondary: 'text-subtle',
   ghost: 'text-white',
 };
 
 const iconDefaultSelectedVariantClasses = {
   primary: 'text-neutral-950',
-  secondary: 'text-primary-600',
+  secondary: 'text-primary',
   ghost: 'text-white',
 };
 
 const iconDefaultDangerVariantClasses = {
   primary: 'text-danger-600',
-  secondary: 'text-danger-600',
+  secondary: 'text-danger',
   ghost: 'text-danger-500',
 };
 
 const iconDefaultDangerSelectedVariantClasses = {
   primary: 'text-danger-600',
-  secondary: 'text-danger-600',
+  secondary: 'text-danger',
   ghost: 'text-danger-500',
 };
 
@@ -238,12 +239,11 @@ const labelContainerDirectionClasses = {
   horizontal: '',
 };
 
-const descriptionBaseClasses =
-  'block font-sans text-caption text-neutral-500 truncate';
+const descriptionBaseClasses = 'block font-sans text-caption truncate';
 
 const descriptionVariantClasses = {
   primary: 'text-neutral-500',
-  secondary: 'text-neutral-500',
+  secondary: 'text-muted',
   ghost: 'text-white/80',
 };
 

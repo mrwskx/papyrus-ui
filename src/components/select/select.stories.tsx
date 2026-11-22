@@ -82,7 +82,7 @@ export function WithIcon(args: SelectProps) {
           id="select-with-start-icon"
           label="With Start Icon"
           startIcon={
-            <Icon className="text-neutral-950">
+            <Icon className="text-default">
               <BiSearch />
             </Icon>
           }
@@ -99,7 +99,7 @@ export function WithIcon(args: SelectProps) {
         <Select
           {...args}
           endIcon={
-            <Icon className="text-info-600">
+            <Icon className="text-info">
               <BiInfoCircle />
             </Icon>
           }

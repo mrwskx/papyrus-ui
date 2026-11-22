@@ -22,7 +22,7 @@ export function InputClear({ label, onClear, ...props }: InputClearProps) {
     <Icon
       {...props}
       aria-label={label}
-      className="text-neutral-950 cursor-pointer hover:opacity-60"
+      className="text-default cursor-pointer hover:opacity-60"
       role="button"
       tabIndex={-1}
       // Mouse down, not click, so preventDefault keeps focus in the input.

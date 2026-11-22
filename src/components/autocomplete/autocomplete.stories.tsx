@@ -102,7 +102,7 @@ export function WithIcon(args: AutocompleteProps) {
           label="With Start Icon"
           options={OPTIONS_LIST}
           startIcon={
-            <Icon className="text-neutral-950">
+            <Icon className="text-default">
               <BiSearch />
             </Icon>
           }
@@ -113,7 +113,7 @@ export function WithIcon(args: AutocompleteProps) {
         <Autocomplete
           {...args}
           endIcon={
-            <Icon className="text-info-600">
+            <Icon className="text-info">
               <BiInfoCircle />
             </Icon>
           }

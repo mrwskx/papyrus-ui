@@ -62,7 +62,7 @@ export function WithIcon(args: NumericInputProps) {
           id="numeric-input-with-start-icon"
           label="With Start Icon"
           startIcon={
-            <Icon className="text-neutral-950">
+            <Icon className="text-default">
               <BiSolidPurchaseTag name="purchase-tag" />
             </Icon>
           }
@@ -73,7 +73,7 @@ export function WithIcon(args: NumericInputProps) {
         <NumericInput
           {...args}
           endIcon={
-            <Icon className="text-info-600">
+            <Icon className="text-info">
               <BiInfoCircle />
             </Icon>
           }
