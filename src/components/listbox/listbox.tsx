@@ -18,7 +18,7 @@ export const Listbox = forwardRef<HTMLUListElement, ListboxProps>(
       {...props}
       ref={ref}
       className={cn(
-        'flex flex-col gap-1 rounded-listbox border border-neutral-100 bg-white shadow-popover overflow-x-hidden overflow-y-auto p-1.5 opacity-0 transition hide-scrollbar focus:outline-none',
+        'flex flex-col gap-1 rounded-listbox border border-default bg-surface text-default shadow-popover overflow-x-hidden overflow-y-auto p-1.5 opacity-0 transition hide-scrollbar focus:outline-none',
         visible && 'opacity-100',
         className,
       )}

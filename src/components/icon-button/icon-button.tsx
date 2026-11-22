@@ -80,50 +80,50 @@ const baseStyles = [
 const variantStyles = {
   primary: [
     'border-transparent',
-    'text-white',
-    'bg-primary-600',
-    'hover:bg-primary-500',
-    'active:bg-primary-700',
-    'disabled:bg-neutral-300',
+    'text-on-emphasis',
+    'bg-primary',
+    'hover:bg-primary-hover',
+    'active:bg-primary-press',
+    'disabled:bg-disabled disabled:text-disabled',
     'focus-visible:ring focus-visible:ring-focus',
   ],
   secondary: [
-    'border-primary-400',
-    'text-primary-600',
+    'border-primary-muted',
+    'text-primary',
     'bg-transparent',
-    'hover:bg-primary-600/10',
-    'active:bg-primary-600/20',
-    'disabled:opacity-disabled disabled:border-neutral-400 disabled:bg-transparent disabled:text-neutral-600',
+    'hover:bg-primary-muted',
+    'active:bg-primary-muted-press active:text-primary-muted',
+    'disabled:opacity-disabled disabled:border-control disabled:bg-transparent disabled:text-muted',
     'focus-visible:ring focus-visible:ring-focus',
   ],
   tertiary: [
-    'border-neutral-300',
-    'text-neutral-950',
-    'bg-neutral-500/10',
-    'hover:bg-neutral-500/20',
-    'active:bg-neutral-500/30',
-    'disabled:opacity-disabled disabled:bg-neutral-500/10',
+    'border-neutral-muted',
+    'text-default',
+    'bg-control',
+    'hover:bg-control-hover',
+    'active:bg-control-press',
+    'disabled:opacity-disabled disabled:bg-control',
     'focus-visible:ring focus-visible:ring-focus',
   ],
   plain: [
     'border-transparent',
-    'text-neutral-950',
-    'hover:bg-neutral-500/10',
-    'active:hover:bg-neutral-500/20',
+    'text-default',
+    'hover:bg-layer-hover',
+    'active:hover:bg-layer-press',
     'disabled:opacity-disabled disabled:bg-transparent',
     'focus-visible:ring focus-visible:ring-focus',
   ],
   ghost: [
     'border-transparent',
-    'text-white',
-    'hover:bg-white/30',
-    'active:bg-white/40',
+    'text-on-emphasis',
+    'hover:bg-on-emphasis-hover',
+    'active:bg-on-emphasis-press',
     'disabled:opacity-disabled disabled:bg-transparent',
-    'focus-visible:ring focus-visible:ring-primary-400/80',
+    'focus-visible:ring focus-visible:ring-current',
   ],
 };
 
-const avatarStyles = 'relative bg-white border-neutral-200';
+const avatarStyles = 'relative bg-surface border-default';
 
 const avatarChildrenStyles = 'hover:opacity-60 transition-opacity';
 
@@ -153,7 +153,7 @@ export const IconButton = forwardRef<HTMLElement, IconButtonProps>(
         sizeMap[size],
         !avatar && variantStyles[variant],
         avatar && avatarStyles,
-        avatar && 'rounded-full',
+        avatar && 'rounded-pill',
         !avatar && (rounded ? 'rounded-pill' : 'rounded-control'),
         className,
       )}

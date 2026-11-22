@@ -42,11 +42,12 @@ function parseDeclarations(block: string): Map<string, string> {
 }
 
 const WHITE = '#ffffff';
+const BLACK = '#000000';
 
 // Resolves a token to a 6-digit hex color, following one `var(--pp-...)`
 // indirection into the base palette. Shared tokens never alias another
-// shared token, and only `--pp-bg-backdrop` holds a `color-mix(...)`, which
-// no pairing below tests, so neither case needs to be handled here.
+// shared token, and the translucent ones that a pairing tests go through
+// `resolveLayer`, so neither case needs to be handled here.
 function resolve(
   name: string,
   theme: Map<string, string>,
@@ -75,6 +76,43 @@ function resolve(
   return value;
 }
 
+// Interaction states are their own tokens (ADR-0002), translucent where they
+// sit on unknown backgrounds (#226), so their contrast depends on the color
+// under them: flatten first.
+function resolveLayer(
+  name: string,
+  under: string,
+  theme: Map<string, string>,
+  base: Map<string, string>,
+): string {
+  const match =
+    /^color-mix\(in srgb, (?:var\((--pp-[\w-]+)\)|(black|white)) (\d+)%, transparent\)$/.exec(
+      theme.get(name) ?? '',
+    );
+
+  if (!match) {
+    throw new Error(`Token "${name}" is not a translucent layer`);
+  }
+
+  const [, token, keyword, percent] = match;
+  const top = token
+    ? resolve(token, base, base)
+    : { black: BLACK, white: WHITE }[keyword as 'black' | 'white'];
+  const bottom = resolve(under, theme, base);
+  const alpha = Number(percent) / 100;
+
+  const channels = [1, 3, 5].map(i => {
+    const over = parseInt(top.slice(i, i + 2), 16) * alpha;
+    const below = parseInt(bottom.slice(i, i + 2), 16) * (1 - alpha);
+
+    return Math.round(over + below)
+      .toString(16)
+      .padStart(2, '0');
+  });
+
+  return `#${channels.join('')}`;
+}
+
 const baseTokens = parseDeclarations(extractBlock(THEME_CSS, /^:root \{/m));
 const lightTokens = parseDeclarations(
   extractBlock(THEME_CSS, /^:root,\n\.light \{/m),
@@ -97,6 +135,8 @@ interface Pairing {
 
 function pairingsFor(theme: Map<string, string>): Pairing[] {
   const resolveToken = (name: string) => resolve(name, theme, baseTokens);
+  const resolveLayerOver = (name: string, under: string) =>
+    resolveLayer(name, under, theme, baseTokens);
 
   const pairings: Pairing[] = [
     {
@@ -177,6 +217,90 @@ function pairingsFor(theme: Map<string, string>): Pairing[] {
       bg: resolveToken('--pp-bg-surface'),
       minRatio: 3,
     },
+    {
+      label: 'text default on control hover',
+      fg: resolveToken('--pp-fg-default'),
+      bg: resolveToken('--pp-bg-control-hover'),
+      minRatio: 4.5,
+    },
+    {
+      label: 'text default on control press',
+      fg: resolveToken('--pp-fg-default'),
+      bg: resolveToken('--pp-bg-control-press'),
+      minRatio: 4.5,
+    },
+    {
+      label: 'primary text on primary muted background',
+      fg: resolveToken('--pp-fg-primary'),
+      bg: resolveToken('--pp-bg-primary-muted'),
+      minRatio: 4.5,
+    },
+    {
+      label: 'primary muted text on primary muted press',
+      fg: resolveToken('--pp-fg-primary-muted'),
+      bg: resolveToken('--pp-bg-primary-muted-press'),
+      minRatio: 4.5,
+    },
+    {
+      label: 'danger muted text on primary muted press',
+      fg: resolveToken('--pp-fg-danger-muted'),
+      bg: resolveToken('--pp-bg-primary-muted-press'),
+      minRatio: 4.5,
+    },
+    {
+      label: 'text muted on primary muted press',
+      fg: resolveToken('--pp-fg-muted'),
+      bg: resolveToken('--pp-bg-primary-muted-press'),
+      minRatio: 4.5,
+    },
+    {
+      label: 'danger text on hover layer over surface',
+      fg: resolveToken('--pp-fg-danger'),
+      bg: resolveLayerOver('--pp-bg-layer-hover', '--pp-bg-surface'),
+      minRatio: 4.5,
+    },
+    {
+      label: 'danger muted text on press layer over surface',
+      fg: resolveToken('--pp-fg-danger-muted'),
+      bg: resolveLayerOver('--pp-bg-layer-press', '--pp-bg-surface'),
+      minRatio: 4.5,
+    },
+    {
+      label: 'text muted on press layer over surface',
+      fg: resolveToken('--pp-fg-muted'),
+      bg: resolveLayerOver('--pp-bg-layer-press', '--pp-bg-surface'),
+      minRatio: 4.5,
+    },
+    ...['canvas', 'surface', 'sunken'].flatMap(under =>
+      ['hover', 'press'].map(state => ({
+        label: `text default on ${state} layer over ${under}`,
+        fg: resolveToken('--pp-fg-default'),
+        bg: resolveLayerOver(`--pp-bg-layer-${state}`, `--pp-bg-${under}`),
+        minRatio: 4.5,
+      })),
+    ),
+    {
+      label: 'danger text on danger muted background',
+      fg: resolveToken('--pp-fg-danger'),
+      bg: resolveToken('--pp-bg-danger-muted'),
+      minRatio: 4.5,
+    },
+    ...ROLES.flatMap(role =>
+      ['hover', 'press'].map(state => ({
+        label: `on-emphasis text on ${state} layer over ${role} fill`,
+        fg: resolveToken('--pp-fg-on-emphasis'),
+        bg: resolveLayerOver(`--pp-bg-on-emphasis-${state}`, `--pp-bg-${role}`),
+        minRatio: 4.5,
+      })),
+    ),
+    ...['--pp-border-primary', '--pp-border-danger', '--pp-ring-danger'].map(
+      token => ({
+        label: `${token} on sunken`,
+        fg: resolveToken(token),
+        bg: resolveToken('--pp-bg-sunken'),
+        minRatio: 3,
+      }),
+    ),
   ];
 
   return pairings.concat(

@@ -93,22 +93,35 @@
   --background-color-inverse: var(--pp-bg-inverse);
   --background-color-backdrop: var(--pp-bg-backdrop);
   --background-color-control: var(--pp-bg-control);
+  --background-color-control-hover: var(--pp-bg-control-hover);
+  --background-color-control-press: var(--pp-bg-control-press);
+  --background-color-disabled: var(--pp-bg-disabled);
+  --background-color-layer-hover: var(--pp-bg-layer-hover);
+  --background-color-layer-press: var(--pp-bg-layer-press);
+  --background-color-on-emphasis-hover: var(--pp-bg-on-emphasis-hover);
+  --background-color-on-emphasis-press: var(--pp-bg-on-emphasis-press);
 
   --text-color-default: var(--pp-fg-default);
   --text-color-muted: var(--pp-fg-muted);
   --text-color-subtle: var(--pp-fg-subtle);
   --text-color-on-emphasis: var(--pp-fg-on-emphasis);
+  --text-color-disabled: var(--pp-fg-disabled);
   --text-color-inverse: var(--pp-fg-inverse);
 
   --border-color-default: var(--pp-border-default);
   --border-color-control: var(--pp-border-control);
+  --border-color-on-emphasis: var(--pp-border-on-emphasis);
+
+  --ring-color-danger: var(--pp-ring-danger);
 
   --background-color-primary: var(--pp-bg-primary);
   --background-color-primary-hover: var(--pp-bg-primary-hover);
   --background-color-primary-press: var(--pp-bg-primary-press);
   --background-color-primary-muted: var(--pp-bg-primary-muted);
+  --background-color-primary-muted-press: var(--pp-bg-primary-muted-press);
   --text-color-primary: var(--pp-fg-primary);
   --text-color-primary-muted: var(--pp-fg-primary-muted);
+  --border-color-primary: var(--pp-border-primary);
   --border-color-primary-muted: var(--pp-border-primary-muted);
 
   --background-color-info: var(--pp-bg-info);
@@ -141,6 +154,7 @@
   --background-color-danger-muted: var(--pp-bg-danger-muted);
   --text-color-danger: var(--pp-fg-danger);
   --text-color-danger-muted: var(--pp-fg-danger-muted);
+  --border-color-danger: var(--pp-border-danger);
   --border-color-danger-muted: var(--pp-border-danger-muted);
 
   --background-color-neutral: var(--pp-bg-neutral);
@@ -309,6 +323,7 @@
   --radius-codeblock: 0.5rem;
   --radius-tooltip: 0.375rem;
   --radius-code: 0.375rem;
+  --radius-checkbox: 0.25rem;
   --radius-pill: calc(infinity * 1px);
 
   --opacity-disabled: 0.4;
@@ -424,25 +439,37 @@
   --pp-bg-inverse: var(--pp-slate-900);
   --pp-bg-backdrop: color-mix(in srgb, var(--pp-slate-975) 60%, transparent);
   --pp-bg-control: var(--pp-slate-100);
+  --pp-bg-control-hover: var(--pp-slate-200);
+  --pp-bg-control-press: var(--pp-slate-300);
+  --pp-bg-disabled: var(--pp-slate-300);
+  --pp-bg-layer-hover: color-mix(in srgb, var(--pp-slate-500) 10%, transparent);
+  --pp-bg-layer-press: color-mix(in srgb, var(--pp-slate-500) 20%, transparent);
+  --pp-bg-on-emphasis-hover: color-mix(in srgb, black 25%, transparent);
+  --pp-bg-on-emphasis-press: color-mix(in srgb, black 40%, transparent);
 
   --pp-fg-default: var(--pp-slate-950);
   --pp-fg-muted: var(--pp-slate-600);
   --pp-fg-subtle: var(--pp-slate-500);
   --pp-fg-on-emphasis: white;
+  --pp-fg-disabled: white;
   --pp-fg-inverse: var(--pp-slate-50);
 
   --pp-border-default: var(--pp-slate-200);
   --pp-border-control: var(--pp-slate-500);
+  --pp-border-on-emphasis: color-mix(in srgb, white 80%, transparent);
 
   --pp-ring-focus: var(--pp-cobalt-500);
+  --pp-ring-danger: var(--pp-brick-500);
 
   --pp-bg-primary: var(--pp-cobalt-600);
   --pp-bg-primary-hover: var(--pp-cobalt-700);
   --pp-bg-primary-press: var(--pp-cobalt-800);
   --pp-bg-primary-muted: var(--pp-cobalt-50);
+  --pp-bg-primary-muted-press: var(--pp-cobalt-100);
   --pp-fg-primary: var(--pp-cobalt-600);
   --pp-fg-primary-muted: var(--pp-cobalt-800);
-  --pp-border-primary-muted: var(--pp-cobalt-200);
+  --pp-border-primary: var(--pp-cobalt-500);
+  --pp-border-primary-muted: var(--pp-cobalt-300);
 
   --pp-bg-info: var(--pp-steel-600);
   --pp-bg-info-hover: var(--pp-steel-700);
@@ -450,7 +477,7 @@
   --pp-bg-info-muted: var(--pp-steel-50);
   --pp-fg-info: var(--pp-steel-600);
   --pp-fg-info-muted: var(--pp-steel-800);
-  --pp-border-info-muted: var(--pp-steel-200);
+  --pp-border-info-muted: var(--pp-steel-300);
 
   --pp-bg-success: var(--pp-moss-600);
   --pp-bg-success-hover: var(--pp-moss-700);
@@ -458,7 +485,7 @@
   --pp-bg-success-muted: var(--pp-moss-50);
   --pp-fg-success: var(--pp-moss-600);
   --pp-fg-success-muted: var(--pp-moss-800);
-  --pp-border-success-muted: var(--pp-moss-200);
+  --pp-border-success-muted: var(--pp-moss-300);
 
   --pp-bg-warning: var(--pp-ochre-600);
   --pp-bg-warning-hover: var(--pp-ochre-700);
@@ -466,7 +493,7 @@
   --pp-bg-warning-muted: var(--pp-ochre-50);
   --pp-fg-warning: var(--pp-ochre-600);
   --pp-fg-warning-muted: var(--pp-ochre-800);
-  --pp-border-warning-muted: var(--pp-ochre-200);
+  --pp-border-warning-muted: var(--pp-ochre-300);
 
   --pp-bg-danger: var(--pp-brick-600);
   --pp-bg-danger-hover: var(--pp-brick-700);
@@ -474,7 +501,8 @@
   --pp-bg-danger-muted: var(--pp-brick-50);
   --pp-fg-danger: var(--pp-brick-600);
   --pp-fg-danger-muted: var(--pp-brick-800);
-  --pp-border-danger-muted: var(--pp-brick-200);
+  --pp-border-danger: var(--pp-brick-500);
+  --pp-border-danger-muted: var(--pp-brick-300);
 
   --pp-bg-neutral: var(--pp-slate-600);
   --pp-bg-neutral-hover: var(--pp-slate-700);
@@ -482,7 +510,12 @@
   --pp-bg-neutral-muted: var(--pp-slate-50);
   --pp-fg-neutral: var(--pp-slate-600);
   --pp-fg-neutral-muted: var(--pp-slate-800);
-  --pp-border-neutral-muted: var(--pp-slate-200);
+  /* Slate's 300 is paler than the other hues' 300: the mix matches their contrast. */
+  --pp-border-neutral-muted: color-mix(
+    in srgb,
+    var(--pp-slate-300),
+    var(--pp-slate-400)
+  );
 
   --shadow-control:
     0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -503,24 +536,39 @@
     --pp-bg-inverse: var(--pp-slate-200);
     --pp-bg-backdrop: color-mix(in srgb, black 60%, transparent);
     --pp-bg-control: var(--pp-slate-900);
+    --pp-bg-control-hover: var(--pp-slate-800);
+    --pp-bg-control-press: var(--pp-slate-700);
+    --pp-bg-disabled: var(--pp-slate-700);
+    /* Both stay on one line: wrapped, they fail the verbatim parity with .dark. */
+    /* prettier-ignore */
+    --pp-bg-layer-hover: color-mix(in srgb, var(--pp-slate-400) 10%, transparent);
+    /* prettier-ignore */
+    --pp-bg-layer-press: color-mix(in srgb, var(--pp-slate-400) 20%, transparent);
+    --pp-bg-on-emphasis-hover: color-mix(in srgb, black 25%, transparent);
+    --pp-bg-on-emphasis-press: color-mix(in srgb, black 40%, transparent);
 
     --pp-fg-default: var(--pp-slate-50);
     --pp-fg-muted: var(--pp-slate-300);
     --pp-fg-subtle: var(--pp-slate-400);
     --pp-fg-on-emphasis: white;
+    --pp-fg-disabled: var(--pp-slate-400);
     --pp-fg-inverse: var(--pp-slate-950);
 
     --pp-border-default: var(--pp-slate-800);
     --pp-border-control: var(--pp-slate-500);
+    --pp-border-on-emphasis: color-mix(in srgb, white 80%, transparent);
 
     --pp-ring-focus: var(--pp-cobalt-400);
+    --pp-ring-danger: var(--pp-brick-400);
 
     --pp-bg-primary: var(--pp-cobalt-600);
     --pp-bg-primary-hover: var(--pp-cobalt-700);
     --pp-bg-primary-press: var(--pp-cobalt-800);
     --pp-bg-primary-muted: var(--pp-cobalt-950);
+    --pp-bg-primary-muted-press: var(--pp-cobalt-900);
     --pp-fg-primary: var(--pp-cobalt-400);
     --pp-fg-primary-muted: var(--pp-cobalt-200);
+    --pp-border-primary: var(--pp-cobalt-400);
     --pp-border-primary-muted: var(--pp-cobalt-800);
 
     --pp-bg-info: var(--pp-steel-600);
@@ -553,6 +601,7 @@
     --pp-bg-danger-muted: var(--pp-brick-950);
     --pp-fg-danger: var(--pp-brick-400);
     --pp-fg-danger-muted: var(--pp-brick-200);
+    --pp-border-danger: var(--pp-brick-400);
     --pp-border-danger-muted: var(--pp-brick-800);
 
     --pp-bg-neutral: var(--pp-slate-600);
@@ -561,7 +610,7 @@
     --pp-bg-neutral-muted: var(--pp-slate-950);
     --pp-fg-neutral: var(--pp-slate-400);
     --pp-fg-neutral-muted: var(--pp-slate-200);
-    --pp-border-neutral-muted: var(--pp-slate-800);
+    --pp-border-neutral-muted: var(--pp-slate-700);
 
     --shadow-control: 0 1px 2px 0 rgb(0 0 0 / 0.5);
     --shadow-popover:
@@ -581,24 +630,36 @@
   --pp-bg-inverse: var(--pp-slate-200);
   --pp-bg-backdrop: color-mix(in srgb, black 60%, transparent);
   --pp-bg-control: var(--pp-slate-900);
+  --pp-bg-control-hover: var(--pp-slate-800);
+  --pp-bg-control-press: var(--pp-slate-700);
+  --pp-bg-disabled: var(--pp-slate-700);
+  --pp-bg-layer-hover: color-mix(in srgb, var(--pp-slate-400) 10%, transparent);
+  --pp-bg-layer-press: color-mix(in srgb, var(--pp-slate-400) 20%, transparent);
+  --pp-bg-on-emphasis-hover: color-mix(in srgb, black 25%, transparent);
+  --pp-bg-on-emphasis-press: color-mix(in srgb, black 40%, transparent);
 
   --pp-fg-default: var(--pp-slate-50);
   --pp-fg-muted: var(--pp-slate-300);
   --pp-fg-subtle: var(--pp-slate-400);
   --pp-fg-on-emphasis: white;
+  --pp-fg-disabled: var(--pp-slate-400);
   --pp-fg-inverse: var(--pp-slate-950);
 
   --pp-border-default: var(--pp-slate-800);
   --pp-border-control: var(--pp-slate-500);
+  --pp-border-on-emphasis: color-mix(in srgb, white 80%, transparent);
 
   --pp-ring-focus: var(--pp-cobalt-400);
+  --pp-ring-danger: var(--pp-brick-400);
 
   --pp-bg-primary: var(--pp-cobalt-600);
   --pp-bg-primary-hover: var(--pp-cobalt-700);
   --pp-bg-primary-press: var(--pp-cobalt-800);
   --pp-bg-primary-muted: var(--pp-cobalt-950);
+  --pp-bg-primary-muted-press: var(--pp-cobalt-900);
   --pp-fg-primary: var(--pp-cobalt-400);
   --pp-fg-primary-muted: var(--pp-cobalt-200);
+  --pp-border-primary: var(--pp-cobalt-400);
   --pp-border-primary-muted: var(--pp-cobalt-800);
 
   --pp-bg-info: var(--pp-steel-600);
@@ -631,6 +692,7 @@
   --pp-bg-danger-muted: var(--pp-brick-950);
   --pp-fg-danger: var(--pp-brick-400);
   --pp-fg-danger-muted: var(--pp-brick-200);
+  --pp-border-danger: var(--pp-brick-400);
   --pp-border-danger-muted: var(--pp-brick-800);
 
   --pp-bg-neutral: var(--pp-slate-600);
@@ -639,7 +701,7 @@
   --pp-bg-neutral-muted: var(--pp-slate-950);
   --pp-fg-neutral: var(--pp-slate-400);
   --pp-fg-neutral-muted: var(--pp-slate-200);
-  --pp-border-neutral-muted: var(--pp-slate-800);
+  --pp-border-neutral-muted: var(--pp-slate-700);
 
   --shadow-control: 0 1px 2px 0 rgb(0 0 0 / 0.5);
   --shadow-popover:
@@ -677,12 +739,12 @@
 }
 
 @utility input-base {
-  @apply font-sans text-body-md-primary text-neutral-950 block w-full bg-transparent;
-  -webkit-text-fill-color: var(--color-neutral-700);
+  @apply font-sans text-body-md-primary text-default block w-full bg-transparent;
+  -webkit-text-fill-color: currentColor;
 
   &::placeholder {
-    @apply text-neutral-500 opacity-100;
-    -webkit-text-fill-color: var(--color-neutral-500);
+    @apply text-subtle opacity-100;
+    -webkit-text-fill-color: currentColor;
   }
 
   &:focus-visible {
@@ -690,24 +752,24 @@
   }
 
   &:disabled:not(:placeholder-shown) {
-    @apply text-neutral-950 opacity-disabled;
-    -webkit-text-fill-color: var(--color-neutral-700);
+    @apply text-default opacity-disabled;
+    -webkit-text-fill-color: currentColor;
   }
 
   &:disabled:placeholder-shown {
-    @apply text-neutral-500 opacity-disabled;
-    -webkit-text-fill-color: var(--color-neutral-500);
+    @apply text-subtle opacity-disabled;
+    -webkit-text-fill-color: currentColor;
   }
 }
 
 @utility select-base {
-  @apply font-sans text-body-md-primary text-neutral-950 block w-full appearance-none bg-transparent;
+  @apply font-sans text-body-md-primary text-default block w-full appearance-none bg-transparent;
   -webkit-appearance: none;
   -moz-appearance: none;
 
   &::placeholder {
-    @apply text-neutral-500 opacity-100;
-    -webkit-text-fill-color: var(--color-neutral-500);
+    @apply text-subtle opacity-100;
+    -webkit-text-fill-color: currentColor;
   }
 
   &:focus-visible {
@@ -715,23 +777,23 @@
   }
 
   &:disabled:not(:placeholder-shown) {
-    @apply text-neutral-950 opacity-disabled;
-    -webkit-text-fill-color: var(--color-neutral-700);
+    @apply text-default opacity-disabled;
+    -webkit-text-fill-color: currentColor;
   }
 
   &:disabled:placeholder-shown {
-    @apply text-neutral-500 opacity-disabled;
-    -webkit-text-fill-color: var(--color-neutral-500);
+    @apply text-subtle opacity-disabled;
+    -webkit-text-fill-color: currentColor;
   }
 }
 
 @utility textarea-base {
-  @apply font-sans text-body-md-primary text-neutral-950 block w-full bg-transparent;
+  @apply font-sans text-body-md-primary text-default block w-full bg-transparent;
   resize: vertical;
 
   &::placeholder {
-    @apply text-neutral-500 opacity-100;
-    -webkit-text-fill-color: var(--color-neutral-500);
+    @apply text-subtle opacity-100;
+    -webkit-text-fill-color: currentColor;
   }
 
   &:focus-visible {
@@ -739,18 +801,18 @@
   }
 
   &:disabled:not(:placeholder-shown) {
-    @apply text-neutral-950 opacity-disabled;
-    -webkit-text-fill-color: var(--color-neutral-700);
+    @apply text-default opacity-disabled;
+    -webkit-text-fill-color: currentColor;
   }
 
   &:disabled:placeholder-shown {
-    @apply text-neutral-500 opacity-disabled;
-    -webkit-text-fill-color: var(--color-neutral-500);
+    @apply text-subtle opacity-disabled;
+    -webkit-text-fill-color: currentColor;
   }
 }
 
 @utility checkbox-input {
-  @apply appearance-none inline-block w-4 h-4 border border-neutral-400 leading-none bg-neutral-200 bg-origin-border bg-no-repeat bg-center transition-colors select-none cursor-pointer rounded;
+  @apply appearance-none relative inline-block w-4 h-4 border border-control leading-none bg-control transition-colors select-none cursor-pointer rounded-checkbox;
   -webkit-appearance: none;
   -moz-appearance: none;
   vertical-align: -0.125em;
@@ -770,7 +832,7 @@
   }
 
   &:hover:not(:disabled):not([readonly]) {
-    @apply bg-neutral-300;
+    @apply bg-control-hover;
   }
 
   &:focus-visible {
@@ -779,18 +841,32 @@
   }
 
   &:checked {
-    @apply border-transparent bg-primary-600;
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 12'%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M1 5.917 5.724 10.5 15 1.5'/%3E%3C/svg%3E");
-    background-size: 62.5%;
+    @apply border-transparent bg-primary text-on-emphasis;
   }
 
   &:checked:hover:not(:disabled):not([readonly]) {
-    @apply bg-primary-500;
+    @apply bg-primary-hover;
+  }
+
+  &:checked:active:not(:disabled):not([readonly]) {
+    @apply bg-primary-press;
+  }
+
+  /* A mask, not an image: a color inside a data URI cannot read a token. */
+  &:checked::before {
+    content: '';
+    @apply absolute -inset-px bg-current;
+    mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 12'%3E%3Cpath stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M1 5.917 5.724 10.5 15 1.5'/%3E%3C/svg%3E")
+      center / 62.5% no-repeat;
+
+    @media (forced-colors: active) {
+      background-color: CanvasText;
+    }
   }
 }
 
 @utility radio-input {
-  @apply appearance-none inline-block w-4 h-4 border border-neutral-400 leading-none bg-neutral-200 bg-origin-border bg-no-repeat bg-center transition-colors select-none cursor-pointer rounded-full;
+  @apply appearance-none relative inline-block w-4 h-4 border border-control leading-none bg-control transition-colors select-none cursor-pointer rounded-pill;
   -webkit-appearance: none;
   -moz-appearance: none;
   vertical-align: -0.125em;
@@ -799,8 +875,6 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg aria-hidden='true' xmlns='http://www.w3.org/2000/svg' width='16px' height='16px'><circle cx='8' cy='8' r='8' fill='white'/%3E%3C/svg%3E");
-  background-size: 0;
 
   &:disabled,
   &[readonly] {
@@ -812,7 +886,7 @@
   }
 
   &:hover:not(:disabled):not([readonly]) {
-    @apply bg-neutral-300;
+    @apply bg-control-hover;
   }
 
   &:focus-visible {
@@ -821,12 +895,27 @@
   }
 
   &:checked {
-    @apply border-transparent bg-primary-600;
-    background-size: 37.5%;
+    @apply border-transparent bg-primary text-on-emphasis;
   }
 
   &:checked:hover:not(:disabled):not([readonly]) {
-    @apply bg-primary-500;
+    @apply bg-primary-hover;
+  }
+
+  &:checked:active:not(:disabled):not([readonly]) {
+    @apply bg-primary-press;
+  }
+
+  /* A mask for the same reason as the checkbox mark. */
+  &:checked::before {
+    content: '';
+    @apply absolute -inset-px bg-current;
+    mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='8'/%3E%3C/svg%3E")
+      center / 37.5% no-repeat;
+
+    @media (forced-colors: active) {
+      background-color: CanvasText;
+    }
   }
 }
 
@@ -835,25 +924,25 @@
   -webkit-appearance: none;
 
   &::-webkit-slider-runnable-track {
-    @apply h-1 rounded-full bg-neutral-200 inset-shadow-slider-track;
+    @apply h-1 rounded-pill bg-control inset-shadow-slider-track;
   }
 
   &::-moz-range-track {
-    @apply h-1 rounded-full bg-neutral-200 inset-shadow-slider-track;
+    @apply h-1 rounded-pill bg-control inset-shadow-slider-track;
   }
 
   &::-webkit-slider-thumb {
-    @apply appearance-none w-3 h-3 rounded-full bg-primary-600 shadow-control transition-transform;
+    @apply appearance-none w-3 h-3 rounded-pill bg-primary shadow-control transition-transform;
     -webkit-appearance: none;
     margin-top: -0.25rem;
   }
 
   &::-moz-range-thumb {
-    @apply w-3 h-3 rounded-full border-none bg-primary-600 shadow-control transition-transform;
+    @apply w-3 h-3 rounded-pill border-none bg-primary shadow-control transition-transform;
   }
 
   &::-ms-thumb {
-    @apply w-3 h-3 rounded-full border-none bg-primary-600 shadow-control transition-transform;
+    @apply w-3 h-3 rounded-pill border-none bg-primary shadow-control transition-transform;
   }
 
   &:hover::-webkit-slider-thumb {
@@ -881,12 +970,14 @@
   }
 
   &:disabled::-webkit-slider-thumb {
-    @apply bg-neutral-300 shadow-none;
+    @apply bg-disabled;
+    box-shadow: none;
     transform: none;
   }
 
   &:disabled::-moz-range-thumb {
-    @apply bg-neutral-300 shadow-none;
+    @apply bg-disabled;
+    box-shadow: none;
     transform: none;
   }
 }

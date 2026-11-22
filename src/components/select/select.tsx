@@ -180,11 +180,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
 
             {!multiple && (
               <InputAction className="absolute top-0 right-0 bottom-0 m-auto">
-                <Icon
-                  className={cn(
-                    disabled ? 'text-neutral-950/40' : 'text-neutral-950',
-                  )}
-                >
+                <Icon className={cn(disabled && 'opacity-disabled')}>
                   <BiChevronDown />
                 </Icon>
               </InputAction>
