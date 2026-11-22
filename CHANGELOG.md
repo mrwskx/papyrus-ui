@@ -1,5 +1,48 @@
 # Changelog
 
+## [0.12.0](https://github.com/mrwskx/papyrus-ui/compare/v0.11.0...v0.12.0) (2026-11-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* split shared radius/shadow roles into per-component tokens
+* name shared radius/shadow roles by purpose, not by one owner
+* rename shadow/radius roles after the components that use them
+* the papyrus-ui/plugin entry is gone.
+* Papyrus UI requires Tailwind 4. The peer range is now tailwindcss ^4; apps on Tailwind 3 must upgrade to Tailwind 4 or stay on the last release that supports Tailwind 3.
+* drops the CommonJS build; consumers must use import, or require() on Node 20.19+/22.12+ which load a synchronous ESM graph unflagged
+
+### Features
+
+* add radius and shadow tokens ([692ee35](https://github.com/mrwskx/papyrus-ui/commit/692ee358ffda51e71d02ec9b1bc743bf7225077b))
+* add radius and shadow tokens ([09f7201](https://github.com/mrwskx/papyrus-ui/commit/09f720119e19bfedb319498815af59bdca703ecf))
+* add the color token layer with the muted cobalt palette ([2dba934](https://github.com/mrwskx/papyrus-ui/commit/2dba93468fd2e55c9af52f46c0b132eab372aab3))
+* add the color token layer with the muted cobalt palette ([b451df5](https://github.com/mrwskx/papyrus-ui/commit/b451df5d184bd2c61f58feb48158d4141084d2aa))
+* drop Tailwind 3 support and its workarounds ([17c830d](https://github.com/mrwskx/papyrus-ui/commit/17c830d325717d4ceff89652ec23d204ed0a9854))
+* match Tailwind 3 rendering on Tailwind 4 ([bb751b4](https://github.com/mrwskx/papyrus-ui/commit/bb751b4d5d4217168821282d502a8c318db08371)), closes [#221](https://github.com/mrwskx/papyrus-ui/issues/221)
+* portaled overlays take the opener's theme scope ([428e624](https://github.com/mrwskx/papyrus-ui/commit/428e6241c2e2ce3a8e8a669e7a358dbdfd676596)), closes [#223](https://github.com/mrwskx/papyrus-ui/issues/223)
+* portaled overlays take the theme scope of the element that opens them ([580ee9b](https://github.com/mrwskx/papyrus-ui/commit/580ee9bb9144b948ca32785d243ed200251ad833))
+* refine the logo with a tracking-error bar ([8e190d6](https://github.com/mrwskx/papyrus-ui/commit/8e190d6eb8d626fe360a9c6b1761739dc7cd67da))
+* refine the logo with a tracking-error bar ([e57c3d6](https://github.com/mrwskx/papyrus-ui/commit/e57c3d607efbb0348fc7da097ef3348aa5259306)), closes [#225](https://github.com/mrwskx/papyrus-ui/issues/225)
+* ship papyrus-ui as esm only ([3a8c19e](https://github.com/mrwskx/papyrus-ui/commit/3a8c19e3654facb1fdfc9671777be9bf74e8d65b))
+* ship papyrus-ui as ESM only ([e18faaf](https://github.com/mrwskx/papyrus-ui/commit/e18faaf29b62fed82d9d85a6ee142074be2d9ab1))
+* ship the theme as Tailwind 4 CSS instead of a JavaScript plugin ([debdbcf](https://github.com/mrwskx/papyrus-ui/commit/debdbcf3652c994c595551eb581e4b5711de3a7e))
+* vendor the impeccable design skill ([9f04744](https://github.com/mrwskx/papyrus-ui/commit/9f04744732719b983aad9c547332d50a168ef4ee))
+
+
+### Bug Fixes
+
+* correct README Tailwind setup to use plugins/[@plugin](https://github.com/plugin), not presets ([2f93cc7](https://github.com/mrwskx/papyrus-ui/commit/2f93cc7f8e5abecf5dc2cdb6a23b4600a90ac4e0))
+* merge className and style on dropdown and menu-bar content ([cb5d2ee](https://github.com/mrwskx/papyrus-ui/commit/cb5d2eec5a4b201471a9ee35a875f4a49f2c55f3)), closes [#222](https://github.com/mrwskx/papyrus-ui/issues/222)
+* restore caller style/contentStyle merge on portaled content ([3d50a42](https://github.com/mrwskx/papyrus-ui/commit/3d50a42ac9b77699f3a3fc6e53d4b57c70602641))
+
+
+### Code Refactoring
+
+* name shared radius/shadow roles by purpose, not by one owner ([20537dc](https://github.com/mrwskx/papyrus-ui/commit/20537dcc33f96974e7e124eb56026c5bac2d170e))
+* rename shadow/radius roles after the components that use them ([817ec2b](https://github.com/mrwskx/papyrus-ui/commit/817ec2bdd492ff79ebc39f2308062c23ee88aa7b)), closes [#227](https://github.com/mrwskx/papyrus-ui/issues/227)
+* split shared radius/shadow roles into per-component tokens ([fa88a21](https://github.com/mrwskx/papyrus-ui/commit/fa88a214f34ca47d68d60cba87d47cd1c8d81332))
+
 ## [0.11.0](https://github.com/mrwskx/papyrus-ui/compare/v0.10.0...v0.11.0) (2026-09-29)
 
 ### Features
